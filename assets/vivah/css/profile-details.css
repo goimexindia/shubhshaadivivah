@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+body {
+  background-image: url('https://i2.wp.com/wallpapercave.com/wp/wp4522970.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+#form-wrapper {
+  background-color: rgba(255, 255, 255, 0.8);
+  min-height: 100vh;
+  margin: 8% 10%;
+  padding: 2% 4%;
+  border-radius: 4px;
+}
+label {
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+  display: block;
+}
+.custom-file label {
+  text-transform: capitalize;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+/* input::placeholder {
+  text-transform: uppercase;
+} */
+hr {
+  border: none;
+  border-top: 1px dashed #aaa;
+  color: #fff;
+  margin: 12px 0;
+  background-color: #fff;
+  height: 1px;
+}
+
+@media (max-width: 576px) {
+  #form-wrapper {
+    padding: 24px 12px;
+  }
+  label {
+    font-size: 14px;
+    letter-spacing: normal;
+  }
+  .col-12 {
+    margin-bottom: 8px;
+  }
+}

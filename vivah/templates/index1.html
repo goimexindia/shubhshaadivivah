@@ -1,0 +1,301 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'vivah/css/index.css' %}"/>
+    <title>FIX WED!!!</title>
+</head>
+<style>
+body  {
+  background-image: url("/static/vivah/css/stage.png");
+    backdrop-filter: blur(1px);
+}
+
+</style>
+<body>
+<header>
+    <nav class="navbar navbar-light  navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Marital</a>
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <!-- Login Button -->
+                        <button
+                                type="button"
+                                class="btn"
+                                style="background-color: transparent; border: none"
+                                data-bs-toggle="modal"
+                                data-bs-target="#loginModal"
+                        >
+                            Login
+                        </button>
+                    </li>
+                    <!-- Register Button -->
+                    <li class="nav-item">
+                        <button
+                                type="button"
+                                class="btn"
+                                style="background-color: transparent; border: none"
+                                data-bs-toggle="modal"
+                                data-bs-target="#registerModal"
+                        >
+                            Register
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    <!-- Login Modal -->
+    <div
+            class="modal fade"
+            id="loginModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+    >
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="container">
+                <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                ></button>
+                <div class="row g-0 m-auto">
+                    <div class="col-lg-5">
+                        <img
+                                src="{% static 'vivah/images/nathan-dumlao-H_cZqryUuok-unsplash.jpg' %}"
+                                style="width: 100%; height: 100%"
+                        />
+                    </div>
+                    <div class="col-lg-7 px-5 pt-5 col-12">
+                        <h1 class="font-weight-bold py-3">Sign-in</h1>
+                        <!-- <h3>Sign into your account</h3> -->
+                        <form action="" method="post">
+                            <div class="form-row mb-3">
+                                <div class="col-md-10">
+                                    <label for="email" class="form-label mt-1"
+                                    >Email address</label
+                                    >
+                                    <input
+                                            type="email"
+                                            placeholder="Enter email"
+                                            name="email"
+                                            required
+                                            class="form-control"
+                                            id="email1"
+                                            aria-describedby="emailHelp"
+                                    />
+                                </div>
+                                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                            </div>
+                            <div class="form-row mb-2">
+                                <div class="col-md-10">
+                                    <label for="exampleInputPassword1" class="form-label"
+                                    >Password</label
+                                    >
+                                    <input
+                                            type="password"
+                                            placeholder="***********"
+                                            class="form-control"
+                                            required
+                                            id="exampleInputPassword1"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="mb-3 form-check">
+                                <input
+                                        type="checkbox"
+                                        class="form-check-input"
+                                        id="exampleCheck1"
+                                />
+                                <label class="form-check-label" for="exampleCheck1"
+                                >remember me</label
+                                >
+                            </div>
+                            <div class="form-row mb-3">
+                                <div class="col-md-10">
+                                    <button type="submit" class="btn btn-danger">
+                                        Login
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Register Modal -->
+    <div
+            class="modal fade"
+            id="registerModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+    >
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="container">
+                <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                ></button>
+                <div class="row g-0 m-auto">
+                    <div class="col-lg-5">
+                        <img
+                                src="{% static 'vivah/images/vitor-pinto-iqA2-nRO0bQ-unsplash.jpg' %}"
+                                style="width: 100%; height: 100%"
+                        />
+                    </div>
+                    <div class="col-lg-7 px-5 py-2">
+                        <h1 class="font-weight-bold py-2">Register</h1>
+                        <!-- <h3>Sign into your account</h3> -->
+                        <form action="" method="post">
+                            <div class="form-row mb-3">
+                                <div class="col-md-10">
+                                    <label for="email" class="form-label mt-1"
+                                    >Username*</label
+                                    >
+                                    <input
+                                            type="email"
+                                            placeholder="Enter email"
+                                            name="email"
+                                            required
+                                            class="form-control"
+                                            id="email2"
+                                            aria-describedby="emailHelp"
+                                    />
+                                </div>
+                                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                            </div>
+                            <div class="form-row mb-3">
+                                <div class="col-md-10">
+                                    <label for="email" class="form-label mt-1"
+                                    >Email address*</label
+                                    >
+                                    <input
+                                            type="email"
+                                            placeholder="Enter email"
+                                            name="email"
+                                            required
+                                            class="form-control"
+                                            id="email3"
+                                            aria-describedby="emailHelp"
+                                    />
+                                </div>
+                                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                            </div>
+                            <div class="form-row mb-2">
+                                <div class="col-md-10">
+                                    <label for="exampleInputPassword1" class="form-label"
+                                    >Password*</label
+                                    >
+                                    <input
+                                            type="password"
+                                            placeholder="***********"
+                                            class="form-control"
+                                            required
+                                            id="exampleInputPassword"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-row mb-2">
+                                <label for="birthday" class="pb-3">Date of Birth*</label>
+                                <div class="col-md-10">
+                                    <input
+                                            type="date"
+                                            id="birthday"
+                                            class="form-control"
+                                            required
+                                            name="birthday"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-row my-4">
+                                <div class="col-md-10">
+                                    <label for="exampleInputPassword1" class="form-label"
+                                    >Gender*</label
+                                    >
+                                    <div class="form-check">
+                                        <input
+                                                class="form-check-input"
+                                                type="radio"
+                                                required
+                                                name="flexRadioDefault"
+                                                id="flexRadioDefault1"
+                                        />
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Male
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input
+                                                class="form-check-input"
+                                                type="radio"
+                                                required
+                                                name="flexRadioDefault"
+                                                id="flexRadioDefault2"
+                                                checked
+                                        />
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            Female
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row mb-3">
+                                <div class="col-md-10">
+                                    <button type="submit" class="btn btn-danger">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Home Section -->
+    <section class="home d-flex justify-content-center align-items-center">
+        <h1>Millions of Verified Members</h1>
+        <button class="btn btn-home">Create Your Profile</button>
+    </section>
+</main>
+<!-- Bootstrap Bundle with Popper -->
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+></script>
+</body>
+</html>

@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./profile-details.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="form-wrapper">
+      <form action="" method="get">
+        <div class=" mb-3 ">
+        <label for="first-name">Profile for</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+          <label class="form-check-label" for="inlineRadio1">Myself</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+          <label class="form-check-label" for="inlineRadio2">Son</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" >
+          <label class="form-check-label" for="inlineRadio3">Daughter</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+          <label class="form-check-label" for="inlineRadio1">Brother</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+          <label class="form-check-label" for="inlineRadio2">Sister</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" >
+          <label class="form-check-label" for="inlineRadio3">Relative </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" >
+          <label class="form-check-label" for="inlineRadio3">Friend </label>
+        </div>
+      </div>
+        <div class="row mb-3 d-flex">
+          <div class="col-12 col-lg-6 form-group">
+            <label for="first-name">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="first-name"
+              placeholder="First name"
+            />
+          </div>
+          <div class="col-12 col-lg-6 form-group">
+            <label for="last-name">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="last-name"
+              placeholder="Last Name"
+            />
+          </div>
+        </div>
+        <div class="row mb-3 d-flex">
+          <div class="col-12 col-lg-4 form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="First name"
+            />
+          </div>
+          <div class="col-12 col-lg-4 form-group">
+            <label for="alternate-phone-num">Alternate Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              id="alternate-phone-num"
+              placeholder="Alternate Phone"
+            />
+          </div>
+          <!-- <div class="col-12 col-lg-4 form-group">
+            <label for="profile-for">Profile for</label>
+            <select class="form-control" name="profile-for" id="profile-for">
+              <option>Select</option>
+              <option value="Myself">Myself</option>
+              <option value="Son">Son</option>
+              <option value="Daughter">Daughter</option>
+              <option value="Brother">Brother</option>
+              <option value="Sister">Sister</option>
+              <option value="Relative">Relative</option>
+              <option value="Friend">Friend</option>
+            </select>
+          </div> -->
+        </div>
+        <div class="row mb-3 d-flex">
+          <div class="col-12 col-lg-6 form-group">
+            <label for="weight">Weight</label>
+            <select class="form-control" name="weight" id="weight">
+              <option value="NULL">Weight</option>
+              <option value="80">80 Pounds (36.3 Kgs)</option>
+              <option value="81">81 (36.7)</option>
+              <option value="82">82 (37.2)</option>
+              <option value="83">83 (37.6)</option>
+              <option value="84">84 (38.1)</option>
+              <option value="85">85 (38.6)</option>
+              <option value="86">86 (39)</option>
+              <option value="87">87 (39.5)</option>
+              <option value="88">88 (39.9)</option>
+              <option value="89">89 (40.4)</option>
+              <option value="90">90 Pounds (40.8 Kgs)</option>
+              <option value="91">91 (41.3)</option>
+              <option value="92">92 (41.7)</option>
+              <option value="93">93 (42.2)</option>
+              <option value="94">94 (42.6)</option>
+              <option value="95">95 (43.1)</option>
+              <option value="96">96 (43.5)</option>
+              <option value="97">97 (44)</option>
+              <option value="98">98 (44.5)</option>
+              <option value="99">99 (44.9)</option>
+              <option value="100">100 Pounds (45.4 Kgs)</option>
+              <option value="101">101 (45.8)</option>
+              <option value="102">102 (46.3)</option>
+              <option value="103">103 (46.7)</option>
+              <option value="104">104 (47.2)</option>
+              <option value="105">105 (47.6)</option>
+              <option value="106">106 (48.1)</option>
+              <option value="107">107 (48.5)</option>
+              <option value="108">108 (49)</option>
+              <option value="109">109 (49.4)</option>
+              <option value="110">110 Pounds (49.9 Kgs)</option>
+              <option value="111">111 (50.3)</option>
+              <option value="112">112 (50.8)</option>
+              <option value="113">113 (51.3)</option>
+              <option value="114">114 (51.7)</option>
+              <option value="115">115 (52.2)</option>
+              <option value="116">116 (52.6)</option>
+              <option value="117">117 (53.1)</option>
+              <option value="118">118 (53.5)</option>
+              <option value="119">119 (54)</option>
+              <option value="120">120 Pounds (54.4 Kgs)</option>
+              <option value="121">121 (54.9)</option>
+              <option value="122">122 (55.3)</option>
+              <option value="123">123 (55.8)</option>
+              <option value="124">124 (56.2)</option>
+              <option value="125">125 (56.7)</option>
+              <option value="126">126 (57.2)</option>
+              <option value="127">127 (57.6)</option>
+              <option value="128">128 (58.1)</option>
+              <option value="129">129 (58.5)</option>
+              <option value="130">130 Pounds (59 Kgs)</option>
+              <option value="131">131 (59.4)</option>
+              <option value="132">132 (59.9)</option>
+              <option value="133">133 (60.3)</option>
+              <option value="134">134 (60.8)</option>
+              <option value="135">135 (61.2)</option>
+              <option value="136">136 (61.7)</option>
+              <option value="137">137 (62.1)</option>
+              <option value="138">138 (62.6)</option>
+              <option value="139">139 (63.1)</option>
+              <option value="140">140 Pounds (63.5 Kgs)</option>
+              <option value="141">141 (64)</option>
+              <option value="142">142 (64.4)</option>
+              <option value="143">143 (64.9)</option>
+              <option value="144">144 (65.3)</option>
+              <option value="145">145 (65.8)</option>
+              <option value="146">146 (66.2)</option>
+              <option value="147">147 (66.7)</option>
+              <option value="148">148 (67.1)</option>
+              <option value="149">149 (67.6)</option>
+              <option value="150">150 Pounds (68 Kgs)</option>
+              <option value="151">151 (68.5)</option>
+              <option value="152">152 (68.9)</option>
+              <option value="153">153 (69.4)</option>
+              <option value="154">154 (69.9)</option>
+              <option value="155">155 (70.3)</option>
+              <option value="156">156 (70.8)</option>
+              <option value="157">157 (71.2)</option>
+              <option value="158">158 (71.7)</option>
+              <option value="159">159 (72.1)</option>
+              <option value="160">160 Pounds (72.6 Kgs)</option>
+              <option value="161">161 (73)</option>
+              <option value="162">162 (73.5)</option>
+              <option value="163">163 (73.9)</option>
+              <option value="164">164 (74.4)</option>
+              <option value="165">165 (74.8)</option>
+              <option value="166">166 (75.3)</option>
+              <option value="167">167 (75.8)</option>
+              <option value="168">168 (76.2)</option>
+              <option value="169">169 (76.7)</option>
+              <option value="170">170 Pounds (77.1 Kgs)</option>
+              <option value="171">171 (77.6)</option>
+              <option value="172">172 (78)</option>
+              <option value="173">173 (78.5)</option>
+              <option value="174">174 (78.9)</option>
+              <option value="175">175 (79.4)</option>
+              <option value="176">176 (79.8)</option>
+              <option value="177">177 (80.3)</option>
+              <option value="178">178 (80.7)</option>
+              <option value="179">179 (81.2)</option>
+              <option value="180">180 Pounds (81.6 Kgs)</option>
+              <option value="181">181 (82.1)</option>
+              <option value="182">182 (82.6)</option>
+              <option value="183">183 (83)</option>
+              <option value="184">184 (83.5)</option>
+              <option value="185">185 (83.9)</option>
+              <option value="186">186 (84.4)</option>
+              <option value="187">187 (84.8)</option>
+              <option value="188">188 (85.3)</option>
+              <option value="189">189 (85.7)</option>
+              <option value="190">190 Pounds (86.2 Kgs)</option>
+              <option value="191">191 (86.6)</option>
+              <option value="192">192 (87.1)</option>
+              <option value="193">193 (87.5)</option>
+              <option value="194">194 (88)</option>
+              <option value="195">195 (88.5)</option>
+              <option value="196">196 (88.9)</option>
+              <option value="197">197 (89.4)</option>
+              <option value="198">198 (89.8)</option>
+              <option value="199">199 (90.3)</option>
+              <option value="200">200 Pounds (90.7 Kgs)</option>
+              <option value="201">201 (91.2)</option>
+              <option value="202">202 (91.6)</option>
+              <option value="203">203 (92.1)</option>
+              <option value="204">204 (92.5)</option>
+              <option value="205">205 (93)</option>
+              <option value="206">206 (93.4)</option>
+              <option value="207">207 (93.9)</option>
+              <option value="208">208 (94.3)</option>
+              <option value="209">209 (94.8)</option>
+              <option value="210">210 Pounds (95.3 Kgs)</option>
+              <option value="211">211 (95.7)</option>
+              <option value="212">212 (96.2)</option>
+              <option value="213">213 (96.6)</option>
+              <option value="214">214 (97.1)</option>
+              <option value="215">215 (97.5)</option>
+              <option value="216">216 (98)</option>
+              <option value="217">217 (98.4)</option>
+              <option value="218">218 (98.9)</option>
+              <option value="219">219 (99.3)</option>
+              <option value="220">220 Pounds (99.8 Kgs)</option>
+              <option value="221">221 (100.2)</option>
+              <option value="222">222 (100.7)</option>
+              <option value="223">223 (101.2)</option>
+              <option value="224">224 (101.6)</option>
+              <option value="225">225 (102.1)</option>
+              <option value="226">226 (102.5)</option>
+              <option value="227">227 (103)</option>
+              <option value="228">228 (103.4)</option>
+              <option value="229">229 (103.9)</option>
+              <option value="230">230 Pounds (104.3 Kgs)</option>
+              <option value="231">231 (104.8)</option>
+              <option value="232">232 (105.2)</option>
+              <option value="233">233 (105.7)</option>
+              <option value="234">234 (106.1)</option>
+              <option value="235">235 (106.6)</option>
+              <option value="236">236 (107)</option>
+              <option value="237">237 (107.5)</option>
+              <option value="238">238 (108)</option>
+              <option value="239">239 (108.4)</option>
+              <option value="240">240 Pounds (108.9 Kgs)</option>
+              <option value="241">241 (109.3)</option>
+              <option value="242">242 (109.8)</option>
+              <option value="243">243 (110.2)</option>
+              <option value="244">244 (110.7)</option>
+              <option value="245">245 (111.1)</option>
+              <option value="246">246 (111.6)</option>
+              <option value="247">247 (112)</option>
+              <option value="248">248 (112.5)</option>
+              <option value="249">249 (112.9)</option>
+              <option value="250">250 Pounds (113.4 Kgs)</option>
+              <option value="251">251 (113.9)</option>
+              <option value="252">252 (114.3)</option>
+              <option value="253">253 (114.8)</option>
+              <option value="254">254 (115.2)</option>
+              <option value="255">255 (115.7)</option>
+              <option value="256">256 (116.1)</option>
+              <option value="257">257 (116.6)</option>
+              <option value="258">258 (117)</option>
+              <option value="259">259 (117.5)</option>
+              <option value="260">260 Pounds (117.9 Kgs)</option>
+              <option value="261">261 (118.4)</option>
+              <option value="262">262 (118.8)</option>
+              <option value="263">263 (119.3)</option>
+              <option value="264">264 (119.8)</option>
+              <option value="265">265 (120.2)</option>
+              <option value="266">266 (120.7)</option>
+              <option value="267">267 (121.1)</option>
+              <option value="268">268 (121.6)</option>
+              <option value="269">269 (122)</option>
+              <option value="270">270 Pounds (122.5 Kgs)</option>
+              <option value="271">271 (122.9)</option>
+              <option value="272">272 (123.4)</option>
+              <option value="273">273 (123.8)</option>
+              <option value="274">274 (124.3)</option>
+              <option value="275">275 (124.7)</option>
+              <option value="276">276 (125.2)</option>
+              <option value="277">277 (125.6)</option>
+              <option value="278">278 (126.1)</option>
+              <option value="279">279 (126.6)</option>
+              <option value="280">280 Pounds (127 Kgs)</option>
+              <option value="281">281 (127.5)</option>
+              <option value="282">282 (127.9)</option>
+              <option value="283">283 (128.4)</option>
+              <option value="284">284 (128.8)</option>
+              <option value="285">285 (129.3)</option>
+              <option value="286">286 (129.7)</option>
+              <option value="287">287 (130.2)</option>
+              <option value="288">288 (130.6)</option>
+              <option value="289">289 (131.1)</option>
+              <option value="290">290 Pounds (131.5 Kgs)</option>
+              <option value="291">291 (132)</option>
+              <option value="292">292 (132.5)</option>
+              <option value="293">293 (132.9)</option>
+              <option value="294">294 (133.4)</option>
+              <option value="295">295 (133.8)</option>
+              <option value="296">296 (134.3)</option>
+              <option value="297">297 (134.7)</option>
+              <option value="298">298 (135.2)</option>
+              <option value="299">299 (135.6)</option>
+              <option value="300">300 Pounds (136.1 Kgs)</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-6 form-group">
+            <label for="blood-group">Blood Group</label>
+            <select class="form-control" name="blood-group" id="blood-group">
+              <option selected>Select Blood Group</option>
+              <option value="Not known">Not known</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+          </div>
+        </div>
+        <hr />
+        <div class="row mb-3 d-flex">
+          <div class="col-12 col-lg-4 form-group">
+            <label for="country">Residing Country</label>
+            <select class="form-control" name="country" id="country">
+              <option value="">Select Country</option>
+              <option value="India">India</option>
+              <option value="United States">United States</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="United Arab Emirates">United Arab Emirates</option>
+              <option value="Canada">Canada</option>
+              <option value="Australia">Australia</option>
+              <option value="Pakistan">Pakistan</option>
+              <option value="Saudi Arabia">Saudi Arabia</option>
+              <option value="Kuwait">Kuwait</option>
+              <option value="South Africa">South Africa</option>
+              <option value="Afghanistan">Afghanistan</option>
+              <option value="Albania">Albania</option>
+              <option value="Algeria">Algeria</option>
+              <option value="American Samoa">American Samoa</option>
+              <option value="Andorra">Andorra</option>
+              <option value="Angola">Angola</option>
+              <option value="Anguilla">Anguilla</option>
+              <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+              <option value="Argentina">Argentina</option>
+              <option value="Armenia">Armenia</option>
+              <option value="Aruba">Aruba</option>
+              <option value="Australia">Australia</option>
+              <option value="Azerbaijan">Azerbaijan</option>
+              <option value="Bahamas">Bahamas</option>
+              <option value="Bahrain">Bahrain</option>
+              <option value="Bangladesh">Bangladesh</option>
+              <option value="Barbados">Barbados</option>
+              <option value="Belarus">Belarus</option>
+              <option value="Belgium">Belgium</option>
+              <option value="Belize">Belize</option>
+              <option value="Benin">Benin</option>
+              <option value="Bermuda">Bermuda</option>
+              <option value="Bhutan">Bhutan</option>
+              <option value="Bolivia">Bolivia</option>
+              <option value="Bosnia and Herzegovi">Bosnia and Herzegovi</option>
+              <option value="Botswana">Botswana</option>
+              <option value="Brazil">Brazil</option>
+              <option value="Brunei Darussalam">Brunei Darussalam</option>
+              <option value="Bulgaria">Bulgaria</option>
+              <option value="Burkina Faso">Burkina Faso</option>
+              <option value="Burundi">Burundi</option>
+              <option value="Cambodia">Cambodia</option>
+              <option value="Cameroon">Cameroon</option>
+              <option value="Cape Verde">Cape Verde</option>
+              <option value="Cayman Islands">Cayman Islands</option>
+              <option value="Central African Repu">Central African Repu</option>
+              <option value="Chad">Chad</option>
+              <option value="Chile">Chile</option>
+              <option value="China">China</option>
+              <option value="Christmas Island">Christmas Island</option>
+              <option value="Cocos ">Cocos</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Comoros">Comoros</option>
+              <option value="Congo">Congo</option>
+              <option value="Cook Islands">Cook Islands</option>
+              <option value="Costa Rica">Costa Rica</option>
+              <option value="Croatia">Croatia</option>
+              <option value="Cuba">Cuba</option>
+              <option value="Cyprus">Cyprus</option>
+              <option value="Czech Republic">Czech Republic</option>
+              <option value="Democratic Republic ">Democratic Republic</option>
+              <option value="Denmark">Denmark</option>
+              <option value="Djibouti">Djibouti</option>
+              <option value="Dominica">Dominica</option>
+              <option value="Dominican Republic">Dominican Republic</option>
+              <option value="East Timor">East Timor</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="Egypt ">Egypt</option>
+              <option value="El Salvador">El Salvador</option>
+              <option value="Equatorial Guinea">Equatorial Guinea</option>
+              <option value="Eritrea">Eritrea</option>
+              <option value="Estonia ">Estonia</option>
+              <option value="Ethiopia">Ethiopia</option>
+              <option value="Falkland Islands">Falkland Islands</option>
+              <option value="Faroe Islands">Faroe Islands</option>
+              <option value="Fiji">Fiji</option>
+              <option value="Finland">Finland</option>
+              <option value="France">France</option>
+              <option value="French Guiana">French Guiana</option>
+              <option value="French Polynesia">French Polynesia</option>
+              <option value="French Southern Terr">French Southern Terr</option>
+              <option value="Gabon">Gabon</option>
+              <option value="Gambia">Gambia</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Germany ">Germany</option>
+              <option value="Ghana">Ghana</option>
+              <option value="Gibraltar">Gibraltar</option>
+              <option value="Great Britain">Great Britain</option>
+              <option value="Greece ">Greece</option>
+              <option value="Greenland">Greenland</option>
+              <option value="Grenada">Grenada</option>
+              <option value="Guadeloupe">Guadeloupe</option>
+              <option value="Guam">Guam</option>
+              <option value="Guatemala">Guatemala</option>
+              <option value="Guinea">Guinea</option>
+              <option value="Guinea-Bissau">Guinea-Bissau</option>
+              <option value="Guyana">Guyana</option>
+              <option value="Haiti">Haiti</option>
+              <option value="Holy See">Holy See</option>
+              <option value="Honduras">Honduras</option>
+              <option value="Hong Kong">Hong Kong</option>
+              <option value="Hungary ">Hungary</option>
+              <option value="Iceland ">Iceland</option>
+              <option value="Indonesia">Indonesia</option>
+              <option value="Iran (Islamic Republic of)">
+                Iran (Islamic Republic of)
+              </option>
+              <option value="Iraq">Iraq</option>
+              <option value="Ireland">Ireland</option>
+              <option value="Israel">Israel</option>
+              <option value="Italy">Italy</option>
+              <option value="Ivory Coast">Ivory Coast</option>
+              <option value="Jamaica">Jamaica</option>
+              <option value="Japan">Japan</option>
+              <option value="Jordan">Jordan</option>
+              <option value="Kazakhstan">Kazakhstan</option>
+              <option value="Kenya">Kenya</option>
+              <option value="Kiribati">Kiribati</option>
+              <option value="Kosovo">Kosovo</option>
+              <option value="Kyrgyzstan">Kyrgyzstan</option>
+              <option value="Lao">Lao</option>
+              <option value="Latvia ">Latvia</option>
+              <option value="Lebanon">Lebanon</option>
+              <option value="Lesotho">Lesotho</option>
+              <option value="Liberia">Liberia</option>
+              <option value="Libya">Libya</option>
+              <option value="Liechtenstein">Liechtenstein</option>
+              <option value="Lithuania">Lithuania</option>
+              <option value="Luxembourg">Luxembourg</option>
+              <option value="Macau">Macau</option>
+              <option value="Macedonia">Macedonia</option>
+              <option value="Madagascar">Madagascar</option>
+              <option value="Malawi">Malawi</option>
+              <option value="Malaysia">Malaysia</option>
+              <option value="Maldives">Maldives</option>
+              <option value="Mali">Mali</option>
+              <option value="Malta">Malta</option>
+              <option value="Marshall Islands">Marshall Islands</option>
+              <option value="Martinique">Martinique</option>
+              <option value="Mauritania">Mauritania</option>
+              <option value="Mauritius">Mauritius</option>
+              <option value="Mayotte">Mayotte</option>
+              <option value="Mexico">Mexico</option>
+              <option value="Micronesia">Micronesia</option>
+              <option value="Moldova">Moldova</option>
+              <option value="Monaco">Monaco</option>
+              <option value="Mongolia">Mongolia</option>
+              <option value="Montenegro">Montenegro</option>
+              <option value="Montserrat">Montserrat</option>
+              <option value="Morocco">Morocco</option>
+              <option value="Mozambique">Mozambique</option>
+              <option value="Myanmar, Burma">Myanmar, Burma</option>
+              <option value="Namibia">Namibia</option>
+              <option value="Nauru">Nauru</option>
+              <option value="Nepal">Nepal</option>
+              <option value="Netherlands">Netherlands</option>
+              <option value="Netherlands Antilles">Netherlands Antilles</option>
+              <option value="New Caledonia">New Caledonia</option>
+              <option value="New Zealand">New Zealand</option>
+              <option value="Nicaragua">Nicaragua</option>
+              <option value="Niger">Niger</option>
+              <option value="Nigeria">Nigeria</option>
+              <option value="Niue">Niue</option>
+              <option value="North Korea">North Korea</option>
+              <option value="Northern Mariana Islands">
+                Northern Mariana Islands
+              </option>
+              <option value="Norway">Norway</option>
+              <option value="Oman">Oman</option>
+              <option value="Palau">Palau</option>
+              <option value="Palestinian territories">
+                Palestinian territories
+              </option>
+              <option value="Panama">Panama</option>
+              <option value="Papua New Guinea">Papua New Guinea</option>
+              <option value="Paraguay">Paraguay</option>
+              <option value="Peru">Peru</option>
+              <option value="Philippines">Philippines</option>
+              <option value="Pitcairn Island">Pitcairn Island</option>
+              <option value="Poland">Poland</option>
+              <option value="Portugal">Portugal</option>
+              <option value="Puerto Rico">Puerto Rico</option>
+              <option value="Qatar">Qatar</option>
+              <option value="Reunion Island">Reunion Island</option>
+              <option value="Romania">Romania</option>
+              <option value="Russian Federation">Russian Federation</option>
+              <option value="Rwanda">Rwanda</option>
+              <option value="Saint Kitts and Nevis">
+                Saint Kitts and Nevis
+              </option>
+              <option value="Saint Lucia">Saint Lucia</option>
+              <option value="Saint Vincent and the Grenadines">
+                Saint Vincent and the Grenadines
+              </option>
+              <option value="Samoa">Samoa</option>
+              <option value="San Marino">San Marino</option>
+              <option value="Sao Tome and Principe">
+                Sao Tome and Principe
+              </option>
+              <option value="Senegal">Senegal</option>
+              <option value="Serbia">Serbia</option>
+              <option value="Seychelles">Seychelles</option>
+              <option value="Sierra Leone">Sierra Leone</option>
+              <option value="Singapore">Singapore</option>
+              <option value="Slovakia (Slovak Republic)">
+                Slovakia (Slovak Republic)
+              </option>
+              <option value="Slovenia">Slovenia</option>
+              <option value="Solomon Islands">Solomon Islands</option>
+              <option value="Somalia">Somalia</option>
+              <option value="South Korea">South Korea</option>
+              <option value="South Sudan">South Sudan</option>
+              <option value="Spain">Spain</option>
+              <option value="Sri Lanka">Sri Lanka</option>
+              <option value="Sudan">Sudan</option>
+              <option value="Suriname">Suriname</option>
+              <option value="Swaziland">Swaziland</option>
+              <option value="Sweden">Sweden</option>
+              <option value="Switzerland">Switzerland</option>
+              <option value="Taiwan (Republic of China)">
+                Taiwan (Republic of China)
+              </option>
+              <option value="Tajikistan">Tajikistan</option>
+              <option value="Tanzania">Tanzania</option>
+              <option value="Thailand">Thailand</option>
+              <option value="Tibet">Tibet</option>
+              <option value="Togo">Togo</option>
+              <option value="Tokelau">Tokelau</option>
+              <option value="Tonga">Tonga</option>
+              <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+              <option value="Tunisia">Tunisia</option>
+              <option value="Turkey">Turkey</option>
+              <option value="Turkmenistan">Turkmenistan</option>
+              <option value="Turks and Caicos Islands">
+                Turks and Caicos Islands
+              </option>
+              <option value="Tuvalu">Tuvalu</option>
+              <option value="Uganda">Uganda</option>
+              <option value="Ukraine">Ukraine</option>
+              <option value="Uruguay">Uruguay</option>
+              <option value="Uzbekistan">Uzbekistan</option>
+              <option value="Vanuatu">Vanuatu</option>
+              <option value="Vatican City State (Holy See)">
+                Vatican City State (Holy See)
+              </option>
+              <option value="Venezuela">Venezuela</option>
+              <option value="Vietnam">Vietnam</option>
+              <option value="Virgin Islands (British)">
+                Virgin Islands (British)
+              </option>
+              <option value="Virgin Islands (U.S.)">
+                Virgin Islands (U.S.)
+              </option>
+              <option value="Wallis and Futuna Islands">
+                Wallis and Futuna Islands
+              </option>
+              <option value="Western Sahara">Western Sahara</option>
+              <option value="Yemen">Yemen</option>
+              <option value="Zambia">Zambia</option>
+              <option value="Zimbabwe">Zimbabwe</option>
+              <option value="Akrotiri and Dhekelia">
+                Akrotiri and Dhekelia
+              </option>
+              <option value="Canada">Canada</option>
+              <option value="Guernsey">Guernsey</option>
+              <option value="Jamaica">Jamaica</option>
+              <option value="Saint Helena">Saint Helena</option>
+              <option value="Saint Pierre and Miquelon">
+                Saint Pierre and Miquelon
+              </option>
+              <option value="San Marino">San Marino</option>
+              <option value="Saudi Arabian">Saudi Arabian</option>
+              <option value="Montenegro">Montenegro</option>
+              <option value="Slovakia">Slovakia</option>
+              <option value="Suriname">Suriname</option>
+              <option value="Svalbard">Svalbard</option>
+              <option value="Syria">Syria</option>
+              <option value="Taiwan">Taiwan</option>
+              <option value="Timor-Leste">Timor-Leste</option>
+              <option value="United Arab Emirates">United Arab Emirates</option>
+              <option value="Saudi Arabia">Saudi Arabia</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-4 form-group">
+            <label for="states">Residing State</label>
+            <select class="form-control state" name="states" id="states">
+              <option selected="selected">Select State</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jammu &amp; Kashmir">Jammu &amp; Kashmir</option>
+              <option value="Jharkand">Jharkand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Orissa">Orissa</option>
+              <option value="Pondicherry">Pondicherry</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttaranchal">Uttaranchal</option>
+              <option value="West Bengal">West Bengal</option>
+              <option value="Dadra &amp; Nagar Haveli">
+                Dadra &amp; Nagar Haveli
+              </option>
+              <option value="Daman &amp; Diu">Daman &amp; Diu</option>
+              <option value="Lakshadeep">Lakshadeep</option>
+              <option value="Telangana">Telangana</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-4 form-group">
+            <label for="districts">District</label>
+            <select class="form-control city" name="districts" id="districts">
+              <option value="">Select City</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+        </div>
+        <hr />
+        <div class="row mb-3 d-flex">
+          <div class="col-12 col-lg-4 form-group">
+            <label for="complexion">Complexion</label>
+            <select class="form-control" name="complexion" id="complexion">
+              <option value="Fair">Fair</option>
+              <option value="Very Fair">Very Fair</option>
+              <option value="Medium">Medium</option>
+              <option value="Red">Red</option>
+              <option value="Dark">Dark</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-4 form-group">
+            <label for="mstatus">Marital Status</label>
+            <select class="form-control" name="mstatus" id="mstatus">
+              <option value="Unmarried">Unmarried</option>
+              <option value="Widow/Widower">Widow/Widower</option>
+              <option value="Divorce">Divorce</option>
+              <option value="Separated">Separated</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-4 form-group">
+            <label for="language">Language</label>
+            <select class="form-control" name="language" id="language">
+              <option value="0">Select Language</option>
+              <option value="1">Aka</option>
+              <option value="2">Arabic</option>
+              <option value="3">Assamese</option>
+              <option value="4">Aurnachali</option>
+              <option value="5">Awadhi</option>
+              <option value="6">Bengali</option>
+              <option value="7">Bhojpuri</option>
+              <option value="8">Bhutia</option>
+              <option value="10">Bihari</option>
+              <option value="9">Brij</option>
+              <option value="11">Chatlisgarhi</option>
+              <option value="12">Chinese</option>
+              <option value="13">Dogri</option>
+              <option value="14">English</option>
+              <option value="15">French</option>
+              <option value="16">Garhwali</option>
+              <option value="17">Garo</option>
+              <option value="18">Gujarati</option>
+              <option value="19">Haryanvi</option>
+              <option value="20">Himachali/Pahari</option>
+              <option value="21">Hindi</option>
+              <option value="22">Italian</option>
+              <option value="23">Kakbarak</option>
+              <option value="24">Kanauji</option>
+              <option value="25">Kannada</option>
+              <option value="26">Kashmiri</option>
+              <option value="27">Khandesi</option>
+              <option value="28">Khasi</option>
+              <option value="29">Konkani</option>
+              <option value="30">Koshali</option>
+              <option value="31">Kumoani</option>
+              <option value="32">Kutchi</option>
+              <option value="33">Ladacki</option>
+              <option value="34">Lepcha</option>
+              <option value="35">Magahi</option>
+              <option value="36">Maithili</option>
+              <option value="37">Malay</option>
+              <option value="38">Malayalam</option>
+              <option value="39">Manipuri</option>
+              <option value="40">Marathi</option>
+              <option value="41">Marwari</option>
+              <option value="42">Miji</option>
+              <option value="43">Mizo</option>
+              <option value="44">Monpa</option>
+              <option value="46">Nepali</option>
+              <option value="45">Nicobarese</option>
+              <option value="47">Oriya</option>
+              <option value="48">Other</option>
+              <option value="49">Persian</option>
+              <option value="50">Punjabi</option>
+              <option value="51">Rajasthani</option>
+              <option value="52">Russian</option>
+              <option value="53">Sanskrit</option>
+              <option value="54">Santhali</option>
+              <option value="55">Sindhi</option>
+              <option value="56">Sourashtra</option>
+              <option value="57">Spanish</option>
+              <option value="58">Swedish</option>
+              <option value="59">Tagalog</option>
+              <option value="60">Tamil</option>
+              <option value="61">Telugu</option>
+              <option value="62">Tripuri</option>
+              <option value="63">Tulu</option>
+              <option value="64">Urdu</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-3 d-flex">
+          <div class="col-12 col-lg-4 form-group">
+            <label for="religion">Religion</label>
+            <select class="form-control" name="religion" id="religion">
+              <option>Select Religion</option>
+              <option value="Bahai">Bahai</option>
+              <option value="Buddhist">Buddhist</option>
+              <option value="Hindu">Hindu</option>
+              <option value="Jain">Jain</option>
+              <option value="Christian">Christian</option>
+              <option value="Converted to Christian">
+                Converted to Christian
+              </option>
+              <option value="Inter-Religion">Inter-Religion</option>
+              <option value="Jewish">Jewish</option>
+              <option value="Muslim">Muslim</option>
+              <option value="Other">Other</option>
+              <option value="Parsi">Parsi</option>
+              <option value="Sikh">Sikh</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-4 form-group">
+            <label for="caste">Caste</label>
+            <select class="form-control" name="caste" id="caste">
+              <option>Select Caste</option>
+              <option value="Adi Dravida">Adi Dravida</option>
+              <option value="Arunthathiyar">Arunthathiyar</option>
+              <option value="Boyer">Boyer</option>
+              <option value="Brahmin">Brahmin</option>
+              <option value="Brahmin - Gurukkal">Brahmin - Gurukkal</option>
+              <option value="Brahmin - Iyengar">Brahmin - Iyengar</option>
+              <option value="Brahmin - Iyer">Brahmin - Iyer</option>
+              <option value="Chettiar">Chettiar</option>
+              <option value="Devandra Kula Vellalar">
+                Devandra Kula Vellalar
+              </option>
+              <option value="Gounder">Gounder</option>
+              <option value="Intercaste">Intercaste</option>
+              <option value="Karuneegar">Karuneegar</option>
+              <option value="Kongu Vellala Gounder">
+                Kongu Vellala Gounder
+              </option>
+              <option value="Kulalar">Kulalar</option>
+              <option value="Kurumbar">Kurumbar</option>
+              <option value="Maruthuvar">Maruthuvar</option>
+              <option value="Meenavar">Meenavar</option>
+              <option value="Mudaliyar">Mudaliyar</option>
+              <option value="Mukkulathor">Mukkulathor</option>
+              <option value="Muthuraja">Muthuraja</option>
+              <option value="Nadar">Nadar</option>
+              <option value="Naicker">Naicker</option>
+              <option value="Naidu">Naidu</option>
+              <option value="Parkava Kulam">Parkava Kulam</option>
+              <option value="Pillai">Pillai</option>
+              <option value="Reddy">Reddy</option>
+              <option value="SC">SC</option>
+              <option value="Senai Thalaivar">Senai Thalaivar</option>
+              <option value="Sourashtra">Sourashtra</option>
+              <option value="Tribe">Tribe</option>
+              <option value="Vannar">Vannar</option>
+              <option value="Vannia Kula Kshatriyar">
+                Vannia Kula Kshatriyar
+              </option>
+              <option value="Veera Saivam">Veera Saivam</option>
+              <option value="Vellalar">Vellalar</option>
+              <option value="Viswakarma">Viswakarma</option>
+              <option value="Vokkaliga">Vokkaliga</option>
+              <option value="Yadava">Yadava</option>
+              <option value="Agnikula Kshatriya">Agnikula Kshatriya</option>
+              <option value="Arya Vysya">Arya Vysya</option>
+              <option value="Balija">Balija</option>
+              <option value="Besta">Besta</option>
+              <option value="Brahmin">Brahmin</option>
+              <option value="Brahmin - Dravida">Brahmin - Dravida</option>
+              <option value="Brahmin - Madhwa">Brahmin - Madhwa</option>
+              <option value="Brahmin - Niyogi">Brahmin - Niyogi</option>
+              <option value="Brahmin - Smartha">Brahmin - Smartha</option>
+              <option value="Brahmin - Sri Vaishnava">
+                Brahmin - Sri Vaishnava
+              </option>
+              <option value="Brahmin - Vaidiki">Brahmin - Vaidiki</option>
+              <option value="Brahmin - Velanadu">Brahmin - Velanadu</option>
+              <option value="Brahmin - Telanganya">Brahmin - Telanganya</option>
+              <option value="Chettiar">Chettiar</option>
+              <option value="Devanga">Devanga</option>
+              <option value="Gandla">Gandla</option>
+              <option value="Gavara">Gavara</option>
+              <option value="Gowda">Gowda</option>
+              <option value="Intercaste">Intercaste</option>
+              <option value="Kalinga">Kalinga</option>
+              <option value="Kamma">Kamma</option>
+              <option value="Kapu">Kapu</option>
+              <option value="Kshatriya">Kshatriya</option>
+              <option value="Kummari">Kummari</option>
+              <option value="Kuruba">Kuruba</option>
+              <option value="Kamsali">Kamsali</option>
+              <option value="Lingayat">Lingayat</option>
+              <option value="Mannuru Kapu">Mannuru Kapu</option>
+              <option value="Madiga">Madiga</option>
+              <option value="Mahendra">Mahendra</option>
+              <option value="Mala">Mala</option>
+              <option value="Maratha">Maratha</option>
+              <option value="Meru Darji">Meru Darji</option>
+              <option value="Mudaliyar">Mudaliyar</option>
+              <option value="Mudiraj">Mudiraj</option>
+              <option value="Nadar">Nadar</option>
+              <option value="Nai">Nai</option>
+              <option value="Naidu">Naidu</option>
+              <option value="Padmasali">Padmasali</option>
+              <option value="Patnaick">Patnaick</option>
+              <option value="Rajaka">Rajaka</option>
+              <option value="Rajput">Rajput</option>
+              <option value="Reddy">Reddy</option>
+              <option value="SC">SC</option>
+              <option value="Telaga">Telaga</option>
+              <option value="Tribe">Tribe</option>
+              <option value="Vaishnava">Vaishnava</option>
+              <option value="Valmiki">Valmiki</option>
+              <option value="Vokkaliga">Vokkaliga</option>
+              <option value="Velama">Velama</option>
+              <option value="Viswabrahmin">Viswabrahmin</option>
+              <option value="Yadava">Yadava</option>
+              <option value="Ambalavasi">Ambalavasi</option>
+              <option value="Brahmin">Brahmin</option>
+              <option value="Chettiar">Chettiar</option>
+              <option value="Dheevara">Dheevara</option>
+              <option value="Ezhava">Ezhava</option>
+              <option value="Ezhuthachan">Ezhuthachan</option>
+              <option value="Intercaste">Intercaste</option>
+              <option value="Kshatriya">Kshatriya</option>
+              <option value="Kudumbi">Kudumbi</option>
+              <option value="Mapila">Mapila</option>
+              <option value="Mudaliyar">Mudaliyar</option>
+              <option value="Nadar">Nadar</option>
+              <option value="Naidu">Naidu</option>
+              <option value="Nair">Nair</option>
+              <option value="Panicker">Panicker</option>
+              <option value="Rajput">Rajput</option>
+              <option value="Saliya">Saliya</option>
+              <option value="SC">SC</option>
+              <option value="Thiyya">Thiyya</option>
+              <option value="Tribe">Tribe</option>
+              <option value="Veera Saivam">Veera Saivam</option>
+              <option value="Veluthedathu Nair">Veluthedathu Nair</option>
+              <option value="Vilakkithala Nair">Vilakkithala Nair</option>
+              <option value="Viswakarma">Viswakarma</option>
+              <option value="Yadava">Yadava</option>
+              <option value="Besta">Besta</option>
+              <option value="Bhovi">Bhovi</option>
+              <option value="Billava">Billava</option>
+              <option value="Brahmin">Brahmin</option>
+              <option value="Chettiar">Chettiar</option>
+              <option value="Coorgi">Coorgi</option>
+              <option value="Devadiga">Devadiga</option>
+              <option value="Devanga">Devanga</option>
+              <option value="Dhobi">Dhobi</option>
+              <option value="Ediga">Ediga</option>
+              <option value="Ganiga">Ganiga</option>
+              <option value="Gowda">Gowda</option>
+              <option value="Intercaste">Intercaste</option>
+              <option value="Kshatriya">Kshatriya</option>
+              <option value="Kulal">Kulal</option>
+              <option value="Kulal">Kulal</option>
+              <option value="Kuruhina Shetty">Kuruhina Shetty</option>
+              <option value="Lambadi">Lambadi</option>
+              <option value="Lingayat">Lingayat</option>
+              <option value="Mangalorean">Mangalorean</option>
+              <option value="Mogaveera">Mogaveera</option>
+              <option value="Mudaliyar">Mudaliyar</option>
+              <option value="Naik">Naik</option>
+              <option value="Naidu">Naidu</option>
+              <option value="Nayaka">Nayaka</option>
+              <option value="Padmasali">Padmasali</option>
+              <option value="Rajput">Rajput</option>
+              <option value="Reddy">Reddy</option>
+              <option value="Shetty">Shetty</option>
+              <option value="SC">SC</option>
+              <option value="Thigala">Thigala</option>
+              <option value="Tribe">Tribe</option>
+              <option value="Uppara">Uppara</option>
+              <option value="Vaishnav">Vaishnav</option>
+              <option value="Viswakarma">Viswakarma</option>
+              <option value="Vokkaliga">Vokkaliga</option>
+              <option value="Vysya">Vysya</option>
+              <option value="Yadava">Yadava</option>
+              <option value="Agarwal">Agarwal</option>
+              <option value="Bhatia">Bhatia</option>
+              <option value="Bhavasar Kshatriya">Bhavasar Kshatriya</option>
+              <option value="Brahmbatt">Brahmbatt</option>
+              <option value="Brahmin">Brahmin</option>
+              <option value="Intercaste">Intercaste</option>
+              <option value="Kayastha">Kayastha</option>
+              <option value="Khatri">Khatri</option>
+              <option value="Kshatriya">Kshatriya</option>
+              <option value="Kutchi">Kutchi</option>
+              <option value="Lohana">Lohana</option>
+              <option value="Mochi">Mochi</option>
+              <option value="Panchal">Panchal</option>
+              <option value="Patel">Patel</option>
+              <option value="Prajapati">Prajapati</option>
+              <option value="Rajput">Rajput</option>
+              <option value="SC">SC</option>
+              <option value="Soni">Soni</option>
+              <option value="Suthar">Suthar</option>
+              <option value="Thakkar">Thakkar</option>
+              <option value="Tribe">Tribe</option>
+              <option value="Vaishnav">Vaishnav</option>
+              <option value="Vankar">Vankar</option>
+              <option value="Vysya">Vysya</option>
+              <option value="Yadav">Yadav</option>
+              <option value="Agri">Agri</option>
+              <option value="Arya Vysya">Arya Vysya</option>
+              <option value="Bhandari">Bhandari</option>
+              <option value="Bhavasar Kshatriya">Bhavasar Kshatriya</option>
+              <option value="Brahmin">Brahmin</option>
+              <option value="Chambhar">Chambhar</option>
+              <option value="CKP">CKP</option>
+              <option value="Devang Koshthi">Devang Koshthi</option>
+              <option value="Dhangar">Dhangar</option>
+              <option value="Dhobi">Dhobi</option>
+              <option value="Gabit">Gabit</option>
+              <option value="Intercaste">Intercaste</option>
+              <option value="Jangam">Jangam</option>
+              <option value="Kasar">Kasar</option>
+              <option value="Kayastha">Kayastha</option>
+              <option value="Koli">Koli</option>
+              <option value="Konkani">Konkani</option>
+              <option value="Kshatriya">Kshatriya</option>
+              <option value="Kumbhar">Kumbhar</option>
+              <option value="Kumbhar">Kumbhar</option>
+              <option value="Mahar">Mahar</option>
+              <option value="Mali">Mali</option>
+              <option value="Maratha">Maratha</option>
+              <option value="Matang">Matang</option>
+              <option value="Nhavi">Nhavi</option>
+              <option value="Patel">Patel</option>
+              <option value="Rajput">Rajput</option>
+              <option value="SC">SC</option>
+              <option value="Shimpi">Shimpi</option>
+              <option value="SKP">SKP</option>
+              <option value="Sonar">Sonar</option>
+              <option value="Suthar">Suthar</option>
+              <option value="Swakula Sali">Swakula Sali</option>
+              <option value="Teli">Teli</option>
+              <option value="Suthar">Suthar</option>
+              <option value="Swakula Sali">Swakula Sali</option>
+              <option value="Teli">Teli</option>
+              <option value="Tribe">Tribe</option>
+              <option value="Vaishnav">Vaishnav</option>
+              <option value="Vaishya Vani">Vaishya Vani</option>
+              <option value="Vaniya">Vaniya</option>
+              <option value="Vanjari">Vanjari</option>
+              <option value="Vysya">Vysya</option>
+              <option value="Yadava">Yadava</option>
+              <option value="Agarwal">Agarwal</option>
+              <option value="Baidya">Baidya</option>
+              <option value="Baishnab">Baishnab</option>
+              <option value="Baishya">Baishya</option>
+              <option value="Banik">Banik</option>
+              <option value="Barujibi">Barujibi</option>
+              <option value="Brahmin">Brahmin</option>
+              <option value="Goala">Goala</option>
+              <option value="Intercaste">Intercaste</option>
+              <option value="Karmakar">Karmakar</option>
+              <option value="Kayastha">Kayastha</option>
+              <option value="Kshatriya">Kshatriya</option>
+              <option value="Kumbhakar">Kumbhakar</option>
+              <option value="Mahishya">Mahishya</option>
+              <option value="Modak">Modak</option>
+              <option value="Namosudra">Namosudra</option>
+              <option value="Napit">Napit</option>
+              <option value="Rajput">Rajput</option>
+              <option value="Saha">Saha</option>
+              <option value="Sadgope">Sadgope</option>
+              <option value="SC">SC</option>
+              <option value="Tamboli">Tamboli</option>
+              <option value="Tantubai">Tantubai</option>
+              <option value="Tili">Tili</option>
+              <option value="Tribe">Tribe</option>
+              <option value="Viswakarma">Viswakarma</option>
+              <option value="Agarwal">Agarwal</option>
+              <option value="Agarwal">Agarwal</option>
+              <option value="Agarwal">Agarwal</option>
+              <option value="Ad Dharmi">Ad Dharmi</option>
+              <option value="Agarwal">Agarwal</option>
+              <option value="Bhatia">Bhatia</option>
+              <option value="Brahmin">Brahmin</option>
+              <option value="Dhiman">Dhiman</option>
+              <option value="Ghumar">Ghumar</option>
+              <option value="Intercaste">Intercaste</option>
+              <option value="Jat">Jat</option>
+              <option value="Kamboj">Kamboj</option>
+              <option value="Kayastha">Kayastha</option>
+              <option value="Khatri">Khatri</option>
+              <option value="Kshatriya">Kshatriya</option>
+              <option value="Lubana">Lubana</option>
+              <option value="Mahajan">Mahajan</option>
+              <option value="Majabi">Majabi</option>
+              <option value="Nai">Nai</option>
+              <option value="Ramgariah">Ramgariah</option>
+              <option value="Rajput">Rajput</option>
+              <option value="Ramdasia">Ramdasia</option>
+              <option value="Ravidasia">Ravidasia</option>
+              <option value="Saini">Saini</option>
+              <option value="SC">SC</option>
+              <option value="Vaishnav">Vaishnav</option>
+              <option value="Vania">Vania</option>
+              <option value="Viswakarma">Viswakarma</option>
+              <option value="Other Castes">Other Castes</option>
+              <option value="Caste No Bar">Caste No Bar</option>
+              <option value="Doesnt matter">Doesnt matter</option>
+              <option value="Brahmin">Brahmin</option>
+              <option value="Intercaste">Intercaste</option>
+              <option value="Sindhi">Sindhi</option>
+              <option value="Sindhi-Amil">Sindhi-Amil</option>
+              <option value="Sindhi-Baibhand">Sindhi-Baibhand</option>
+              <option value="Sindhi-Bhanusali">Sindhi-Bhanusali</option>
+              <option value="Sindhi-Bhatia">Sindhi-Bhatia</option>
+              <option value="Sindhi-Chhapru">Sindhi-Chhapru</option>
+              <option value="Sindhi-Dadu">Sindhi-Dadu</option>
+              <option value="Sindhi-Hyderabadi">Sindhi-Hyderabadi</option>
+              <option value="Sindhi-Larai">Sindhi-Larai</option>
+              <option value="Sindhi-Larkana">Sindhi-Larkana</option>
+              <option value="Sindhi-Lohana">Sindhi-Lohana</option>
+              <option value="Sindhi-Rohiri">Sindhi-Rohiri</option>
+              <option value="Sindhi-Sahiti">Sindhi-Sahiti</option>
+              <option value="Sindhi-Sakkha">Sindhi-Sakkha</option>
+              <option value="Sindhi-Sehwani">Sindhi-Sehwani</option>
+              <option value="Sindhi-Shikarpuri">Sindhi-Shikarpuri</option>
+              <option value="Sindhi-Thatai">Sindhi-Thatai</option>
+              <option value="Agarwal">Agarwal</option>
+              <option value="Baniya">Baniya</option>
+              <option value="Brahmin">Brahmin</option>
+              <option value="Brahmin - Bhumihar">Brahmin - Bhumihar</option>
+              <option value="Brahmin - Kanyakubj">Brahmin - Kanyakubj</option>
+              <option value="Brahmin - Gaur">Brahmin - Gaur</option>
+              <option value="Brahmin - Maithil">Brahmin - Maithil</option>
+              <option value="Brahmin - Saryuparin">Brahmin - Saryuparin</option>
+              <option value="Brahmin - Garhwali">Brahmin - Garhwali</option>
+              <option value="Brahmin - Mishra">Brahmin - Mishra</option>
+              <option value="Brahmin - Pandit">Brahmin - Pandit</option>
+              <option value="Brahmin - Pande">Brahmin - Pande</option>
+              <option value="Brahmin - Shukla">Brahmin - Shukla</option>
+              <option value="Brahmin - Tiwari">Brahmin - Tiwari</option>
+              <option value="Brahmin- Trivedi">Brahmin- Trivedi</option>
+              <option value="Brahmin - Thaker">Brahmin - Thaker</option>
+              <option value="Brahmin - Sanadya">Brahmin - Sanadya</option>
+              <option value="Brahmin - Kumoani">Brahmin - Kumoani</option>
+              <option value="Brahmin - Tyagi">Brahmin - Tyagi</option>
+              <option value="Chamar">Chamar</option>
+              <option value="Chandravanshi Kahar">Chandravanshi Kahar</option>
+              <option value="Chaudary">Chaudary</option>
+              <option value="Chaurasia">Chaurasia</option>
+              <option value="Chhetri">Chhetri</option>
+              <option value="Dhobi">Dhobi</option>
+              <option value="Garhwali">Garhwali</option>
+              <option value="Goan">Goan</option>
+              <option value="Gupta">Gupta</option>
+              <option value="Intercaste">Intercaste</option>
+              <option value="Jaiswal">Jaiswal</option>
+              <option value="Jat">Jat</option>
+              <option value="Kalar">Kalar</option>
+              <option value="Kalwar">Kalwar</option>
+              <option value="Kamboj">Kamboj</option>
+              <option value="Kashyap">Kashyap</option>
+              <option value="Kayastha">Kayastha</option>
+              <option value="Khandelwal">Khandelwal</option>
+              <option value="Khatri">Khatri</option>
+              <option value="Kori">Kori</option>
+              <option value="Kurmi Kshatriya">Kurmi Kshatriya</option>
+              <option value="Kshatriya">Kshatriya</option>
+              <option value="Kumhar">Kumhar</option>
+              <option value="Lingayat">Lingayat</option>
+              <option value="Mahajan">Mahajan</option>
+              <option value="Mahar">Mahar</option>
+              <option value="Maheshwari">Maheshwari</option>
+              <option value="Malla">Malla</option>
+              <option value="Mali">Mali</option>
+              <option value="Maratha">Maratha</option>
+              <option value="Meena">Meena</option>
+              <option value="Mehra">Mehra</option>
+              <option value="Nai">Nai</option>
+              <option value="Oswal">Oswal</option>
+              <option value="Pal">Pal</option>
+              <option value="Pasi">Pasi</option>
+              <option value="Patel">Patel</option>
+              <option value="Rajput">Rajput</option>
+              <option value="Rajput - Singh">Rajput - Singh</option>
+              <option value="Rawat">Rawat</option>
+              <option value="Sahu">Sahu</option>
+              <option value="Saini">Saini</option>
+              <option value="SC">SC</option>
+              <option value="Sonar">Sonar</option>
+              <option value="Teli">Teli</option>
+              <option value="Thakur">Thakur</option>
+              <option value="Tribe">Tribe</option>
+              <option value="Vaishnav">Vaishnav</option>
+              <option value="Vaishya">Vaishya</option>
+              <option value="Viswakarma">Viswakarma</option>
+              <option value="Yadav">Yadav</option>
+              <option value="Other Castes">Other Castes</option>
+              <option value="Bhandari">Bhandari</option>
+              <option value="Brahmin">Brahmin</option>
+              <option value="Chasa">Chasa</option>
+              <option value="Dhoba">Dhoba</option>
+              <option value="Gudia">Gudia</option>
+              <option value="Intercaste">Intercaste</option>
+              <option value="Kaibarta">Kaibarta</option>
+              <option value="Kansari">Kansari</option>
+              <option value="Karana">Karana</option>
+              <option value="Kayastha">Kayastha</option>
+              <option value="Khandayat">Khandayat</option>
+              <option value="Khatri">Khatri</option>
+              <option value="Kshatriya">Kshatriya</option>
+              <option value="Kulita">Kulita</option>
+              <option value="Kumhar">Kumhar</option>
+              <option value="Mali">Mali</option>
+              <option value="Maratha">Maratha</option>
+              <option value="Patel">Patel</option>
+              <option value="Patra">Patra</option>
+              <option value="Rajput">Rajput</option>
+              <option value="Sahu">Sahu</option>
+              <option value="SC">SC</option>
+              <option value="Sundhi">Sundhi</option>
+              <option value="Tanti">Tanti</option>
+              <option value="Teli">Teli</option>
+              <option value="Tribe">Tribe</option>
+              <option value="Vaishnav">Vaishnav</option>
+              <option value="Vaishya">Vaishya</option>
+              <option value="Yadava">Yadava</option>
+              <option value="Intercaste">Intercaste</option>
+              <option value="Irani">Irani</option>
+              <option value="Parsi">Parsi</option>
+              <option value="Ahom">Ahom</option>
+              <option value="Brahmin">Brahmin</option>
+              <option value="Intercaste">Intercaste</option>
+              <option value="Kalita">Kalita</option>
+              <option value="Kayastha">Kayastha</option>
+              <option value="Kshatriya">Kshatriya</option>
+              <option value="Manipuri">Manipuri</option>
+              <option value="Maratha">Maratha</option>
+              <option value="Nepali">Nepali</option>
+              <option value="Rajbonshi">Rajbonshi</option>
+              <option value="Rajput">Rajput</option>
+              <option value="SC">SC</option>
+              <option value="Tribe">Tribe</option>
+              <option value="Viswakarma">Viswakarma</option>
+              <option value="Agarwal">Agarwal</option>
+              <option value="Brahmin">Brahmin</option>
+              <option value="Intercaste">Intercaste</option>
+              <option value="Jat">Jat</option>
+              <option value="Kayastha">Kayastha</option>
+              <option value="Khandelwal">Khandelwal</option>
+              <option value="Khatri">Khatri</option>
+              <option value="Kshatriya">Kshatriya</option>
+              <option value="Lingayat">Lingayat</option>
+              <option value="Maheshwari">Maheshwari</option>
+              <option value="Mali">Mali</option>
+              <option value="Oswal">Oswal</option>
+              <option value="Porwal">Porwal</option>
+              <option value="Rajastani">Rajastani</option>
+              <option value="Rajput">Rajput</option>
+              <option value="SC">SC</option>
+              <option value="Tribe">Tribe</option>
+              <option value="Vaish">Vaish</option>
+              <option value="Vaishya">Vaishya</option>
+              <option value="Vania">Vania</option>
+              <option value="Viswakarma">Viswakarma</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-4 form-group">
+            <label for="subcaste">Sub Caste</label>
+            <input
+              type="text"
+              class="form-control"
+              id="subcaste"
+              placeholder="Sub Caste"
+            />
+          </div>
+        </div>
+        <div class="row mb-3 d-flex">
+          <div class="col-12 col-lg-3 form-group">
+            <label for="birth-star"> Birth Star </label>
+            <select class="form-control" name="birth-star" id="birth-star">
+              <option>Select Birth Star</option>
+              <option value="Anuradha">Anuradha</option>
+              <option value="Arudra">Arudra</option>
+              <option value="Asilesha">Asilesha</option>
+              <option value="Aswini">Aswini</option>
+              <option value="Bharani">Bharani</option>
+              <option value="Chitta">Chitta</option>
+              <option value="Dhanishta">Dhanishta</option>
+              <option value="Hastha">Hastha</option>
+              <option value="Jyeshta">Jyeshta</option>
+              <option value="Kruthiga">Kruthiga</option>
+              <option value="Magha">Magha</option>
+              <option value="Mrigasira">Mrigasira</option>
+              <option value="Mula">Mula</option>
+              <option value="Poorvabhadra">Poorvabhadra</option>
+              <option value="Poorvaphalguni or pubba">
+                Poorvaphalguni or pubba
+              </option>
+              <option value="Poorvashada">Poorvashada</option>
+              <option value="Punarvasu">Punarvasu</option>
+              <option value="Pushya">Pushya</option>
+              <option value="Revathi">Revathi</option>
+              <option value="Rohini">Rohini</option>
+              <option value="Sathabhisha ( CHATHAYAM ) ">
+                Sathabhisha ( CHATHAYAM )
+              </option>
+              <option value="Shravana( THIRUVONAM )">
+                Shravana( THIRUVONAM )
+              </option>
+              <option value="Swathi">Swathi</option>
+              <option value="Uthirabhadra">Uthirabhadra</option>
+              <option value="Uthrashada">Uthrashada</option>
+              <option value="Uttara or Uttara Phalguni">
+                Uttara or Uttara Phalguni
+              </option>
+              <option value="Visaka">Visaka</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-3 form-group">
+            <label for="padam">Padam</label>
+            <select class="form-control" name="padam" id="padam">
+              <option value="0">Select Padam</option>
+              <option value="N.A.">N.A.</option>
+              <option value="First">First</option>
+              <option value="Second">Second</option>
+              <option value="Third">Third</option>
+              <option value="Fourth">Fourth</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-3 form-group">
+            <label for="raasi">Raasi</label>
+            <select class="form-control" name="raasi" id="raasi">
+              <option>Select Raasi</option>
+              <option value="Dhanu (Sagittarius)">Dhanu (Sagittarius)</option>
+              <option value="Kanya (Virgo)">Kanya (Virgo)</option>
+              <option value="Karkataka (Cancer)">Karkataka (Cancer)</option>
+              <option value="Kumbha (Aquarius)">Kumbha (Aquarius)</option>
+              <option value="Makara (Capricorn)">Makara (Capricorn)</option>
+              <option value="Meena  (Pisces)">Meena (Pisces)</option>
+              <option value="Mesha (Aries)">Mesha (Aries)</option>
+              <option value="Simha (Leo)">Simha (Leo)</option>
+              <option value="Thula  (Libra)">Thula (Libra)</option>
+              <option value="Midhuna (Gemini)">Midhuna (Gemini)</option>
+              <option value="Vruchika (Scorpio)">Vruchika (Scorpio)</option>
+              <option value="Vrushabha (Taurus)">Vrushabha (Taurus)</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-3 form-group">
+            <label for="gotra">Gotra</label>
+            <select class="form-control" name="gotra" id="gotra">
+              <option>Select Gotra</option>
+              <option value="Atri">Atri</option>
+              <option value="Bharadvaja">Bharadvaja</option>
+              <option value="Bhrigu">Bhrigu</option>
+              <option value="Gotama">Gotama</option>
+              <option value="Kashyapa">Kashyapa</option>
+              <option value="Vasishtha">Vasishtha</option>
+              <option value="Vishvamitra">Vishvamitra</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-3 d-flex">
+          <div class="col-12 col-lg-4 form-group">
+            <label for="physicallychallanged">Physically Challanged</label>
+            <select
+              class="form-control"
+              name="physicallychallanged"
+              id="physicallychallanged"
+            >
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-4 form-group">
+            <label for="isManglik">Is Manglik</label>
+            <select class="form-control" name="isManglik" id="isManglik">
+              <option value="dont-know">Don't Know</option>
+              <option value="No" selected>No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-4 form-group">
+            <label for="eatingHabit">Eating Habit</label>
+            <select class="form-control" name="eatingHabit" id="eatingHabit">
+              <option value="Veg" selected>Veg</option>
+              <option value="Non Veg">Non Veg</option>
+            </select>
+          </div>
+        </div>
+        <hr />
+        <div class="row mb-3 d-flex">
+          <div class="col-12 col-lg-12">
+            <div class="form-group">
+              <label for="uploadPicture"
+                >Upload Your Photos(upto 4 images)</label
+              >
+              <div class="custom-file mb-2">
+                <input type="file" class="form-control" id="customFile" />
+              </div>
+              <div class="custom-file mb-2">
+                <input type="file" class="form-control" id="customFile" />
+              </div>
+              <div class="custom-file mb-2">
+                <input type="file" class="form-control" id="customFile" />
+              </div>
+              <div class="custom-file mb-2">
+                <input type="file" class="form-control" id="customFile" />
+              </div>
+              <button type="button" class="btn btn-danger mt-3">Upload</button>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div
+          class="row mb-3 d-flex align-items-center justify-content-center mt-4"
+          style="text-align: center"
+        >
+          <div>
+            <button class="btn btn-dark me-4">Register</button>
+            <input class="btn btn-danger" type="reset" value="Reset" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
