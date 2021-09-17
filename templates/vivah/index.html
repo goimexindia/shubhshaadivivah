@@ -2,11 +2,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Matrimonial</title>
+    <title>ShubhShaadiVivah</title>
     <link href="{% static 'vivah/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'vivah/css/style.css' %}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'vivah/css/font-awesome.min.css' %}"/>
@@ -28,7 +29,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="top_right clearfix text-right">
-                        <span class="span_1"><i class="fa fa-phone-square"></i>  +91-9075445588,+91-9866332877  </span>
+                        <span class="span_1"><i class="fa fa-phone-square"></i>  +91-9075445588 </span>
                         <span class="span_2"> <i class="fa fa-whatsapp"></i>  +91-7013451914</span>
                     </div>
                 </div>
@@ -57,11 +58,11 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a class="color_1 active_1" href="index.html">Home</a></li>
+                            <li><a class="color_1 active_1" href="{% url 'home' %}">Home</a></li>
                             <li><a class="color_1" href="about.html">About Us</a></li>
                             <li><a class="color_1" href="services.html">Services</a></li>
                             <li><a class="color_1" href="register.html">Register</a></li>
-                            <li><a class="color_1" href="contact.html">Contact Us</a></li>
+                            <li><a class="color_1" href="{% url 'contact' %}">Contact Us</a></li>
                             <li><a class="color_1" href="pages.html">Typography</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle color_1" data-toggle="dropdown" href="services.html"
@@ -134,8 +135,8 @@
         </div>
     </section>
 </div>
-{% include 'form2.html' %}
-{% include 'form1.html' %}
+{% include 'vivah/form2.html' %}
+{% include 'vivah/form1.html' %}
 
 
 <section id="arrange">
@@ -153,16 +154,20 @@
                             </a>You will find detailed family information in every profile. Knowing the family will help
                                 you take the next step with confidence.
                             </li>
-                            <li><a href="#"><span class="glyphicon glyphicon-ok"></span></a>With over 80 community sites,
-                                you can find a match from your community.</li>
-                        <li><a href="#"><span class="glyphicon glyphicon-ok"></span></a>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok"></span></a>With over 80 community
+                                sites,
+                                you can find a match from your community.
+                            </li>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok"></span></a>
                                 A common native place, college or company can help you find references and make
                                 background checks.
                             </li>
                             <a href="#">
-                                <li><span class="glyphicon glyphicon-ok"></span></a>100% verified mobile numbers</li>
-                               <li><a href="#"><span class="glyphicon glyphicon-ok"></span></a>Our largest number of
-                                    profiles increases your chances of meeting the right person</li>
+                                <li><span class="glyphicon glyphicon-ok"></span>
+                            </a>100% verified mobile numbers</li>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok"></span></a>Our largest number of
+                                profiles increases your chances of meeting the right person
+                            </li>
                         </ul>
                         </p></h3>
 
@@ -665,8 +670,13 @@
                 </div>
             </div>
         </div>
-    </section>
 
+        <div class="container">
+            <center>
+                <iframe height="300px" frameborder="0" width="100%" src="https://www.ask-oracle.com/embed/"></iframe>
+            </center>
+        </div>
+    </section>
     <div class="footer_main clearfix">
         <section id="footer">
             <div class="container">
@@ -680,11 +690,11 @@
                         <div class="col-sm-6">
                             <div class="footer_right">
                                 <p>
-                                    <a href="#">Home</a>
+                                    <a href="{% url 'home' %}">Home</a>
                                     <a href="#">About Us</a>
                                     <a href="#">Services</a>
                                     <a href="#">Register</a>
-                                    <a href="#">Contact Us</a>
+                                    <a href="{% static 'contact' %}">Contact Us</a>
                                 </p>
                                 <div class="footer_right_inner clearfix">
                                     <ul class="social-network social-circle">
@@ -720,7 +730,7 @@
                     <div class="footer_bottom clearfix">
                         <div class="col-sm-5">
                             <div class="footer_bottom_left">
-                                <p><i class="fa fa-phone-square"></i> +91-9075445588,+91-9866332877
+                                <p><i class="fa fa-phone-square"></i> +91-9075445588
                                     <i class="fa fa-whatsapp"></i> +91-7013451914</p>
                             </div>
                         </div>
@@ -750,64 +760,41 @@ $(document).ready(function(){
 		} else {
 			$('#toTop').fadeOut();
 		}
-	}); 
+	});
 $('#toTop').click(function(){
 	$("html, body").animate({ scrollTop: 0 }, 600);
 	return false;
 });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
 
     <script>
 $(document).ready(function(){
-    $(".dropdown").hover(            
+    $(".dropdown").hover(
         function() {
             $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideDown(0);
-            $(this).toggleClass('open');        
+            $(this).toggleClass('open');
         },
         function() {
             $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideUp(0);
-            $(this).toggleClass('open');       
+            $(this).toggleClass('open');
         }
     );
-	
+
 	/*****Fixed Menu******/
 	var secondaryNav = $('.cd-secondary-nav'),
 	   secondaryNavTopPosition = secondaryNav.offset().top;
 		$(window).on('scroll', function(){
 			if($(window).scrollTop() > secondaryNavTopPosition ) {
-				secondaryNav.addClass('is-fixed');	
+				secondaryNav.addClass('is-fixed');
 			} else {
 				secondaryNav.removeClass('is-fixed');
 			}
-		});	
-		
+		});
+
 });
+
+
 
 
 
@@ -852,6 +839,8 @@ $(document).ready(function(){
 		}
 	}
 });
+
+
 
 
 

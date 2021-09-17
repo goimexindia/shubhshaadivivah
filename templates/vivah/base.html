@@ -1,0 +1,55 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ShubhShaadiVivah</title>
+    <link href="{% static 'vivah/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vivah/css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'vivah/css/font-awesome.min.css' %}"/>
+    <script src="{% static 'vivah/js/jquery-2.1.1.min.js' %}"></script>
+    <script src="{% static 'vivah/js/bootstrap.min.js' %}"></script>
+
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<body>
+
+{% include 'vivah/header.html' %}
+
+<i class="icon-arrow-down"></i>
+<main role="main" class="container">
+    <div class="row">
+        <div class="left-column col-lg-7 offset-lg-1  ">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{message.tags}}">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="left-column col-lg-12">
+        <div class="main">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+</main>
+<a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
+{% include 'vivah/footer.html' %}
+
+
+</body>
+
+</html>
