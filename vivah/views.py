@@ -2,10 +2,31 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 
 from shubhshaadivivah import settings
+from vivah.models import Contactme
 
 
 def home(request):
     return render(request, 'vivah/index.html', {})
+
+
+def homeregister(request):
+    return render(request, 'vivah/index.html', {})
+
+
+def about(request):
+    return render(request, 'vivah/all-in-one.html', {})
+
+
+def pricing(request):
+    return render(request, 'vivah/index.html', {})
+
+
+def services(request):
+    return render(request, 'vivah/services.html', {})
+
+
+def register(request):
+    return render(request, 'vivah/register.html', {})
 
 
 def contact(request):
@@ -13,6 +34,7 @@ def contact(request):
         name = request.POST['name']
         email = request.POST['email']
         phone = request.POST['phone']
+        mobile = request.POST['phone']
         message = request.POST['message']
         subject = "Thank you for contacting ShubhShaadiVivah.com."
         message = "Dear " + name + ",\n\n" \
@@ -28,9 +50,9 @@ def contact(request):
         to_list = [email, settings.EMAIL_HOST_USER]
         send_mail(subject, message, from_email, to_list, fail_silently=True)
 
-
+        contactme = Contactme(name=name, email=email, mobile=mobile, subject=subject, message=message)
+        contactme.save()
 
         return render(request, 'vivah/contact.html', {'name': name, 'email': email})
-
     else:
         return render(request, 'vivah/contact.html', {})

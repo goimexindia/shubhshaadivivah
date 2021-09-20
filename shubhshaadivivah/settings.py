@@ -131,3 +131,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'
+
+site_key='6Ld0N3wcAAAAAHHxBYv_044U5W4Gqp6nfA2yGF89'
+secret_key='6Ld0N3wcAAAAAD42aciPXinfohM5K5R96c9aa4f-'
+
+

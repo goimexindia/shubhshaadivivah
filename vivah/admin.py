@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# register your models here.
+from vivah.models import Contactme
+
+
+class ContactmeAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'subject', 'message')
+
+
+admin.site.register(Contactme, ContactmeAdmin)

@@ -1,164 +1,298 @@
 {% load static %}
+<style>
+   /* COMPACT CAPTCHA SILVER */
+
+.capbox {
+	background-color: #C0C0C0;
+	background-image: linear-gradient(#F0F0F0, #666666);
+	border: #000000 0px solid;
+	border-width: 2px 2px 2px 20px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	display: inline-block;
+	padding: 5px 8px 5px 8px;
+	border-radius: 4px 4px 4px 4px;
+	}
+
+.capbox-inner {
+	font: bold 12px arial, sans-serif;
+	color: #000000;
+	background: #C0C0C0;
+	background:rgba(255,255,255,0.60); /* SEMI TRANSPARENT BACKGROUND */
+	margin: 0px auto 0px auto;
+	padding: 3px 10px 5px 10px;
+	border-radius: 4px;
+	display: inline-block;
+	vertical-align: middle;
+	}
+
+#CaptchaDiv {
+	color: #FFFFFF;
+	font: normal 25px Impact, Charcoal, arial, sans-serif;
+	font-style: italic;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #3366FF;
+	user-select: none;
+	display: inline-block;
+	padding: 3px 14px 3px 8px;
+	margin-right: 4px;
+	border-radius: 4px;
+	}
+
+#CaptchaInput {
+	border: #999999 1px solid;
+	margin: 3px 0px 1px 0px;
+	width: 105px;
+	}
+
+
+
+</style>
 <section id="register1" class="clearfix">
-    <div class="register clearfix">
-        <div class="col-sm-5 space_left">
-            <div class="register_left">
-                <div class="card-image"><img src="{% static 'vivah/img/482.jpg' %}" width="100%"></div>
+    <form method="POST" action="homeregister" onsubmit="return checkform(this);">
+        {% csrf_token %}
+        <div class="register clearfix">
+            <div class="col-sm-5 space_left">
+                <div class="register_left">
+                    <div class="card-image"><img src="{% static 'vivah/img/482.jpg' %}" width="100%"></div>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-7">
-            <div class="register_right">
-                <h3>Sign Up</h3>
-                <hr>
-                <div class="register_right_inner clearfix">
-                    <div class="clearfix clear_1">
-                        <div class="col-sm-6 register_right_inner_1 space_left">
-                            <input type="text" class="form-control" placeholder="First Name *">
+            <div class="col-sm-7">
+                <div class="register_right">
+                    <h3>Sign Up</h3>
+                    <hr>
+                    <div class="register_right_inner clearfix">
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <input type="text" class="form-control" placeholder="First Name *"
+                                       required=""
+                                       data-validation-required-message="Please enter your first name."
+                                >
+                            </div>
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <input type="text" class="form-control" placeholder="Last Name *"
+                                       required=""
+                                       data-validation-required-message="Please enter your last name."
+                                >
+                            </div>
                         </div>
-                        <div class="col-sm-6 register_right_inner_1 space_left">
-                            <input type="text" class="form-control" placeholder="Last Name *">
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <input type="email" class="form-control" placeholder="Email *"
+                                       required=""
+                                       data-validation-required-message="Please enter your email">
+                            </div>
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <input type="text" class="form-control" placeholder="Mobile *"
+                                       required=""
+                                       data-validation-required-message="Please enter your mobile.">
+                            </div>
                         </div>
-                    </div>
-                    <div class="clearfix clear_1">
-                        <div class="col-sm-6 register_right_inner_1 space_left">
-                            <input type="text" class="form-control" placeholder="Email *">
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <select class="form-control">
+                                    <option value=""> --State--</option>
+                                    <option value="AN">Andaman And Nicobar</option>
+                                    <option value="AP">Andhra Pradesh</option>
+                                    <option value="AR">Arunachal Pradesh</option>
+                                    <option value="AS">Assam</option>
+                                    <option value="BI">Bihar</option>
+                                    <option value="CH">Chandigarh (UT)</option>
+                                    <option value="CT">Chattisgarh</option>
+                                    <option value="DN">Dadra And Nagar Haveli</option>
+                                    <option value="DD">Daman And Diu (UT)</option>
+                                    <option value="DL">Delhi</option>
+                                    <option value="GO">Goa</option>
+                                    <option value="GJ">Gujarat</option>
+                                    <option value="HA">Haryana</option>
+                                    <option value="HP">Himachal Pradesh</option>
+                                    <option value="JK">Jammu And Kashmir</option>
+                                    <option value="JH">Jharkhand</option>
+                                    <option value="KA">Karnataka</option>
+                                    <option value="KE">Kerala</option>
+                                    <option value="LD">Lakshadweep</option>
+                                    <option value="MP">Madhya Pradesh</option>
+                                    <option value="MH">Maharashtra</option>
+                                    <option value="MA">Manipur</option>
+                                    <option value="ME">Meghalaya</option>
+                                    <option value="MI">Mizoram</option>
+                                    <option value="NA">Nagaland</option>
+                                    <option value="OR">Orissa</option>
+                                    <option value="PO">Pondicherry(UT)</option>
+                                    <option value="PB">Punjab</option>
+                                    <option value="RJ">Rajasthan</option>
+                                    <option value="SK">Sikkim</option>
+                                    <option value="TG">Telangana</option>
+                                    <option value="TN">Tamilnadu</option>
+                                    <option value="TR">Tripura</option>
+                                    <option value="UP">Uttar Pradesh</option>
+                                    <option value="UT">Uttranchal</option>
+                                    <option value="WB">West Bengal</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <input type="text" class="form-control" id="cal_1" placeholder="Date of Birth">
+
+                            </div>
                         </div>
-                        <div class="col-sm-6 register_right_inner_1 space_left">
-                            <input type="text" class="form-control" placeholder="Mobile *">
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <select class="form-control">
+                                    <option>Search For</option>
+                                    <option value="Religion">Tamil</option>
+                                    <option value="Hindu">Hindu</option>
+                                    <option value="Muslim - Shia">Muslim - Shia</option>
+                                    <option value="Muslim - Sunni">Muslim - Sunni</option>
+                                    <option value="Muslim - Others">Muslim - Others</option>
+                                    <option value="Christian">Christian</option>
+                                    <option value="Sikh">Sikh</option>
+                                    <option value="Jain - Digambar">Jain - Digambar</option>
+                                    <option value="Jain - Shwetambar">Jain - Shwetambar</option>
+                                    <option value="Jain - Others">Jain - Others</option>
+                                    <option value="Parsi">Parsi</option>
+                                    <option value="Buddhist">Buddhist</option>
+                                    <option value="Inter-Religion">Inter-Religion</option>
+
+                                </select>
+                            </div>
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <select class="form-control">
+                                    <option value="Religion">Religion</option>
+                                    <option value="Hindu">Hindu</option>
+                                    <option value="Muslim - Shia">Muslim - Shia</option>
+                                    <option value="Muslim - Sunni">Muslim - Sunni</option>
+                                    <option value="Muslim - Others">Muslim - Others</option>
+                                    <option value="Christian">Christian</option>
+                                    <option value="Sikh">Sikh</option>
+                                    <option value="Jain - Digambar">Jain - Digambar</option>
+                                    <option value="Jain - Shwetambar">Jain - Shwetambar</option>
+                                    <option value="Jain - Others">Jain - Others</option>
+                                    <option value="Parsi">Parsi</option>
+                                    <option value="Buddhist">Buddhist</option>
+                                    <option value="Inter-Religion">Inter-Religion</option>
+
+
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="clearfix clear_1">
-                        <div class="col-sm-6 register_right_inner_1 space_left">
-                            <select class="form-control">
-                                <option value=""> --State--</option>
-                                <option value="AN">Andaman And Nicobar</option>
-                                <option value="AP">Andhra Pradesh</option>
-                                <option value="AR">Arunachal Pradesh</option>
-                                <option value="AS">Assam</option>
-                                <option value="BI">Bihar</option>
-                                <option value="CH">Chandigarh (UT)</option>
-                                <option value="CT">Chattisgarh</option>
-                                <option value="DN">Dadra And Nagar Haveli</option>
-                                <option value="DD">Daman And Diu (UT)</option>
-                                <option value="DL">Delhi</option>
-                                <option value="GO">Goa</option>
-                                <option value="GJ">Gujarat</option>
-                                <option value="HA">Haryana</option>
-                                <option value="HP">Himachal Pradesh</option>
-                                <option value="JK">Jammu And Kashmir</option>
-                                <option value="JH">Jharkhand</option>
-                                <option value="KA">Karnataka</option>
-                                <option value="KE">Kerala</option>
-                                <option value="LD">Lakshadweep</option>
-                                <option value="MP">Madhya Pradesh</option>
-                                <option value="MH">Maharashtra</option>
-                                <option value="MA">Manipur</option>
-                                <option value="ME">Meghalaya</option>
-                                <option value="MI">Mizoram</option>
-                                <option value="NA">Nagaland</option>
-                                <option value="OR">Orissa</option>
-                                <option value="PO">Pondicherry(UT)</option>
-                                <option value="PB">Punjab</option>
-                                <option value="RJ">Rajasthan</option>
-                                <option value="SK">Sikkim</option>
-                                <option value="TG">Telangana</option>
-                                <option value="TN">Tamilnadu</option>
-                                <option value="TR">Tripura</option>
-                                <option value="UP">Uttar Pradesh</option>
-                                <option value="UT">Uttranchal</option>
-                                <option value="WB">West Bengal</option>
-                            </select>
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <input type="text" class="form-control" placeholder="Caste">
+                            </div>
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <select class="form-control">
+                                    <option value="Gender">Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-sm-6 register_right_inner_1 space_left">
-                            <input type="text" class="form-control" id="cal_1" placeholder="Date of Birth">
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <select class="form-control">
+                                    <option value="Marital Status">Marital Status</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Single">Single</option>
+
+                                </select>
+                            </div>
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <select class="form-control">
+                                    <option value="Gender">Upload Photo</option>
+                                    <option value="Male">Lorem</option>
+                                    <option value="Female">Ipsum</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix clear_1">
+                            <!-- START CAPTCHA -->
+                            <br>
+                            <div class="capbox">
+
+                                <div id="CaptchaDiv"></div>
+
+                                <div class="capbox-inner">
+                                    Type the number:<br>
+
+                                    <input type="hidden" id="txtCaptcha">
+                                    <input type="text" name="CaptchaInput" id="CaptchaInput" size="10"><br>
+
+                                </div>
+                            </div>
+                            <br><br>
+                            <!-- END CAPTCHA -->
 
                         </div>
-                    </div>
-                    <div class="clearfix clear_1">
-                        <div class="col-sm-6 register_right_inner_1 space_left">
-                            <select class="form-control">
-                                <option>Search For</option>
-                                <option value="Religion">Tamil</option>
-                                <option value="Hindu">Hindu</option>
-                                <option value="Muslim - Shia">Muslim - Shia</option>
-                                <option value="Muslim - Sunni">Muslim - Sunni</option>
-                                <option value="Muslim - Others">Muslim - Others</option>
-                                <option value="Christian">Christian</option>
-                                <option value="Sikh">Sikh</option>
-                                <option value="Jain - Digambar">Jain - Digambar</option>
-                                <option value="Jain - Shwetambar">Jain - Shwetambar</option>
-                                <option value="Jain - Others">Jain - Others</option>
-                                <option value="Parsi">Parsi</option>
-                                <option value="Buddhist">Buddhist</option>
-                                <option value="Inter-Religion">Inter-Religion</option>
-
-                            </select>
-                        </div>
-                        <div class="col-sm-6 register_right_inner_1 space_left">
-                            <select class="form-control">
-                                <option value="Religion">Religion</option>
-                                <option value="Hindu">Hindu</option>
-                                <option value="Muslim - Shia">Muslim - Shia</option>
-                                <option value="Muslim - Sunni">Muslim - Sunni</option>
-                                <option value="Muslim - Others">Muslim - Others</option>
-                                <option value="Christian">Christian</option>
-                                <option value="Sikh">Sikh</option>
-                                <option value="Jain - Digambar">Jain - Digambar</option>
-                                <option value="Jain - Shwetambar">Jain - Shwetambar</option>
-                                <option value="Jain - Others">Jain - Others</option>
-                                <option value="Parsi">Parsi</option>
-                                <option value="Buddhist">Buddhist</option>
-                                <option value="Inter-Religion">Inter-Religion</option>
 
 
-                            </select>
+                        <div class="clearfix col-sm-12 clear_2">
+                            <h3><input type="submit" value="SUBMIT" class="subbutx3"><br></h3>
                         </div>
-                    </div>
-                    <div class="clearfix clear_1">
-                        <div class="col-sm-6 register_right_inner_1 space_left">
-                            <input type="text" class="form-control" placeholder="Caste">
+                        <br/><br/><br/>
+                        <div class="clearfix col-sm-12 clear_2">
+                            <a href="#" target="_blank">
+                                <button>Sign In!</button>
+                            </a>
                         </div>
-                        <div class="col-sm-6 register_right_inner_1 space_left">
-                            <select class="form-control">
-                                <option value="Gender">Gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <div class="clearfix clear_1">
-                        <div class="col-sm-6 register_right_inner_1 space_left">
-                            <select class="form-control">
-                                <option value="Marital Status">Marital Status</option>
-                                <option value="Married">Married</option>
-                                <option value="Single">Single</option>
-
-                            </select>
-                        </div>
-                        <div class="col-sm-6 register_right_inner_1 space_left">
-                            <select class="form-control">
-                                <option value="Gender">Upload Photo</option>
-                                <option value="Male">Lorem</option>
-                                <option value="Female">Ipsum</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <div class="clearfix clear_1">
-                        <div class="col-sm-6 register_right_inner_1 space_left">
-                            <input type="text" class="form-control" placeholder="Captcha Code">
-                        </div>
-                        <div class="col-sm-6 register_right_inner_1 space_left">
-                            <h4>FBGRE</h4>
-                        </div>
-                    </div>
-                    <div class="clearfix col-sm-12 clear_2">
-                        <p><a href="#">SUBMIT</a></p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+    </form>
 </section>
+
+<script type="text/javascript">
+
+// Captcha Script
+
+function checkform(theform){
+var why = "";
+
+if(theform.CaptchaInput.value == ""){
+why += "- Please Enter CAPTCHA Code.\n";
+}
+if(theform.CaptchaInput.value != ""){
+if(ValidCaptcha(theform.CaptchaInput.value) == false){
+why += "- The CAPTCHA Code Does Not Match.\n";
+}
+}
+if(why != ""){
+alert(why);
+return false;
+}
+}
+
+var a = Math.ceil(Math.random() * 9)+ '';
+var b = Math.ceil(Math.random() * 9)+ '';
+var c = Math.ceil(Math.random() * 9)+ '';
+var d = Math.ceil(Math.random() * 9)+ '';
+var e = Math.ceil(Math.random() * 9)+ '';
+
+var code = a + b + c + d + e;
+document.getElementById("txtCaptcha").value = code;
+document.getElementById("CaptchaDiv").innerHTML = code;
+
+// Validate input against the generated number
+function ValidCaptcha(){
+var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+if (str1 == str2){
+return true;
+}else{
+return false;
+}
+}
+
+// Remove the spaces from the entered and generated code
+function removeSpaces(string){
+return string.split(' ').join('');
+}
+
+
+
+</script>
+
 

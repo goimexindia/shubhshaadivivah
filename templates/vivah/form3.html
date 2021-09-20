@@ -1,0 +1,109 @@
+{% load static %}
+<div class="contact_home_main clearfix">
+
+
+    <section id="contact1_home">
+        <form method="POST" action="homeellite" onsubmit="return checkform(this);">
+            {% csrf_token %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="services_home clearfix">
+                            <h1 class="text-center"><span>Attend</span> Now</h1>
+                            <center><h3>Exclusive matchmaking service
+                                for the elite</h3></center>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="contact_home_1 clearfix">
+                                <div class="col-sm-6">
+                                    <div class="contact_home_1_inner">
+                                        <input type="text" class="form-control" placeholder="First name *">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="contact_home_1_inner">
+                                        <input type="text" class="form-control" placeholder="Last name *">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact_home_1 clearfix">
+                                <div class="col-sm-6">
+                                    <div class="contact_home_1_inner">
+                                        <input type="text" class="form-control" placeholder="Email *">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="contact_home_1_inner">
+                                        <input type="text" class="form-control" placeholder="Mobile *">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact_home_1 clearfix">
+                                <div class="col-sm-6">
+                                    <div class="contact_home_1_inner">
+                                        <input type="text" class="form-control" placeholder="Location *">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="contact_home_1_inner_1 clerfix">
+                                        <div class="col-sm-5 space_left">
+                                            <input type="text" class="form-control" placeholder="Captcha Code *">
+
+                                        </div>
+                                        <div class="col-sm-5 space_left">
+                                            <h4>FBGRE</h4>
+                                        </div>
+                                        <div class="col-sm-2"></div>
+
+                                    </div>
+                                </div>
+                                <div class="contact_home_2 col-sm-12 clearfix">
+                                    <textarea class="form-control" placeholder="Describe Your Details"></textarea>
+                                </div>
+
+                                <div class="contact_home_2 col-sm-12 clearfix">
+                                    <h3><input type="submit" value="SUBMIT" class="subbutx3"><br></h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="quform-element quform-element-recaptcha">
+                                    <div class="quform-spacer">
+                                        <label>Are you human? <span class="quform-required">*</span></label>
+                                        <div class="quform-input">
+                                            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+                                            <noscript>Please enable JavaScript to submit this form.</noscript>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="contact_home_3">
+                                <a href="#"><img src="{% static 'vivah/img/048.jpg' %}"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+
+<script type="text/javascript" src="quform/js/scripts.js"></script>
+
+<script>
+    window.QuformRecaptchaLoaded = function () {
+        if (window.grecaptcha && window.jQuery) {
+            jQuery('.g-recaptcha').each(function () {
+                var $recaptcha = jQuery(this);
+
+                if ($recaptcha.is(':empty')) {
+                    $recaptcha.data('recaptcha-id', grecaptcha.render($recaptcha[0]));
+                }
+            });
+        }
+    };
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=QuformRecaptchaLoaded&amp;render=explicit" async defer></script>

@@ -1,70 +1,7 @@
 {% load static %}
-<section id="top">
-    <div class="container">
-        <div class="row">
-            <div class="top clearfix">
-                <div class="col-sm-6">
-                    <div class="top_left">
-                        <p>Bringing People Together</p>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="top_right clearfix text-right">
-                        <span class="span_1"><i class="fa fa-phone-square"></i>  +91-9075445588 </span>
-                        <span class="span_2"> <i class="fa fa-whatsapp"></i>  +91-7013451914</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="header" class="cd-secondary-nav">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <nav class="navbar navbar-default" role="navigation">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                data-target="#bs-example-navbar-collapse-1">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand"
-                           href="#">ShubhShaadiVivah<br><span>The World's No.1 Matchmaking Service</span></a>
-                    </div>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a class="color_1 active_1" href="{% url 'home' %}">Home</a></li>
-                            <li><a class="color_1" href="about.html">About Us</a></li>
-                            <li><a class="color_1" href="services.html">Services</a></li>
-                            <li><a class="color_1" href="register.html">Register</a></li>
-                            <li><a class="color_1" href="{% url 'contact' %}">Contact Us</a></li>
-                            <li><a class="color_1" href="pages.html">Typography</a></li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle color_1" data-toggle="dropdown" href="services.html"
-                                   aria-expanded="false">Dropdown
-                                    <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="services.html">Services</a></li>
-                                    <li><a href="register.html">Register</a></li>
-                                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                                    <li><a href="pages.html">Typography</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.navbar-collapse -->
-                </nav>
-            </div>
-        </div>
-    </div>
-</section>
 
+{% include 'vivah/navbar.html' %}
+<!-----
 <div class="center_main clerfix">
 
     <section id="center1">
@@ -98,6 +35,7 @@
             </div>
         </div>
     </section>
-</div>
 
+</div>
+----->
 
