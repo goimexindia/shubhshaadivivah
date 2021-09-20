@@ -46,37 +46,22 @@
                                 </div>
 
                                 <div class="col-sm-6">
-                                    <div class="contact_home_1_inner_1 clerfix">
-                                        <div class="col-sm-5 space_left">
-                                            <input type="text" class="form-control" placeholder="Captcha Code *">
 
-                                        </div>
-                                        <div class="col-sm-5 space_left">
-                                            <h4>FBGRE</h4>
-                                        </div>
-                                        <div class="col-sm-2"></div>
-
-                                    </div>
                                 </div>
                                 <div class="contact_home_2 col-sm-12 clearfix">
                                     <textarea class="form-control" placeholder="Describe Your Details"></textarea>
                                 </div>
-
                                 <div class="contact_home_2 col-sm-12 clearfix">
-                                    <h3><input type="submit" value="SUBMIT" class="subbutx3"><br></h3>
+                                    <div class="g-recaptcha" data-callback="recaptchaCallback"
+                                         data-sitekey="6Ld0N3wcAAAAAHHxBYv_044U5W4Gqp6nfA2yGF89"></div>
+                                    <br/>
+                                </div>
+                                <div class="contact_home_2 col-sm-12 clearfix">
+                                    <h3><input id="submitBtn" type="submit" disabled="disabled" value="SUBMIT"
+                                               class="subbutx3"><br></h3>
                                 </div>
                             </div>
-                            <div>
-                                <div class="quform-element quform-element-recaptcha">
-                                    <div class="quform-spacer">
-                                        <label>Are you human? <span class="quform-required">*</span></label>
-                                        <div class="quform-input">
-                                            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
-                                            <noscript>Please enable JavaScript to submit this form.</noscript>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                         <div class="col-sm-6">
                             <div class="contact_home_3">
@@ -91,8 +76,12 @@
 </div>
 
 <script type="text/javascript" src="quform/js/scripts.js"></script>
-
 <script>
+
+function recaptchaCallback() {
+    $('#submitBtn').removeAttr('disabled');
+};
+
     window.QuformRecaptchaLoaded = function () {
         if (window.grecaptcha && window.jQuery) {
             jQuery('.g-recaptcha').each(function () {
@@ -104,6 +93,9 @@
             });
         }
     };
+
+
 </script>
 
-<script src="https://www.google.com/recaptcha/api.js?onload=QuformRecaptchaLoaded&amp;render=explicit" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=QuformRecaptchaLoaded&amp;render=explicit" async
+        defer></script>
