@@ -75,7 +75,6 @@
                     <div class="col-lg-6 col-lg-offset-0">
                         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                         <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-
                         <form action="{% url 'contact' %}" method="POST">
                             {% csrf_token %}
                             <div class="row control-group">
@@ -126,12 +125,21 @@
                                               data-validation-required-message="Please enter a message."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
+                                <div class="row">
+                                    <div class="form-group col-xs-12">
+                                        <div class="g-recaptcha" data-callback="recaptchaCallback"
+                                             data-sitekey="6Ld0N3wcAAAAAHHxBYv_044U5W4Gqp6nfA2yGF89"></div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-xs-12">
-                                    <button type="submit" class="btn btn-success btn-lg">Send</button>
+                                    <button id="submitBtn" type="submit" class="btn btn-success btn-lg"
+                                            disabled="disabled">Send
+                                    </button>
                                 </div>
                             </div>
+
                         </form>
                     </div>
                     <div class="col-lg-5 col-lg-offset-1">
@@ -145,5 +153,26 @@
         </div>
     </div>
 </section>
+<script type="text/javascript" src="quform/js/scripts.js"></script>
+<script>
 
+function recaptchaCallback() {
+    $('#submitBtn').removeAttr('disabled');
+};
+    window.QuformRecaptchaLoaded = function () {
+        if (window.grecaptcha && window.jQuery) {
+            jQuery('.g-recaptcha').each(function () {
+                var $recaptcha = jQuery(this);
+
+                if ($recaptcha.is(':empty')) {
+                    $recaptcha.data('recaptcha-id', grecaptcha.render($recaptcha[0]));
+                }
+            });
+        }
+    };
+
+
+</script>
+<script src="https://www.google.com/recaptcha/api.js?onload=QuformRecaptchaLoaded&amp;render=explicit" async
+        defer></script>
 {% endblock %}
