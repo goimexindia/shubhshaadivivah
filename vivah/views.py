@@ -14,7 +14,7 @@ def homeregister(request):
 
 
 def about(request):
-    return render(request, 'vivah/all-in-one.html', {})
+    return render(request, 'vivah/about.html', {})
 
 
 def pricing(request):
@@ -25,8 +25,12 @@ def services(request):
     return render(request, 'vivah/services.html', {})
 
 
+def membership(request):
+    return render(request, 'vivah/membership.html', {})
+
+
 def register(request):
-    return render(request, 'vivah/register.html', {})
+    return render(request,  'vivah/all-in-one.html', {})
 
 
 def contact(request):
