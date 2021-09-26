@@ -17,6 +17,9 @@ def about(request):
     return render(request, 'vivah/about.html', {})
 
 
+def faq(request):
+    return render(request, 'vivah/faq.html', {})
+
 def pricing(request):
     return render(request, 'vivah/index.html', {})
 
