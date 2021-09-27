@@ -1310,7 +1310,7 @@ font-size: 50px;
    padding-bottom:50px;
    }
 .about_middle_right{ 
-  background: url(../img/34.jpg) right -70px top 0 no-repeat;
+  background: url(/static/vivah/img/34.jpg) right -70px top 0 no-repeat;
   padding-top: 350px;
   padding-bottom: 350px;
    } 
