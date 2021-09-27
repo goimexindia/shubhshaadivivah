@@ -16,6 +16,9 @@ def homeregister(request):
 def about(request):
     return render(request, 'vivah/about.html', {})
 
+def secure(request):
+    return render(request, 'vivah/staysecure.html', {})
+
 
 def disclaimer(request):
     return render(request, 'vivah/disclaimer.html', {})
