@@ -17,8 +17,21 @@ def about(request):
     return render(request, 'vivah/about.html', {})
 
 
+def disclaimer(request):
+    return render(request, 'vivah/disclaimer.html', {})
+
+
+def privacy(request):
+    return render(request, 'vivah/privacy.html', {})
+
+
+def terms(request):
+    return render(request, 'vivah/terms.html', {})
+
+
 def faq(request):
     return render(request, 'vivah/faq.html', {})
+
 
 def pricing(request):
     return render(request, 'vivah/index.html', {})
@@ -33,7 +46,7 @@ def membership(request):
 
 
 def register(request):
-    return render(request,  'vivah/all-in-one.html', {})
+    return render(request, 'vivah/all-in-one.html', {})
 
 
 def contact(request):
