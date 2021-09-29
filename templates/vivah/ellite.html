@@ -1,0 +1,353 @@
+{% extends "vivah/base.html" %}
+{% load static %}
+{% block title %}Services{% endblock %}
+{% block meta_description %}Contact Us for details {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700">
+
+<style>
+
+.pricingdiv{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+}
+
+.pricingdiv ul.theplan{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  color: white;
+  background: #7c3ac9;
+  position: relative;
+  width: 250px; /* width of each table */
+  margin-right: 10px; /* spacing between tables */
+  margin-bottom: 1em;
+  transition: all .5s;
+}
+
+.pricingdiv ul.theplan:hover{ /* when mouse hover over pricing table */
+  transform: scale(1.05);
+  transition: all .5s;
+  z-index: 100;
+  box-shadow: 0 0 10px gray;
+}
+
+.pricingdiv ul.theplan li{
+  margin: 10px 20px;
+  position: relative;
+}
+
+.pricingdiv ul.theplan li.title{
+  font-size: 150%;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  text-transform: uppercase;
+  border-bottom: 5px solid white;
+}
+
+.pricingdiv ul.theplan:nth-of-type(2){
+  background: #e53499;
+}
+
+.pricingdiv ul.theplan:nth-of-type(3){
+  background: #2a2cc8;
+}
+
+.pricingdiv ul.theplan:last-of-type{ /* remove right margin in very last table */
+  margin-right: 0;
+}
+
+/*very last LI within each pricing UL */
+.pricingdiv ul.theplan li:last-of-type{
+  text-align: center;
+  margin-top: auto; /*align last LI (price botton li) to the very bottom of UL */
+}
+
+.pricingdiv a.pricebutton{
+  background: white;
+  text-decoration: none;
+  padding: 10px;
+  display: inline-block;
+  margin: 10px auto;
+  border-radius: 5px;
+  color: navy;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 500px) {
+  .pricingdiv ul.theplan{
+    border-radius: 0;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .pricingdiv ul.theplan:hover{
+    transform: none;
+    box-shadow: none;
+  }
+
+  .pricingdiv a.pricebutton{
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+</style>
+<br><br><br>
+<style>
+    table {
+    table-layout: fixed;
+    word-wrap: break-word;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.text-sm {
+    font-size: 12px;
+}
+.price {
+    font-size: 3em;
+}
+
+
+
+
+
+</style>
+<div class="arrange">
+    <hr>
+    <h1 class="text-center"><img src="{% static 'vivah/img/p02.png' %}" height="30px"></a><span>Our Royall</span> Services.<img src="{% static 'vivah/img/p02.png' %}" height="30px"></h1>
+    <center><b><p>We are matrimonial agency par excellence and a leading provider of matrimonial services.</p>
+        <p>Strict and methodical screening process based on Family Background, Academic/ Professional
+            Qualifications, Interests, Future Goals and Many more minute details. Our Bride/ Groom matching services
+            provided are aimed to deliver the wanted results.</p>
+    </b></center>
+</div>
+<br><br><br>
+
+<div class="pricingdiv">
+    <ul class="theplan">
+        <li class="title"><b>Basic Services</b></li>
+        <img src="{% static 'vivah/img/v004.jpeg' %}">
+        <center><h2>&#8377;14000+ 18% GST</h2></center>
+        <center><h2>for 365 DAYS</h2></center>
+        <li>Arrange meetings by your own for further discussions.</li>
+        <li>Share 3 to 4 profile according to your requirement on weekly basis.</li>
+        <li>Short listing the proposals, based on the criterion laid down by the parties/families.</li>
+        <li>Proper match making by the matchmaking department.</li>
+        <li>Dispatching the proposals by email to both the sides at the contact adress as furnished by them.</li>
+
+        <li><a class="pricebutton" href="#" target="_blank" rel="nofollow"><span class="icon-tag"></span> Check Out</a>
+        </li>
+    </ul>
+    <ul class="theplan">
+        <li class="title"><b>VIP Services</b></li>
+        <img src="{% static 'vivah/img/v004.jpeg' %}">
+        <center><h2>&#8377;34000 + 18% GST</h2>
+        </center>
+        <center><h2>for 180 DAYS</h2></center>
+        <li>Coordinator assistance.</li>
+        <li>Discuss your profile with 15 to 20 families according to your requirement on monthly basis.</li>
+        <li>Short listing the proposals, based on the criterion laid down by the parties/families.</li>
+        <li>Proper match making by the matchmaking department.</li>
+        <li>Client Servicing - Talking to the persons with whom your profile has been short-listed and getting their
+            approval.
+        </li>
+        <li>Dispatching the proposals by email to both the sides at the contact adress as furnished by them.</li>
+        <li>Co-ordinate of meeting between both the families for further discussions.</li>
+        <li>Giving you feedbacks of the meetings. listing the proposals, based on the criterion laid down by the
+            parties/families.
+        </li>
+        <li><a class="pricebutton" href="#" target="_blank" rel="nofollow"><span class="icon-tag"></span> Check Out</a>
+        </li>
+    </ul>
+    <ul class="theplan">
+        <li class="title"><b>VIP Ellite</b></li>
+        <img src="{% static 'vivah/img/v004.jpeg' %}">
+        <center><h2>&#8377;54000 + 18% GST</h2>
+        </center>
+        <center><h2>for 365 DAYS</h2></center>
+        <li>Coordinator assistance.</li>
+        <li>Discuss your profile with 15 to 20 families according to your requirement on monthly basis.</li>
+        <li>Short listing the proposals, based on the criterion laid down by the parties/families.</li>
+        <li>Proper match making by the matchmaking department.</li>
+        <li>Client Servicing - Talking to the persons with whom your profile has been short-listed and getting their
+            approval.
+        </li>
+        <li>Dispatching the proposals by email to both the sides at the contact adress as furnished by them.</li>
+        <li>Co-ordinate of meeting between both the families for further discussions.</li>
+        <li>Giving you feedbacks of the meetings. listing the proposals, based on the criterion laid down by the
+            parties/families.
+        </li>
+        <li><a class="pricebutton" href="#" target="_blank" rel="nofollow"><span class="icon-tag"></span> Check Out</a>
+        </li>
+    </ul>
+
+    <!----
+   <ul class="theplan">
+       <li class="title"><span class="icon-trophy" style="color:yellow"></span> <b>Plan 2</b></li>
+       <li><b>Dimensions:</b> 24.8W x 47.3H</li>
+       <li><b>Material:</b> Nylon w/ Breathable Glass Fiber</li>
+       <li><b>Weight:</b> 55 lbs</li>
+       <li><b>Max Weight:</b> 330 lbs</li>
+       <li><b>Head Rest:</b> Yes</li>
+       <li><b>Arm Rest:</b> <span class="icon-check"></span></li>
+       <li><b>Lumbar Support:</b> <span class="icon-check"></span></li>
+       <li><b>Warranty:</b> 30 Days Money Back</li>
+       <li><a class="pricebutton" href="http://ergonomictrends.com/best-ergonomic-office-chairs-2017-reviews-buyers-guide/" target="_blank" rel="nofollow"><span class="icon-tag"></span> Check Out</a></li>
+       </ul>
+   <ul class="theplan">
+       <li class="title"><b>Plan 3</b></li>
+       <li class="ethighlight"><b>Dimensions:</b> 24.8W x 47.3H</li>
+       <li><b>Material:</b> Nylon w/ Breathable Glass Fiber</li>
+       <li><b>Weight:</b> 55 lbs</li>
+       <li><b>Max Weight:</b> 330 lbs</li>
+       <li><b>Head Rest:</b> Yes</li>
+       <li><b>Arm Rest:</b> <span class="icon-close"></span></li>
+       <li><b>Lumbar Support:</b> <span class="icon-check"></span></li>
+       <li><b>Warranty:</b> 30 Days Money Back</li>
+       <li><a class="pricebutton" href="http://ergonomictrends.com/best-ergonomic-office-chairs-2017-reviews-buyers-guide/" target="_blank" rel="nofollow"><span class="icon-tag"></span> Check Out</a></li>
+   </ul>
+   ---->
+</div>
+
+<section id="success">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="services_home clearfix">
+                    <h1 class="text-center"><span>Benefits of  </span>Royall Services</h1>
+                </div>
+                <br>
+                <div class="col-sm-3">
+                    <div class="success_inner clearfix">
+                        <div class="success_2">
+                            <center><p><img src="{% static 'vivah/img/p01.png' %} " height="100px"></a></p></center>
+                        </div>
+                        <div class="success_3">
+                            <center><h2><a href="#">Personal Discussion</a></h2></center>
+                            <center></center>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="success_inner clearfix">
+                        <div class="success_2">
+                            <center><p><img src="{% static 'vivah/img/p02.png' %}" height="100px"></a></p></center>
+                        </div>
+                        <div class="success_3">
+                            <center><h2><a href="#">Profile Creations</a></h2><br></center>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="success_inner clearfix">
+                        <div class="success_2">
+                            <center><p><img src="{% static 'vivah/img/p03.png' %}" height="100px"></a></p></center>
+                        </div>
+                        <div class="success_3">
+                            <center><h2><a href="#">24/7 Assistance</a></h2></center>
+                            <br>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="success_inner clearfix">
+                        <div class="success_2">
+                            <center><p><img src="{% static 'vivah/img/p04.png' %}" height="100px"></a></p></center>
+                        </div>
+                        <div class="success_3">
+                            <center><h2><a href="#">Understanding Families</a></h2></center>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="col-sm-12">
+            <div class="col-sm-3">
+                <div class="success_inner clearfix">
+                    <div class="success_2">
+                        <center><p><img src="{% static 'vivah/img/p05.png' %} " height="100px"></a></p></center>
+                    </div>
+                    <div class="success_3">
+                        <center><h2><a href="#">Finding Matches</a></h2></center>
+                        <center></center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="success_inner clearfix">
+                    <div class="success_2">
+                        <center><p><img src="{% static 'vivah/img/p06.png' %}" height="100px"></a></p></center>
+                    </div>
+                    <div class="success_3">
+                        <center><h2><a href="#">Arrangaing Meetings</a></h2><br></center>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="success_inner clearfix">
+                    <div class="success_2">
+                        <center><p><img src="{% static 'vivah/img/p07.png' %}" height="100px"></a></p></center>
+                    </div>
+                    <div class="success_3">
+                        <center><h2><a href="#">One-to-One Discussion</a></h2></center>
+                        <br>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="success_inner clearfix">
+                    <div class="success_2">
+                        <center><p><img src="{% static 'vivah/img/p08.png' %}" height="100px"></a></p></center>
+                    </div>
+                    <div class="success_3">
+                        <center><h2><a href="#">Big Day</a></h2></center>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="col-sm-12">
+        <div class="success_inner clearfix">
+            <div class="success_2">
+                <center><p><img src="{% static 'vivah/img/p11.png' %}" height="100px">
+                    <h3> “ A successful marriage requires falling in love many times, always with the same
+                        person. ” </h3></a></p></center>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br>
+
+
+</section>
+</section>
+
+
+<br><br><br>
+<script src="https://www.google.com/recaptcha/api.js?onload=QuformRecaptchaLoaded&amp;render=explicit" async
+        defer></script>
+
+
+{% endblock %}
+

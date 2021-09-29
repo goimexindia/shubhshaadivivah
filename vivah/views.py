@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
-
 from shubhshaadivivah import settings
 from vivah.models import Contactme
 
@@ -11,6 +10,10 @@ def home(request):
 
 def homeregister(request):
     return render(request, 'vivah/index.html', {})
+
+
+def ellite(request):
+    return render(request, 'vivah/ellite.html', {})
 
 
 def about(request):

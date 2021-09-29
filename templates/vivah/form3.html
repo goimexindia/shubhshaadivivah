@@ -9,25 +9,26 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="services_home clearfix">
-                            <h1 class="text-center"><span>Attend</span> Now</h1>
+                            <a href="{% url 'ellite' %}"> <h1 class="text-center"><span>Royall</span> Services</h1><br>
                             <center><h3>Exclusive matchmaking service
-                                for the elite</h3></center>
+                                for the elite</h3></center></a>
+                            <br>
                         </div>
                         <div class="col-sm-6">
                             <div class="contact_home_1 clearfix">
                                 <div class="col-sm-6">
                                     <div class="contact_home_1_inner">
                                         <input type="text" class="form-control" placeholder="First name *"
-                                         required=""
-                                           data-validation-required-message="Please enter your first name."
+                                               required=""
+                                               data-validation-required-message="Please enter your first name."
                                         >
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="contact_home_1_inner">
                                         <input type="text" class="form-control" placeholder="Last name *"
-                                         required=""
-                                           data-validation-required-message="Please enter your last name.">
+                                               required=""
+                                               data-validation-required-message="Please enter your last name.">
                                     </div>
                                 </div>
                             </div>
@@ -35,15 +36,15 @@
                                 <div class="col-sm-6">
                                     <div class="contact_home_1_inner">
                                         <input type="email" class="form-control" placeholder="Email *"
-                                         required=""
-                                           data-validation-required-message="Please enter your email.">
+                                               required=""
+                                               data-validation-required-message="Please enter your email.">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="contact_home_1_inner">
                                         <input type="text" class="form-control" placeholder="Mobile *"
-                                         required=""
-                                           data-validation-required-message="Please enter your mobile.">
+                                               required=""
+                                               data-validation-required-message="Please enter your mobile.">
                                     </div>
                                 </div>
                             </div>
@@ -51,8 +52,8 @@
                                 <div class="col-sm-6">
                                     <div class="contact_home_1_inner">
                                         <input type="text" class="form-control" placeholder="Location *"
-                                         required=""
-                                           data-validation-required-message="Please enter your location.">
+                                               required=""
+                                               data-validation-required-message="Please enter your location.">
                                     </div>
                                 </div>
 
@@ -61,8 +62,8 @@
                                 </div>
                                 <div class="contact_home_2 col-sm-12 clearfix">
                                     <textarea class="form-control" placeholder="Describe Your Details"
-                                     required=""
-                                           data-validation-required-message="Please enter your details."></textarea>
+                                              required=""
+                                              data-validation-required-message="Please enter your details."></textarea>
                                 </div>
                                 <div class="contact_home_2 col-sm-12 clearfix">
                                     <div class="g-recaptcha" data-callback="recaptchaCallback"
@@ -78,7 +79,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="contact_home_3">
-                                <a href="#"><img src="{% static 'vivah/img/048.jpg' %}"></a>
+                                <a href="{% url 'ellite' %}"><img src="{% static 'vivah/img/048.jpg' %}"></a>
                             </div>
                         </div>
                     </div>
@@ -106,7 +107,6 @@ function recaptchaCallback() {
             });
         }
     };
-
 
 </script>
 
