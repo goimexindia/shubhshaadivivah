@@ -39,7 +39,10 @@
                 <div class="services clearfix">
                     <div class="col-sm-6 space_left">
                         <div class="services_inner">
-                            <h2>WeSupport</h2>
+                            <a href="{% url 'membership' %}">
+                                <button class="btn success"><h2>WeSupport</h2></button>
+                            </a>
+
                             <div class="services_inner_1 clearfix">
                                 <div class="col-sm-6 space_left services_inner_1_inner">
                                     <img src="{% static 'vivah/img/018.jpg' %}" width="100%">
@@ -60,7 +63,10 @@
                     </div>
                     <div class="col-sm-6 space_left">
                         <div class="services_inner">
-                            <h2>Second Marriage</h2>
+                            <a href="{% url 'membership' %}">
+                                <button class="btn success"><h2>Secound Marriage</h2></button>
+                            </a>
+
                             <div class="services_inner_1 clearfix">
                                 <div class="col-sm-6 space_left services_inner_1_inner">
                                     <img src="{% static 'vivah/img/s002.jpg' %}" width="100%">
@@ -89,8 +95,9 @@
                 <div class="services border_none_1 margin_top_1 clearfix">
                     <div class="col-sm-6 space_left">
                         <div class="services_inner">
-                            <h2>Royale Services</h2>
-
+                            <a href="{% url 'ellite' %}">
+                                <button class="btn success"><h2>Royall Services</h2></button>
+                            </a>
                             <div class="services_inner_1 clearfix">
                                 <div class="col-sm-6 space_left services_inner_1_inner">
                                     <img src="{% static 'vivah/img/v0003.jpeg' %}">
@@ -113,7 +120,9 @@
                     </div>
                     <div class="col-sm-6 space_left">
                         <div class="services_inner">
-                            <h2>Single People</h2>
+                            <a href="{% url 'membership' %}">
+                                <button class="btn success"><h2>Single People</h2></button>
+                            </a>
                             <div class="services_inner_1 clearfix">
                                 <div class="col-sm-6 space_left services_inner_1_inner">
                                     <img src="{% static 'vivah/img/v002.jpg' %}" width="100%">
@@ -146,7 +155,11 @@
                                         different energies that originates from atmosphere like solar energy from sun,
                                         cosmic energy, lunar energy, thermal energy, magnetic energy, light energy, wind
                                         energy</p>
-                                    <p><h4>Pre-registration:+91 90754 45588</h4></p>
+                                    <h4><p> Pre-registration:+91 90754 45588</p> <a href="{% url 'contact' %}">
+                                        <button class="btn success">Contact Us</button>
+                                    </a>
+                                    </h4>
+
                                 </div>
                             </div>
                         </div>
@@ -194,7 +207,13 @@
                                         helped the clients in making reasonable decisions, which gives them extreme
                                         contentment and happiness in life. Astrological remedies suggested by her
                                         benefited lots of people around the globe</h3><br>
-                                    <h4>Pre-registration number :+91 90754 45588</h4>
+                                    <h4>
+                                        <a href="{% url 'contact' %}">
+                                            <button class="btn success">Contact Us</button>
+                                        </a>
+                                        Pre-registration number :+91 90754 45588
+                                    </h4>
+
                                 </div>
                             </div>
                         </div>
@@ -231,12 +250,15 @@
                                             Numerology,
                                             Gemology, Vastushastra etc. </h3><br>
                                         <h3> He has done Thousands of Case Studies. His Marriage Match Analysing methods
-                                            are Excellent and  helped many international clients in making reasonable
+                                            are Excellent and helped many international clients in making reasonable
                                             decisions,
                                             which gives them extreme
                                             contentment and happiness in life. Astrological remedies suggested by him
                                             benefited lots of people around the globe</h3>
                                         <p><h4>Pre-registration number :+91 90754 45588</h4></p>
+                                        <a href="{% url 'contact' %}">
+                                            <button class="btn success">Contact Us</button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
