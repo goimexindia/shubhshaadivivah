@@ -105,6 +105,11 @@
 
 
 
+
+
+
+
+
 </style>
 <br><br><br>
 <style>
@@ -124,11 +129,107 @@
 
 
 
+</style>
+<style>
+body1
+{
+ text-align:center;
+ width:100%;
+ margin:0 auto;
+ padding:0px;
+ font-family:helvetica;
+}
+#video_wrapper
+{
+ margin:0px;
+ padding:0px;
+}
+#video_wrapper video
+{
+ position: fixed;
+ top: 0%; left: 50%;
+ z-index: 1;
+
+ transform: translate(-50%, -50%);
+}
+#wrapper
+{
+ position:relative;
+ text-align:center;
+ margin:0 auto;
+ padding:0px;
+ width:995px;
+ z-index:2;
+}
+h7
+{
+ margin-top:250px;
+ color:white;
+ font-size:45px;
+ background-color: rgba(112, 112, 112, 0.74);
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+
 
 </style>
+<link rel="stylesheet" type="text/css" href="video_style.css">
+
+<!-----
+<div id="video_wrapper">
+    <video autoplay muted loop>
+         <source src="{% static 'vivah/img/vip-new.mp4' %}" type="video/mp4">
+    </video>
+
+    <div id="wrapper1">
+        <h7>ShubhShaadiVivah Royall Services</h7>
+    </div>
+</div>
+----->
+<div class="about_main clearfix">
+    <section id="about">
+
+        <video width="100%" autoplay muted loop>
+            <source src="{% static 'vivah/img/vip-new.mp4' %}" type="video/mp4">
+        </video>
+        <div class="content">
+            <h1>ShubhShaadiVivah Royall Services</h1>
+            <p>We are matrimonial agency par excellence and a leading provider of matrimonial services.</p>
+            <button id="myBtn" onclick="myFunction()">Pause</button>
+        </div>
+        <div id="wrapper">
+            <h7></h7>
+        </div>
+    </section>
+    <section id="about_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12"></div>
+            </div>
+        </div>
+    </section>
+    <section id="about_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12"></div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
 <div class="arrange">
     <hr>
-    <h1 class="text-center"><img src="{% static 'vivah/img/p02.png' %}" height="30px"></a><span>Our Royall</span> Services.<img src="{% static 'vivah/img/p02.png' %}" height="30px"></h1>
+    <h1 class="text-center"><img src="{% static 'vivah/img/p02.png' %}" height="30px"></a><span>Our Royall</span>
+        Services.<img src="{% static 'vivah/img/p02.png' %}" height="30px"></h1>
     <center><b><p>We are matrimonial agency par excellence and a leading provider of matrimonial services.</p>
         <p>Strict and methodical screening process based on Family Background, Academic/ Professional
             Qualifications, Interests, Future Goals and Many more minute details. Our Bride/ Groom matching services
