@@ -27,6 +27,7 @@ function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
 
+
     </script>
 
     <script type="text/javascript"
@@ -92,28 +93,28 @@ function googleTranslateElementInit() {
         <div class="row">
             <div class="col-sm-12">
                 <div class="arrange">
-                    <div class="services_home clearfix">
+                    <div class="services_home clearfix">{% url 'ellite' %}
                         <h2 class="text-center"><i class="fa fa-arrows-h"></i></h2></div>
                     <h3 class="text-center"></h3>
                     <h3><p class="text-center">
                         <ul style="list-style-type:circle">
-                            <li><a href="#">
+                            <li><a href="{% url 'about' %}">
                                 <span class="glyphicon glyphicon-ok"></span>
                             </a>You will find detailed family information in every profile. Knowing the family will help
                                 you take the next step with confidence.
                             </li>
-                            <li><a href="#"><span class="glyphicon glyphicon-ok"></span></a>With over 80 community
+                            <li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-ok"></span></a>With over 80 community
                                 sites,
                                 you can find a match from your community.
                             </li>
-                            <li><a href="#"><span class="glyphicon glyphicon-ok"></span></a>
+                            <li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-ok"></span></a>
                                 A common native place, college or company can help you find references and make
                                 background checks.
                             </li>
-                            <a href="#">
+                            <a href="{% url 'ellite' %}">
                                 <li><span class="glyphicon glyphicon-ok"></span>
                             </a>100% verified mobile numbers</li>
-                            <li><a href="#"><span class="glyphicon glyphicon-ok"></span></a>Our largest number of
+                            <li><a href="{% url 'ellite' %}"><span class="glyphicon glyphicon-ok"></span></a>Our largest number of
                                 profiles increases your chances of meeting the right person
                             </li>
                         </ul>
@@ -404,16 +405,16 @@ function googleTranslateElementInit() {
 
                             <div class="item active">
                                 <div class="row">
-                                    <div class="col-sm-3"><a href="#" class="thumbnail"><img
+                                    <div class="col-sm-3"><a href="{% url 'ellite' %}" class="thumbnail"><img
                                             src="{% static 'vivah/img/013.jpg' %}" alt="Image"
                                             style="max-width:100%;"></a></div>
-                                    <div class="col-sm-3"><a href="#" class="thumbnail"><img
+                                    <div class="col-sm-3"><a href="{% url 'ellite' %}" class="thumbnail"><img
                                             src="{% static 'vivah/img/014.jpg' %}" alt="Image"
                                             style="max-width:100%;"></a></div>
-                                    <div class="col-sm-3"><a href="#" class="thumbnail"><img
+                                    <div class="col-sm-3"><a href="{% url 'ellite' %}" class="thumbnail"><img
                                             src="{% static 'vivah/img/015.jpg' %}" alt="Image"
                                             style="max-width:100%;"></a></div>
-                                    <div class="col-sm-3"><a href="#" class="thumbnail"><img
+                                    <div class="col-sm-3"><a href="{% url 'ellite' %}" class="thumbnail"><img
                                             src="{% static 'vivah/img/016.jpg' %}" alt="Image"
                                             style="max-width:100%;"></a></div>
                                 </div><!--.row-->
@@ -421,16 +422,16 @@ function googleTranslateElementInit() {
 
                             <div class="item">
                                 <div class="row">
-                                    <div class="col-sm-3"><a href="#" class="thumbnail"><img
+                                    <div class="col-sm-3"><a href="{% url 'ellite' %}" class="thumbnail"><img
                                             src="{% static 'vivah/img/017.jpg' %}" alt="Image"
                                             style="max-width:100%;"></a></div>
-                                    <div class="col-sm-3"><a href="#" class="thumbnail"><img
+                                    <div class="col-sm-3"><a href="{% url 'ellite' %}" class="thumbnail"><img
                                             src="{% static 'vivah/img/018.jpg' %}" alt="Image"
                                             style="max-width:100%;"></a></div>
-                                    <div class="col-sm-3"><a href="#" class="thumbnail"><img
+                                    <div class="col-sm-3"><a href="{% url 'ellite' %}" class="thumbnail"><img
                                             src="{% static 'vivah/img/019.jpg' %}" alt="Image"
                                             style="max-width:100%;"></a></div>
-                                    <div class="col-sm-3"><a href="#" class="thumbnail"><img
+                                    <div class="col-sm-3"><a href="{% url 'ellite' %}" class="thumbnail"><img
                                             src="{% static 'vivah/img/020.jpg' %}" alt="Image"
                                             style="max-width:100%;"></a></div>
                                 </div><!--.row-->
@@ -438,16 +439,16 @@ function googleTranslateElementInit() {
 
                             <div class="item">
                                 <div class="row">
-                                    <div class="col-sm-3"><a href="#" class="thumbnail"><img
+                                    <div class="col-sm-3"><a href="{% url 'ellite' %}" class="thumbnail"><img
                                             src="{% static 'vivah/img/021.jpg' %}" alt="Image"
                                             style="max-width:100%;"></a></div>
-                                    <div class="col-sm-3"><a href="#" class="thumbnail"><img
+                                    <div class="col-sm-3"><a href="{% url 'ellite' %}" class="thumbnail"><img
                                             src="{% static 'vivah/img/022.jpg' %}" alt="Image"
                                             style="max-width:100%;"></a></div>
-                                    <div class="col-sm-3"><a href="#" class="thumbnail"><img
+                                    <div class="col-sm-3"><a href="{% url 'ellite' %}" class="thumbnail"><img
                                             src="{% static 'vivah/img/023.jpg' %}" alt="Image"
                                             style="max-width:100%;"></a></div>
-                                    <div class="col-sm-3"><a href="#" class="thumbnail"><img
+                                    <div class="col-sm-3"><a href="{% url 'ellite' %}" class="thumbnail"><img
                                             src="{% static 'vivah/img/024.jpg' %}" alt="Image"
                                             style="max-width:100%;"></a></div>
                                 </div><!--.row-->
@@ -468,7 +469,7 @@ function googleTranslateElementInit() {
                 <div class="col-sm-12">
                     <div class="services_home clearfix">
                         <h1 class="text-center"><span>Why are you waiting for your dream</span> Partner ?
-                            <a href="#" class="btn btn-lg btn-warning"><h3>Register Free</h3></a></h1>
+                            <a href="{% url 'register' %}" class="btn btn-lg btn-warning"><h3>Register Free</h3></a></h1>
                     </div>
                     <div class="services_home clearfix">
                         <h2 class="text-center"><i class="fa fa-arrows-h"></i></h2>
@@ -497,17 +498,19 @@ function googleTranslateElementInit() {
             <div class="row">
                 <div class="col-sm-12">
                     <div class="services_home clearfix">
-                        <h1 class="text-center"><span>Benefits of  </span>Premium Membership</h1>
+                         <a href="{% url 'ellite' %}">
+                             <h1 class="text-center"><span>Benefits of  </span>Premium Membership</h1></a>
                     </div>
                     <div class="col-sm-4">
                         <div class="success_inner clearfix">
                             <div class="success_2">
-                                <center><p><img src="{% static 'vivah/img/049.jpg' %}"></a></p></center>
+
+                                <center><p><img src="{% static 'vivah/img/049.jpg' %}"></p></center>
                             </div>
-                            <div class="success_3">
-                                <center><h2><a href="#">Connect Directly with Matches</a></h2></center>
+                           <div class="success_3">
+                                <center><h2><a href="{% url 'ellite' %}">Connect Directly with Matches</a></h2></center>
                                 <center></center>
-                                <p><a href="#">Thousands of profiles await you, so be ready to get directly connected
+                                <p><a href="{% url 'ellite' %}">Thousands of profiles await you, so be ready to get directly connected
                                     with such profiles.
                                 </a></p></center><br>
                             </div>
@@ -519,8 +522,8 @@ function googleTranslateElementInit() {
                                 <center><p><img src="{% static 'vivah/img/0490.jpg' %}"></a></p></center>
                             </div>
                             <div class="success_3">
-                                <center><h2><a href="#">Perfect E-Matches</a></h2><br></center>
-                                <center><p><a href="#">Brace up yourself to witness the best matchmaking process, which
+                                <center><h2><a href="{% url 'ellite' %}">Perfect E-Matches</a></h2><br></center>
+                                <center><p><a href="{% url 'ellite' %}">Brace up yourself to witness the best matchmaking process, which
                                     ensures
                                     a perfect E-match for your profile.</a></p></center>
                             </div>
@@ -532,8 +535,8 @@ function googleTranslateElementInit() {
                                 <center><p><img src="{% static 'vivah/img/051.jpg' %}"></a></p></center>
                             </div>
                             <div class="success_3">
-                                <center><h2><a href="#">Get Featured, Get Noticed!</a></h2></center>
-                                <p><a href="#">Your profile is brought into the limelight, thus it gets brighter chances
+                                <center><h2><a href="{% url 'ellite' %}">Get Featured, Get Noticed!</a></h2></center>
+                                <p><a href="{% url 'ellite' %}">Your profile is brought into the limelight, thus it gets brighter chances
                                     of getting noticed by the eligible profiles.</a></p>
                             </div>
                         </div>
@@ -543,7 +546,7 @@ function googleTranslateElementInit() {
                     <div class="col-sm-10"></div>
                     <div class="col-sm-2">
                         <div class="success_4">
-                            <p><a href="#">View More</a></p>
+                            <p><a href="{% url 'ellite' %}">View More</a></p>
                         </div>
                     </div>
                 </div>
