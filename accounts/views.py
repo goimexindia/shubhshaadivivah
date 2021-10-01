@@ -18,9 +18,16 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
+            messages.info(request, "Logged IN successfully!")
             return redirect("/")
         else:
             messages.info(request, 'Invalid Credentials')
             return redirect('accounts/login')
     else:
         return render(request, 'accounts/login.html')
+
+
+def logout(request):
+    auth.logout(request)
+    messages.info(request, "Logged OUT successfully!")
+    return redirect('/')

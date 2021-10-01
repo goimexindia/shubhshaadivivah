@@ -26,12 +26,28 @@
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
-   </script>
+
+    </script>
 
     <script type="text/javascript"
             src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </div>
+
 {% include 'vivah/navbar.html' %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-dismissible alert-success">
+    <button type="button" class="close" data-dismiss="alert">
+        ×
+    </button>
+    <strong>
+        {{message}}
+    </strong>
+</div>
+{% endfor %}
+{% endif %}
+
 <div class="center_main clerfix">
 
     <section id="center1">
@@ -101,7 +117,8 @@ function googleTranslateElementInit() {
                             </a>You will find detailed family information in every profile. Knowing the family will help
                                 you take the next step with confidence.
                             </li>
-                            <li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-ok"></span></a>With over 80 community
+                            <li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-ok"></span></a>With over 80
+                                community
                                 sites,
                                 you can find a match from your community.
                             </li>
@@ -112,7 +129,8 @@ function googleTranslateElementInit() {
                             <a href="{% url 'ellite' %}">
                                 <li><span class="glyphicon glyphicon-ok"></span>
                             </a>100% verified mobile numbers</li>
-                            <li><a href="{% url 'ellite' %}"><span class="glyphicon glyphicon-ok"></span></a>Our largest number of
+                            <li><a href="{% url 'ellite' %}"><span class="glyphicon glyphicon-ok"></span></a>Our largest
+                                number of
                                 profiles increases your chances of meeting the right person
                             </li>
                         </ul>
@@ -467,7 +485,8 @@ function googleTranslateElementInit() {
                 <div class="col-sm-12">
                     <div class="services_home clearfix">
                         <h1 class="text-center"><span>Why are you waiting for your dream</span> Partner ?
-                            <a href="{% url 'register' %}" class="btn btn-lg btn-warning"><h3>Register Free</h3></a></h1>
+                            <a href="{% url 'register' %}" class="btn btn-lg btn-warning"><h3>Register Free</h3></a>
+                        </h1>
                     </div>
                     <div class="services_home clearfix">
                         <h2 class="text-center"><i class="fa fa-arrows-h"></i></h2>
@@ -496,8 +515,8 @@ function googleTranslateElementInit() {
             <div class="row">
                 <div class="col-sm-12">
                     <div class="services_home clearfix">
-                         <a href="{% url 'ellite' %}">
-                             <h1 class="text-center"><span>Benefits of  </span>Premium Membership</h1></a>
+                        <a href="{% url 'ellite' %}">
+                            <h1 class="text-center"><span>Benefits of  </span>Premium Membership</h1></a>
                     </div>
                     <div class="col-sm-4">
                         <div class="success_inner clearfix">
@@ -505,10 +524,11 @@ function googleTranslateElementInit() {
 
                                 <center><p><img src="{% static 'vivah/img/049.jpg' %}"></p></center>
                             </div>
-                           <div class="success_3">
+                            <div class="success_3">
                                 <center><h2><a href="{% url 'ellite' %}">Connect Directly with Matches</a></h2></center>
                                 <center></center>
-                                <p><a href="{% url 'ellite' %}">Thousands of profiles await you, so be ready to get directly connected
+                                <p><a href="{% url 'ellite' %}">Thousands of profiles await you, so be ready to get
+                                    directly connected
                                     with such profiles.
                                 </a></p></center><br>
                             </div>
@@ -521,7 +541,8 @@ function googleTranslateElementInit() {
                             </div>
                             <div class="success_3">
                                 <center><h2><a href="{% url 'ellite' %}">Perfect E-Matches</a></h2><br></center>
-                                <center><p><a href="{% url 'ellite' %}">Brace up yourself to witness the best matchmaking process, which
+                                <center><p><a href="{% url 'ellite' %}">Brace up yourself to witness the best
+                                    matchmaking process, which
                                     ensures
                                     a perfect E-match for your profile.</a></p></center>
                             </div>
@@ -534,7 +555,8 @@ function googleTranslateElementInit() {
                             </div>
                             <div class="success_3">
                                 <center><h2><a href="{% url 'ellite' %}">Get Featured, Get Noticed!</a></h2></center>
-                                <p><a href="{% url 'ellite' %}">Your profile is brought into the limelight, thus it gets brighter chances
+                                <p><a href="{% url 'ellite' %}">Your profile is brought into the limelight, thus it gets
+                                    brighter chances
                                     of getting noticed by the eligible profiles.</a></p>
                             </div>
                         </div>
