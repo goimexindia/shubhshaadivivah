@@ -9,9 +9,7 @@ urlpatterns = [
     path('', include('vivah.urls')),
     path("accounts/", include("django.contrib.auth.urls")),
     path("accounts/", include("accounts.urls")),
-    path('register/', accounts_views.register, name='accounts/register'),
     path('accounts/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
-
     path('password-reset/',
          auth_views.PasswordResetView.as_view(
              template_name='password_reset.html'

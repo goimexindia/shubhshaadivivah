@@ -34,7 +34,6 @@ function googleTranslateElementInit() {
 </div>
 
 {% include 'vivah/navbar.html' %}
-
 {% if messages %}
 {% for message in messages %}
 <div class="alert alert-dismissible alert-success">
@@ -76,8 +75,11 @@ function googleTranslateElementInit() {
         </div>
         <div class="main-text hidden-xs clearfix">
             <div class="col-md-12 text-center">
-                <h2>....Because marriages are between two families.</h2>
 
+                <h2>....Because marriages are between two families.</h2>
+                     {% if user.is_authenticated %}
+                        <h4>   Welcome Back ... {{user.username}}</h4>
+                     {% endif %}
             </div>
         </div>
     </section>
