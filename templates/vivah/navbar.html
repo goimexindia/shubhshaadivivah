@@ -54,9 +54,11 @@
                             <li><a class="color_1" href="{% url 'register' %}">Register</a></li>
                             <li><a class="color_1" href="{% url 'contact' %}">Contact Us</a></li>
                             {% if user.is_authenticated %}
+                            <li><a class="color_1" href="{% url 'profile' user.id %}">Profile</a></li>
                             <li><a class="color_1" href="{% url 'logout' %}">Logout</a></li>
                             {% else %}
                             <li><a class="color_1" href="{% url 'login' %}">Login</a></li>
+                              <li><a class="color_1" href="{% url 'signup' %}">Register</a></li>
                             {% endif %}
                             <li class="dropdown">
                                 <a class="dropdown-toggle color_1" data-toggle="dropdown" href="services.html"

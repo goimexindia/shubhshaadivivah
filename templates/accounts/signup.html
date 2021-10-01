@@ -49,6 +49,9 @@
 	width: 105px;
 	}
 
+
+
+
 </style>
 <style>
 .button {
@@ -71,14 +74,22 @@
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+input.largerCheckbox {
+    width: 40px;
+    height: 30px;
+}
+
+
+
 </style>
 <section id="about_heading_main" class="clearfix">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <div class="about_heading_main_1">
-                    <h5><a href="/">Home</a> <span>//</span> LogIn</h5>
-                    <h1>Log<span>In</span></h1>
+                    <h5><a href="/">Home</a> <span>//</span> Register</h5>
+                    <h1>Reg<span>ister</span></h1>
                 </div>
             </div>
         </div>
@@ -89,25 +100,22 @@
         <div class="col-md-6 col-lg-6 col-xl-5 d-md-block d-none register-content">
             <a href="{% url 'membership' %}">
                 <img src="{% static 'vivah/img/ganesha2.png' %}">
+
             </a>
         </div>
-        <div class="col-md-6 col-lg-6 col-xl-7 register-form login-page-form">
-            <form action="login" method="post" onsubmit="return checkform(this);">
+        <div class="col-md-12 col-lg-6 col-xl-7 register-form login-page-form">
+            <form  method="post">
                 {% csrf_token %}
-                <fieldset class="form-group">
-                    <legend class="border-bottom mb-4">Log In</legend>
-                    <label for="username">User Name:</label><br>
-                    <input type="text" name="username" placeholder="username"><br>
-                    <label for="password">Password:</label><br>
-                    <input type="password" name="password" placeholder="password"><br>
-                </fieldset>
+                {{ form|crispy }}
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1" checked disabled>
-                    <label class="form-check-label" for="exampleCheck1">
+                    <input type="checkbox" class="largerCheckbox" id="Check1"
+                           value=”checked_value” disabled checked>
+                    <label class="form-check-label" for="Check1">
                         <span class="font18">Agreed to your
                          <a href="{% url 'privacy' %}" target="_blank">Privacy Statement</a> and
                          <a href="{% url 'terms' %}" target="_blank">Terms &amp; Conditions</a></span>
                     </label>
+
                 </div>
                 <div class="form-group">
                     <!-- START CAPTCHA -->
@@ -121,18 +129,19 @@
                     </div>
                 </div>
                 <div class="clearfix col-sm-12 clear_2">
-                <button style="  width: 100;"  class="button"  type="submit">
-                    <large class="text-muted"></large>
-                    Login
-                </button>  <a href="#">Forgot Password?</a>
-                </div><br>
+                    <button style="  width: 100;" class="button" type="submit">
+                        <large class="text-muted"></large>
+                        Submit
+                    </button>
+                </div>
+                <br>
             </form>
             <div>
                 <hr>
 
                 <hr>
                 <strong>
-                    Need An Account? <a class="ml-2" href="{% url 'signup' %}">Register</a><br><br>
+                    Already Have An Account? <a class="ml-2" href="{% url 'login' %}">LogIn</a><br><br>
                 </strong>
             </div>
 
@@ -185,6 +194,9 @@ return false;
 function removeSpaces(string){
 return string.split(' ').join('');
 }
+
+
+
 
 
 
