@@ -40,6 +40,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'vivah',
+    'accounts',
+    'crispy_forms',
+    'django.contrib.sites',
+    # 3rd party
+    "allauth",  # new
+    "allauth.account",  # new
+    "allauth.socialaccount",  # new
+    # social providers
+    "allauth.socialaccount.providers.github",  # new
+    "allauth.socialaccount.providers.twitter",  # new
+    "allauth.socialaccount.providers.google",  # new
+    "allauth.socialaccount.providers.facebook",
+    "allauth.socialaccount.providers.linkedin",
+    'django_otp',
+    'django_otp.plugins.otp_totp',
+
 ]
 
 MIDDLEWARE = [
@@ -135,3 +151,4 @@ DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'
 GOOGLE_RECAPTCHA_SITE_KEY ='6Ld0N3wcAAAAAHHxBYv_044U5W4Gqp6nfA2yGF89'
 GOOGLE_RECAPTCHA_SECRET_KEY = '6Ld0N3wcAAAAAD42aciPXinfohM5K5R96c9aa4f-'
 
+SITE_ID = 1
