@@ -52,7 +52,7 @@ def membership(request):
 
 
 def register(request):
-    return render(request, 'vivah/all-in-one.html', {})
+    return render(request, 'vivah/register.html', {})
 
 
 def contact(request):

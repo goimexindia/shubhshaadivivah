@@ -8,7 +8,7 @@ from django.contrib.auth.models import User, auth
 
 
 def register(request):
-    return render(request, 'accounts/register.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
+    return render(request, 'register.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
 
 
 def login(request):
