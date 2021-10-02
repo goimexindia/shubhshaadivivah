@@ -49,6 +49,7 @@
 	width: 105px;
 	}
 
+
 </style>
 <style>
 .button {
@@ -71,7 +72,16 @@
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+input.largerCheckbox {
+    width: 40px;
+    height: 30px;
+}
+
+
+
 </style>
+
 <section id="about_heading_main" class="clearfix">
     <div class="container">
         <div class="row">
@@ -102,12 +112,14 @@
                     <input type="password" name="password" placeholder="password"><br>
                 </fieldset>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1" checked disabled>
-                    <label class="form-check-label" for="exampleCheck1">
+                    <input type="checkbox" class="largerCheckbox" id="Check1"
+                           value=”checked_value” disabled checked>
+                    <label class="form-check-label" for="Check1">
+                        <label class="form-check-label" for="exampleCheck1">
                         <span class="font18">Agreed to your
                          <a href="{% url 'privacy' %}" target="_blank">Privacy Statement</a> and
                          <a href="{% url 'terms' %}" target="_blank">Terms &amp; Conditions</a></span>
-                    </label>
+                        </label>
                 </div>
                 <div class="form-group">
                     <!-- START CAPTCHA -->
@@ -121,13 +133,32 @@
                     </div>
                 </div>
                 <div class="clearfix col-sm-12 clear_2">
-                <button style="  width: 100;"  class="button"  type="submit">
-                    <large class="text-muted"></large>
-                    Login
-                </button>  <a href="#">Forgot Password?</a>
-                </div><br>
+                    <button style="  width: 100;" class="button" type="submit">
+                        <large class="text-muted"></large>
+                        Login
+                    </button>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <br>
             </form>
             <div>
+                <div>
+                    <!-----
+                    <div class="row">
+                        <div class="col-md-8 mx-auto social-container my-2 order-md-1">
+                            <button class="btn btn-primary mb-2">
+                                <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+                            </button>
+                            <button class="btn btn-info mb-2">
+                                <a href="#">Login with LinkedIn</a>
+                            </button>
+                            <button class="btn btn-danger  mb-2">
+                                <a href="#">Login with Instagram</a>
+                            </button>
+                        </div>
+                    </div>
+                    ---->
+                </div>
                 <hr>
 
                 <hr>
@@ -185,6 +216,10 @@ return false;
 function removeSpaces(string){
 return string.split(' ').join('');
 }
+
+
+
+
 
 
 

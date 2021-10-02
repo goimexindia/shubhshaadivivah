@@ -1,11 +1,18 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import AbstractUser
+from django.core.exceptions import ValidationError
+
+
+def validate_email(value):
+    if User.objects.filter(email=value).exists():
+        raise ValidationError((f"{value} is taken."), params={'value': value})
 
 
 # Sign Up Form
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField()
+    email = forms.EmailField(validators=[validate_email])
 
     class Meta:
         model = User
@@ -23,4 +30,4 @@ class ProfileForm(forms.ModelForm):
             'first_name',
             'last_name',
             'email',
-            ]
+        ]

@@ -82,6 +82,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -148,9 +150,24 @@ EMAIL_USE_TLS = True
 
 DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'
 
-GOOGLE_RECAPTCHA_SITE_KEY ='6Ld0N3wcAAAAAHHxBYv_044U5W4Gqp6nfA2yGF89'
+GOOGLE_RECAPTCHA_SITE_KEY = '6Ld0N3wcAAAAAHHxBYv_044U5W4Gqp6nfA2yGF89'
 GOOGLE_RECAPTCHA_SECRET_KEY = '6Ld0N3wcAAAAAD42aciPXinfohM5K5R96c9aa4f-'
 
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = 'home'
+
+
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'login'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '554900665801603'
+SOCIAL_AUTH_FACEBOOK_SECRET = '3e60de109bc4dd451a30c749591b54eb'
+# Define SOCIAL_AUTH_FACEBOOK_SCOPE to get extra permissions from facebook. Email is not sent by default, to get it, you must request the email permission:
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'fields': 'id, name, email'
+}
