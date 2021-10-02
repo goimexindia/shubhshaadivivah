@@ -50,8 +50,8 @@
                             <li><a class="color_1 active_1" href="{% url 'home' %}">Home</a></li>
                             <li><a class="color_1" href="{% url 'about' %}">About Us</a></li>
                             <li><a class="color_1" href="{% url 'services' %}">Services</a></li>
-                            <!----<li><a class="color_1" href="{% url 'membership' %}">Membership</a></li>--->
-                            <li><a class="color_1" href="{% url 'register' %}">Register</a></li>
+                            <li><a class="color_1" href="{% url 'membership' %}">Membership</a></li>
+                            <!---<li><a class="color_1" href="{% url 'register' %}">Register</a></li>----->
                             <li><a class="color_1" href="{% url 'contact' %}">Contact Us</a></li>
                             {% if user.is_authenticated %}
                             <li><a class="color_1" href="{% url 'profile' user.id %}">Profile</a></li>
