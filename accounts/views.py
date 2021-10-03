@@ -34,9 +34,9 @@ def login(request):
             return redirect("/")
         else:
             messages.info(request, 'Invalid Credentials')
-            return redirect('accounts/login')
+            return redirect('login')
     else:
-        return render(request, 'accounts/login.html')
+        return render(request, 'login.html')
 
 
 def logout(request):
