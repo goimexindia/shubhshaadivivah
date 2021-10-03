@@ -53,6 +53,7 @@ class SignUpView(CreateView):
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
+        get_recaptcha = request.POST.get("g-recaptcha-response")
         if form.is_valid():
             email = request.POST['email']
             user = form.save(commit=False)

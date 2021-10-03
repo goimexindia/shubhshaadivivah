@@ -107,7 +107,7 @@ input.largerCheckbox {
             </a>
         </div>
         <div class="col-md-12 col-lg-6 col-xl-7 register-form login-page-form">
-            <form method="post">
+            <form method="post" onsubmit="return checkform(this);">
                 {% csrf_token %}
                 <!--{{ form|crispy }}--->
                 {% for field in form %}
