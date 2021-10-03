@@ -8,6 +8,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.views import View
 
 from accounts.token import account_activation_token
 from shubhshaadivivah import settings
@@ -72,8 +73,8 @@ def signup(request):
             to_list = [email, settings.EMAIL_HOST_USER]
             send_mail(mail_subject, message, from_email, to_list, fail_silently=True)
             messages.success(request, 'Please Confirm your email to complete registration.')
-            ####return redirect('register')
-            return HttpResponse('Please confirm your email address to complete the registration')
+            return redirect('signup')
+            ###return HttpResponse('Please confirm your email address to complete the registration')
     else:
         form = SignUpForm()
 
@@ -102,3 +103,25 @@ class ProfileView(SuccessMessageMixin, UpdateView):
     success_url = reverse_lazy('home')
     template_name = 'accounts/profile.html'
     success_message = 'PROFILE successfully saved!!!!'
+
+
+class ActivateAccount(View):
+
+    def get(self, request, uidb64, token, *args, **kwargs):
+        try:
+            uid = force_text(urlsafe_base64_decode(uidb64))
+            user = User.objects.get(pk=uid)
+        except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+            user = None
+
+        if user is not None and account_activation_token.check_token(user, token):
+            user.is_active = True
+            user.profile.email_confirmed = True
+            user.save()
+            login(request)
+            messages.success(request, ('Your account have been confirmed.'))
+            return redirect('login')
+        else:
+            messages.warning(request, ('The confirmation link was invalid, possibly because it has already been used.'))
+            return redirect('login')
+
