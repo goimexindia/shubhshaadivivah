@@ -12,7 +12,7 @@ def validate_email(value):
 
 # Sign Up Form
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField(validators=[validate_email])
+    email = forms.EmailField(max_length=200, help_text='Required', validators=[validate_email])
 
     class Meta:
         model = User
@@ -22,6 +22,7 @@ class SignUpForm(UserCreationForm):
 # Profile Form
 class ProfileForm(forms.ModelForm):
     username = forms.CharField(disabled=True)
+    email = forms.CharField(disabled=True)
 
     class Meta:
         model = User

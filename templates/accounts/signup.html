@@ -52,6 +52,7 @@
 
 
 
+
 </style>
 <style>
 .button {
@@ -82,6 +83,7 @@ input.largerCheckbox {
 
 
 
+
 </style>
 <section id="about_heading_main" class="clearfix">
     <div class="container">
@@ -105,9 +107,21 @@ input.largerCheckbox {
             </a>
         </div>
         <div class="col-md-12 col-lg-6 col-xl-7 register-form login-page-form">
-            <form  method="post">
+            <form method="post">
                 {% csrf_token %}
-                {{ form|crispy }}
+                <!--{{ form|crispy }}--->
+                {% for field in form %}
+                <p>
+                    {{ field.label_tag }}<br>
+                    {{ field }}
+                    {% if field.help_text %}
+                    <small style="display: none">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+                {% endfor %}
+                </p>
+                {% endfor %}
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="largerCheckbox" id="Check1"
                            value=”checked_value” disabled checked>
@@ -195,6 +209,7 @@ return false;
 function removeSpaces(string){
 return string.split(' ').join('');
 }
+
 
 
 
