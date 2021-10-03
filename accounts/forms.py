@@ -7,7 +7,7 @@ from django.core.exceptions import ValidationError
 
 def validate_email(value):
     if User.objects.filter(email=value).exists():
-        raise ValidationError((f"{value} is taken."), params={'value': value})
+        raise ValidationError(f"{value} is taken.", params={'value': value})
 
 
 # Sign Up Form

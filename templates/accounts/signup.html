@@ -80,11 +80,9 @@ input.largerCheckbox {
     width: 40px;
     height: 30px;
 }
-
-
-
-
 </style>
+
+
 <section id="about_heading_main" class="clearfix">
     <div class="container">
         <div class="row">
@@ -97,6 +95,20 @@ input.largerCheckbox {
         </div>
     </div>
 </section>
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-dismissible alert-success">
+    <button type="button" class="close" data-dismiss="alert">
+        ×
+    </button>
+    <strong>
+        {{message}}
+    </strong>
+</div>
+{% endfor %}
+{% endif %}
+
 {% include 'vivah/form4.html' %}
 <div class="content-section">
     <div class="row no-gutters">
