@@ -1,0 +1,234 @@
+{% extends "accounts/basefile.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<style>
+.capbox {
+	background-color: #C0C0C0;
+	background-image: linear-gradient(#F0F0F0, #666666);
+	border: #000000 0px solid;
+	border-width: 2px 2px 2px 20px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	display: inline-block;
+	padding: 5px 8px 5px 8px;
+	border-radius: 4px 4px 4px 4px;
+	}
+
+.capbox-inner {
+	font: bold 12px arial, sans-serif;
+	color: #000000;
+	background: #C0C0C0;
+	background:rgba(255,255,255,0.60); /* SEMI TRANSPARENT BACKGROUND */
+	margin: 0px auto 0px auto;
+	padding: 3px 10px 5px 10px;
+	border-radius: 4px;
+	display: inline-block;
+	vertical-align: middle;
+	}
+
+#CaptchaDiv {
+	color: #FFFFFF;
+	font: normal 25px Impact, Charcoal, arial, sans-serif;
+	font-style: italic;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #3366FF;
+	user-select: none;
+	display: inline-block;
+	padding: 3px 14px 3px 8px;
+	margin-right: 4px;
+	border-radius: 4px;
+	}
+
+#CaptchaInput {
+	border: #999999 1px solid;
+	margin: 3px 0px 1px 0px;
+	width: 105px;
+	}
+
+
+</style>
+<style>
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+input.largerCheckbox {
+    width: 40px;
+    height: 30px;
+}
+
+
+
+</style>
+
+<section id="about_heading_main" class="clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="about_heading_main_1">
+                    <h5><a href="/">Home</a> <span>//</span> LogIn</h5>
+                    <h1>Log<span>In</span></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="content-section">
+    <div class="row no-gutters">
+        <div class="col-md-6 col-lg-6 col-xl-5 d-md-block d-none register-content">
+            <a href="{% url 'membership' %}">
+                <img src="{% static 'vivah/img/ganesha2.png' %}">
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-7 register-form login-page-form">
+            <form action="login" method="post" onsubmit="return checkform(this);">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Log In</legend>
+                    <label for="username">User Name:</label><br>
+                    <input type="text" name="username" placeholder="username"><br>
+                    <label for="password">Password:</label><br>
+                    <input type="password" name="password" placeholder="password"><br>
+                </fieldset>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="largerCheckbox" id="Check1"
+                           value=”checked_value” disabled checked>
+                    <label class="form-check-label" for="Check1">
+                        <label class="form-check-label" for="exampleCheck1">
+                        <span class="font18">Agreed to your
+                         <a href="{% url 'privacy' %}" target="_blank">Privacy Statement</a> and
+                         <a href="{% url 'terms' %}" target="_blank">Terms &amp; Conditions</a></span>
+                        </label>
+                </div>
+                <div class="form-group">
+                    <!-- START CAPTCHA -->
+                    <div class="capbox">
+                        <div id="CaptchaDiv"></div>
+                        <div class="capbox-inner">
+                            Type the number:<br>
+                            <input type="hidden" id="txtCaptcha">
+                            <input type="text" name="CaptchaInput" id="CaptchaInput" size="15"><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix col-sm-12 clear_2">
+                    <button style="  width: 100;" class="button" type="submit">
+                        <large class="text-muted"></large>
+                        Login
+                    </button>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <br>
+            </form>
+            <div>
+                <div>
+                    <!-----
+                    <div class="row">
+                        <div class="col-md-8 mx-auto social-container my-2 order-md-1">
+                            <button class="btn btn-primary mb-2">
+                                <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+                            </button>
+                            <button class="btn btn-info mb-2">
+                                <a href="#">Login with LinkedIn</a>
+                            </button>
+                            <button class="btn btn-danger  mb-2">
+                                <a href="#">Login with Instagram</a>
+                            </button>
+                        </div>
+                    </div>
+                    ---->
+                </div>
+                <hr>
+
+                <hr>
+                <strong>
+                    Need An Account? <a class="ml-2" href="{% url 'signup' %}">Register</a><br><br>
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+    <script type="text/javascript">
+
+// Captcha Script
+
+function checkform(theform){
+var why = "";
+
+if(theform.CaptchaInput.value == ""){
+why += "- Please Enter CAPTCHA Code.\n";
+}
+if(theform.CaptchaInput.value != ""){
+if(ValidCaptcha(theform.CaptchaInput.value) == false){
+why += "- The CAPTCHA Code Does Not Match.\n";
+}
+}
+if(why != ""){
+alert(why);
+return false;
+}
+}
+
+var a = Math.ceil(Math.random() * 9)+ '';
+var b = Math.ceil(Math.random() * 9)+ '';
+var c = Math.ceil(Math.random() * 9)+ '';
+var d = Math.ceil(Math.random() * 9)+ '';
+var e = Math.ceil(Math.random() * 9)+ '';
+
+var code = a + b + c + d + e;
+document.getElementById("txtCaptcha").value = code;
+document.getElementById("CaptchaDiv").innerHTML = code;
+
+// Validate input against the generated number
+function ValidCaptcha(){
+var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+if (str1 == str2){
+return true;
+}else{
+return false;
+}
+}
+
+// Remove the spaces from the entered and generated code
+function removeSpaces(string){
+return string.split(' ').join('');
+}
+
+
+
+
+
+
+
+
+
+    </script>
+
+</div>
+
+
+{% endblock content %}
+

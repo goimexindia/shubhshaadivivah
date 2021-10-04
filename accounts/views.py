@@ -116,7 +116,7 @@ class ActivateAccount(View):
 
         if user is not None and account_activation_token.check_token(user, token):
             user.is_active = True
-            #user.profile.email_confirmed = True
+            # user.profile.email_confirmed = True
             user.save()
             login(request)
             messages.success(request, ('Your account have been confirmed.'))
@@ -125,3 +125,65 @@ class ActivateAccount(View):
             messages.warning(request, ('The confirmation link was invalid, possibly because it has already been used.'))
             return redirect('login')
 
+
+def handlesignup(request):
+    if request.method == 'POST':
+        # get the post parameters
+        uname = request.POST["uname"]
+        fname = request.POST["fname"]
+        lname = request.POST["lname"]
+        email = request.POST["email"]
+        password1 = request.POST["password1"]
+        password2 = request.POST["password2"]
+        martialstatus = request.POST["MartialStatus"]
+        state = request.POST["State"]
+        dob = request.POST["dob"]
+        searchfor = request.POST["SearchFor"]
+        religion = request.POST["Religion"]
+        caste = request.POST["caste"]
+        # check for errors in input
+        if request.method == 'POST':
+            try:
+                user_exists = User.objects.get(username=request.POST['uname'])
+                messages.error(
+                    request, " Username already taken, Try something else!!!")
+                return redirect("home")
+            except User.DoesNotExist:
+                if len(uname) <= 15:
+                    pass
+                else:
+                    messages.error(
+                        request, " Username must be max 15 characters, Please try again")
+                    return redirect("home")
+            if not uname.isalnum():
+                messages.error(
+                    request, " Username should only contain letters and numbers, Please try again")
+                return redirect("home")
+            if password1 != password2:
+                messages.error(
+                    request, " Password do not match, Please try again")
+                return redirect("home")
+
+            if not uname.isalnum():
+                messages.error(
+                    request, " Username should only contain letters and numbers, Please try again")
+                return redirect("home")
+            if password1 != password2:
+                messages.error(
+                    request, " Password do not match, Please try again")
+                return redirect("home")
+            email_exists = User.objects.filter(email=request.POST['email'])
+            if email_exists :
+                messages.error(
+                    request, " EMAIL already taken..., Please try again")
+                return redirect("home")
+        # create the user
+        user = User.objects.create_user(uname, email, password1)
+        user.first_name = fname
+        user.last_name = lname
+        user.save()
+        messages.success(
+            request, " Your account has been successfully created")
+        return redirect("/")
+    else:
+        return HttpResponse('404 - NOT FOUND ')

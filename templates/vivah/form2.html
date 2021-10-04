@@ -49,9 +49,19 @@
 
 
 
+
+
+
+
+
+
+
+
 </style>
+
+
 <section id="register1" class="clearfix">
-    <form method="POST" action="homeregister" onsubmit="return checkform(this);">
+    <form method="POST" action="{% url 'handlesignup' %}"  onsubmit="return checkform(this);">
         {% csrf_token %}
         <div class="register clearfix">
             <div class="col-sm-5 space_left">
@@ -61,19 +71,34 @@
             </div>
             <div class="col-sm-7">
                 <div class="register_right">
-                    <h3>Sign Up</h3>
-                    <hr>
+                    <div class="arrange">
+                        <center><h1 class="text-center"><span>Sign</span>Up</h1></center>
+                    </div>
                     <div class="register_right_inner clearfix">
                         <div class="clearfix clear_1">
                             <div class="col-sm-6 register_right_inner_1 space_left">
+                                <input type="text" class="form-control" placeholder="Enter your User Name *"
+                                       required name="uname" id="uname"
+                                       data-validation-required-message="Please enter your User Name">
+                            </div>
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <select class="form-control" name="MartialStatus" id="MartialStatus">
+                                    <option value="Marital Status">Marital Status</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Single">Single</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-6 register_right_inner_1 space_left">
                                 <input type="text" class="form-control" placeholder="First Name *"
-                                       required=""
+                                       required="" name="fname" id="fname"
                                        data-validation-required-message="Please enter your first name."
                                 >
                             </div>
                             <div class="col-sm-6 register_right_inner_1 space_left">
                                 <input type="text" class="form-control" placeholder="Last Name *"
-                                       required=""
+                                       required="" name="lname" id="lname"
                                        data-validation-required-message="Please enter your last name."
                                 >
                             </div>
@@ -81,18 +106,18 @@
                         <div class="clearfix clear_1">
                             <div class="col-sm-6 register_right_inner_1 space_left">
                                 <input type="email" class="form-control" placeholder="Email *"
-                                       required=""
+                                       required="" name="email" id="email"
                                        data-validation-required-message="Please enter your email">
                             </div>
                             <div class="col-sm-6 register_right_inner_1 space_left">
                                 <input type="text" class="form-control" placeholder="Mobile *"
-                                       required=""
+                                       required="" name="mobile" id="mobile"
                                        data-validation-required-message="Please enter your mobile.">
                             </div>
                         </div>
                         <div class="clearfix clear_1">
                             <div class="col-sm-6 register_right_inner_1 space_left">
-                                <select class="form-control">
+                                <select class="form-control" name="State" id="State">
                                     <option value=""> --State--</option>
                                     <option value="AN">Andaman And Nicobar</option>
                                     <option value="AP">Andhra Pradesh</option>
@@ -133,13 +158,12 @@
                                 </select>
                             </div>
                             <div class="col-sm-6 register_right_inner_1 space_left">
-                                <input type="text" class="form-control" id="cal_1" placeholder="Date of Birth">
-
+                                <input type="text" class="form-control" name="dob" id="dob" placeholder="Date of Birth">
                             </div>
                         </div>
                         <div class="clearfix clear_1">
                             <div class="col-sm-6 register_right_inner_1 space_left">
-                                <select class="form-control">
+                                <select class="form-control" name="SearchFor" id="SearchFor">
                                     <option>Search For</option>
                                     <option value="Religion">Tamil</option>
                                     <option value="Hindu">Hindu</option>
@@ -158,7 +182,7 @@
                                 </select>
                             </div>
                             <div class="col-sm-6 register_right_inner_1 space_left">
-                                <select class="form-control">
+                                <select class="form-control" name="Religion" id="Religion">
                                     <option value="Religion">Religion</option>
                                     <option value="Hindu">Hindu</option>
                                     <option value="Muslim - Shia">Muslim - Shia</option>
@@ -172,40 +196,34 @@
                                     <option value="Parsi">Parsi</option>
                                     <option value="Buddhist">Buddhist</option>
                                     <option value="Inter-Religion">Inter-Religion</option>
-
-
                                 </select>
                             </div>
                         </div>
                         <div class="clearfix clear_1">
                             <div class="col-sm-6 register_right_inner_1 space_left">
-                                <input type="text" class="form-control" placeholder="Caste">
+                                <input type="text" class="form-control" name="caste" id="caste" placeholder="Caste">
                             </div>
                             <div class="col-sm-6 register_right_inner_1 space_left">
-                                <select class="form-control">
+                                <select class="form-control" name="gender" id="gender">
                                     <option value="Gender">Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
-
                                 </select>
                             </div>
                         </div>
+
                         <div class="clearfix clear_1">
                             <div class="col-sm-6 register_right_inner_1 space_left">
-                                <select class="form-control">
-                                    <option value="Marital Status">Marital Status</option>
-                                    <option value="Married">Married</option>
-                                    <option value="Single">Single</option>
-
-                                </select>
+                                <input type="password" class="form-control" placeholder="Choose a password"
+                                       required name="password1" id="password1"
+                                       data-validation-required-message="Please enter your password."
+                                >
                             </div>
                             <div class="col-sm-6 register_right_inner_1 space_left">
-                                <select class="form-control">
-                                    <option value="Gender">Upload Photo</option>
-                                    <option value="Male">Lorem</option>
-                                    <option value="Female">Ipsum</option>
-
-                                </select>
+                                <input type="password" class="form-control" placeholder="Retype your password"
+                                       required name="password2" id="password2"
+                                       data-validation-required-message="Please re-enter your password"
+                                >
                             </div>
                         </div>
                         <div class="clearfix clear_1">
@@ -232,12 +250,8 @@
                         <div class="clearfix col-sm-12 clear_2">
                             <h3><input type="submit" value="SUBMIT" class="subbutx3"><br></h3>
                         </div>
-                        <br/><br/><br/>
-                        <div class="clearfix col-sm-12 clear_2">
-                            <a href="#" target="_blank">
-                                <button>Sign In!</button>
-                            </a>
-                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -290,6 +304,14 @@ return false;
 function removeSpaces(string){
 return string.split(' ').join('');
 }
+
+
+
+
+
+
+
+
 
 
 
