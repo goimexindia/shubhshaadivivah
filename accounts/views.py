@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpResponse
@@ -10,6 +12,7 @@ from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views import View
 
+from accounts.models import Profile
 from accounts.token import account_activation_token
 from shubhshaadivivah import settings
 from vivah.models import Contactme
@@ -126,6 +129,18 @@ class ActivateAccount(View):
             return redirect('login')
 
 
+def update_user_data(user):
+    Profile.objects.update_or_create(user=user, defaults={'religion': user.profile.religion,
+                                                          'mobile': user.profile.mobile,
+                                                          'gender': user.profile.gender,
+                                                          'birthday': user.profile.birthday,
+                                                          'state': user.profile.state,
+                                                          'searchfor': user.profile.searchfor,
+                                                          'caste': user.profile.caste,
+                                                          'martialstatus': user.profile.martialstatus,
+                                                          })
+
+
 def handlesignup(request):
     if request.method == 'POST':
         # get the post parameters
@@ -133,6 +148,7 @@ def handlesignup(request):
         fname = request.POST["fname"]
         lname = request.POST["lname"]
         email = request.POST["email"]
+        martialstatus = request.POST["MartialStatus"]
         password1 = request.POST["password1"]
         password2 = request.POST["password2"]
         martialstatus = request.POST["MartialStatus"]
@@ -141,6 +157,11 @@ def handlesignup(request):
         searchfor = request.POST["SearchFor"]
         religion = request.POST["Religion"]
         caste = request.POST["caste"]
+        mobile = request.POST["mobile"]
+        gender = request.POST["gender"]
+        birthday = request.POST["dob"]
+        state = request.POST["State"]
+        searchfor = request.POST["SearchFor"]
         # check for errors in input
         if request.method == 'POST':
             try:
@@ -173,7 +194,7 @@ def handlesignup(request):
                     request, " Password do not match, Please try again")
                 return redirect("home")
             email_exists = User.objects.filter(email=request.POST['email'])
-            if email_exists :
+            if email_exists:
                 messages.error(
                     request, " EMAIL already taken..., Please try again")
                 return redirect("home")
@@ -182,8 +203,52 @@ def handlesignup(request):
         user.first_name = fname
         user.last_name = lname
         user.save()
+        user.refresh_from_db()
+        user.profile.religion = religion
+        user.profile.mobile = mobile
+        user.profile.gender = gender
+        user.profile.birthday = birthday
+        user.profile.state = state
+        user.profile.caste = caste
+        user.profile.searchfor = searchfor
+        user.profile.martialstatus = martialstatus
+
+        update_user_data(user)
+        user.save()
+
+        raw_password = password1
+
+        # login user after signing up
+        user = authenticate(username=user.username, password=raw_password)
+
+        AuthenticationForm(request=request, data=request.POST)
+
         messages.success(
             request, " Your account has been successfully created")
         return redirect("/")
     else:
         return HttpResponse('404 - NOT FOUND ')
+
+
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your profile data has been updatedd!')
+            return redirect('profile')
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+    }
+    return render(request, 'profile.html', context)
+

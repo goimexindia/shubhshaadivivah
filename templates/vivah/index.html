@@ -27,6 +27,8 @@ function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
 
+
+
     </script>
 
     <script type="text/javascript"
@@ -77,9 +79,9 @@ function googleTranslateElementInit() {
             <div class="col-md-12 text-center">
 
                 <h2>....Because marriages are between two families.</h2>
-                     {% if user.is_authenticated %}
-                        <h4>   Welcome Back ... {{user.username}}</h4>
-                     {% endif %}
+                {% if user.is_authenticated %}
+                <h4> Welcome Back ... {{user.username}}</h4>
+                {% endif %}
             </div>
         </div>
     </section>
@@ -100,9 +102,15 @@ function googleTranslateElementInit() {
         </div>
     </section>
 </div>
-{% include 'vivah/form2.html' %}
-{% include 'vivah/form1.html' %}
 
+
+{% if user.is_authenticated %}
+     {% include 'vivah/form5.html' %}
+{% else %}
+    {% include 'vivah/form2.html' %}
+{% endif %}
+
+{% include 'vivah/form1.html' %}
 
 <section id="arrange">
     <div class="container">

@@ -1,0 +1,163 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<style>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 28px;
+}
+.title1 {
+  color: blue;
+  font-size: 21px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+
+
+
+
+</style>
+
+</style>
+
+
+<section id="register1" class="clearfix">
+
+    <div class="register clearfix">
+        <div class="col-sm-5 space_left">
+            <div class="register_left">
+                <div class="card-image"><img src="{% static 'vivah/img/482.jpg' %}" width="100%"></div>
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div class="register_right">
+                <div class="content-section">
+                    <h2 style="text-align:center">User Profile Card</h2>
+                    <div class="card" style="text-align:center">
+                        <img src="static/vivah/img/profile.jpg" alt="Profile Picture" width="320px" height="320px">
+                        <h1>{{ user.username }} </h1>
+                        <p class="title">Name : {{ user.first_name }}- {{ user.last_name }}
+                            | {{user.profile.gender}}</p>
+                        <p class="title1">eMail : {{ user.email }}</p>
+                        <p class="title1">Marital Status: {{ user.profile.martialstatus }}
+                        <p class="title1">Mobile: {{ user.profile.mobile }}</p>
+                        <p class="title1">State: {{ user.profile.state }}</p>
+                        <p class="title1">My Search For: {{ user.profile.searchfor }}</p>
+                        <p class="title1">My Religion: {{ user.profile.religion }}-{{user.profile.caste}} </p>
+                        <div style="margin: 24px 0;">
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                        </div>
+                    </div>
+                    <p>
+                        <button>Contact</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+
+// Captcha Script
+
+function checkform(theform){
+var why = "";
+
+if(theform.CaptchaInput.value == ""){
+why += "- Please Enter CAPTCHA Code.\n";
+}
+if(theform.CaptchaInput.value != ""){
+if(ValidCaptcha(theform.CaptchaInput.value) == false){
+why += "- The CAPTCHA Code Does Not Match.\n";
+}
+}
+if(why != ""){
+alert(why);
+return false;
+}
+}
+
+var a = Math.ceil(Math.random() * 9)+ '';
+var b = Math.ceil(Math.random() * 9)+ '';
+var c = Math.ceil(Math.random() * 9)+ '';
+var d = Math.ceil(Math.random() * 9)+ '';
+var e = Math.ceil(Math.random() * 9)+ '';
+
+var code = a + b + c + d + e;
+document.getElementById("txtCaptcha").value = code;
+document.getElementById("CaptchaDiv").innerHTML = code;
+
+// Validate input against the generated number
+function ValidCaptcha(){
+var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+if (str1 == str2){
+return true;
+}else{
+return false;
+}
+}
+
+// Remove the spaces from the entered and generated code
+function removeSpaces(string){
+return string.split(' ').join('');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+

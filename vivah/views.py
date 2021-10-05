@@ -1,11 +1,15 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
+
+from accounts.forms import UserUpdateForm, ProfileUpdateForm
 from shubhshaadivivah import settings
 from vivah.models import Contactme
 
 
 def home(request):
-    return render(request, 'vivah/index.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
+    return render(request, 'vivah/index.html',
+                  {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY,
+                    })
 
 
 def homeregister(request):
@@ -18,6 +22,7 @@ def ellite(request):
 
 def about(request):
     return render(request, 'vivah/about.html', {})
+
 
 def secure(request):
     return render(request, 'vivah/staysecure.html', {})

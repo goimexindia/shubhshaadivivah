@@ -1,8 +1,12 @@
+from importlib._common import _
+
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
+
+from accounts.models import Profile
 
 
 def validate_email(value):
@@ -32,3 +36,24 @@ class ProfileForm(forms.ModelForm):
             'last_name',
             'email',
         ]
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = [ 'martialstatus',  'mobile','religion','gender', 'birthday',
+                   'state','searchfor','caste',
+                    ]
+        labels = {
+            'martialstatus':_('Martial Status'),
+        }
+
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email']
