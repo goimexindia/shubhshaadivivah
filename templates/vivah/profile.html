@@ -1,0 +1,125 @@
+{% extends "accounts/adminprofilebase.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<style>
+      table,
+      td,
+      th {
+        padding: 10px;
+        border: 2px solid #1c87c9;
+        border-radius: 5px;
+        background-color: #e5e5e5;
+        text-align: center;
+      }
+</style>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div id='products' class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow  ">
+                <h2> 0{{pinquirycount}}</h2>
+                <p><h4>Total Inquiries</h4></p>
+            </div>
+        </div>
+
+        <div id='products1' class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow  ">
+                <h2>0{{pproductcount}}</h2>
+                <p><h4>Interest Received</h4></p>
+            </div>
+        </div>
+
+        <div class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow">
+
+                <h2>0{{ppostcount}}</h2>
+                <p><h4>Recent Visitors</h4></p>
+            </div>
+        </div>
+
+
+        <div id='products7' class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow  ">
+                <h2>0{{pordercount}}</h2>
+                <p><h4>Interest Accepted</h4></p>
+            </div>
+        </div>
+
+        <div id='products8' class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow  ">
+                <h2>0{{pordercount}}</h2>
+                <p><h4>Contact Viewed</h4></p>
+            </div>
+        </div>
+
+        <div id='products9' class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow  ">
+                <h2>0{{pordercount}}</h2>
+                <p><h4>Your Viewed</h4></p>
+            </div>
+        </div>
+
+        <div id='products10' class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow  ">
+                <h2>0{{pordercount}}</h2>
+                <p><h4>Shortlist Profile</h4></p>
+            </div>
+        </div>
+
+        <div id='products11' class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow  ">
+                <h2>-{{pordercount}}</h2>
+                <p><h4>-</h4></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div id='info' class="col-lg-8 mx-auto">
+            <div class="row mx-auto">
+                <div class="content-section">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <fieldset class="form-group">
+                            <div class="card bg-warning text-white">
+                                <div class="card-header"><h4>Personnel Details</h4></div>
+                            </div>
+                            {% csrf_token %}
+                            {{ u_form.media }}
+                            {{ u_form|crispy }}
+                            <div class="card bg-warning text-white">
+                                <div class="card-header"><h4>Organization Details</h4></div>
+                            </div>
+                            {% csrf_token %}
+                            {{ p_form.media }}
+                            {{ p_form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <p>
+                                <button class="btn btn-danger" type="Submit">Update</button>
+                            <p><strong>Once your documents have been verified they will no longer be editable. To make
+                                changes
+                                contact
+                                sales@shubhshaadivivah.com</strong></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id='products3' class="col-lg-4 mx-auto">
+            {% include 'accounts/snippets/notice.html' %}
+        </div>
+        <hr>
+
+
+    </div>
+    <div>
+
+
+    </div>
+    {% endblock content %}

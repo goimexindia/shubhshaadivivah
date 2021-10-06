@@ -104,7 +104,7 @@ class ProfileView(SuccessMessageMixin, UpdateView):
     model = User
     form_class = ProfileForm
     success_url = reverse_lazy('home')
-    template_name = 'accounts/profile.html'
+    template_name = 'vivah/profile.html'
     success_message = 'PROFILE successfully saved!!!!'
 
 
@@ -250,5 +250,4 @@ def profile(request):
         'u_form': u_form,
         'p_form': p_form,
     }
-    return render(request, 'profile.html', context)
-
+    return render(request, 'vivah\profile.html', context)

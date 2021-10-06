@@ -1,0 +1,19 @@
+{% load static %}
+<div class="col-md-3 col-xl-3 d-flex justify-content-center justify-content-md-start mb-md-0 mb-3">
+    <a href="/" title="ShubhShaadiVivah"><img alt="ShubhShaadiVivah"
+
+                                                     src="{%  static  'vivah/img/ssv.png' %}"></a>
+</div>
+{% if user.is_authenticated %}
+{% else %}
+<section class="top-bar-head-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-md-flex justify-content-md-center text-center">
+                <h6 class="mr-3">Join today and be a part of the fastest growing B2B Network</h6><a
+                    href="{% url 'register' %}">Join Now</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</section>

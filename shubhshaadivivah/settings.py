@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+from decouple import config, Csv
 from .sec import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,9 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'vivah',
-     'accounts.apps.AccountsConfig',
+    'accounts.apps.AccountsConfig',
     'crispy_forms',
     'django.contrib.sites',
+    'storages',
     # 3rd party
     "allauth",  # new
     "allauth.account",  # new
@@ -157,8 +159,6 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = 'home'
 
-
-
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_URL = 'logout'
@@ -171,3 +171,21 @@ SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'fields': 'id, name, email'
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# S3 BUCKETS CONFIG
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = 'myssvbucket'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+AWS_S3_HOST = 'us-east-2'  # change to your region
+S3_USE_SIGV4 = True
+
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'

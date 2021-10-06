@@ -1,0 +1,94 @@
+<style>
+    ul {
+    margin: 0px;
+    padding: 0px;
+}
+ul li {
+    list-style: none;
+}
+ul li a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 16px;
+    margin: 8px 0px;
+    display: block;
+}
+
+
+
+</style>
+
+<div>
+    <div class="bg-light pt-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="widget-title">
+                        <h3 class="mb-4 fs-5 text-secondary text-uppercase">Customer support</h3>
+                    </div>
+                    <h4 class="text-success">+91-9776922923</h4>
+                    <p class="text-secondary m-0 mt-3">Mon. - Fri. <b>10:00 - 7:00</b></p>
+                    <p class="text-secondary">Sat. - Sun. <b>Off</b></p>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="widget-title">
+                        <h3 class="mb-4 fs-5 text-secondary text-uppercase">About Goimex</h3>
+                    </div>
+                    <ul>
+                        <li><a href="#">Company Overview</a></li>
+                        <li><a href="{% url 'about' %}">Core Features</a></li>
+                        <li><a href="{% url 'about' %}">Global Operations</a></li>
+                        <li><a href="{% url 'contact'  %}">Contact Us</a></li>
+                        <li><a href="{% url 'faq' %}">FAQs</a></li>
+                        <li><a href="#">Privacy Statement</a></li>
+                        <li><a href="{% url 'terms' %}">Terms & conditions</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="widget-title">
+                        <h3 class="mb-4 fs-5 text-secondary text-uppercase">Our services</h3>
+                    </div>
+                    <ul>
+                        <li><a href="#">RFQ</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="widget-title">
+                        <h3 class="mb-4 fs-5 text-secondary text-uppercase">Newsletter signup</h3>
+                    </div>
+                    <form class="row row-cols-lg-auto g-3 align-items-center"
+                          action="" method="POST">
+                        {% csrf_token %}
+                        <div class="col-12">
+                            <label class="visually-hidden">eMail Id</label>
+                            <div class="input-group">
+                                <div class="input-group-text"><i class="bi bi-envelope"></i></div>
+                                <input type="text" name="email" class="form-control" placeholder="Your eMail Id"
+                                       required=""
+                                       data-validation-required-message="Please enter your email address.">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-success w-100">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <p class="text-center text-white py-1 mt-5 bg-secondary">© Copyright 2021 Goimex Global Pvt. Ltd. All rights
+                reserved.| Design by <a href="https://vits.herokuapp.com/">Varun Incorporate</a></p>
+        </div>
+
+        <div class="c-footer_copyright__links w-clearfix">
+            <div class="container">
+                <center><p class="disclaimer1"><small>All Offers/Products/Company Profiles/Images and other user-posted
+                    contents are
+                    posted by
+                    the user and GOIMEX shall not be detained accountable for any such content.</small></p></center>
+            </div>
+        </div>
+    </div>
+</div>

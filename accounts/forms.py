@@ -1,11 +1,9 @@
-from importlib._common import _
-
+from django.utils.translation import gettext_lazy as _
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
-
 from accounts.models import Profile
 
 
@@ -39,20 +37,20 @@ class ProfileForm(forms.ModelForm):
 
 
 class ProfileUpdateForm(forms.ModelForm):
+    birthday = forms.DateField(label='What is your birth date?', widget=forms.SelectDateWidget)
+
     class Meta:
         model = Profile
-        fields = [ 'martialstatus',  'mobile','religion','gender', 'birthday',
-                   'state','searchfor','caste',
-                    ]
-        labels = {
-            'martialstatus':_('Martial Status'),
-        }
+        fields = ['img', 'martialstatus', 'mobile', 'religion', 'gender', 'birthday',
+                  'state', 'searchfor', 'caste',
+                  ]
 
 
 class UserUpdateForm(forms.ModelForm):
-    email = forms.EmailField()
+    email = forms.EmailField(disabled=True)
     first_name = forms.CharField()
     last_name = forms.CharField()
+    username = forms.CharField(disabled=True)
 
     class Meta:
         model = User
