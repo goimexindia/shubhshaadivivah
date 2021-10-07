@@ -65,7 +65,7 @@ button:hover, a:hover {
                 <div class="content-section">
                     <h2 style="text-align:center">User Profile Card</h2>
                     <div class="card" style="text-align:center">
-                        <img src="static/vivah/img/profile.jpg" alt="Profile Picture" width="320px" height="320px">
+                        <img src="{{ request.user.profile.img.url }}" alt="Profile Picture" width="320px" height="320px">
                         <h1>{{ user.username }} </h1>
                         <p class="title">Name : {{ user.first_name }}- {{ user.last_name }}
                             | {{user.profile.gender}} | {{user.profile.birthday}} </p>

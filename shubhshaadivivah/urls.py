@@ -3,6 +3,11 @@ from django.urls import path, include
 from accounts import views as accounts_views
 from django.contrib.auth import views as auth_views
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
+
+admin.site.site_header = 'ShubhShaadiVivah  Administration'
+admin.site.site_title = 'ShubhShaadiVivah Administration'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,3 +37,5 @@ urlpatterns = [
          name='password_reset_complete'),
 
 ]
+
+urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
