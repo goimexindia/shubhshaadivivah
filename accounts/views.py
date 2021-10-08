@@ -249,5 +249,13 @@ def profile(request):
     context = {
         'u_form': u_form,
         'p_form': p_form,
+        'pinterestsent': 0,
+        'pinterestreceived': 0,
+        'pvisitor': 0,
+        'pinterestaccepted': 0,
+        'pintreject': 0,
+        'pshortlist': 0,
+        'pcontactview': 0,
+        'membership': 'FREE',
     }
     return render(request, 'vivah/profile.html', context)

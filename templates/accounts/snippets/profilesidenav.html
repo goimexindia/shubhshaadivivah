@@ -40,6 +40,7 @@
   .asidenav a {font-size: 18px;}
 }
 
+
 </style>
 
 <div id="mySidenav" class="asidenav">
@@ -48,9 +49,12 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="#">Home</a>
     <a href="{% url 'profile' %}">My Profile</a>
-    <a href="#">My Kundali Information</a>
-    <a href="#">My Family Background</a>
-
+    <a href="#">Family Information</a>
+    <a href="#">Horoscope Information</a>
+    <a href="#">Educational Information</a>
+    <a href="#">LifeStyle Information</a>
+    <a href="#">Partner Preferences</a>
+    <a href="#">Profile Images</a>
     {% if user.is_authenticated %}
     <a href="{% url 'logout' %}">Logout</a>
     {% else %}
@@ -59,9 +63,9 @@
     {% endif %}
 
 </div>
- <a href="/" title="ShubhShaadiVivah"><img alt="ShubhShaadiVivah"
+<a href="/" title="ShubhShaadiVivah"><img alt="ShubhShaadiVivah"
 
-                                                     src="{%  static  'vivah/img/ssv.png' %}"></a>
+                                          src="{%  static  'vivah/img/ssv.png' %}"></a>
 <div class="media">
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
     <div class="card bg-primary text-white">
@@ -82,6 +86,7 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+
 
 
 

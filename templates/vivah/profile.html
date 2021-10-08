@@ -19,10 +19,11 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="about_heading_main_1">
-                    <h1>Pro<span>file</span></h1>
-                    <h5>The best time to love with your whole heart is always now, in this moment, because no breath
+                    <center><h1 style="border:2px solid Violet;"><font color="blue"> My Profile</font></h1></center>
+                   <center><h5><font color="red"> Moments - The best time to love with your whole heart is always now, in this moment,
+                         because no breath
                         beyond the current is
-                        promised.</h5>
+                            promised.</font></h5></center>
 
                 </div>
             </div>
@@ -34,15 +35,15 @@
 <div class="container-fluid mt-3">
     <div class="row">
         <div id='products' class="col-lg-3 mx-auto">
-            <div class="card card-cascade card-ecommerce wider shadow  ">
-                <h2> 0{{pinquirycount}}</h2>
-                <p><h4>Total Inquiries</h4></p>
+            <div class="card card-cascade card-ecommerce wider shadow   ">
+                <h2> {{pinterestsent}}</h2>
+                <p><h4>Interest Sent</h4></p>
             </div>
         </div>
 
         <div id='products1' class="col-lg-3 mx-auto">
             <div class="card card-cascade card-ecommerce wider shadow  ">
-                <h2>0{{pproductcount}}</h2>
+                <h2>{{pinterestreceived}}</h2>
                 <p><h4>Interest Received</h4></p>
             </div>
         </div>
@@ -50,7 +51,7 @@
         <div class="col-lg-3 mx-auto">
             <div class="card card-cascade card-ecommerce wider shadow">
 
-                <h2>0{{ppostcount}}</h2>
+                <h2>{{pvisitor}}</h2>
                 <p><h4>Recent Visitors</h4></p>
             </div>
         </div>
@@ -58,36 +59,36 @@
 
         <div id='products7' class="col-lg-3 mx-auto">
             <div class="card card-cascade card-ecommerce wider shadow  ">
-                <h2>0{{pordercount}}</h2>
+                <h2>{{pinterestaccepted}}</h2>
                 <p><h4>Interest Accepted</h4></p>
             </div>
         </div>
 
         <div id='products8' class="col-lg-3 mx-auto">
             <div class="card card-cascade card-ecommerce wider shadow  ">
-                <h2>0{{pordercount}}</h2>
-                <p><h4>Contact Viewed</h4></p>
+                <h2>{{pintreject}}</h2>
+                <p><h4>Interest Rejected</h4></p>
             </div>
         </div>
 
         <div id='products9' class="col-lg-3 mx-auto">
             <div class="card card-cascade card-ecommerce wider shadow  ">
-                <h2>0{{pordercount}}</h2>
-                <p><h4>Your Viewed</h4></p>
+                <h2>{{pcontactview}}</h2>
+                <p><h4>Contact Viewed</h4></p>
             </div>
         </div>
 
         <div id='products10' class="col-lg-3 mx-auto">
             <div class="card card-cascade card-ecommerce wider shadow  ">
-                <h2>0{{pordercount}}</h2>
+                <h2>{{pshortlist}}</h2>
                 <p><h4>Shortlist Profile</h4></p>
             </div>
         </div>
 
         <div id='products11' class="col-lg-3 mx-auto">
             <div class="card card-cascade card-ecommerce wider shadow  ">
-                <h2>-{{pordercount}}</h2>
-                <p><h4>-</h4></p>
+                <h2>{{membership}}</h2>
+                <p><h4>Membership</h4></p>
             </div>
         </div>
 
@@ -108,7 +109,7 @@
                             {{ u_form.media }}
                             {{ u_form|crispy }}
                             <div class="card bg-warning text-white">
-                                <div class="card-header"><h4>My Personal Details</h4></div>
+                                <div class="card-header"><h4>General Details</h4></div>
                             </div>
                             {% csrf_token %}
                             {{ p_form.media }}
