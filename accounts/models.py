@@ -13,6 +13,43 @@ STATUS = (
     (2, "Hold"),
 )
 
+MARTIAL_STATUS = [
+    ('single', "Single"),
+    ('married', "Married"),
+    ('divorced', "Divorced"),
+    ('widowed', "Widowed")
+]
+STATE = (("Andhra Pradesh", "Andhra Pradesh"), ("Arunachal Pradesh ", "Arunachal Pradesh "), ("Assam", "Assam"),
+         ("Chandigarh (UT)", "Chandigarh (UT)"),
+         ("Bihar", "Bihar"), ("Chhattisgarh", "Chhattisgarh"), ("Goa", "Goa"), ("Gujarat", "Gujarat"),
+         ("Haryana", "Haryana"), ("Himachal Pradesh", "Himachal Pradesh"),
+         ("Jammu and Kashmir ", "Jammu and Kashmir "), ("Jharkhand", "Jharkhand"), ("Karnataka", "Karnataka"),
+         ("Kerala", "Kerala"), ("Madhya Pradesh", "Madhya Pradesh"), ("Maharashtra", "Maharashtra"),
+         ("Manipur", "Manipur"), ("Meghalaya", "Meghalaya"), ("Mizoram", "Mizoram"), ("Nagaland", "Nagaland"),
+         ("Odisha", "Odisha"), ("Punjab", "Punjab"), ("Rajasthan", "Rajasthan"), ("Sikkim", "Sikkim"),
+         ("Tamil Nadu", "Tamil Nadu"), ("Telangana", "Telangana"), ("Tripura", "Tripura"),
+         ("Uttar Pradesh", "Uttar Pradesh"), ("Uttarakhand", "Uttarakhand"), ("West Bengal", "West Bengal"),
+         ("Andaman and Nicobar Islands", "Andaman and Nicobar Islands"), ("Chandigarh", "Chandigarh"),
+         ("Dadra and Nagar Haveli", "Dadra and Nagar Haveli"), ("Daman and Diu", "Daman and Diu"),
+         ("Lakshadweep", "Lakshadweep"), ("Pondicherry(UT)", "Pondicherry(UT)"),
+         ("National Capital Territory of Delhi", "National Capital Territory of Delhi"),
+         ("Puducherry", "Puducherry"))
+RELIGION = [
+    ("Religion", "Tamil"),
+    ("Hindu", "Hindu"),
+    ("Muslim - Shia", "Muslim - Shia"),
+    ("Muslim - Sunni", "Muslim - Sunni"),
+    ("Muslim - Others", "Muslim - Others"),
+    ("Christian", "Christian"),
+    ("Sikh", "Sikh"),
+    ("Jain - Digambar", "Jain - Digambar"),
+    ("Jain - Shwetambar", "Jain - Shwetambar"),
+    ("Jain - Others", "Jain - Others"),
+    ("Parsi", "Parsi"),
+    ("Buddhist", "Buddhist"),
+    ("Inter-Religion", "Inter - Religion"),
+]
+
 
 class Subscriber(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -42,19 +79,19 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     email_confirmed = models.BooleanField(default=False)
     birthday = models.DateField(null=True, blank=True)
-    gender = models.CharField(max_length=10, default='Male')
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default="Male")
     mobile = models.CharField(max_length=120, default='123456789')
-    religion = models.CharField(max_length=120, default='HINDU')
-    searchfor = models.CharField(max_length=120, default='HINDU')
+    religion = models.CharField(max_length=50, choices=RELIGION, default='HINDU')
     caste = models.CharField(max_length=120, default='HINDU')
-    martialstatus = models.CharField(max_length=20, default='Single')
+    searchfor = models.CharField(max_length=50, choices=RELIGION, default='HINDU')
+    martialstatus = models.CharField(max_length=20, choices=MARTIAL_STATUS, default='Single')
     img = models.ImageField(upload_to='pics', default='profile1.png', verbose_name='static/vivah/img/profile.jpg')
     bio = models.CharField(max_length=255, null=True, blank=True)
     aboutus = models.CharField(max_length=255, null=True, blank=True)
     address = models.CharField(max_length=255, null=True, blank=True)
     number = models.CharField(max_length=32, null=True, blank=True)
     city = models.CharField(max_length=150, null=True, blank=True)
-    state = models.CharField(max_length=150, null=True, blank=True)
+    state = models.CharField(choices=STATE, max_length=150, null=True, blank=True)
     zip = models.CharField(max_length=30, null=True, blank=True)
     organization = models.CharField(max_length=230, null=True, blank=True)
     type = models.CharField(max_length=50, null=True, blank=True)

@@ -41,9 +41,17 @@ class ProfileUpdateForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ['img', 'martialstatus', 'mobile', 'religion', 'gender', 'birthday',
-                  'state', 'searchfor', 'caste',
+        fields = ['img','gender', 'martialstatus', 'mobile', 'religion', 'caste', 'birthday',
+                  'state', 'searchfor',
                   ]
+
+        labels = {
+            'img': _('Profile Image'),
+            'gender': _('Sex'),
+            'martialstatus': _('Martial Status'),
+            'searchfor': _('Parnter Search Perference'),
+            'caste': _('Sub Caste (please specify if any)')
+        }
 
 
 class UserUpdateForm(forms.ModelForm):

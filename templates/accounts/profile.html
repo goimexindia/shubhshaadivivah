@@ -1,4 +1,4 @@
- {% extends "accounts/basefile.html" %}
+{% extends "accounts/basefile.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
@@ -52,6 +52,8 @@
 
 
 
+
+
 </style>
 <style>
 .button {
@@ -82,7 +84,10 @@ input.largerCheckbox {
 
 
 
+
+
 </style>
+
 <section id="about_heading_main" class="clearfix">
     <div class="container">
         <div class="row">
@@ -95,6 +100,7 @@ input.largerCheckbox {
         </div>
     </div>
 </section>
+
 <div class="content-section">
     <div class="row no-gutters">
         <div class="col-md-6 col-lg-6 col-xl-5 d-md-block d-none register-content">
@@ -104,7 +110,7 @@ input.largerCheckbox {
             </a>
         </div>
         <div class="col-md-12 col-lg-6 col-xl-7 register-form login-page-form">
-            <form  method="post">
+            <form method="post">
                 {% csrf_token %}
                 {{ form|crispy }}
                 <div class="mb-3 form-check">
@@ -194,6 +200,8 @@ return false;
 function removeSpaces(string){
 return string.split(' ').join('');
 }
+
+
 
 
 

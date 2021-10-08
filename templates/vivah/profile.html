@@ -13,7 +13,24 @@
         background-color: #e5e5e5;
         text-align: center;
       }
+
 </style>
+<section id="about_heading_main" class="clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="about_heading_main_1">
+                    <h1>Pro<span>file</span></h1>
+                    <h5>The best time to love with your whole heart is always now, in this moment, because no breath
+                        beyond the current is
+                        promised.</h5>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <div class="container-fluid mt-3">
     <div class="row">
@@ -86,13 +103,13 @@
                     <form action="" method="POST" enctype="multipart/form-data">
                         <fieldset class="form-group">
                             <div class="card bg-warning text-white">
-                                <div class="card-header"><h4>Personnel Details</h4></div>
+                                <div class="card-header"><h4>Login Details</h4></div>
                             </div>
                             {% csrf_token %}
                             {{ u_form.media }}
                             {{ u_form|crispy }}
                             <div class="card bg-warning text-white">
-                                <div class="card-header"><h4>Organization Details</h4></div>
+                                <div class="card-header"><h4>My Personal Details</h4></div>
                             </div>
                             {% csrf_token %}
                             {{ p_form.media }}
