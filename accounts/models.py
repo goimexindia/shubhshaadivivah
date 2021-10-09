@@ -99,7 +99,7 @@ class Profile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     website = models.CharField(max_length=255, null=True, blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    videofile = models.FileField(upload_to='videos/', null=True, verbose_name="")
+    videofile = models.FileField(upload_to='videos/', null=True, verbose_name="", default='video/Krishna.mp4')
     img1 = models.ImageField(upload_to='pics', verbose_name="Profile Image", default='static/vivah/img/profile.jpg')
     img2 = models.ImageField(upload_to='pics', verbose_name="Profile Image", default='static/vivah/img/profile.jpg')
     img3 = models.ImageField(upload_to='pics', verbose_name="Profile Image", default='static/vivah/img/profile.jpg')
