@@ -47,7 +47,6 @@ button:hover, a:hover {
 
 
 
-
 </style>
 
 </style>
@@ -57,17 +56,16 @@ button:hover, a:hover {
 
     <div class="register clearfix">
         <div class="col-sm-5 space_left">
-            <video width="100%" height="360" autoplay muted loop>
-                <source src="{{ request.user.profile.video.url}}" type="video/mp4">
-            </video>
+            <div class="register_left">
+                <div class="card-image"><img src="{% static 'vivah/img/482.jpg' %}" width="100%"></div>
+            </div>
         </div>
         <div class="col-sm-7">
             <div class="register_right">
                 <div class="content-section">
                     <h2 style="text-align:center">User Profile Card</h2>
                     <div class="card" style="text-align:center">
-                        <img src="{{ request.user.profile.img.url }}" alt="Profile Picture" width="320px"
-                             height="320px">
+                        <img src="{{ request.user.profile.img.url }}" alt="Profile Picture" width="320px" height="320px">
                         <h1>{{ user.username }} </h1>
                         <p class="title">Name : {{ user.first_name }}- {{ user.last_name }}
                             | {{user.profile.gender}} | {{user.profile.birthday}} </p>
@@ -141,7 +139,6 @@ return false;
 function removeSpaces(string){
 return string.split(' ').join('');
 }
-
 
 
 
