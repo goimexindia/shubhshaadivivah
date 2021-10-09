@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.db import models
-from django_countries.fields import CountryField
 
 
 GENDER_CHOICES = [
@@ -82,7 +81,6 @@ class Profile(models.Model):
     email_confirmed = models.BooleanField(default=False)
     birthday = models.DateField(null=True, blank=True)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default="Male")
-    country = CountryField()
     mobile = models.CharField(max_length=120, default='123456789')
     religion = models.CharField(max_length=50, choices=RELIGION, default='HINDU')
     caste = models.CharField(max_length=120, default='HINDU')
