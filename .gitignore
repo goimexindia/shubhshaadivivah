@@ -1,0 +1,22 @@
+.svn 
+"YOUR-FILE-WITH-SENSITIVE-DATA" 
+# Ignore all text files
+*.txt
+sec.py
+
+# Ignore files related to API keys
+.env
+
+# Ignore SASS config files
+.sass-cache
+
+# Ignore node_modules folder
+node_modules
+
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+venv/
