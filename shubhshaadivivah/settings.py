@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.linkedin",
     'django_otp',
     'django_otp.plugins.otp_totp',
+    'django_countries',
 
 ]
 
