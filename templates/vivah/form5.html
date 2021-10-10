@@ -44,15 +44,9 @@ button:hover, a:hover {
 }
 
 
-
-
-
-
-
 </style>
 
 </style>
-
 
 <section id="register1" class="clearfix">
 
@@ -78,7 +72,7 @@ button:hover, a:hover {
                         <p class="title">Name : {{ user.first_name }}- {{ user.last_name }}
                             | {{user.profile.gender}} | {{user.profile.birthday}} </p>
                         <p class="title1">eMail : {{ user.email }}</p>
-                        <p class="title1">Marital Status: {{ user.profile.martialstatus }}
+                        <p class="title1">Marital Status: {{user.profile.martialstatus }}
                         <p class="title1">Mobile: {{ user.profile.mobile }}</p>
                         <p class="title1">State: {{ user.profile.state }}</p>
                         <p class="title1">My Search For: {{ user.profile.searchfor }}</p>

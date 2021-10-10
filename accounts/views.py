@@ -295,6 +295,30 @@ def profile1(request):
     return render(request, 'vivah/profile1.html', context)
 
 
+@login_required
+def profilepref(request):
+    if request.method == 'POST':
+        u_form = UserUpdForm(request.POST, instance=request.user)
+        p_form = Partner(request.POST,
+                         request.FILES,
+                         instance=request.user.profile)
+        if p_form.is_valid():
+            p_form.save()
+            messages.success(request, f'Your profile data has been updatedd!')
+            return redirect('profilepref')
+        else:
+            messages.error(request, f'Your profile data has errors!!!!!!')
+            return redirect('profilepref')
+    else:
+        u_form = UserUpdForm(instance=request.user)
+        p_form = Partner(instance=request.user.profile)
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+    }
+    return render(request, 'vivah/profile2.html', context)
+
+
 class NoFormTagCrispyFormMixin(object):
     @property
     def helper(self):

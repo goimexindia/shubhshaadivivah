@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
-from accounts.models import Profile
+from accounts.models import Profile, Preference
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout
 from crispy_forms.bootstrap import TabHolder, Tab
@@ -97,7 +97,6 @@ class UserForm(forms.ModelForm):
                 'number',
                 'website',
                 'aboutus',
-                'organization',
             )
         )
     )
@@ -119,13 +118,12 @@ class UserForm(forms.ModelForm):
             'videofile': _('Introduction Video for yourself'),
             'caste': _('Sub Caste (please specify if any)'),
             'aboutus': _('About Me'),
-            'organization': _('What I Am Looking For?. My ideal partner would be like..'),
-
+            'website': _('Website / Facebook Link ')
         }
 
         fields = ['img', 'videofile', 'img1', 'img2', 'img3', 'img4',
                   'address', 'city', 'zip', 'state', 'number',
-                  'mobile', 'organization', 'website', 'aboutus',
+                  'mobile', 'website', 'aboutus',
                   ]
 
 
@@ -136,3 +134,41 @@ class UserUpdForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'email']
+
+
+class Partner(forms.ModelForm):
+    helper = FormHelper()
+    helper.form_tag = False
+    helper.layout = Layout(
+        TabHolder(
+            Tab(
+                'PARTNER PREFERENCE',
+                'organization',
+                'pagemin',
+                'pagemax',
+                'pmartialstatus',
+                'pcomplexion',
+                'preligion',
+                'pcaste',
+                'peducation',
+            ),
+        )
+    )
+
+    class Meta:
+        model = Preference
+
+        labels = {
+            'organization': _('My ideal partner would be like'),
+            'pagemin': _('Minimum Age'),
+            'pagemax': _('Maximum Age'),
+            'pmartialstatus': _('Martial Status'),
+            'pcomplexion': _('Complexion'),
+            'preligion': _('Religion'),
+            'pcaste': _('Caste'),
+            'peducation': _('Education'),
+        }
+
+        fields = ['organization', 'pagemin', 'pagemax', 'pmartialstatus', 'pcomplexion',
+                  'preligion', 'pcaste', 'peducation',
+                  ]
