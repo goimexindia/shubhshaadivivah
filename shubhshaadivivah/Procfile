@@ -1,1 +1,1 @@
-pip freeweb: gunicorn shubhshaadivivah.wsgi --log-file -
+
