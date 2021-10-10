@@ -14,11 +14,6 @@ from pathlib import Path
 from decouple import config, Csv
 from .sec import *
 
-import dj_database_url
-
-
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
 SECRET_KEY = 'ijo8611y6x@3b-+(k&5z=xj$u6olrwga^b#jp_syw+6fuelx^8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -35,8 +29,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['https://shubhshaadivivah.herokuapp.com/',
                  'shubhshaadivivah.herokuapp.com',
                  'shubhshaadivivah.com',
-                 'localhost',
-                 '0.0.0.0',
                  '127.0.0.1']
 
 # Application definition
@@ -66,6 +58,7 @@ INSTALLED_APPS = [
     'django_otp',
     'django_otp.plugins.otp_totp',
     'django_countries',
+    'ckeditor',
 
 ]
 
@@ -111,21 +104,17 @@ WSGI_APPLICATION = 'shubhshaadivivah.wsgi.application'
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
 #}
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
+        'HOST': 'localhost',
+        'PORT': '',
+
     }
 }
-
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
