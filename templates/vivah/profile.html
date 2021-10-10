@@ -112,7 +112,34 @@
                             </div>
                             {% csrf_token %}
                             {{ p_form.media }}
-                            {{ p_form|crispy }}
+                            <!---{{ p_form|crispy }}--->
+                            {{ p_form.img|as_crispy_field }}
+                            <div class="row">
+                                <div class="col-6">
+                                    {{ p_form.gender|as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ p_form.martialstatus|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    {{ p_form.religion|as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ p_form.caste|as_crispy_field }}
+                                </div>
+                            </div>
+                            {{ p_form.birthday|as_crispy_field }}
+                            <div class="row">
+                                <div class="col-6">
+                                    {{ p_form.mobile|as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ p_form.state|as_crispy_field }}
+                                </div>
+                            </div>
+                            {{ p_form.searchfor|as_crispy_field }}
                         </fieldset>
                         <div class="form-group">
                             <p>
@@ -125,6 +152,7 @@
                     </form>
                 </div>
             </div>
+
         </div>
 
         <div id='products3' class="col-lg-4 mx-auto">

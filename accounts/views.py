@@ -7,10 +7,13 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.core.mail import send_mail
+from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views import View
+from django import forms
+from crispy_forms.helper import FormHelper
 
 from accounts.models import Profile
 from accounts.token import account_activation_token
@@ -20,6 +23,7 @@ from django.contrib.auth.models import User, auth
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
 from accounts.forms import *
+from datetime import date, timedelta
 
 
 def register(request):
@@ -58,6 +62,7 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         get_recaptcha = request.POST.get("g-recaptcha-response")
+
         if form.is_valid():
             email = request.POST['email']
             user = form.save(commit=False)
@@ -163,6 +168,9 @@ def handlesignup(request):
         state = request.POST["State"]
         searchfor = request.POST["SearchFor"]
         # check for errors in input
+        print(date.today())
+        print(birthday)
+        age = (date.today() - birthday).days
         if request.method == 'POST':
             try:
                 user_exists = User.objects.get(username=request.POST['uname'])
@@ -184,7 +192,9 @@ def handlesignup(request):
                 messages.error(
                     request, " Password do not match, Please try again")
                 return redirect("home")
-
+            if age < 18:
+                messages.error(
+                    request, " DOB. Too small to register for marriage, Please try after some years !!!!")
             if not uname.isalnum():
                 messages.error(
                     request, " Username should only contain letters and numbers, Please try again")
@@ -259,3 +269,36 @@ def profile(request):
         'membership': 'FREE',
     }
     return render(request, 'vivah/profile.html', context)
+
+
+@login_required
+def profile1(request):
+    if request.method == 'POST':
+        u_form = UserUpdForm(request.POST, instance=request.user)
+        p_form = UserForm(request.POST,
+                          request.FILES,
+                          instance=request.user.profile)
+        if p_form.is_valid():
+            p_form.save()
+            messages.success(request, f'Your profile data has been updatedd!')
+            return redirect('profile1')
+        else:
+            messages.error(request, f'Your profile data has errors!!!!!!')
+            return redirect('profile1')
+    else:
+        u_form = UserUpdForm(instance=request.user)
+        p_form = UserForm(instance=request.user.profile)
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+    }
+    return render(request, 'vivah/profile1.html', context)
+
+
+class NoFormTagCrispyFormMixin(object):
+    @property
+    def helper(self):
+        if not hasattr(self, '_helper'):
+            self._helper = FormHelper()
+            self._helper.form_tag = False
+        return self._helper

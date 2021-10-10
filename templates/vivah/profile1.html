@@ -1,0 +1,62 @@
+{% extends "accounts/adminprofilebase.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<style>
+      table,
+      td,
+      th {
+        padding: 10px;
+        border: 2px solid #1c87c9;
+        border-radius: 5px;
+        background-color: #e5e5e5;
+        text-align: center;
+      }
+
+
+
+</style>
+
+<div class="card bg-warning text-white">
+    <div class="card-header"><h4>My Contact Details</h4></div>
+</div>
+
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div id='info' class="col-lg-8 mx-auto">
+            <div class="row mx-auto">
+                <div class="content-section">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <fieldset class="form-group">
+                            {% csrf_token %}
+                            {{ p_form.media }}
+                            {% crispy p_form %}
+                        </fieldset>
+                        <div class="form-group">
+                            <p>
+                                <button class="btn btn-danger" type="Submit">Update</button>
+                            <p><strong>Once your documents have been verified they will no longer be editable. To make
+                                changes
+                                contact
+                                sales@shubhshaadivivah.com</strong></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div id='products3' class="col-lg-4 mx-auto">
+            {% include 'accounts/snippets/notice.html' %}
+        </div>
+        <hr>
+
+
+    </div>
+    <div>
+
+
+    </div>
+    {% endblock content %}

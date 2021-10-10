@@ -11,5 +11,6 @@ urlpatterns = [
     path('handlesignup', views.handlesignup, name='handlesignup'),
     path('activate/<uidb64>/<token>/', ActivateAccount.as_view(), name='activate'),
     path('profile', views.profile, name='profile'),
+    path('profile1', views.profile1, name='profile1'),
     path('social-auth/', include('social_django.urls', namespace="social")),
 ]
