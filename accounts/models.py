@@ -1,7 +1,12 @@
+from importlib._common import _
+
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.db import models
-
+from datetime import date
+from django.core.validators import BaseValidator
+from django.utils.deconstruct import deconstructible
+from ckeditor.fields import RichTextField
 
 GENDER_CHOICES = [
     ("male", "Male"),
@@ -52,6 +57,20 @@ RELIGION = [
 ]
 
 
+def calculate_age(born):
+    today = date.today()
+    return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+
+
+@deconstructible
+class MinAgeValidator(BaseValidator):
+    message = _("Age must be at least %(limit_value)d.")
+    code = 'min_age'
+
+    def compare(self, a, b):
+        return calculate_age(a) < b
+
+
 class Subscriber(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     email = models.EmailField(max_length=60)
@@ -80,6 +99,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     email_confirmed = models.BooleanField(default=False)
     birthday = models.DateField(null=True, blank=True)
+   #birthday = models.DateField(null=True, blank=True, validators=[MinAgeValidator(18)])
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default="Male")
     mobile = models.CharField(max_length=120, default='123456789')
     religion = models.CharField(max_length=50, choices=RELIGION, default='HINDU')
@@ -88,13 +108,13 @@ class Profile(models.Model):
     martialstatus = models.CharField(max_length=20, choices=MARTIAL_STATUS, default='Single')
     img = models.ImageField(upload_to='pics', default='profile.jpg', verbose_name='static/pic/img/profile.jpg')
     bio = models.CharField(max_length=255, null=True, blank=True)
-    aboutus = models.CharField(max_length=255, null=True, blank=True)
+    aboutus = RichTextField(blank=True, null=True)
     address = models.CharField(max_length=255, null=True, blank=True)
     number = models.CharField(max_length=32, null=True, blank=True)
     city = models.CharField(max_length=150, null=True, blank=True)
     state = models.CharField(choices=STATE, max_length=150, null=True, blank=True)
     zip = models.CharField(max_length=30, null=True, blank=True)
-    organization = models.CharField(max_length=230, null=True, blank=True)
+    organization =  RichTextField(blank=True, null=True)
     type = models.CharField(max_length=50, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
