@@ -119,7 +119,7 @@ class UserForm(forms.ModelForm):
             'videofile': _('Introduction Video for yourself'),
             'caste': _('Sub Caste (please specify if any)'),
             'aboutus': _('About Me'),
-            'organization': _('What I Am Looking For?'),
+            'organization': _('What I Am Looking For?. My ideal partner would be like..'),
 
         }
 
