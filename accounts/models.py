@@ -240,7 +240,7 @@ class Profile(models.Model):
 
 
 
-    languages = models.CharField(max_length=100, default="English")
+
     # birthday = models.DateField(null=True, blank=True, validators=[MinAgeValidator(18)])
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default="Male")
     mobile = models.CharField(max_length=120, default='123456789')
