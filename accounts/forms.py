@@ -53,17 +53,26 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['img', 'gender', 'martialstatus', 'mobile', 'religion', 'caste', 'birthday',
-                  'state', 'searchfor', 'videofile',
+                  'state', 'searchfor', 'videofile', 'birthplace', 'birthtimehh', 'birthtimemm', 'ampm',
+                  'birthstate', 'birthcountry', 'languages',
                   ]
 
         labels = {
+            'birthtimehh': _('Hour'),
+            'birthtimemm': _('Minute'),
+            'birthplace': _('Birth Place'),
+            'birthstate': _('Birth State'),
+            'birthcountry': _('Birth Country'),
+            'ampm': _('AM/PM'),
             'img': _('Profile Image'),
             'gender': _('Sex'),
             'martialstatus': _('Martial Status'),
             'searchfor': _('Parnter Search Perference'),
             'videofile': _('IntroductiionVideo'),
-            'caste': _('Sub Caste (please specify if any)'),
+            'caste': _('Sub Caste'),
             'organization': _('EXPECTATIONS'),
+            "state": _('Current State'),
+            "languages": _('Languages Known'),
         }
 
 
