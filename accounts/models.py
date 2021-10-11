@@ -197,8 +197,7 @@ class Subscriber(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     email = models.EmailField(max_length=60)
 
-    class Meta:
-        managed = False
+
 
 
 class Whatyouwant(models.Model):
@@ -210,8 +209,7 @@ class Whatyouwant(models.Model):
     phone_number = models.EmailField(max_length=30)
     type = models.EmailField(max_length=60)
 
-    class Meta:
-        managed = False
+
 
 
 class ColdCoffe(models.Model):
@@ -222,8 +220,38 @@ class ColdCoffe(models.Model):
     razorpay_payment_id = models.CharField(max_length=100, blank=True)
     paid = models.BooleanField(default=False)
 
+
+
+
+class Customer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=200, default='123456789')
+    address = models.CharField(max_length=200, null=True, blank=True)
+    joined_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.user.username} Customer'
+
+    def get_absolute_url(self):
+        return reverse('customer-detail', args=[str(self.id)])
+
     class Meta:
-        managed = False
+        ordering = ['full_name']
+
+
+class Preferences(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profilefo = models.CharField(max_length=20, choices=PROFILEFOR, null=True, blank=True)
+    organization = RichTextField(blank=True, null=True)
+    pagemin = models.CharField(max_length=20, choices=AGE, null=True, blank=True)
+    pagemax = models.CharField(max_length=20, choices=AGE, null=True, blank=True)
+    pmartialstatus = models.CharField(max_length=20, choices=MARTIAL_STATUS, null=True, blank=True)
+    pcomplexion = models.CharField(max_length=20, choices=COMPLEXION, null=True, blank=True)
+    preligion = models.CharField(max_length=50, choices=RELIGION, null=True, blank=True)
+    peducation = models.CharField(max_length=50, choices=EDUCATION, null=True, blank=True)
+    pcaste = models.CharField(max_length=120, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 class Profile(models.Model):
@@ -265,34 +293,3 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
-
-
-class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    full_name = models.CharField(max_length=200, default='123456789')
-    address = models.CharField(max_length=200, null=True, blank=True)
-    joined_on = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f'{self.user.username} Customer'
-
-    def get_absolute_url(self):
-        return reverse('customer-detail', args=[str(self.id)])
-
-    class Meta:
-        ordering = ['full_name']
-
-
-class Preferences(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profilefo = models.CharField(max_length=20, choices=PROFILEFOR, null=True, blank=True)
-    organization = RichTextField(blank=True, null=True)
-    pagemin = models.CharField(max_length=20, choices=AGE, null=True, blank=True)
-    pagemax = models.CharField(max_length=20, choices=AGE, null=True, blank=True)
-    pmartialstatus = models.CharField(max_length=20, choices=MARTIAL_STATUS, null=True, blank=True)
-    pcomplexion = models.CharField(max_length=20, choices=COMPLEXION, null=True, blank=True)
-    preligion = models.CharField(max_length=50, choices=RELIGION, null=True, blank=True)
-    peducation = models.CharField(max_length=50, choices=EDUCATION, null=True, blank=True)
-    pcaste = models.CharField(max_length=120, null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
