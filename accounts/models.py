@@ -52,9 +52,9 @@ BIRTHTIME = (
     ("12", "12"),
 )
 
-AMPM=(
-    ("AM","AM"),
-    ("PM","PM"),
+AMPM = (
+    ("AM", "AM"),
+    ("PM", "PM"),
 )
 
 AGE = (
@@ -200,6 +200,7 @@ class Subscriber(models.Model):
     class Meta:
         managed = False
 
+
 class Whatyouwant(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     email = models.EmailField(max_length=60)
@@ -212,6 +213,7 @@ class Whatyouwant(models.Model):
     class Meta:
         managed = False
 
+
 class ColdCoffe(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
@@ -223,11 +225,12 @@ class ColdCoffe(models.Model):
     class Meta:
         managed = False
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     email_confirmed = models.BooleanField(default=False)
     birthday = models.DateField(null=True, blank=True)
-    birthtimehh = models. CharField(max_length=10, choices=BIRTHTIME, null=True, blank=True)
+    birthtimehh = models.CharField(max_length=10, choices=BIRTHTIME, null=True, blank=True)
     birthtimemm = models.CharField(max_length=10, choices=AGE, null=True, blank=True)
     birthplace = models.CharField(max_length=100, default="PUNE")
     birthstate = models.CharField(max_length=100, default="MAHARASHTRA")
@@ -282,14 +285,14 @@ class Customer(models.Model):
 
 class Preferences(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profilefo = models.CharField(max_length=20, choices=PROFILEFOR,  null=True, blank=True)
+    profilefo = models.CharField(max_length=20, choices=PROFILEFOR, null=True, blank=True)
     organization = RichTextField(blank=True, null=True)
-    pagemin = models.CharField(max_length=20, choices=AGE,  null=True, blank=True)
+    pagemin = models.CharField(max_length=20, choices=AGE, null=True, blank=True)
     pagemax = models.CharField(max_length=20, choices=AGE, null=True, blank=True)
-    pmartialstatus = models.CharField(max_length=20, choices=MARTIAL_STATUS,  null=True, blank=True)
+    pmartialstatus = models.CharField(max_length=20, choices=MARTIAL_STATUS, null=True, blank=True)
     pcomplexion = models.CharField(max_length=20, choices=COMPLEXION, null=True, blank=True)
-    preligion = models.CharField(max_length=50, choices=RELIGION,  null=True, blank=True)
+    preligion = models.CharField(max_length=50, choices=RELIGION, null=True, blank=True)
     peducation = models.CharField(max_length=50, choices=EDUCATION, null=True, blank=True)
-    pcaste = models.CharField(max_length=120,  null=True, blank=True)
+    pcaste = models.CharField(max_length=120, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
