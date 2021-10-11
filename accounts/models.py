@@ -217,30 +217,17 @@ class ColdCoffe(models.Model):
     paid = models.BooleanField(default=False)
 
 
-class Preference(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profilefo = models.CharField(max_length=20, choices=PROFILEFOR, default='Myself')
-    organization = RichTextField(blank=True, null=True)
-    pagemin = models.CharField(max_length=20, choices=AGE, default='30')
-    pagemax = models.CharField(max_length=20, choices=AGE, default='30')
-    pmartialstatus = models.CharField(max_length=20, choices=MARTIAL_STATUS, default='Single')
-    pcomplexion = models.CharField(max_length=20, choices=COMPLEXION, default='Fair')
-    preligion = models.CharField(max_length=50, choices=RELIGION, default='HINDU')
-    peducation = models.CharField(max_length=50, choices=EDUCATION,
-                                  default='Bachelors - Engineering / Computers / Others')
-    pcaste = models.CharField(max_length=120, default='HINDU')
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     email_confirmed = models.BooleanField(default=False)
     birthday = models.DateField(null=True, blank=True)
-
-
-
-
+    birthtimehh = models. CharField(max_length=10, choices=BIRTHTIME, null=True, blank=True)
+    birthtimemm = models.CharField(max_length=10, choices=AGE, null=True, blank=True)
+    birthplace = models.CharField(max_length=100, default="PUNE")
+    birthstate = models.CharField(max_length=100, default="MAHARASHTRA")
+    birthcountry = models.CharField(max_length=100, default="INDIA")
+    ampm = models.CharField(max_length=4, choices=AMPM, default="AM")
+    languages = models.CharField(max_length=100, default="English")
     # birthday = models.DateField(null=True, blank=True, validators=[MinAgeValidator(18)])
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default="Male")
     mobile = models.CharField(max_length=120, default='123456789')
@@ -285,3 +272,18 @@ class Customer(models.Model):
 
     class Meta:
         ordering = ['full_name']
+
+
+class Preferences(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profilefo = models.CharField(max_length=20, choices=PROFILEFOR,  null=True, blank=True)
+    organization = RichTextField(blank=True, null=True)
+    pagemin = models.CharField(max_length=20, choices=AGE,  null=True, blank=True)
+    pagemax = models.CharField(max_length=20, choices=AGE, null=True, blank=True)
+    pmartialstatus = models.CharField(max_length=20, choices=MARTIAL_STATUS,  null=True, blank=True)
+    pcomplexion = models.CharField(max_length=20, choices=COMPLEXION, null=True, blank=True)
+    preligion = models.CharField(max_length=50, choices=RELIGION,  null=True, blank=True)
+    peducation = models.CharField(max_length=50, choices=EDUCATION, null=True, blank=True)
+    pcaste = models.CharField(max_length=120,  null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

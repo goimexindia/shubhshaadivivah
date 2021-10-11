@@ -18,7 +18,6 @@
 
 
 
-
 </style>
 <section id="about_heading_main" class="clearfix">
     <div class="container">
@@ -135,10 +134,33 @@
                                     {{ p_form.caste|as_crispy_field }}
                                 </div>
                                 <div class="col-4">
-
+                                    {{ p_form.languages|as_crispy_field }}
                                 </div>
                             </div>
                             {{ p_form.birthday|as_crispy_field }}
+                            <div class="row">
+                                <div class="col-4">
+                                    {{ p_form.birthtimehh|as_crispy_field }}
+                                </div>
+                                <div class="col-4">
+                                    {{ p_form.birthtimemm|as_crispy_field }}
+                                </div>
+                                <div class="col-4">
+                                    {{ p_form.ampm|as_crispy_field }}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    {{ p_form.birthplace|as_crispy_field }}
+                                </div>
+                                <div class="col-4">
+                                    {{ p_form.birthstate|as_crispy_field }}
+                                </div>
+                                <div class="col-4">
+                                    {{ p_form.birthcountry|as_crispy_field }}
+                                </div>
+                            </div>
 
 
                             <div class="row">

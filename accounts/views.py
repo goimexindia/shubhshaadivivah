@@ -170,7 +170,6 @@ def handlesignup(request):
         # check for errors in input
         print(date.today())
         print(birthday)
-        age = (date.today() - birthday).days
         if request.method == 'POST':
             try:
                 user_exists = User.objects.get(username=request.POST['uname'])
@@ -192,9 +191,7 @@ def handlesignup(request):
                 messages.error(
                     request, " Password do not match, Please try again")
                 return redirect("home")
-            if age < 18:
-                messages.error(
-                    request, " DOB. Too small to register for marriage, Please try after some years !!!!")
+
             if not uname.isalnum():
                 messages.error(
                     request, " Username should only contain letters and numbers, Please try again")
@@ -297,12 +294,15 @@ def profile1(request):
 
 @login_required
 def profilepref(request):
+    print("1")
+    print(request.method)
     if request.method == 'POST':
-        u_form = UserUpdForm(request.POST, instance=request.user)
-        p_form = Partner(request.POST,
+        print("2")
+        p_form = PartnerForm(request.POST,
                          request.FILES,
-                         instance=request.user.profile)
+                         instance=request.user.preferences)
         if p_form.is_valid():
+            print("4")
             p_form.save()
             messages.success(request, f'Your profile data has been updatedd!')
             return redirect('profilepref')
@@ -310,10 +310,9 @@ def profilepref(request):
             messages.error(request, f'Your profile data has errors!!!!!!')
             return redirect('profilepref')
     else:
-        u_form = UserUpdForm(instance=request.user)
-        p_form = Partner(instance=request.user.profile)
+        print("3")
+        p_form = PartnerForm(instance=request.user.preferences)
     context = {
-        'u_form': u_form,
         'p_form': p_form,
     }
     return render(request, 'vivah/profile2.html', context)

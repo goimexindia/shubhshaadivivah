@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
-from accounts.models import Profile, Preference
+from accounts.models import *
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout
 from crispy_forms.bootstrap import TabHolder, Tab
@@ -53,7 +53,8 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['img', 'gender', 'martialstatus', 'mobile', 'religion', 'caste', 'birthday',
-                  'state', 'searchfor', 'videofile',
+                  'state', 'searchfor', 'videofile', 'birthplace', 'birthtimehh', 'birthtimemm', 'ampm',
+                  'birthstate', 'birthcountry', 'languages',
                   ]
 
         labels = {
@@ -152,28 +153,9 @@ class UserUpdForm(forms.ModelForm):
         fields = ['username', 'email']
 
 
-class Partner(forms.ModelForm):
-    helper = FormHelper()
-    helper.form_tag = False
-    helper.layout = Layout(
-        TabHolder(
-            Tab(
-                'PARTNER PREFERENCE',
-                'organization',
-                'pagemin',
-                'pagemax',
-                'pmartialstatus',
-                'pcomplexion',
-                'preligion',
-                'pcaste',
-                'peducation',
-            ),
-        )
-    )
-
+class PartnerForm(forms.ModelForm):
     class Meta:
-        model = Preference
-
+        model = Preferences
         labels = {
             'organization': _('My ideal partner would be like'),
             'pagemin': _('Minimum Age'),
@@ -184,7 +166,6 @@ class Partner(forms.ModelForm):
             'pcaste': _('Caste'),
             'peducation': _('Education'),
         }
-
         fields = ['organization', 'pagemin', 'pagemax', 'pmartialstatus', 'pcomplexion',
                   'preligion', 'pcaste', 'peducation',
                   ]
