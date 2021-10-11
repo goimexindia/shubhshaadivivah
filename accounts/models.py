@@ -237,12 +237,9 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     email_confirmed = models.BooleanField(default=False)
     birthday = models.DateField(null=True, blank=True)
-    birthtimehh = models. CharField(max_length=10, choices=BIRTHTIME, null=True, blank=True)
-    birthtimemm = models.CharField(max_length=10, choices=AGE, null=True, blank=True)
-    birthplace = models.CharField(max_length=100, default="PUNE")
-    birthstate = models.CharField(max_length=100, default="MAHARASHTRA")
-    birthcountry = models.CharField(max_length=100, default="INDIA")
-    ampm = models.CharField(max_length=4, choices=AMPM, default="AM")
+
+
+
     languages = models.CharField(max_length=100, default="English")
     # birthday = models.DateField(null=True, blank=True, validators=[MinAgeValidator(18)])
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default="Male")
