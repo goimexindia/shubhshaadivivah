@@ -194,10 +194,7 @@ class MinAgeValidator(BaseValidator):
 
 
 class Subscriber(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
     email = models.EmailField(max_length=60)
-
-
 
 
 class Whatyouwant(models.Model):
@@ -210,16 +207,12 @@ class Whatyouwant(models.Model):
     type = models.EmailField(max_length=60)
 
 
-
-
 class ColdCoffe(models.Model):
     name = models.CharField(max_length=100)
     amount = models.CharField(max_length=100)
     order_id = models.CharField(max_length=100, blank=True)
     razorpay_payment_id = models.CharField(max_length=100, blank=True)
     paid = models.BooleanField(default=False)
-
-
 
 
 class Customer(models.Model):
