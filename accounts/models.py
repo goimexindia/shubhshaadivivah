@@ -197,6 +197,8 @@ class Subscriber(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     email = models.EmailField(max_length=60)
 
+    class Meta:
+        managed = False
 
 class Whatyouwant(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -207,6 +209,8 @@ class Whatyouwant(models.Model):
     phone_number = models.EmailField(max_length=30)
     type = models.EmailField(max_length=60)
 
+    class Meta:
+        managed = False
 
 class ColdCoffe(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -216,6 +220,8 @@ class ColdCoffe(models.Model):
     razorpay_payment_id = models.CharField(max_length=100, blank=True)
     paid = models.BooleanField(default=False)
 
+    class Meta:
+        managed = False
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
