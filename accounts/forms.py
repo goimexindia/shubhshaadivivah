@@ -53,7 +53,7 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['img', 'gender', 'martialstatus', 'mobile', 'religion', 'caste', 'birthday',
-                  'state', 'searchfor', 'videofile', 'birthplace', 'birthtimehh', 'birthtimemm', 'ampm',
+                  'state', 'searchfor', 'videofile', 'birthplace', 'birthtimehh1', 'birthtimemm1', 'ampm',
                   'birthstate', 'birthcountry', 'languages',
                   ]
 
