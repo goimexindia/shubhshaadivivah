@@ -198,7 +198,6 @@ class Subscriber(models.Model):
 
 
 class Whatyouwant(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
     email = models.EmailField(max_length=60)
     product_want = models.EmailField(max_length=260)
     full_name = models.EmailField(max_length=70)
