@@ -1,0 +1,141 @@
+{% extends "accounts/adminprofilebase.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<style>
+      table,
+      td,
+      th {
+        padding: 10px;
+        border: 2px solid #1c87c9;
+        border-radius: 5px;
+        background-color: #e5e5e5;
+        text-align: center;
+      }
+
+
+
+
+
+
+</style>
+<section id="about_heading_main" class="clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="about_heading_main_1">
+                    <center><h1 style="border:2px solid Violet;"><font color="blue"> My Profile</font></h1></center>
+                    <center><h5><font color="red"> Moments - The best time to love with your whole heart is always now,
+                        in this moment,
+                        because no breath
+                        beyond the current is
+                        promised.</font></h5></center>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div id='products' class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow   ">
+                <h3> {{pinterestsent}}</h3>
+                <p><h5><font color="blue"> Interest Sent</font></h5></p>
+            </div>
+        </div>
+        <div class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow">
+
+                <h3>{{pvisitor}}</h3>
+                <p><h5><font color="green"> Recent Visitors</font></h5></p>
+            </div>
+        </div>
+
+        <div id='products8' class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow  ">
+                <h3>{{pintreject}}</h3>
+                <p><h5><font color="blue"> Interest Rejected</font></h5></p>
+            </div>
+        </div>
+
+        <div id='products9' class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow  ">
+                <h3>{{pcontactview}}</h3>
+                <p><h5><font color="green"> Contact Viewed</font></h5></p>
+            </div>
+        </div>
+
+        <div id='products10' class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow  ">
+                <h3>{{pshortlist}}</h3>
+                <p><h5><font color="blue"> Shortlist Profile</font></h5></p>
+            </div>
+        </div>
+
+        <div id='products11' class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow  ">
+                <h4>{{membership}}</h4>
+                <p><h5><font color="green"> Membership</font></h5></p>
+            </div>
+        </div>
+
+        <div id='products1' class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow  ">
+                <h3>{{pinterestreceived}}</h3>
+                <p><h5><font color="blue"> Interest Received</font></h5></p>
+            </div>
+        </div>
+        <div id='products7' class="col-lg-3 mx-auto">
+            <div class="card card-cascade card-ecommerce wider shadow  ">
+                <h3>{{pinterestaccepted}}</h3>
+                <p><h5><font color="green"> Interest Accepted</font></h5></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div id='info' class="col-lg-8 mx-auto">
+            <div class="row mx-auto">
+                <div class="content-section">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <fieldset class="form-group">
+                            <div class="card bg-warning text-white">
+                                <div class="card-header"><h4>Login Details</h4></div>
+                            </div>
+                            {% csrf_token %}
+                            {{ p_form.media }}
+                            {{ p_form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <p>
+                                <button class="btn btn-danger" type="Submit">Update</button>
+                            <p><strong>Once your documents have been verified they will no longer be editable. To make
+                                changes
+                                contact
+                                sales@shubhshaadivivah.com</strong></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div id='products3' class="col-lg-4 mx-auto">
+            {% include 'accounts/snippets/notice.html' %}
+        </div>
+        <hr>
+
+
+    </div>
+    <div>
+
+
+    </div>
+    {% endblock content %}

@@ -315,7 +315,6 @@ def profilepref(request):
 
 @login_required
 def familyvalues(request):
-    print("0")
     print(request.method)
     if request.method == 'POST':
         print("2")
@@ -334,8 +333,17 @@ def familyvalues(request):
         p_form = FamilyValuesForm(instance=request.user.familyvalues)
     context = {
         'p_form': p_form,
+        'pinterestsent': 0,
+        'pinterestreceived': 0,
+        'pvisitor': 0,
+        'pinterestaccepted': 0,
+        'pintreject': 0,
+        'pshortlist': 0,
+        'pcontactview': 0,
+        'membership': 'FREE',
+
     }
-    return render(request, 'vivah/profile3.html', context)
+    return render(request, 'vivah/profile5.html', context)
 
 
 class NoFormTagCrispyFormMixin(object):
