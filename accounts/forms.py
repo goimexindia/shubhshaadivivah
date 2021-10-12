@@ -124,9 +124,9 @@ class UserForm(forms.ModelForm):
         labels = {
             'img': _('Profile Image'),
             'img1': _('Upload Kundali'),
-            'img2': _('Profile Image-2'),
-            'img3': _('Profile Image-3'),
-            'img4': _('Profile Image-4'),
+            'img2': _('Family Photo'),
+            'img3': _('Profile Image'),
+            'img4': _('Profile Image'),
             'zip': _('Pincode'),
             'number': _('Office Contact Numbers'),
             'gender': _('Sex'),
@@ -138,7 +138,7 @@ class UserForm(forms.ModelForm):
             'website': _('Website / Facebook Link ')
         }
 
-        fields = ['img', 'videofile', 'img1', 'img2', 'img3', 'img4',
+        fields = ['img', 'videofile', 'img2', 'img3', 'img1', 'img4',
                   'address', 'city', 'zip', 'state', 'number',
                   'mobile', 'website', 'aboutus',
                   ]
@@ -176,13 +176,17 @@ class FamilyValuesForm(forms.ModelForm):
         model = FamilyValues
         labels = {
             'height': _('My Height'),
+            'aboutfamily': _('About My Family'),
+            'father': _('Fathers Occupation'),
+            'mother': _('Mothers Occupation'),
             'familystatus': _('Family Status'),
             'familytype': _('Family Type'),
-            'familyvalues': _('family Values'),
+            'familyvalues': _('Family Values'),
             'employed': _('Employed'),
-            'designation': _('Designation'),
+            'designation': _('Designation/Occupation'),
             'annualincome': _('My Annual Income (in lakhs) Rs.'),
         }
-        fields = ['height', 'familystatus', 'familyvalues', 'familytype', 'employed',
-                  'designation', 'annualincome' ,
+        fields = ['height', 'familystatus', 'father', 'mother', 'brother', 'sister', 'familyvalues', 'familytype',
+                  'employed',
+                  'designation', 'annualincome', 'aboutfamily',
                   ]

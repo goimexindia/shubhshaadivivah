@@ -13,6 +13,22 @@ GENDER_CHOICES = [
     ("female", "Female"),
 ]
 
+ANNUALINCOME = [
+    ("0", "Rs. 0 - 1 LAKH"),
+    ("1", "Rs. 1 - 2 LAKH"),
+    ("2", "Rs. 2 - 3 LAKH"),
+    ("3", "Rs. 3 - 4 LAKH"),
+    ("4", "Rs. 4 - 5 LAKH"),
+    ("5", "Rs. 5 - 10 LAKH"),
+    ("6", "Rs. 10 - 20 LAKH"),
+    ("7", "Rs. 20 - 30 LAKH"),
+    ("8", "Rs. 30 - 40 LAKH"),
+    ("9", "Rs. 40 - 50 LAKH"),
+    ("10", "Rs. 50 - 70 LAKH"),
+    ("11", "Rs. 70 - 1 Core"),
+    ("12", "Rs. 1 core & above"),
+]
+
 EMPLOYED = [
     ("Self Employed", "Self Employed"),
     ("Business", "Business"),
@@ -21,6 +37,7 @@ EMPLOYED = [
     ("MNC", "MNC"),
     ("Defence", "Defence"),
     ("Private", "Private"),
+    ("Civil Services", "Civil Services"),
     ("Not Working", "Not Working"),
 ]
 
@@ -201,6 +218,8 @@ MARTIAL_STATUS = [
     ('waiting for divorced', "Waiting For Divorced"),
     ('widowed', "Widowed"),
     ('any status', "Any Status"),
+    ('never married', "Never Married"),
+    ('annulled', "Annulled"),
 ]
 
 EDUCATION = [
@@ -318,8 +337,10 @@ class Preferences(models.Model):
     pcaste = models.CharField(max_length=120, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return f'{self.user.username} Preferences'
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -371,8 +392,13 @@ class FamilyValues(models.Model):
     familyvalues = models.CharField(max_length=100, choices=FAMILYVALUES, null=True, blank=True)
     disability = models.CharField(max_length=100, null=True, blank=True)
     employed = models.CharField(max_length=100, choices=EMPLOYED, null=True, blank=True)
+    father = models.CharField(max_length=100, choices=EMPLOYED, null=True, blank=True)
+    mother = models.CharField(max_length=100, choices=EMPLOYED, null=True, blank=True)
+    brother = models.CharField(max_length=100, choices=BIRTHTIME, null=True, blank=True)
+    sister = models.CharField(max_length=100, choices=BIRTHTIME, null=True, blank=True)
+    aboutfamily = RichTextField(blank=True, null=True)
     designation = models.CharField(max_length=100, null=True, blank=True)
-    annualincome= models.CharField(max_length=100, null=True, blank=True)
+    annualincome = models.CharField(max_length=100, choices=ANNUALINCOME, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
