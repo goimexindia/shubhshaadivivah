@@ -271,7 +271,6 @@ def profile(request):
 @login_required
 def profile1(request):
     if request.method == 'POST':
-        u_form = UserUpdForm(request.POST, instance=request.user)
         p_form = UserForm(request.POST,
                           request.FILES,
                           instance=request.user.profile)
@@ -283,10 +282,8 @@ def profile1(request):
             messages.error(request, f'Your profile data has errors!!!!!!')
             return redirect('profile1')
     else:
-        u_form = UserUpdForm(instance=request.user)
         p_form = UserForm(instance=request.user.profile)
     context = {
-        'u_form': u_form,
         'p_form': p_form,
     }
     return render(request, 'vivah/profile1.html', context)
@@ -318,22 +315,25 @@ def profilepref(request):
 
 @login_required
 def familyvalues(request):
+    print("0")
     print(request.method)
     if request.method == 'POST':
-        r_form = FamilyValuesForm(request.POST,
-                                  request.FILES,
-                                  instance=request.user.familyvalues)
-        if r_form.is_valid():
-            r_form.save()
-            messages.success(request, f'Your profile data has been updated!')
+        print("2")
+        p_form = FamilyValuesForm(request.POST,
+                             request.FILES,
+                             instance=request.user.familyvalues)
+        if p_form.is_valid():
+            print("4")
+            p_form.save()
+            messages.success(request, f'Your familyvalues data has been updatedd!')
             return redirect('familyvalues')
         else:
-            messages.error(request, f'Your profile data has errors!!!!!!')
+            messages.error(request, f'Your familyvalues data has errors!!!!!!')
             return redirect('familyvalues')
     else:
-        r_form = FamilyValuesForm(instance=request.user.familyvalues)
+        p_form = FamilyValuesForm(instance=request.user.familyvalues)
     context = {
-        'r_form': r_form,
+        'p_form': p_form,
     }
     return render(request, 'vivah/profile3.html', context)
 

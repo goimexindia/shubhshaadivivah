@@ -318,7 +318,8 @@ class Preferences(models.Model):
     pcaste = models.CharField(max_length=120, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
+    def __str__(self):
+        return f'{self.user.username} Preferences'
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -364,14 +365,14 @@ class Profile(models.Model):
 
 class FamilyValues(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    height = models.CharField(max_length=20, choices=HEIGHT, null=True, blank=True)
-    familystatus = models.CharField(max_length=30, choices=FAMILYSTATUS, null=True, blank=True)
-    familytype = models.CharField(max_length=30, choices=FAMILYTYPE, null=True, blank=True)
-    familyvalues = models.CharField(max_length=30, choices=FAMILYVALUES, null=True, blank=True)
-    disability = models.CharField(max_length=30, null=True, blank=True)
-    employed = models.CharField(max_length=30, choices=EMPLOYED, null=True, blank=True)
-    designation = models.CharField(max_length=30, null=True, blank=True)
-    annualincome= models.CharField(max_length=30, null=True, blank=True)
+    height = models.CharField(max_length=100, choices=HEIGHT, null=True, blank=True)
+    familystatus = models.CharField(max_length=100, choices=FAMILYSTATUS, null=True, blank=True)
+    familytype = models.CharField(max_length=100, choices=FAMILYTYPE, null=True, blank=True)
+    familyvalues = models.CharField(max_length=100, choices=FAMILYVALUES, null=True, blank=True)
+    disability = models.CharField(max_length=100, null=True, blank=True)
+    employed = models.CharField(max_length=100, choices=EMPLOYED, null=True, blank=True)
+    designation = models.CharField(max_length=100, null=True, blank=True)
+    annualincome= models.CharField(max_length=100, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

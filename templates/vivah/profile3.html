@@ -1,4 +1,4 @@
-{% extends "accounts/adminprofilebase.html" %}
+ {% extends "accounts/adminprofilebase.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
 {% block title %}Profile{% endblock %}
@@ -13,45 +13,40 @@
         background-color: #e5e5e5;
         text-align: center;
       }
+
 </style>
+
 <div class="card bg-warning text-white">
-    <div class="card-header"><h4>FAMILY VALUES</h4></div>
+    <div class="card-header"><h4>Family Values</h4></div>
 </div>
 
-<div class="regformbg">
-    <div class="container-fluid mt-3">
-        <br>
-        <div class="row">
-            <div id='info' class="col-lg-8 mx-auto">
-                <div class="row mx-auto">
-                    <div class="content-section">
-                        <form action="familyvalues" method="POST" enctype="multipart/form-data">
-                            <fieldset class="form-group">
-                                {% csrf_token %}
-                                {{ r_form.media }}
-                                {%  crispy r_form %}
-                            </fieldset>
-
-                            <div class="form-group">
-                                <p>
-                                    <button class="btn btn-danger" type="Submit">Update</button>
-                                <p><strong>Once your documents have been verified they will no longer be editable. To
-                                    make
-                                    changes
-                                    contact
-                                    sales@shubhshaadivivah.com</strong></p>
-                            </div>
-                        </form>
-                    </div>
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div id='info' class="col-lg-8 mx-auto">
+            <div class="row mx-auto">
+                <div class="content-section">
+                    <form method="POST" enctype="multipart/form-data">
+                        <fieldset class="form-group">
+                            {% csrf_token %}
+                            {{ p_form.media }}
+                            {% crispy p_form %}
+                        </fieldset>
+                        <div class="form-group">
+                            <p>
+                                <button class="btn btn-danger" type="Submit">Update</button>
+                            <p><strong>Once your documents have been verified they will no longer be editable. To make
+                                changes
+                                contact
+                                sales@shubhshaadivivah.com</strong></p>
+                        </div>
+                    </form>
                 </div>
-
             </div>
-            <div id='products3' class="col-lg-4 mx-auto">
-                {% include 'accounts/snippets/notice1.html' %}
-            </div>
-            <hr>
         </div>
+                <div id='products3' class="col-lg-4 mx-auto">
+            {% include 'accounts/snippets/notice1.html' %}
+        </div>
+        <hr>
     </div>
-
 </div>
-    {% endblock content %}
+{% endblock content %}
