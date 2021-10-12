@@ -128,6 +128,17 @@ STATUS = (
     (1, "Unverified"),
     (2, "Hold"),
 )
+
+STATUS1 = [
+    ("Manglik", "Manglik"),
+    ("Non-manglik", "Non-manglik"),
+    ("Ashik manglik", "Ashik manglik"),
+]
+
+STATUS2 = [
+    ("Must", "Must"),
+    ("Not Necessary", "Not Necessary")
+]
 BIRTHTIME = (
     ("01", "01"),
     ("02", "02"),
@@ -374,6 +385,9 @@ class Profile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     website = models.CharField(max_length=255, null=True, blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    manglik = models.CharField(max_length=20,choices=STATUS1, default=0)
+    horo = models.CharField(max_length=20,choices=STATUS2, default=0)
+
     videofile = models.FileField(upload_to='videos/', null=True, verbose_name="", default='videos/Krishna.mp4')
     img1 = models.ImageField(upload_to='pics', verbose_name="Profile Image", default='static/vivah/img/profile.jpg')
     img2 = models.ImageField(upload_to='pics', verbose_name="Profile Image", default='static/vivah/img/profile.jpg')
