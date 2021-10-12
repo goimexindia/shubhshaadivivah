@@ -232,7 +232,7 @@ def handlesignup(request):
 
         messages.success(
             request, " Your account has been successfully created")
-        return redirect("/")
+        return redirect("login")
     else:
         return HttpResponse('404 - NOT FOUND ')
 
