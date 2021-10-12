@@ -47,9 +47,14 @@
 	width: 105px;
 	}
 
+
+
+
 </style>
 
-
+<div class="arrange">
+    <center><h1 class="text-center"><span>Sign</span>Up</h1></center>
+</div>
 <section id="register1" class="clearfix">
     <form method="POST" action="{% url 'handlesignup' %}" onsubmit="return checkform(this);">
         {% csrf_token %}
@@ -62,15 +67,28 @@
             </div>
             <div class="col-sm-7">
                 <div class="register_right">
-                    <div class="arrange">
-                        <center><h1 class="text-center"><span>Sign</span>Up</h1></center>
-                    </div>
+
                     <div class="register_right_inner clearfix">
                         <div class="clearfix clear_1">
                             <div class="col-sm-6 register_right_inner_1 space_left">
                                 <input type="text" class="form-control" placeholder="Enter your User Name *"
                                        required name="uname" id="uname"
                                        data-validation-required-message="Please enter your User Name">
+                            </div>
+                        </div>
+
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <select class="form-control" name="ProfileFor" id="ProfileFor" required>
+                                    <option value="Profile For">Profile For</option>
+                                    <option value="Myself">Myself</option>
+                                    <option value="Son">Son</option>
+                                    <option value="Daughter">Daughter</option>
+                                    <option value="Brother">Brother</option>
+                                    <option value="Sister">Sister</option>
+                                    <option value="Relative">Relative</option>
+                                    <option value="Friend">Friend</option>
+                                </select>
                             </div>
                             <div class="col-sm-6 register_right_inner_1 space_left">
                                 <select class="form-control" name="MartialStatus" id="MartialStatus" required>
@@ -750,6 +768,9 @@ return false;
 function removeSpaces(string){
 return string.split(' ').join('');
 }
+
+
+
 
 
 

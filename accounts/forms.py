@@ -72,7 +72,7 @@ class ProfileUpdateForm(forms.ModelForm):
             'caste': _('Sub Caste'),
             'organization': _('EXPECTATIONS'),
             "state": _('Current State'),
-            "languages": _('Languages Known'),
+            "languages": _('Mother Tongue'),
         }
 
 
@@ -168,4 +168,21 @@ class PartnerForm(forms.ModelForm):
         }
         fields = ['organization', 'pagemin', 'pagemax', 'pmartialstatus', 'pcomplexion',
                   'preligion', 'pcaste', 'peducation',
+                  ]
+
+
+class FamilyValuesForm(forms.ModelForm):
+    class Meta:
+        model = FamilyValues
+        labels = {
+            'height': _('My Height'),
+            'familystatus': _('Family Status'),
+            'familytype': _('Family Type'),
+            'familyvalues': _('family Values'),
+            'employed': _('Employed'),
+            'designation': _('Designation'),
+            'annualincome': _('My Annual Income (in lakhs) Rs.'),
+        }
+        fields = ['height', 'familystatus', 'familyvalues', 'familytype', 'employed',
+                  'designation', 'annualincome' ,
                   ]

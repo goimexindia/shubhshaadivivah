@@ -11,6 +11,8 @@ def create_profile(sender, instance, created, **kwargs):
         Profile.objects.create(user=instance)
         Customer.objects.create(user=instance)
         Preferences.objects.create(user=instance)
+        FamilyValues.objects.create(user=instance)
+
 
 @receiver(post_save, sender=User)
 def update_profile(sender, instance, created, **kwargs):

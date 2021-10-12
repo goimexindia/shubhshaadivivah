@@ -13,6 +13,80 @@ GENDER_CHOICES = [
     ("female", "Female"),
 ]
 
+EMPLOYED = [
+    ("Self Employed", "Self Employed"),
+    ("Business", "Business"),
+    ("Government", "Government"),
+    ("PSU", "PSU"),
+    ("MNC", "MNC"),
+    ("Defence", "Defence"),
+    ("Private", "Private"),
+    ("Not Working", "Not Working"),
+]
+
+FAMILYTYPE = [
+    ("Nuclear", "Nuclear"),
+    ("Joint", "Joint")
+]
+
+FAMILYVALUES = [
+    ("Orthodox", "Orthodox"),
+    ("Tradational", "Tradational"),
+    ("Moderate", "Moderate"),
+    ("Liberal", "Liberal"),
+]
+
+FAMILYSTATUS = [
+    ("Middle Class", "Middle Class"),
+    ("Upper Middle Class", "Upper Middle Class"),
+    ("Rich", "Rich"),
+    ("Elite", "Elite"),
+]
+
+HEIGHT = [
+    ("4-6", "4ft 6in / 137 cms"),
+    ("4-7", "4ft 7in / 139 cms"),
+    ("4-8", "4ft 8in / 142 cms"),
+    ("4-9", "4ft 9in / 144 cms"),
+    ("4-10", "4ft 10in / 147 cms"),
+    ("4-11", "4ft 11in / 149 cms"),
+    ("5", "5ft / 152 cms"),
+    ("5-1", "5ft 1in / 154 cms"),
+    ("5-2", "5ft 2in / 157 cms"),
+    ("5-3", "5ft 3in / 160 cms"),
+    ("5-4", "5ft 4in / 162 cms"),
+    ("5-5", "5ft 5in / 165 cms"),
+    ("5-6", "5ft 6in / 167 cms"),
+    ("5-7", "5ft 7in / 170 cms"),
+    ("5-8", "5ft 8in / 172 cms"),
+    ("5-9", "5ft 9in / 175 cms"),
+    ("5-10", "5ft 10in / 177cms"),
+    ("5-11", "5ft 11in / 180 cms"),
+    ("6", "6ft / 182 cms"),
+    ("6-1", "6ft 1 in / 185 cms"),
+    ("6-2", "6ft 2in / 187 cms"),
+    ("6-3", "6ft 3in / 190 cms"),
+    ("6-4", "6ft 4in / 193 cms"),
+    ("6-5", "6ft 5in / 195 cms"),
+    ("6-6", "6ft 6in / 198 cms"),
+]
+
+MOTHERTONGUE = [
+    ("Bengali", "Bengali"),
+    ("Gujarati", "Gujarati"),
+    ("Hindi", "Hindi"),
+    ("Kannada", "Kannada"),
+    ("Malayalam", "Malayalam"),
+    ("Marathi", "Marathi"),
+    ("Marwari", "Marwari"),
+    ("Oriya", "Oriya"),
+    ("Punjabi", "Punjabi"),
+    ("Sindhi", "Sindhi"),
+    ("Tamil", "Tamil"),
+    ("Telugu", "Telugu"),
+    ("Urdu", "Urdu")
+]
+
 PROFILEFOR = [
     ("Myself", "Myself"),
     ("Son", "Son"),
@@ -124,6 +198,7 @@ MARTIAL_STATUS = [
     ('single', "Single"),
     ('married', "Married"),
     ('divorced', "Divorced"),
+    ('waiting for divorced', "Waiting For Divorced"),
     ('widowed', "Widowed"),
     ('any status', "Any Status"),
 ]
@@ -247,16 +322,16 @@ class Preferences(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profilefo = models.CharField(max_length=20, choices=PROFILEFOR, null=True, blank=True)
+    profilefo = models.CharField(max_length=20, choices=PROFILEFOR, default="Myself")
     email_confirmed = models.BooleanField(default=False)
     birthday = models.DateField(null=True, blank=True)
     birthtimehh = models.CharField(max_length=10, choices=BIRTHTIME, null=True, blank=True)
     birthtimemm = models.CharField(max_length=10, choices=AGE, null=True, blank=True)
     birthplace = models.CharField(max_length=100, default="PUNE")
-    birthstate = models.CharField(max_length=100, default="MAHARASHTRA")
+    birthstate = models.CharField(max_length=100, choices=STATE, default="MAHARASHTRA")
     birthcountry = models.CharField(max_length=100, default="INDIA")
     ampm = models.CharField(max_length=4, choices=AMPM, default="AM")
-    languages = models.CharField(max_length=100, default="English")
+    languages = models.CharField(max_length=100, choices=MOTHERTONGUE, default="Hindi")
     # birthday = models.DateField(null=True, blank=True, validators=[MinAgeValidator(18)])
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default="Male")
     mobile = models.CharField(max_length=120, default='123456789')
@@ -285,3 +360,20 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
+
+
+class FamilyValues(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    height = models.CharField(max_length=20, choices=HEIGHT, null=True, blank=True)
+    familystatus = models.CharField(max_length=30, choices=FAMILYSTATUS, null=True, blank=True)
+    familytype = models.CharField(max_length=30, choices=FAMILYTYPE, null=True, blank=True)
+    familyvalues = models.CharField(max_length=30, choices=FAMILYVALUES, null=True, blank=True)
+    disability = models.CharField(max_length=30, null=True, blank=True)
+    employed = models.CharField(max_length=30, choices=EMPLOYED, null=True, blank=True)
+    designation = models.CharField(max_length=30, null=True, blank=True)
+    annualincome= models.CharField(max_length=30, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.user.username} FamilyValues'

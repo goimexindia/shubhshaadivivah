@@ -14,7 +14,6 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views import View
 from django import forms
 from crispy_forms.helper import FormHelper
-
 from accounts.models import Profile
 from accounts.token import account_activation_token
 from shubhshaadivivah import settings
@@ -153,7 +152,7 @@ def handlesignup(request):
         fname = request.POST["fname"]
         lname = request.POST["lname"]
         email = request.POST["email"]
-        martialstatus = request.POST["MartialStatus"]
+        profilefor = request.POST["ProfileFor"]
         password1 = request.POST["password1"]
         password2 = request.POST["password2"]
         martialstatus = request.POST["MartialStatus"]
@@ -219,6 +218,7 @@ def handlesignup(request):
         user.profile.caste = caste
         user.profile.searchfor = searchfor
         user.profile.martialstatus = martialstatus
+        user.profile.profilefo = profilefor
 
         update_user_data(user)
         user.save()
@@ -294,13 +294,12 @@ def profile1(request):
 
 @login_required
 def profilepref(request):
-    print("1")
     print(request.method)
     if request.method == 'POST':
         print("2")
         p_form = PartnerForm(request.POST,
-                         request.FILES,
-                         instance=request.user.preferences)
+                             request.FILES,
+                             instance=request.user.preferences)
         if p_form.is_valid():
             print("4")
             p_form.save()
@@ -310,12 +309,33 @@ def profilepref(request):
             messages.error(request, f'Your profile data has errors!!!!!!')
             return redirect('profilepref')
     else:
-        print("3")
         p_form = PartnerForm(instance=request.user.preferences)
     context = {
         'p_form': p_form,
     }
     return render(request, 'vivah/profile2.html', context)
+
+
+@login_required
+def familyvalues(request):
+    print(request.method)
+    if request.method == 'POST':
+        r_form = FamilyValuesForm(request.POST,
+                                  request.FILES,
+                                  instance=request.user.familyvalues)
+        if r_form.is_valid():
+            r_form.save()
+            messages.success(request, f'Your profile data has been updated!')
+            return redirect('familyvalues')
+        else:
+            messages.error(request, f'Your profile data has errors!!!!!!')
+            return redirect('familyvalues')
+    else:
+        r_form = FamilyValuesForm(instance=request.user.familyvalues)
+    context = {
+        'r_form': r_form,
+    }
+    return render(request, 'vivah/profile3.html', context)
 
 
 class NoFormTagCrispyFormMixin(object):
