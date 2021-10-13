@@ -139,6 +139,16 @@ STATUS2 = [
     ("Must", "Must"),
     ("Not Necessary", "Not Necessary")
 ]
+
+STATUS3 = [
+    ("Veg", "Veg"),
+    ("Non-Veg", "Non-Veg"),
+    ("Occasionally NonVeg", "Occasionally NonVeg"),
+    ("Eggetarian", "Eggetarian"),
+    ("Jain", "Jain"),
+    ("Vegan", "Vegan"),
+]
+
 BIRTHTIME = (
     ("01", "01"),
     ("02", "02"),
@@ -385,8 +395,10 @@ class Profile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     website = models.CharField(max_length=255, null=True, blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    manglik = models.CharField(max_length=20,choices=STATUS1, default=0)
-    horo = models.CharField(max_length=20,choices=STATUS2, default=0)
+    manglik = models.CharField(max_length=20, choices=STATUS1, default=0)
+    horo = models.CharField(max_length=20, choices=STATUS2, default=0)
+
+    diet = models.CharField(max_length=20, choices=STATUS3, default="Veg")
 
     videofile = models.FileField(upload_to='videos/', null=True, verbose_name="", default='videos/Krishna.mp4')
     img1 = models.ImageField(upload_to='pics', verbose_name="Profile Image", default='static/vivah/img/profile.jpg')

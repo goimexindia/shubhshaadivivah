@@ -120,11 +120,14 @@
                             <!---{{ p_form|crispy }}--->
                             {{ p_form.img|as_crispy_field }}
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-4">
                                     {{ p_form.gender|as_crispy_field }}
                                 </div>
-                                <div class="col-6">
+                                <div class="col-4">
                                     {{ p_form.martialstatus|as_crispy_field }}
+                                </div>
+                                <div class="col-4">
+                                    {{ p_form.diet|as_crispy_field }}
                                 </div>
                             </div>
                             <div class="row">
