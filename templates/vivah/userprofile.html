@@ -1,0 +1,252 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Resume - Start Bootstrap Theme</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico"/>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
+          type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'vivah/css/styles.css' %}" rel="stylesheet">
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">{{ user.username }} </span>
+        <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
+                                             src="{{ user.profile.img.url }}"
+                                             alt="{{ user.username }} "/></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+            class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Personal Details</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Partner Preference</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Family Values</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Life Style</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="profile">Home</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- Page Content-->
+<div class="container-fluid p-0">
+    <!-- About-->
+    <section class="resume-section" id="about">
+        <div class="resume-section-content">
+            <h3 class="mb-0"> ID : <span class="text-primary">{{ user.id}}</span></h3>
+            <h1 class="mb-0">
+                {{ user.first_name }}
+                <span class="text-primary">{{ user.last_name }}</span>
+            </h1>
+            <div class="subheading mb-5">
+                {{ user.profile.address }}, {{ user.profile.city }}, {{ user.profile.state }}, Pincode:
+                {{user.profile.zip }}
+                <p><a href="mailto:name@email.com">{{ user.email }}</a></p>
+                <p>Mobile:{{ user.profile.mobile }}, Office {{user.profile.number}} </p>
+            </div>
+            <p class="lead mb-5">{{ user.profile.aboutus|safe }}</p>
+            <div class="social-icons">
+                <a class="social-icon" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                <a class="social-icon" href="#!"><i class="fab fa-github"></i></a>
+                <a class="social-icon" href="#!"><i class="fab fa-twitter"></i></a>
+                <a class="social-icon" href="#!"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="m-0"/>
+
+    <!-- Experience-->
+    <section class="resume-section" id="experience">
+        <div class="resume-section-content">
+            <h2 class="mb-5">My Personal Information</h2>
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <!---- <h3 class="mb-0">{{user.profile.gender}}</h3>
+                     <div class="subheading mb-3">{{user.profile.martialstatus}}</div>---->
+                    <p>Gender:<span class="text-primary">{{user.profile.gender}}</span>,
+                        Martial Status:<span class="text-primary">{{ user.profile.martialstatus}}</span>
+                        , Diet:<span class="text-primary">{{user.profile.diet}}</span></p>
+                    <p>Religion:<span class="text-primary">{{user.profile.religion}}</span>, Caste:<span
+                            class="text-primary">{{user.profile.caste}}</span></p>
+                    <p>Date Of Birth:<span class="text-primary">{{user.profile.birthday}}</span></p>
+                    <p>Place Of Birth:<span class="text-primary">{{user.profile.birthplace}}</span>,
+                        Hours:<span class="text-primary">{{user.profile.birthtimehh}}</span>
+                        , Minute:<span class="text-primary">{{user.profile.birthtimemm}}</span> , AM/PM:<span
+                                class="text-primary">{{user.profile.ampm}}</span></p>
+                    <p>Horoscope:<span class="text-primary">{{user.profile.horo}}</span>, Manglik:<span
+                            class="text-primary">{{user.profile.manglik}}</span></p>
+                    <p>Searching For:<span class="text-primary">{{user.profile.searchfor}}</span></p>
+                    <section id="services_home">
+                        <div class="container">
+                            <div class="row">
+                                <div class="register_left">
+                                    <video width="350" height="350" autoplay muted loop>
+                                        <source src="{{ request.user.profile.videofile.url  }}" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <br>{% include 'vivah/slideshow.html' %} <br><br><br>
+            <hr>
+
+
+        </div>
+    </section>
+    <hr class="m-0"/>
+    <!-- Education-->
+    <section class="resume-section" id="education">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Partner Preference</h2>
+
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0"></h3>
+                    <div class="subheading mb-3">My Ideal Life Partner would be like...</div>
+                    <h4><span class="text-primary">{{user.preferences.organization|safe}}</span></h4>
+                    <p>Preferred Minimum Age:<span class="text-primary">{{user.preferences.pagemin}}</span></p>
+                    <p>Preferred Maximum Age:<span class="text-primary">{{user.preferences.pagemax}}</span></p>
+                    <p>Martial Status:<span class="text-primary">{{user.preferences.pmartialstatus}}</span></p>
+                    <p>Complexion:<span class="text-primary">{{user.preferences.pcomplexion}}</span></p>
+                    <p>Religion :<span class="text-primary">{{user.preferences.preligion}}</span></p>
+                    <p>Caste:<span class="text-primary">{{user.preferences.pcaste}}</span></p>
+                    <p>Education:<span class="text-primary">{{user.preferences.get_peducation_display}}</span></p>
+                </div>
+                <div class="flex-shrink-0"><span class="text-primary">December 2011 - March 2013</span></div>
+            </div>
+
+        </div>
+    </section>
+    <hr class="m-0"/>
+    <!-- Skills-->
+    <section class="resume-section" id="skills">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Family Values</h2>
+            <div class="subheading mb-3"></div>
+            <ul class="list-inline dev-icons">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0"></h3>
+                    <h4>
+                        <table>
+                            <tr>
+                                <td>My Height</td>
+                                <td><span class="text-primary">{{user.familyvalues.get_height_display}}</span></td>
+                            </tr>
+                            <tr>
+                                <td>Family Status</td>
+                                <td><span class="text-primary">{{user.familyvalues.familystatus}}</span></td>
+                            </tr>
+                            <tr>
+                                <td>Father Occupations</td>
+                                <td><span class="text-primary">{{user.familyvalues.father}}</span></td>
+                            </tr>
+                            <tr>
+                                <td>Mother Occupations</td>
+                                <td><span class="text-primary">{{user.familyvalues.mother}}</span></td>
+                            </tr>
+                            <tr>
+                                <td>No. Of Brothers</td>
+                                <td><span class="text-primary">{{user.familyvalues.brother}}</span></td>
+                            </tr>
+                            <tr>
+                                <td>No. Of Sisters</td>
+                                <td><span class="text-primary">{{user.familyvalues.sister}}</span></td>
+                            </tr>
+                            <tr>
+                                <td>Family Values</td>
+                                <td><span class="text-primary">{{user.familyvalues.familyvalues}}</span></td>
+                            </tr>
+                            <tr>
+                                <td>Family Types</td>
+                                <td><span class="text-primary">{{user.familyvalues.familytype}}</span></td>
+                            </tr>
+                            <tr>
+                                <td>Employed</td>
+                                <td><span class="text-primary">{{user.familyvalues.employed}}</span></td>
+                            </tr>
+                            <tr>
+                                <td>Designation</td>
+                                <td><span class="text-primary">{{user.familyvalues.designation}}</span></td>
+                            </tr>
+                            <tr>
+                                <td>Annual Income</td>
+                                <td><span class="text-primary">{{user.familyvalues.annualincome}}</span></td>
+                            </tr>
+                            <p>About My Family :<span class="text-primary">{{user.familyvalues.aboutfamily|safe}}</span>
+                            </p>
+                        </table>
+                    </h4>
+                </div>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Interests-->
+    <section class="resume-section" id="interests">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Life Style</h2>
+            <p>
+            <p>Gender:<span class="text-primary">{{user.profile.gender}}</span>,
+                Martial Status:<span class="text-primary">{{ user.profile.martialstatus}}</span>
+                , Diet:<span class="text-primary">{{user.profile.diet}}</span></p>
+            </p>
+        </div>
+    </section>
+    <hr class="m-0"/>
+    <!-- Awards-->
+    <section class="resume-section" id="awards">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Awards & Certifications</h2>
+            <ul class="fa-ul mb-0">
+            </ul>
+        </div>
+    </section>
+</div>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

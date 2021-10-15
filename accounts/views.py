@@ -353,3 +353,25 @@ class NoFormTagCrispyFormMixin(object):
             self._helper = FormHelper()
             self._helper.form_tag = False
         return self._helper
+
+
+@login_required
+def userprofile(request):
+    if request.method == 'POST':
+        p_form = UserForm(request.POST,
+                          request.FILES,
+                          instance=request.user.profile)
+        if p_form.is_valid():
+            p_form.save()
+            messages.success(request, f'Your profile data has been updatedd!')
+            return redirect('profile1')
+        else:
+            messages.error(request, f'Your profile data has errors!!!!!!')
+            return redirect('profile1')
+    else:
+        p_form = UserForm(instance=request.user.profile)
+    context = {
+        'p_form': p_form,
+    }
+    return render(request, 'vivah/userprofile.html', context)
+
