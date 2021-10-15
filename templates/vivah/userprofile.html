@@ -45,6 +45,8 @@ tr:nth-child(even) {
 
 
 
+
+
     </style>
 </head>
 <body id="page-top">
@@ -167,51 +169,72 @@ tr:nth-child(even) {
     <!-- Skills-->
     <section class="resume-section" id="skills">
         <div class="resume-section-content">
-            <ul class="list-inline dev-icons">
+            <h2 class="mb-5">Family Values</h2>
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
                     <h3 class="mb-0"></h3>
-                    <h5>
-                        <table>
-                            <tr>
-                                <td>My Height:-<span class="text-primary">{{user.familyvalues.get_height_display}}</span></td>
-                            </tr>
-                            <tr>
-                                <td>Family Status:-<span class="text-primary">{{user.familyvalues.familystatus}}</span></td>
-                            </tr>
-                            <tr>
-                                <td>Father Occupations:-<span class="text-primary">{{user.familyvalues.father}}</span></td>
-                            </tr>
-                            <tr>
-                                <td>Mother Occupations:-<span class="text-primary">{{user.familyvalues.mother}}</span></td>
-                            </tr>
-                            <tr>
-                                <td>No. Of Brothers:-<span class="text-primary">{{user.familyvalues.brother}}</span></td>
-                            </tr>
-                            <tr>
-                                <td>No. Of Sisters:-<span class="text-primary">{{user.familyvalues.sister}}</span></td>
-                            </tr>
-                            <tr>
-                                <td>Family Values:-<span class="text-primary">{{user.familyvalues.familyvalues}}</span></td>
-                            </tr>
-                            <tr>
-                                <td>Family Types:-<span class="text-primary">{{user.familyvalues.familytype}}</span></td>
-                            </tr>
-                            <tr>
-                                <td>Employed:-<span class="text-primary">{{user.familyvalues.employed}}</span></td>
-                            </tr>
-                            <tr>
-                                <td>Designation:-<span class="text-primary">{{user.familyvalues.designation}}</span></td>
-                            </tr>
-                            <tr>
-                                <td>Annual Income:-<span class="text-primary">{{user.familyvalues.annualincome}}</span></td>
-                            </tr>
-                            <p>About My Family :<span
-                                    class="text-primary">{{user.familyvalues.aboutfamily|safe}}</span>
-                            </p>
-                        </table>
-                    </h5>
+                    <div class="subheading mb-3">About My Family</div>
+                    <p><span
+                            class="text-primary">{{user.familyvalues.aboutfamily|safe}}</span>
+                    </p>
+                    <div class="resume-section-content">
+                        <ul class="list-inline dev-icons">
+                            <div class="flex-grow-1">
+                                <h3 class="mb-0"></h3>
+                                <h5>
+                                    <table>
+                                        <tr>
+                                            <p>My Height:-<span class="text-primary">{{user.familyvalues.get_height_display}}</span>
+                                            </p>
+                                        </tr>
+                                        <tr>
+                                            <p>Family Status:-<span class="text-primary">{{user.familyvalues.familystatus}}</span>
+                                            </p>
+                                        </tr>
+                                        <tr>
+                                            <p>Father Occupations:-<span class="text-primary">{{user.familyvalues.father}}</span>
+                                            </p>
+                                        </tr>
+                                        <tr>
+                                            <p>Mother Occupations:-<span class="text-primary">{{user.familyvalues.mother}}</span>
+                                            </p>
+                                        </tr>
+                                        <tr>
+                                            <p>No. Of Brothers:-<span
+                                                    class="text-primary">{{user.familyvalues.brother}}</span></p>
+                                        </tr>
+                                        <tr>
+                                            <p>No. Of Sisters:-<span
+                                                    class="text-primary">{{user.familyvalues.sister}}</span></p>
+                                        </tr>
+                                        <tr>
+                                            <p>Family Values:-<span class="text-primary">{{user.familyvalues.familyvalues}}</span>
+                                            </p>
+                                        </tr>
+                                        <tr>
+                                            <p>Family Types:-<span
+                                                    class="text-primary">{{user.familyvalues.familytype}}</span></p>
+                                        </tr>
+                                        <tr>
+                                            <p>Employed:-<span
+                                                    class="text-primary">{{user.familyvalues.employed}}</span></p>
+                                        </tr>
+                                        <tr>
+                                            <p>Designation:-<span
+                                                    class="text-primary">{{user.familyvalues.designation}}</span></p>
+                                        </tr>
+                                        <tr>
+                                            <p>Annual Income:-<span class="text-primary">{{user.familyvalues.annualincome}}</span>
+                                            </p>
+                                        </tr>
+
+                                    </table>
+                                </h5>
+                            </div>
+                        </ul>
+                    </div>
                 </div>
-            </ul>
+            </div>
         </div>
     </section>
 
