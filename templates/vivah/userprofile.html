@@ -41,6 +41,8 @@ tr:nth-child(even) {
 
 
 
+
+
     </style>
 </head>
 <body id="page-top">
@@ -145,7 +147,7 @@ tr:nth-child(even) {
                 <div class="flex-grow-1">
                     <h3 class="mb-0"></h3>
                     <div class="subheading mb-3">My Ideal Life Partner would be like...</div>
-                    <h4><span class="text-primary">{{user.preferences.organization|safe}}</span></h4>
+                    <h5><span class="text-primary">{{user.preferences.organization|safe}}</span></h5>
                     <p>Preferred Minimum Age:<span class="text-primary">{{user.preferences.pagemin}}</span></p>
                     <p>Preferred Maximum Age:<span class="text-primary">{{user.preferences.pagemax}}</span></p>
                     <p>Martial Status:<span class="text-primary">{{user.preferences.pmartialstatus}}</span></p>
@@ -163,12 +165,10 @@ tr:nth-child(even) {
     <!-- Skills-->
     <section class="resume-section" id="skills">
         <div class="resume-section-content">
-            <h2 class="mb-5">Family Values</h2>
-            <div class="subheading mb-3"></div>
             <ul class="list-inline dev-icons">
                 <div class="flex-grow-1">
                     <h3 class="mb-0"></h3>
-                    <h4>
+                    <h5>
                         <table>
                             <tr>
                                 <td>My Height</td>
@@ -214,10 +214,11 @@ tr:nth-child(even) {
                                 <td>Annual Income</td>
                                 <td><span class="text-primary">{{user.familyvalues.annualincome}}</span></td>
                             </tr>
-                            <p>About My Family :<span class="text-primary">{{user.familyvalues.aboutfamily|safe}}</span>
+                            <p>About My Family :<span
+                                    class="text-primary">{{user.familyvalues.aboutfamily|safe}}</span>
                             </p>
                         </table>
-                    </h4>
+                    </h5>
                 </div>
             </ul>
         </div>
