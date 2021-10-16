@@ -33,21 +33,9 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
-
-
-
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
-
-
-
-
-
-
 
     </style>
 </head>
@@ -83,6 +71,7 @@ tr:nth-child(even) {
     <section class="resume-section" id="about">
         <div class="resume-section-content">
             <h3 class="mb-0"> ID : <span class="text-primary">{{ user.id}}</span></h3>
+             <h3 class="mb-0"> Match For : <span class="text-primary">{{ user.preferences.profilefo}}</span></h3>
             <h1 class="mb-0">
                 {{ user.first_name }}
                 <span class="text-primary">{{ user.last_name }}</span>
@@ -243,9 +232,10 @@ tr:nth-child(even) {
             <p>Gender:<span class="text-primary">{{user.profile.gender}}</span></p>
             <p>Martial Status:<span class="text-primary">{{ user.profile.martialstatus}}</span></p>
             <p>Diet:<span class="text-primary">{{user.profile.diet}}</span></p>
-            <p>Smoke:<span class="text-primary">NO</span></p>
-            <p>Drink:<span class="text-primary">NO</span></p>
+            <p>Smoke:<span class="text-primary">{{user.profile.get_smoke_display}}</span></p>
             <p>Body Type:<span class="text-primary">Average</span></p>
+             <p>About Myself:<span class="text-primary">{{ user.profile.aboutus|safe }}</span></p>
+
             </p>
         </div>
     </section>

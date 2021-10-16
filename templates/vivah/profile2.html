@@ -30,6 +30,7 @@
                                 {% csrf_token %}
                                 {{ p_form.media }}
                                 <!-- {% crispy p_form %} --->
+                                 {{ p_form.profilefo|as_crispy_field }}
                                 {{ p_form.organization|as_crispy_field }}
                                 <div class="row">
                                     <div class="col-6">

@@ -54,10 +54,11 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ['img', 'gender', 'martialstatus', 'mobile', 'religion', 'caste', 'birthday',
                   'state', 'searchfor', 'videofile', 'birthplace', 'birthtimehh', 'birthtimemm', 'ampm',
-                  'birthstate', 'birthcountry', 'languages','horo','manglik','diet',
+                  'birthstate', 'birthcountry', 'languages','horo','manglik','diet','smoke',
                   ]
 
         labels = {
+            'smoke': _('Smoking'),
             'diet': _('Diet'),
             'horo': _('Horoscope match is necessary?'),
             'manglik': _('Are you manglik ?'),
@@ -160,6 +161,7 @@ class PartnerForm(forms.ModelForm):
     class Meta:
         model = Preferences
         labels = {
+            'profilefo': _('Match for'),
             'organization': _('My ideal partner would be like'),
             'pagemin': _('Minimum Age'),
             'pagemax': _('Maximum Age'),
@@ -169,7 +171,7 @@ class PartnerForm(forms.ModelForm):
             'pcaste': _('Caste'),
             'peducation': _('Education'),
         }
-        fields = ['organization', 'pagemin', 'pagemax', 'pmartialstatus', 'pcomplexion',
+        fields = ['profilefo','organization', 'pagemin', 'pagemax', 'pmartialstatus', 'pcomplexion',
                   'preligion', 'pcaste', 'peducation',
                   ]
 
