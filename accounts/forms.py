@@ -188,8 +188,9 @@ class FamilyValuesForm(forms.ModelForm):
             'employed': _('Employed'),
             'designation': _('Designation/Occupation'),
             'annualincome': _('My Annual Income (in lakhs) Rs.'),
+            'awards': _('Awards And Certifications [My AchievementsIn Life]'),
         }
         fields = ['height', 'familystatus', 'father', 'mother', 'brother', 'sister', 'familyvalues', 'familytype',
                   'employed',
-                  'designation', 'annualincome', 'aboutfamily',
+                  'designation', 'annualincome', 'aboutfamily','awards',
                   ]

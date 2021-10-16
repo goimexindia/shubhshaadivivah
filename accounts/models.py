@@ -427,6 +427,7 @@ class FamilyValues(models.Model):
     annualincome = models.CharField(max_length=100, choices=ANNUALINCOME, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    awards = RichTextField(blank=True, null=True)
 
     def __str__(self):
         return f'{self.user.username} FamilyValues'

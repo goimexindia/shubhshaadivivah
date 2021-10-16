@@ -48,6 +48,7 @@ tr:nth-child(even) {
 
 
 
+
     </style>
 </head>
 <body id="page-top">
@@ -69,6 +70,9 @@ tr:nth-child(even) {
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Partner Preference</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Family Values</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Life Style</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#life">Achievements</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger"
+                                    href="https://tawk.to/chat/6169fb81f7c0440a591e72d3/1fi2vsss8">Chat</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="profile">Home</a></li>
         </ul>
     </div>
@@ -183,7 +187,7 @@ tr:nth-child(even) {
                             <div class="flex-grow-1">
                                 <h3 class="mb-0"></h3>
                                 <h5>
-                                  <p>My Height:-<span
+                                    <p>My Height:-<span
                                             class="text-primary">{{user.familyvalues.get_height_display}}</span>
                                     </p>
 
@@ -236,18 +240,22 @@ tr:nth-child(even) {
         <div class="resume-section-content">
             <h2 class="mb-5">Life Style</h2>
             <p>
-            <p>Gender:<span class="text-primary">{{user.profile.gender}}</span>,
-                Martial Status:<span class="text-primary">{{ user.profile.martialstatus}}</span>
-                , Diet:<span class="text-primary">{{user.profile.diet}}</span></p>
+            <p>Gender:<span class="text-primary">{{user.profile.gender}}</span></p>
+            <p>Martial Status:<span class="text-primary">{{ user.profile.martialstatus}}</span></p>
+            <p>Diet:<span class="text-primary">{{user.profile.diet}}</span></p>
+            <p>Smoke:<span class="text-primary">NO</span></p>
+            <p>Drink:<span class="text-primary">NO</span></p>
+            <p>Body Type:<span class="text-primary">Average</span></p>
             </p>
         </div>
     </section>
     <hr class="m-0"/>
     <!-- Awards-->
-    <section class="resume-section" id="awards">
+    <section class="resume-section" id="life">
         <div class="resume-section-content">
             <h2 class="mb-5">Awards & Certifications</h2>
             <ul class="fa-ul mb-0">
+                 <h4><span class="text-primary">{{ user.familyvalues.awards|safe}}</span></h4>
             </ul>
         </div>
     </section>
