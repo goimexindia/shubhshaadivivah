@@ -149,6 +149,13 @@ STATUS3 = [
     ("Vegan", "Vegan"),
 ]
 
+
+STATUS5 = (
+    (0, "NO"),
+    (1, "YES"),
+    (2, "SOMETIMES"),
+)
+
 BIRTHTIME = (
     ("01", "01"),
     ("02", "02"),
@@ -397,9 +404,10 @@ class Profile(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     manglik = models.CharField(max_length=20, choices=STATUS1, default=0)
     horo = models.CharField(max_length=20, choices=STATUS2, default=0)
-
+    likes = models.ManyToManyField(User, related_name='blog_posts')
+    smoke = models.IntegerField(choices=STATUS5, default=0)
     diet = models.CharField(max_length=20, choices=STATUS3, default="Veg")
-
+    view_count = models.PositiveIntegerField(default=0)
     videofile = models.FileField(upload_to='videos/', null=True, verbose_name="", default='videos/Krishna.mp4')
     img1 = models.ImageField(upload_to='pics', verbose_name="Profile Image", default='static/vivah/img/profile.jpg')
     img2 = models.ImageField(upload_to='pics', verbose_name="Profile Image", default='static/vivah/img/profile.jpg')
