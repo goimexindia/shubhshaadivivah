@@ -7,7 +7,7 @@ from vivah.models import Contactme
 
 
 def home(request):
-    return render(request, 'vivah/index.html',
+    return render(request, 'vivah/signup.html',
                   {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY,
                    })
 
