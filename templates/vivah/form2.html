@@ -59,14 +59,13 @@
     <form method="POST" action="{% url 'handlesignup' %}" onsubmit="return checkform(this);">
         {% csrf_token %}
         <div class="register clearfix">
-            <div class="col-sm-3 space_left">
-                <div class="register_left"><!--482.jpg-->
-                    <br><br><br><br><br><br>
-                    <div class="card-image"><img src="{% static 'vivah/img/logo.png' %}" alt="ShubhShaadiVivah.com"
-                                                 width="70%"></div>
+            <div class="col-sm-5 space_left">
+                <div class="register_left">
+                    <div class="card-image"><img src="{% static 'vivah/img/482.jpg' %}" alt="ShubhShaadiVivah.com"
+                                                 width="100%"></div>
                 </div>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-7">
                 <div class="register_right">
 
                     <div class="register_right_inner clearfix">
