@@ -157,6 +157,8 @@ def handlesignup(request):
         password2 = request.POST["password2"]
         martialstatus = request.POST["MartialStatus"]
         state = request.POST["State"]
+        city = request.POST["city"]
+        zip = request.POST["zip"]
         dob = request.POST["dob"]
         searchfor = request.POST["SearchFor"]
         religion = request.POST["Religion"]
@@ -164,11 +166,8 @@ def handlesignup(request):
         mobile = request.POST["mobile"]
         gender = request.POST["gender"]
         birthday = request.POST["dob"]
-        state = request.POST["State"]
         searchfor = request.POST["SearchFor"]
         # check for errors in input
-        print(date.today())
-        print(birthday)
         if request.method == 'POST':
             try:
                 user_exists = User.objects.get(username=request.POST['uname'])
@@ -215,6 +214,8 @@ def handlesignup(request):
         user.profile.gender = gender
         user.profile.birthday = birthday
         user.profile.state = state
+        user.profile.zip = city
+        user.profile.zip = zip
         user.profile.caste = caste
         user.profile.searchfor = searchfor
         user.profile.martialstatus = martialstatus

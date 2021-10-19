@@ -60,7 +60,9 @@
         {% csrf_token %}
         <div class="register clearfix">
             <div class="col-sm-5 space_left">
+
                 <div class="register_left">
+                    <hr>
                     <div class="card-image"><img src="{% static 'vivah/img/482.jpg' %}" alt="ShubhShaadiVivah.com"
                                                  width="100%"></div>
                 </div>
@@ -124,6 +126,20 @@
                                 <input type="text" class="form-control" placeholder="Mobile *"
                                        required="" name="mobile" id="mobile"
                                        data-validation-required-message="Please enter your mobile.">
+                            </div>
+                        </div>
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <input type="text" class="form-control" placeholder="City"
+                                       required="" name="city" id="city"
+                                       data-validation-required-message="Please enter city"
+                                >
+                            </div>
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <input type="text" class="form-control" placeholder="Pincode"
+                                       required="" name="zip" id="zip"
+                                       data-validation-required-message="Please enter your last name."
+                                >
                             </div>
                         </div>
                         <div class="clearfix clear_1">
@@ -194,6 +210,7 @@
 
                                 </select>
                             </div>
+
                             <div class="col-sm-6 register_right_inner_1 space_left">
                                 <select class="form-control" name="Religion" id="Religion">
                                     <option value="Religion">Religion</option>

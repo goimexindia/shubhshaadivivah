@@ -16,9 +16,6 @@ from .sec import *
 
 import dj_database_url
 
-
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -67,7 +64,6 @@ INSTALLED_APPS = [
     'django_otp.plugins.otp_totp',
     'django_countries',
     'ckeditor',
-
 ]
 
 MIDDLEWARE = [
@@ -106,12 +102,12 @@ WSGI_APPLICATION = 'shubhshaadivivah.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-#DATABASES = {
+# DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
-#}
+# }
 
 
 DATABASES = {
@@ -126,7 +122,6 @@ DATABASES = {
 
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -219,14 +214,12 @@ AWS_LOCATION = 'static'
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
-
 CKEDITOR_CONFIGS = {
     # django-ckeditor defaults
     'default': {
         # Editor Width Adaptation
-        'width':'auto',
-        'height':'250px',
+        'width': 'auto',
+        'height': '250px',
         # tab key conversion space number
         'tabSpaces': 4,
         # Toolbar Style

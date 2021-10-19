@@ -8,6 +8,7 @@ from django.core.validators import BaseValidator
 from django.utils.deconstruct import deconstructible
 from ckeditor.fields import RichTextField
 
+
 GENDER_CHOICES = [
     ("male", "Male"),
     ("female", "Female"),
@@ -374,6 +375,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profilefo = models.CharField(max_length=20, choices=PROFILEFOR, default="Myself")
     email_confirmed = models.BooleanField(default=False)
+    mobile_confirmed = models.BooleanField(default=False)
     birthday = models.DateField(null=True, blank=True)
     birthtimehh = models.CharField(max_length=10, choices=BIRTHTIME, null=True, blank=True)
     birthtimemm = models.CharField(max_length=10, choices=AGE, null=True, blank=True)
@@ -416,6 +418,9 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
+
+    def total_likes(self):
+        return self.likes.count()
 
 
 class FamilyValues(models.Model):
