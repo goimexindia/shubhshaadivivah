@@ -50,6 +50,8 @@
 
 
 
+
+
 </style>
 
 <div class="arrange">
@@ -73,9 +75,23 @@
                     <div class="register_right_inner clearfix">
                         <div class="clearfix clear_1">
                             <div class="col-sm-6 register_right_inner_1 space_left">
-                                <input type="text" class="form-control" placeholder="Enter your User Name *"
-                                       required name="uname" id="uname"
-                                       data-validation-required-message="Please enter your User Name">
+                                <label>
+                                    User Name
+
+                                    <input type="text" class="form-control" placeholder="Enter your User Name *"
+                                           required name="uname" id="uname"
+                                           data-validation-required-message="Please enter your User Name">
+                                </label>
+                            </div>
+                            <div class="col-sm-6 register_right_inner_1 space_left">
+                                <label>
+                                    Birth Date
+                                    <input type="date" class="form-control" name="dob" id="dob" placeholder="dd-mm-yyyy"
+                                           value=""
+                                           min="1907-01-01" max="2030-12-31">
+
+                                </label>
+
                             </div>
                         </div>
 
@@ -185,10 +201,11 @@
                                 </select>
                             </div>
                             <div class="col-sm-6 register_right_inner_1 space_left">
-                                <input type="date" class="form-control" name="dob" id="dob" placeholder="dd-mm-yyyy Birth Date"
-                                       value=""
-                                       min="1907-01-01" max="2030-12-31">
+                                <input type="text" class="form-control" placeholder="Enter your AGE *"
+                                       required name="uname" id="age"
+                                       data-validation-required-message="Please enter your User AGE">
                             </div>
+
                         </div>
                         <div class="clearfix clear_1">
                             <div class="col-sm-6 register_right_inner_1 space_left">
@@ -785,6 +802,8 @@ return false;
 function removeSpaces(string){
 return string.split(' ').join('');
 }
+
+
 
 
 

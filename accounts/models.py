@@ -8,7 +8,6 @@ from django.core.validators import BaseValidator
 from django.utils.deconstruct import deconstructible
 from ckeditor.fields import RichTextField
 
-
 GENDER_CHOICES = [
     ("male", "Male"),
     ("female", "Female"),
@@ -149,7 +148,6 @@ STATUS3 = [
     ("Jain", "Jain"),
     ("Vegan", "Vegan"),
 ]
-
 
 STATUS5 = (
     (0, "NO"),
@@ -404,6 +402,7 @@ class Profile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     website = models.CharField(max_length=255, null=True, blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    age = models.IntegerField(default=30)
     manglik = models.CharField(max_length=20, choices=STATUS1, default=0)
     horo = models.CharField(max_length=20, choices=STATUS2, default=0)
     likes = models.ManyToManyField(User, related_name='blog_posts')
