@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'vivah/css/font-awesome.min.css' %}"/>
     <script src="{% static 'vivah/js/jquery-2.1.1.min.js' %}"></script>
     <script src="{% static 'vivah/js/bootstrap.min.js' %}"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -24,12 +24,14 @@
 <body>
 
 <div class="container">
+
     <div id="google_translate_element"></div>
 
     <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
+
 
     </script>
     <script type="text/javascript"
@@ -470,6 +472,35 @@ function googleTranslateElementInit() {
                     </div>
                 </li>
 
+                <li class="timeline-inverted">
+                    <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record invert" rel="tooltip"
+                                                              title="" id=""
+                                                              data-original-title="11 hours ago via Twitter"
+                                                              style="cursor: pointer;"></i></a></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <img class="img-responsive" src="{% static 'vivah/img/shaadilogo.png' %}">
+                        </div>
+                        <div class="timeline-body">
+                            <center><h2>OnLine Live Event in 2022</h2></center>
+                            <p>We have plans to organise Mega Matrimonial Events in JAN/FEB-2022 for the Business Class, Professionals, Manglik,
+                                Late Marriage and Re-marriage for all Community.
+                            Special event for Mangliks, to help in finding desired life partner.
+                            Post events, online meetings are arranged in this covid era after for our members after
+                                they show interest for the prospectives profiles.</p>
+                            <p>Register immediately to avail this opportunity. Details regarding dates and procedures will be send in your email soon. </p>
+                        </div>
+
+                        <div class="timeline-footer primary">
+                            <a><i class="fa fa-facebook"></i></a>
+                            <a><i class="fa fa-twitter"></i></a>
+                            <a><i class="fa fa-google-plus"></i></a>
+                            <a><i class="fa fa-linkedin"></i></a>
+                            <a><i class="fa fa-rss"></i></a>
+                            <a class="pull-right">More..</a>
+                        </div>
+                    </div>
+                </li>
 
                 <li class="clearfix" style="float: none;"></li>
             </ul>
@@ -538,7 +569,7 @@ function googleTranslateElementInit() {
                                 <div class="row">
                                     <div class="col-sm-3"><a href="{% url 'ellite' %}" class="thumbnail"><img
                                             src="{% static 'vivah/img/om.png' %}" alt="Image"
-                                          style="max-width:100%;"></a></div>
+                                            style="max-width:100%;"></a></div>
                                     <div class="col-sm-3"><a href="{% url 'ellite' %}" class="thumbnail"><img
                                             src="{% static 'vivah/img/vishal01.jpg' %}" alt="Image"
                                             style="max-width:100%;"></a></div>
