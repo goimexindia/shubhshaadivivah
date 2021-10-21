@@ -68,13 +68,14 @@ button:hover, a:hover {
                     <div class="card" style="text-align:center">
                         <img src="{{ request.user.profile.img.url }}" alt="Profile Picture" width="320px"
                              height="320px">
-                        <h1>{{ user.username }} </h1>
+                        <h3>id-{{ user.id}}</h3>
+                        <h3> {{ user.username }} </h3>
                         <p class="title">Name : {{ user.first_name }}- {{ user.last_name }}
                             | {{user.profile.gender}} | {{user.profile.birthday}} </p>
                         <p class="title1">eMail : {{ user.email }}</p>
-                        <p class="title1">Marital Status: {{user.profile.martialstatus }}
+                        <p class="title1">Age: {{user.profile.age }} | Marital Status: {{user.profile.martialstatus }}
                         <p class="title1">Mobile: {{ user.profile.mobile }}</p>
-                        <p class="title1">State: {{ user.profile.state }}</p>
+                        <p class="title1">City: {{ user.profile.city }} | State: {{ user.profile.state }}</p>
                         <p class="title1">My Search For: {{ user.profile.searchfor }}</p>
                         <p class="title1">My Religion: {{ user.profile.religion }}-{{user.profile.caste}} </p>
                         <div style="margin: 24px 0;">

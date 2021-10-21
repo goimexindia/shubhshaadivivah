@@ -54,7 +54,7 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ['img', 'gender', 'martialstatus', 'mobile', 'religion', 'caste', 'birthday',
                   'state', 'searchfor', 'videofile', 'birthplace', 'birthtimehh', 'birthtimemm', 'ampm',
-                  'birthstate', 'birthcountry', 'languages','horo','manglik','diet','smoke',
+                  'birthstate', 'birthcountry', 'languages','horo','manglik','diet','smoke','age','city'
                   ]
 
         labels = {
@@ -76,6 +76,7 @@ class ProfileUpdateForm(forms.ModelForm):
             'caste': _('Sub Caste'),
             'organization': _('EXPECTATIONS'),
             "state": _('Current State'),
+            "city": _('Current City'),
             "languages": _('Mother Tongue'),
         }
 

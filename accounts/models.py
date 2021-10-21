@@ -402,7 +402,7 @@ class Profile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     website = models.CharField(max_length=255, null=True, blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    age = models.IntegerField(default=30)
+    age = models.CharField(max_length=20, choices=AGE, default=30)
     manglik = models.CharField(max_length=20, choices=STATUS1, default=0)
     horo = models.CharField(max_length=20, choices=STATUS2, default=0)
     likes = models.ManyToManyField(User, related_name='blog_posts')
