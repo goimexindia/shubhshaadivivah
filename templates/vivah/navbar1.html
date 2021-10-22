@@ -1,0 +1,94 @@
+{% load static %}
+
+<section id="top">
+
+    <div class="container">
+        <div class="row">
+            <div class="top clearfix">
+                <div class="col-sm-6">
+                    {% if user.is_authenticated %}
+                    <p>Hello, <span style="text-transform:uppercase">{{user.username}}</span> , Welcome Back to -
+                        India's Most Preferred Matchmaking Services.</p>
+
+                    {% else %}
+                    <div class="top_left">
+                        <p>India's Most Preferred Matchmaking Services</p>
+
+                    </div>
+                    {% endif %}
+
+                </div>
+                <div class="col-sm-6">
+                    <div class="top_right clearfix text-right">
+                        <a href="https://tawk.to/chat/6169fb81f7c0440a591e72d3/1fi2vsss8" class="facebook">Chat
+                            <i class="fa fa-user-circle-o"></i></a>
+                        <span class="span_1"><i class="fa fa-phone-square"></i>
+                                    <a href="tel:+919075445588"><strong>+91-9075445588</strong></a>  </span>
+                        <span class="span_2"><i class="fa fa-whatsapp"></i>
+                            <a href="https://wa.me/917013451914"><strong>+91-7013451914</strong></a></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="header" class="cd-secondary-nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <nav class="navbar navbar-default" role="navigation">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li>
+                            <a class="navbar-brand"
+                               href="\">ShubhShaadiVivah<br><span>Bringing Families Together</span></a>
+                        </li>
+                        <li><a class="color_1 active_1" href="{% url 'home' %}">Home</a></li>
+                        <li><a class="color_1" href="{% url 'about' %}">About Us</a></li>
+                        <li><a class="color_1" href="{% url 'services' %}">Services</a></li>
+                        <li><a class="color_1" href="{% url 'membership' %}">Membership</a></li>
+                        <!---<li><a class="color_1" href="{% url 'register' %}">Register</a></li>----->
+                        {% if user.is_authenticated %}
+                        <li><a class="color_1" href="{% url 'profile' %}">Profile</a></li>
+                        <li><a class="color_1" href="{% url 'logout' %}">Logout</a></li>
+                        {% else %}
+                        <li><a class="color_1" href="{% url 'login' %}">Login</a></li>
+                        <li><a class="color_1" href="{% url 'signup' %}">Register</a></li>
+                        {% endif %}
+                        <li class="dropdown">
+                            <a class="dropdown-toggle color_1" data-toggle="dropdown" href="services.html"
+                               aria-expanded="false">More Info
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                                <li><a href="{% url 'faq' %}">FAQ's</a></li>
+                                <li><a href="{% url 'membership' %}">Membership</a></li>
+                                <li><a href="{% url 'ellite' %}">Royall Services</a></li>
+                                <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+                                <li><a href="{% url 'terms' %}">Terms And Conditions</a></li>
+                                <li><a href="{% url 'disclaimer' %}">Disclaimer</a></li>
+                                <li><a href="{% url 'secure' %}">Stay Secure</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+            </nav>
+        </div>
+    </div>
+    </div>
+</section>
