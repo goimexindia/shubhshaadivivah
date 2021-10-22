@@ -409,6 +409,7 @@ class Profile(models.Model):
     smoke = models.IntegerField(choices=STATUS5, default=0)
     diet = models.CharField(max_length=20, choices=STATUS3, default="Veg")
     view_count = models.PositiveIntegerField(default=0)
+    education = models.CharField(max_length=50, choices=EDUCATION, null=True, blank=True)
     videofile = models.FileField(upload_to='videos/', null=True, verbose_name="", default='videos/Krishna.mp4')
     img1 = models.ImageField(upload_to='pics', verbose_name="Profile Image", default='static/vivah/img/profile.jpg')
     img2 = models.ImageField(upload_to='pics', verbose_name="Profile Image", default='static/vivah/img/profile.jpg')
