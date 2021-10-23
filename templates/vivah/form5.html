@@ -45,6 +45,7 @@ button:hover, a:hover {
 
 
 
+
 </style>
 
 </style>
@@ -72,8 +73,9 @@ button:hover, a:hover {
                 <div class="content-section">
                     <p>
                         <a href="{% url 'profile' %}" class="footer-link-3">
-                            <button style="background-color: blue;" type="button"><h2>My Profile Card</h2></button>
-                        </a>
+                            <button style="background-color: blue;" type="button">
+                    <h2>My Profile Card</h2></button>
+                    </a>
                     </p>
                     <div class="card" style="text-align:center">
                         <img src="{{ request.user.profile.img.url }}" alt="Profile Picture" width="350px"
@@ -88,6 +90,9 @@ button:hover, a:hover {
                         <p class="title1">City: {{ user.profile.city }} | State: {{ user.profile.state }}</p>
                         <p class="title1">My Search For: {{ user.profile.searchfor }}</p>
                         <p class="title1">My Religion: {{ user.profile.religion }}-{{user.profile.caste}} </p>
+                        <p class="title1">Mother tongue - {{user.profile.languages}}</p>
+                        <p class="title1">Profession - {{user.familyvalues.employed}} </p>
+
                         <div style="margin: 24px 0;">
                             <a href="#"><i class="fa fa-dribbble"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -149,6 +154,7 @@ return false;
 function removeSpaces(string){
 return string.split(' ').join('');
 }
+
 
 
 
