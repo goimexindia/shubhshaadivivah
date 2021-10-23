@@ -44,6 +44,7 @@ button:hover, a:hover {
 }
 
 
+
 </style>
 
 </style>
@@ -53,22 +54,27 @@ button:hover, a:hover {
     <div class="register clearfix">
         <div class="col-sm-5 space_left">
             <div class="register_left">
-                 <div class="card-image"><img src="{% static 'vivah/img/482.jpg' %}" width="100%"></div>
-                                    <p>
-                         <a href="{% url 'product' %}" class="footer-link-3">
-                        <button   style="background-color: blue;" type="button">My Search</button></a>
-                    </p>
-               <!--- <div class="register_left">
-                    <video width="100%" height="560" autoplay muted loop>
-                        <source src="{{ request.user.profile.videofile.url  }}" type="video/mp4">
-                    </video>
-                </div>---->
+                <div class="card-image"><img src="{% static 'vivah/img/482.jpg' %}" width="100%"></div>
+                <p>
+                    <a href="{% url 'product' %}" class="footer-link-3">
+                        <button style="background-color: blue;" type="button">My Search</button>
+                    </a>
+                </p>
+                <!--- <div class="register_left">
+                     <video width="100%" height="560" autoplay muted loop>
+                         <source src="{{ request.user.profile.videofile.url  }}" type="video/mp4">
+                     </video>
+                 </div>---->
             </div>
         </div>
         <div class="col-sm-7">
             <div class="register_right">
                 <div class="content-section">
-                    <h2 style="text-align:center">User Profile Card</h2>
+                    <p>
+                        <a href="{% url 'profile' %}" class="footer-link-3">
+                            <button style="background-color: blue;" type="button"><h2>My Profile Card</h2></button>
+                        </a>
+                    </p>
                     <div class="card" style="text-align:center">
                         <img src="{{ request.user.profile.img.url }}" alt="Profile Picture" width="350px"
                              height="320px">
@@ -89,10 +95,6 @@ button:hover, a:hover {
                             <a href="#"><i class="fa fa-facebook"></i></a>
                         </div>
                     </div>
-                    <p>
-                         <a href="{% url 'profile' %}" class="footer-link-3">
-                        <button  style="background-color: blue;" type="button" >My Profile</button></a>
-                    </p>
                 </div>
             </div>
         </div>
@@ -147,6 +149,7 @@ return false;
 function removeSpaces(string){
 return string.split(' ').join('');
 }
+
 
 
 
