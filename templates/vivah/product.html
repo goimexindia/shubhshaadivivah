@@ -58,7 +58,7 @@
 
         <div class="row special-list">
             {% for p in product_list %}
-            <div class="col-lg-3 col-md-6 special-grid best-seller">
+            <div class="col-lg-3 col-md-6 special-grid best-seller"  style="background-color:white">
                 <div class="products-single fix">
                     <div class="box-img-hover">
                         <div class="type-lb">
@@ -88,7 +88,7 @@
                         <h4>Profession - {{p.user.familyvalues.employed}} </h4>
                         <h4>Education - {{p.get_education_display}} </h4>
                         <h4>Annual Income - {{p.user.familyvalues.get_annualincome_display}} </h4>
-                        <h5> {{p.state}}</h5>
+                        <h4> {{p.state}}</h4>
                      </div>
                 </div>
             </div>
