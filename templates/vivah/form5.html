@@ -53,10 +53,10 @@ button:hover, a:hover {
     <div class="register clearfix">
         <div class="col-sm-5 space_left">
             <div class="register_left">
-                 <div class="card-image"><img src="{% static 'vivah/img/482.jpg' %}" width="600px" height="800px"></div>
+                 <div class="card-image"><img src="{% static 'vivah/img/482.jpg' %}" width="100%"></div>
                                     <p>
                          <a href="{% url 'product' %}" class="footer-link-3">
-                        <button>My Search</button></a>
+                        <button   style="background-color: blue;" type="button">My Search</button></a>
                     </p>
                <!--- <div class="register_left">
                     <video width="100%" height="560" autoplay muted loop>
@@ -70,8 +70,8 @@ button:hover, a:hover {
                 <div class="content-section">
                     <h2 style="text-align:center">User Profile Card</h2>
                     <div class="card" style="text-align:center">
-                        <img src="{{ request.user.profile.img.url }}" alt="Profile Picture" width="400px"
-                             height="390px">
+                        <img src="{{ request.user.profile.img.url }}" alt="Profile Picture" width="350px"
+                             height="320px">
                         <h3>id-{{ user.id}}</h3>
                         <h3> {{ user.username }} </h3>
                         <p class="title">Name : {{ user.first_name }}- {{ user.last_name }}
@@ -91,7 +91,7 @@ button:hover, a:hover {
                     </div>
                     <p>
                          <a href="{% url 'profile' %}" class="footer-link-3">
-                        <button>My Profile</button></a>
+                        <button  style="background-color: blue;" type="button" >My Profile</button></a>
                     </p>
                 </div>
             </div>
