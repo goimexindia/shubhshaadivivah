@@ -70,7 +70,23 @@
 
 
 
+
+
+
+
 </style>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-dismissible alert-success">
+    <button type="button" class="close" data-dismiss="alert">
+        ×
+    </button>
+    <strong>
+        {{message}}
+    </strong>
+</div>
+{% endfor %}
+{% endif %}
 
 <div class="arrange">
     <img class="img-responsive" src="{% static 'vivah/img/SHADI.png' %}">
@@ -785,9 +801,42 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
     </form>
 </section>
+<section id="register11" class="clearfix">
+    <div class="container">
+        <center><h2>OnLine Live Event in 2022</h2></center>
+        <hr>
+        <h3>We have organised Mega Matrimonial Events in month of JAN-2022 for :-
+            <ol>
+                <li>the Business Class</li>
+                <li>Professionals</li>
+                <li>Manglik</li>
+                <li>Late Marriage</li>
+                <li>Re-marriage</li>
+            </ol>
+            All Community are invited whole heartily.
+            Take advantage for this special free event for Mangliks, to help in finding desired life partner.
+            <p>Post events, online meetings are arranged in this covid era after for our members after
+                they show interest for the prospectives profiles.</p>
+            <p> Please Remember your ID number given by our system for communications.</p></h3>
+        <hr>
 
+    </div>
+</section>
+<div class="col-sm-6">
+    <div class="top_right clearfix text-right">
+                        <span class="span_1"><i class="fa fa-phone-square"></i>
+                                    <a href="tel:+919075445588"><strong>HelpLine:-+91-9075445588    </strong></a>  </span>
+        <span class="span_2"><i class="fa fa-whatsapp"></i>
+                            <a href="https://wa.me/917013451914"><strong>+91-7013451914</strong></a></span>
+        </span>
+    </div>
+</div>
+<hr>
+<br><br><br>
 <script type="text/javascript">
 
 // Captcha Script
@@ -834,6 +883,10 @@ return false;
 function removeSpaces(string){
 return string.split(' ').join('');
 }
+
+
+
+
 
 
 

@@ -212,6 +212,7 @@ def handlesignup(request):
         user.last_name = lname
         user.save()
         user.refresh_from_db()
+        userid = user.id
         user.profile.religion = religion
         user.profile.mobile = mobile
         user.profile.gender = gender
@@ -238,7 +239,7 @@ def handlesignup(request):
         AuthenticationForm(request=request, data=request.POST)
 
         messages.success(
-            request, " Your account has been successfully created")
+            request, " Your account has been successfully created. UserID:" + userid)
         return redirect("login")
     else:
         return HttpResponse('404 - NOT FOUND ')
@@ -326,8 +327,8 @@ def familyvalues(request):
     if request.method == 'POST':
         print("2")
         p_form = FamilyValuesForm(request.POST,
-                             request.FILES,
-                             instance=request.user.familyvalues)
+                                  request.FILES,
+                                  instance=request.user.familyvalues)
         if p_form.is_valid():
             print("4")
             p_form.save()
@@ -383,16 +384,13 @@ def userprofile(request):
     return render(request, 'vivah/userprofile.html', context)
 
 
-
 def shaadiprofile(request, pk):
     customer = Profile.objects.get(id=pk)
     context = {'customers': customer, }
     return render(request, 'accounts/shaadiprofile.html', context)
 
 
-
 def eventsignup(request):
     return render(request, 'accounts/eventsignup.html',
                   {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY,
                    })
-
