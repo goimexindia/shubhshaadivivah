@@ -384,3 +384,11 @@ def shaadiprofile(request, pk):
     customer = Profile.objects.get(id=pk)
     context = {'customers': customer, }
     return render(request, 'accounts/shaadiprofile.html', context)
+
+
+
+def eventsignup(request):
+    return render(request, 'accounts/eventsignup.html',
+                  {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY,
+                   })
+

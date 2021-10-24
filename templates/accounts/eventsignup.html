@@ -1,0 +1,836 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ShubhShaadiVivah</title>
+    <link href="{% static 'vivah/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vivah/css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'vivah/css/font-awesome.min.css' %}"/>
+    <script src="{% static 'vivah/js/jquery-2.1.1.min.js' %}"></script>
+    <script src="{% static 'vivah/js/bootstrap.min.js' %}"></script>
+
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<body>
+
+<style>
+   /* COMPACT CAPTCHA SILVER */
+
+.capbox {
+	background-color: #C0C0C0;
+	background-image: linear-gradient(#F0F0F0, #666666);
+	border: #000000 0px solid;
+	border-width: 2px 2px 2px 20px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	display: inline-block;
+	padding: 5px 8px 5px 8px;
+	border-radius: 4px 4px 4px 4px;
+	}
+
+.capbox-inner {
+	font: bold 12px arial, sans-serif;
+	color: #000000;
+	background: #C0C0C0;
+	background:rgba(255,255,255,0.60); /* SEMI TRANSPARENT BACKGROUND */
+	margin: 0px auto 0px auto;
+	padding: 3px 10px 5px 10px;
+	border-radius: 4px;
+	display: inline-block;
+	vertical-align: middle;
+	}
+
+#CaptchaDiv {
+	color: #FFFFFF;
+	font: normal 25px Impact, Charcoal, arial, sans-serif;
+	font-style: italic;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #3366FF;
+	user-select: none;
+	display: inline-block;
+	padding: 3px 14px 3px 8px;
+	margin-right: 4px;
+	border-radius: 4px;
+	}
+
+#CaptchaInput {
+	border: #999999 1px solid;
+	margin: 3px 0px 1px 0px;
+	width: 105px;
+	}
+
+
+</style>
+
+<div class="arrange">
+    <center><h1 class="text-center"><span>Sign</span>Up</h1></center>
+</div>
+<section id="register1" class="clearfix">
+    <form method="POST" action="{% url 'handlesignup' %}" onsubmit="return checkform(this);">
+        {% csrf_token %}
+        <div class="register clearfix">
+            <div class="col-sm-12">
+                <div class="register_right">
+
+                    <div class="register_right_inner clearfix">
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <label>
+                                    User Name
+
+                                    <input type="text" class="form-control" placeholder="Enter your User Name *"
+                                           required name="uname" id="uname"
+                                           data-validation-required-message="Please enter your User Name">
+                                </label>
+                            </div>
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <label>
+                                    Birth Date
+                                    <input type="date" class="form-control" name="dob" id="dob" placeholder="dd-mm-yyyy"
+                                           value=""
+                                           min="1907-01-01" max="2030-12-31">
+
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <select class="form-control" name="ProfileFor" id="ProfileFor" required>
+                                    <option value="Profile For">Profile For</option>
+                                    <option value="Myself">Myself</option>
+                                    <option value="Son">Son</option>
+                                    <option value="Daughter">Daughter</option>
+                                    <option value="Brother">Brother</option>
+                                    <option value="Sister">Sister</option>
+                                    <option value="Relative">Relative</option>
+                                    <option value="Friend">Friend</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <select class="form-control" name="MartialStatus" id="MartialStatus" required>
+                                    <option value="Marital Status">Marital Status</option>
+                                    <option value="married">Married</option>
+                                    <option value="single">Single</option>
+                                    <option value="divorced">Divorced</option>
+                                    <option value="widowed">Widowed</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <input type="text" class="form-control" placeholder="First Name *"
+                                       required="" name="fname" id="fname"
+                                       data-validation-required-message="Please enter your first name."
+                                >
+                            </div>
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <input type="text" class="form-control" placeholder="Last Name *"
+                                       required="" name="lname" id="lname"
+                                       data-validation-required-message="Please enter your last name."
+                                >
+                            </div>
+                        </div>
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <input type="email" class="form-control" placeholder="Email *"
+                                       required="" name="email" id="email"
+                                       data-validation-required-message="Please enter your email">
+                            </div>
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <input type="text" class="form-control" placeholder="Mobile *"
+                                       required="" name="mobile" id="mobile"
+                                       data-validation-required-message="Please enter your mobile.">
+                            </div>
+                        </div>
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <input type="text" class="form-control" placeholder="City"
+                                       required="" name="city" id="city"
+                                       data-validation-required-message="Please enter city"
+                                >
+                            </div>
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <input type="text" class="form-control" placeholder="Pincode"
+                                       required="" name="zip" id="zip"
+                                       data-validation-required-message="Please enter your last name."
+                                >
+                            </div>
+                        </div>
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <select class="form-control" name="State" id="State">
+                                    <option value=""> --State--</option>
+                                    <option value="Andaman And Nicobar">Andaman And Nicobar</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chandigarh (UT)">Chandigarh (UT)</option>
+                                    <option value="Chattisgarh">Chattisgarh</option>
+                                    <option value="Dadra And Nagar Haveli">Dadra And Nagar Haveli</option>
+                                    <option value="Daman And Diu (UT)">Daman And Diu (UT)</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                    <option value="Jammu And Kashmir">Jammu And Kashmir</option>
+                                    <option value="Jharkhand">Jharkhand</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Lakshadweep">Lakshadweep</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Manipur">Manipur</option>
+                                    <option value="Meghalaya">Meghalaya</option>
+                                    <option value="Mizoram">Mizoram</option>
+                                    <option value="Nagaland">Nagaland</option>
+                                    <option value="Orissa">Orissa</option>
+                                    <option value="Pondicherry(UT)">Pondicherry(UT)</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Sikkim">Sikkim</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Tamilnadu">Tamilnadu</option>
+                                    <option value="Tripura">Tripura</option>
+                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                    <option value="Uttranchal">Uttranchal</option>
+                                    <option value="West Bengal">West Bengal</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <input type="number" class="form-control" placeholder="Enter AGE in years*"
+                                       required name="age1" id="age1"
+                                       data-validation-required-message="Please enter your User AGE">
+                            </div>
+
+                        </div>
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <select class="form-control" name="SearchFor" id="SearchFor">
+                                    <option>Search For</option>
+                                    <option value="Religion">Tamil</option>
+                                    <option value="Hindu">Hindu</option>
+                                    <option value="Muslim - Shia">Muslim - Shia</option>
+                                    <option value="Muslim - Sunni">Muslim - Sunni</option>
+                                    <option value="Muslim - Others">Muslim - Others</option>
+                                    <option value="Christian">Christian</option>
+                                    <option value="Sikh">Sikh</option>
+                                    <option value="Jain - Digambar">Jain - Digambar</option>
+                                    <option value="Jain - Shwetambar">Jain - Shwetambar</option>
+                                    <option value="Jain - Others">Jain - Others</option>
+                                    <option value="Parsi">Parsi</option>
+                                    <option value="Buddhist">Buddhist</option>
+                                    <option value="Inter-Religion">Inter-Religion</option>
+
+                                </select>
+                            </div>
+
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <select class="form-control" name="Religion" id="Religion">
+                                    <option value="Religion">Religion</option>
+                                    <option value="Hindu">Hindu</option>
+                                    <option value="Muslim - Shia">Muslim - Shia</option>
+                                    <option value="Muslim - Sunni">Muslim - Sunni</option>
+                                    <option value="Muslim - Others">Muslim - Others</option>
+                                    <option value="Christian">Christian</option>
+                                    <option value="Sikh">Sikh</option>
+                                    <option value="Jain - Digambar">Jain - Digambar</option>
+                                    <option value="Jain - Shwetambar">Jain - Shwetambar</option>
+                                    <option value="Jain - Others">Jain - Others</option>
+                                    <option value="Parsi">Parsi</option>
+                                    <option value="Buddhist">Buddhist</option>
+                                    <option value="Inter-Religion">Inter-Religion</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <input type="text" class="form-control" name="caste" id="caste" placeholder="Caste">
+                                <!-- <select class="form-control" name="caste" id="caste">
+                                     <option>Select Caste</option>
+                                     <option value="Adi Dravida">Adi Dravida</option>
+                                     <option value="Arunthathiyar">Arunthathiyar</option>
+                                     <option value="Boyer">Boyer</option>
+                                     <option value="Brahmin">Brahmin</option>
+                                     <option value="Brahmin - Gurukkal">Brahmin - Gurukkal</option>
+                                     <option value="Brahmin - Iyengar">Brahmin - Iyengar</option>
+                                     <option value="Brahmin - Iyer">Brahmin - Iyer</option>
+                                     <option value="Chettiar">Chettiar</option>
+                                     <option value="Devandra Kula Vellalar">
+                                         Devandra Kula Vellalar
+                                     </option>
+                                     <option value="Gounder">Gounder</option>
+                                     <option value="Intercaste">Intercaste</option>
+                                     <option value="Karuneegar">Karuneegar</option>
+                                     <option value="Kongu Vellala Gounder">
+                                         Kongu Vellala Gounder
+                                     </option>
+                                     <option value="Kulalar">Kulalar</option>
+                                     <option value="Kurumbar">Kurumbar</option>
+                                     <option value="Maruthuvar">Maruthuvar</option>
+                                     <option value="Meenavar">Meenavar</option>
+                                     <option value="Mudaliyar">Mudaliyar</option>
+                                     <option value="Mukkulathor">Mukkulathor</option>
+                                     <option value="Muthuraja">Muthuraja</option>
+                                     <option value="Nadar">Nadar</option>
+                                     <option value="Naicker">Naicker</option>
+                                     <option value="Naidu">Naidu</option>
+                                     <option value="Parkava Kulam">Parkava Kulam</option>
+                                     <option value="Pillai">Pillai</option>
+                                     <option value="Reddy">Reddy</option>
+                                     <option value="SC">SC</option>
+                                     <option value="Senai Thalaivar">Senai Thalaivar</option>
+                                     <option value="Sourashtra">Sourashtra</option>
+                                     <option value="Tribe">Tribe</option>
+                                     <option value="Vannar">Vannar</option>
+                                     <option value="Vannia Kula Kshatriyar">
+                                         Vannia Kula Kshatriyar
+                                     </option>
+                                     <option value="Veera Saivam">Veera Saivam</option>
+                                     <option value="Vellalar">Vellalar</option>
+                                     <option value="Viswakarma">Viswakarma</option>
+                                     <option value="Vokkaliga">Vokkaliga</option>
+                                     <option value="Yadava">Yadava</option>
+                                     <option value="Agnikula Kshatriya">Agnikula Kshatriya</option>
+                                     <option value="Arya Vysya">Arya Vysya</option>
+                                     <option value="Balija">Balija</option>
+                                     <option value="Besta">Besta</option>
+                                     <option value="Brahmin">Brahmin</option>
+                                     <option value="Brahmin - Dravida">Brahmin - Dravida</option>
+                                     <option value="Brahmin - Madhwa">Brahmin - Madhwa</option>
+                                     <option value="Brahmin - Niyogi">Brahmin - Niyogi</option>
+                                     <option value="Brahmin - Smartha">Brahmin - Smartha</option>
+                                     <option value="Brahmin - Sri Vaishnava">
+                                         Brahmin - Sri Vaishnava
+                                     </option>
+                                     <option value="Brahmin - Vaidiki">Brahmin - Vaidiki</option>
+                                     <option value="Brahmin - Velanadu">Brahmin - Velanadu</option>
+                                     <option value="Brahmin - Telanganya">
+                                         Brahmin - Telanganya
+                                     </option>
+                                     <option value="Chettiar">Chettiar</option>
+                                     <option value="Devanga">Devanga</option>
+                                     <option value="Gandla">Gandla</option>
+                                     <option value="Gavara">Gavara</option>
+                                     <option value="Gowda">Gowda</option>
+                                     <option value="Intercaste">Intercaste</option>
+                                     <option value="Kalinga">Kalinga</option>
+                                     <option value="Kamma">Kamma</option>
+                                     <option value="Kapu">Kapu</option>
+                                     <option value="Kshatriya">Kshatriya</option>
+                                     <option value="Kummari">Kummari</option>
+                                     <option value="Kuruba">Kuruba</option>
+                                     <option value="Kamsali">Kamsali</option>
+                                     <option value="Lingayat">Lingayat</option>
+                                     <option value="Mannuru Kapu">Mannuru Kapu</option>
+                                     <option value="Madiga">Madiga</option>
+                                     <option value="Mahendra">Mahendra</option>
+                                     <option value="Mala">Mala</option>
+                                     <option value="Maratha">Maratha</option>
+                                     <option value="Meru Darji">Meru Darji</option>
+                                     <option value="Mudaliyar">Mudaliyar</option>
+                                     <option value="Mudiraj">Mudiraj</option>
+                                     <option value="Nadar">Nadar</option>
+                                     <option value="Nai">Nai</option>
+                                     <option value="Naidu">Naidu</option>
+                                     <option value="Padmasali">Padmasali</option>
+                                     <option value="Patnaick">Patnaick</option>
+                                     <option value="Rajaka">Rajaka</option>
+                                     <option value="Rajput">Rajput</option>
+                                     <option value="Reddy">Reddy</option>
+                                     <option value="SC">SC</option>
+                                     <option value="Telaga">Telaga</option>
+                                     <option value="Tribe">Tribe</option>
+                                     <option value="Vaishnava">Vaishnava</option>
+                                     <option value="Valmiki">Valmiki</option>
+                                     <option value="Vokkaliga">Vokkaliga</option>
+                                     <option value="Velama">Velama</option>
+                                     <option value="Viswabrahmin">Viswabrahmin</option>
+                                     <option value="Yadava">Yadava</option>
+                                     <option value="Ambalavasi">Ambalavasi</option>
+                                     <option value="Brahmin">Brahmin</option>
+                                     <option value="Chettiar">Chettiar</option>
+                                     <option value="Dheevara">Dheevara</option>
+                                     <option value="Ezhava">Ezhava</option>
+                                     <option value="Ezhuthachan">Ezhuthachan</option>
+                                     <option value="Intercaste">Intercaste</option>
+                                     <option value="Kshatriya">Kshatriya</option>
+                                     <option value="Kudumbi">Kudumbi</option>
+                                     <option value="Mapila">Mapila</option>
+                                     <option value="Mudaliyar">Mudaliyar</option>
+                                     <option value="Nadar">Nadar</option>
+                                     <option value="Naidu">Naidu</option>
+                                     <option value="Nair">Nair</option>
+                                     <option value="Panicker">Panicker</option>
+                                     <option value="Rajput">Rajput</option>
+                                     <option value="Saliya">Saliya</option>
+                                     <option value="SC">SC</option>
+                                     <option value="Thiyya">Thiyya</option>
+                                     <option value="Tribe">Tribe</option>
+                                     <option value="Veera Saivam">Veera Saivam</option>
+                                     <option value="Veluthedathu Nair">Veluthedathu Nair</option>
+                                     <option value="Vilakkithala Nair">Vilakkithala Nair</option>
+                                     <option value="Viswakarma">Viswakarma</option>
+                                     <option value="Yadava">Yadava</option>
+                                     <option value="Besta">Besta</option>
+                                     <option value="Bhovi">Bhovi</option>
+                                     <option value="Billava">Billava</option>
+                                     <option value="Brahmin">Brahmin</option>
+                                     <option value="Chettiar">Chettiar</option>
+                                     <option value="Coorgi">Coorgi</option>
+                                     <option value="Devadiga">Devadiga</option>
+                                     <option value="Devanga">Devanga</option>
+                                     <option value="Dhobi">Dhobi</option>
+                                     <option value="Ediga">Ediga</option>
+                                     <option value="Ganiga">Ganiga</option>
+                                     <option value="Gowda">Gowda</option>
+                                     <option value="Intercaste">Intercaste</option>
+                                     <option value="Kshatriya">Kshatriya</option>
+                                     <option value="Kulal">Kulal</option>
+                                     <option value="Kulal">Kulal</option>
+                                     <option value="Kuruhina Shetty">Kuruhina Shetty</option>
+                                     <option value="Lambadi">Lambadi</option>
+                                     <option value="Lingayat">Lingayat</option>
+                                     <option value="Mangalorean">Mangalorean</option>
+                                     <option value="Mogaveera">Mogaveera</option>
+                                     <option value="Mudaliyar">Mudaliyar</option>
+                                     <option value="Naik">Naik</option>
+                                     <option value="Naidu">Naidu</option>
+                                     <option value="Nayaka">Nayaka</option>
+                                     <option value="Padmasali">Padmasali</option>
+                                     <option value="Rajput">Rajput</option>
+                                     <option value="Reddy">Reddy</option>
+                                     <option value="Shetty">Shetty</option>
+                                     <option value="SC">SC</option>
+                                     <option value="Thigala">Thigala</option>
+                                     <option value="Tribe">Tribe</option>
+                                     <option value="Uppara">Uppara</option>
+                                     <option value="Vaishnav">Vaishnav</option>
+                                     <option value="Viswakarma">Viswakarma</option>
+                                     <option value="Vokkaliga">Vokkaliga</option>
+                                     <option value="Vysya">Vysya</option>
+                                     <option value="Yadava">Yadava</option>
+                                     <option value="Agarwal">Agarwal</option>
+                                     <option value="Bhatia">Bhatia</option>
+                                     <option value="Bhavasar Kshatriya">Bhavasar Kshatriya</option>
+                                     <option value="Brahmbatt">Brahmbatt</option>
+                                     <option value="Brahmin">Brahmin</option>
+                                     <option value="Intercaste">Intercaste</option>
+                                     <option value="Kayastha">Kayastha</option>
+                                     <option value="Khatri">Khatri</option>
+                                     <option value="Kshatriya">Kshatriya</option>
+                                     <option value="Kutchi">Kutchi</option>
+                                     <option value="Lohana">Lohana</option>
+                                     <option value="Mochi">Mochi</option>
+                                     <option value="Panchal">Panchal</option>
+                                     <option value="Patel">Patel</option>
+                                     <option value="Prajapati">Prajapati</option>
+                                     <option value="Rajput">Rajput</option>
+                                     <option value="SC">SC</option>
+                                     <option value="Soni">Soni</option>
+                                     <option value="Suthar">Suthar</option>
+                                     <option value="Thakkar">Thakkar</option>
+                                     <option value="Tribe">Tribe</option>
+                                     <option value="Vaishnav">Vaishnav</option>
+                                     <option value="Vankar">Vankar</option>
+                                     <option value="Vysya">Vysya</option>
+                                     <option value="Yadav">Yadav</option>
+                                     <option value="Agri">Agri</option>
+                                     <option value="Arya Vysya">Arya Vysya</option>
+                                     <option value="Bhandari">Bhandari</option>
+                                     <option value="Bhavasar Kshatriya">Bhavasar Kshatriya</option>
+                                     <option value="Brahmin">Brahmin</option>
+                                     <option value="Chambhar">Chambhar</option>
+                                     <option value="CKP">CKP</option>
+                                     <option value="Devang Koshthi">Devang Koshthi</option>
+                                     <option value="Dhangar">Dhangar</option>
+                                     <option value="Dhobi">Dhobi</option>
+                                     <option value="Gabit">Gabit</option>
+                                     <option value="Intercaste">Intercaste</option>
+                                     <option value="Jangam">Jangam</option>
+                                     <option value="Kasar">Kasar</option>
+                                     <option value="Kayastha">Kayastha</option>
+                                     <option value="Koli">Koli</option>
+                                     <option value="Konkani">Konkani</option>
+                                     <option value="Kshatriya">Kshatriya</option>
+                                     <option value="Kumbhar">Kumbhar</option>
+                                     <option value="Kumbhar">Kumbhar</option>
+                                     <option value="Mahar">Mahar</option>
+                                     <option value="Mali">Mali</option>
+                                     <option value="Maratha">Maratha</option>
+                                     <option value="Matang">Matang</option>
+                                     <option value="Nhavi">Nhavi</option>
+                                     <option value="Patel">Patel</option>
+                                     <option value="Rajput">Rajput</option>
+                                     <option value="SC">SC</option>
+                                     <option value="Shimpi">Shimpi</option>
+                                     <option value="SKP">SKP</option>
+                                     <option value="Sonar">Sonar</option>
+                                     <option value="Suthar">Suthar</option>
+                                     <option value="Swakula Sali">Swakula Sali</option>
+                                     <option value="Teli">Teli</option>
+                                     <option value="Suthar">Suthar</option>
+                                     <option value="Swakula Sali">Swakula Sali</option>
+                                     <option value="Teli">Teli</option>
+                                     <option value="Tribe">Tribe</option>
+                                     <option value="Vaishnav">Vaishnav</option>
+                                     <option value="Vaishya Vani">Vaishya Vani</option>
+                                     <option value="Vaniya">Vaniya</option>
+                                     <option value="Vanjari">Vanjari</option>
+                                     <option value="Vysya">Vysya</option>
+                                     <option value="Yadava">Yadava</option>
+                                     <option value="Agarwal">Agarwal</option>
+                                     <option value="Baidya">Baidya</option>
+                                     <option value="Baishnab">Baishnab</option>
+                                     <option value="Baishya">Baishya</option>
+                                     <option value="Banik">Banik</option>
+                                     <option value="Barujibi">Barujibi</option>
+                                     <option value="Brahmin">Brahmin</option>
+                                     <option value="Goala">Goala</option>
+                                     <option value="Intercaste">Intercaste</option>
+                                     <option value="Karmakar">Karmakar</option>
+                                     <option value="Kayastha">Kayastha</option>
+                                     <option value="Kshatriya">Kshatriya</option>
+                                     <option value="Kumbhakar">Kumbhakar</option>
+                                     <option value="Mahishya">Mahishya</option>
+                                     <option value="Modak">Modak</option>
+                                     <option value="Namosudra">Namosudra</option>
+                                     <option value="Napit">Napit</option>
+                                     <option value="Rajput">Rajput</option>
+                                     <option value="Saha">Saha</option>
+                                     <option value="Sadgope">Sadgope</option>
+                                     <option value="SC">SC</option>
+                                     <option value="Tamboli">Tamboli</option>
+                                     <option value="Tantubai">Tantubai</option>
+                                     <option value="Tili">Tili</option>
+                                     <option value="Tribe">Tribe</option>
+                                     <option value="Viswakarma">Viswakarma</option>
+                                     <option value="Agarwal">Agarwal</option>
+                                     <option value="Agarwal">Agarwal</option>
+                                     <option value="Agarwal">Agarwal</option>
+                                     <option value="Ad Dharmi">Ad Dharmi</option>
+                                     <option value="Agarwal">Agarwal</option>
+                                     <option value="Bhatia">Bhatia</option>
+                                     <option value="Brahmin">Brahmin</option>
+                                     <option value="Dhiman">Dhiman</option>
+                                     <option value="Ghumar">Ghumar</option>
+                                     <option value="Intercaste">Intercaste</option>
+                                     <option value="Jat">Jat</option>
+                                     <option value="Kamboj">Kamboj</option>
+                                     <option value="Kayastha">Kayastha</option>
+                                     <option value="Khatri">Khatri</option>
+                                     <option value="Kshatriya">Kshatriya</option>
+                                     <option value="Lubana">Lubana</option>
+                                     <option value="Mahajan">Mahajan</option>
+                                     <option value="Majabi">Majabi</option>
+                                     <option value="Nai">Nai</option>
+                                     <option value="Ramgariah">Ramgariah</option>
+                                     <option value="Rajput">Rajput</option>
+                                     <option value="Ramdasia">Ramdasia</option>
+                                     <option value="Ravidasia">Ravidasia</option>
+                                     <option value="Saini">Saini</option>
+                                     <option value="SC">SC</option>
+                                     <option value="Vaishnav">Vaishnav</option>
+                                     <option value="Vania">Vania</option>
+                                     <option value="Viswakarma">Viswakarma</option>
+                                     <option value="Other Castes">Other Castes</option>
+                                     <option value="Caste No Bar">Caste No Bar</option>
+                                     <option value="Doesnt matter">Doesnt matter</option>
+                                     <option value="Brahmin">Brahmin</option>
+                                     <option value="Intercaste">Intercaste</option>
+                                     <option value="Sindhi">Sindhi</option>
+                                     <option value="Sindhi-Amil">Sindhi-Amil</option>
+                                     <option value="Sindhi-Baibhand">Sindhi-Baibhand</option>
+                                     <option value="Sindhi-Bhanusali">Sindhi-Bhanusali</option>
+                                     <option value="Sindhi-Bhatia">Sindhi-Bhatia</option>
+                                     <option value="Sindhi-Chhapru">Sindhi-Chhapru</option>
+                                     <option value="Sindhi-Dadu">Sindhi-Dadu</option>
+                                     <option value="Sindhi-Hyderabadi">Sindhi-Hyderabadi</option>
+                                     <option value="Sindhi-Larai">Sindhi-Larai</option>
+                                     <option value="Sindhi-Larkana">Sindhi-Larkana</option>
+                                     <option value="Sindhi-Lohana">Sindhi-Lohana</option>
+                                     <option value="Sindhi-Rohiri">Sindhi-Rohiri</option>
+                                     <option value="Sindhi-Sahiti">Sindhi-Sahiti</option>
+                                     <option value="Sindhi-Sakkha">Sindhi-Sakkha</option>
+                                     <option value="Sindhi-Sehwani">Sindhi-Sehwani</option>
+                                     <option value="Sindhi-Shikarpuri">Sindhi-Shikarpuri</option>
+                                     <option value="Sindhi-Thatai">Sindhi-Thatai</option>
+                                     <option value="Agarwal">Agarwal</option>
+                                     <option value="Baniya">Baniya</option>
+                                     <option value="Brahmin">Brahmin</option>
+                                     <option value="Brahmin - Bhumihar">Brahmin - Bhumihar</option>
+                                     <option value="Brahmin - Kanyakubj">Brahmin - Kanyakubj</option>
+                                     <option value="Brahmin - Gaur">Brahmin - Gaur</option>
+                                     <option value="Brahmin - Maithil">Brahmin - Maithil</option>
+                                     <option value="Brahmin - Saryuparin">
+                                         Brahmin - Saryuparin
+                                     </option>
+                                     <option value="Brahmin - Garhwali">Brahmin - Garhwali</option>
+                                     <option value="Brahmin - Mishra">Brahmin - Mishra</option>
+                                     <option value="Brahmin - Pandit">Brahmin - Pandit</option>
+                                     <option value="Brahmin - Pande">Brahmin - Pande</option>
+                                     <option value="Brahmin - Shukla">Brahmin - Shukla</option>
+                                     <option value="Brahmin - Tiwari">Brahmin - Tiwari</option>
+                                     <option value="Brahmin- Trivedi">Brahmin- Trivedi</option>
+                                     <option value="Brahmin - Thaker">Brahmin - Thaker</option>
+                                     <option value="Brahmin - Sanadya">Brahmin - Sanadya</option>
+                                     <option value="Brahmin - Kumoani">Brahmin - Kumoani</option>
+                                     <option value="Brahmin - Tyagi">Brahmin - Tyagi</option>
+                                     <option value="Chamar">Chamar</option>
+                                     <option value="Chandravanshi Kahar">Chandravanshi Kahar</option>
+                                     <option value="Chaudary">Chaudary</option>
+                                     <option value="Chaurasia">Chaurasia</option>
+                                     <option value="Chhetri">Chhetri</option>
+                                     <option value="Dhobi">Dhobi</option>
+                                     <option value="Garhwali">Garhwali</option>
+                                     <option value="Goan">Goan</option>
+                                     <option value="Gupta">Gupta</option>
+                                     <option value="Intercaste">Intercaste</option>
+                                     <option value="Jaiswal">Jaiswal</option>
+                                     <option value="Jat">Jat</option>
+                                     <option value="Kalar">Kalar</option>
+                                     <option value="Kalwar">Kalwar</option>
+                                     <option value="Kamboj">Kamboj</option>
+                                     <option value="Kashyap">Kashyap</option>
+                                     <option value="Kayastha">Kayastha</option>
+                                     <option value="Khandelwal">Khandelwal</option>
+                                     <option value="Khatri">Khatri</option>
+                                     <option value="Kori">Kori</option>
+                                     <option value="Kurmi Kshatriya">Kurmi Kshatriya</option>
+                                     <option value="Kshatriya">Kshatriya</option>
+                                     <option value="Kumhar">Kumhar</option>
+                                     <option value="Lingayat">Lingayat</option>
+                                     <option value="Mahajan">Mahajan</option>
+                                     <option value="Mahar">Mahar</option>
+                                     <option value="Maheshwari">Maheshwari</option>
+                                     <option value="Malla">Malla</option>
+                                     <option value="Mali">Mali</option>
+                                     <option value="Maratha">Maratha</option>
+                                     <option value="Meena">Meena</option>
+                                     <option value="Mehra">Mehra</option>
+                                     <option value="Nai">Nai</option>
+                                     <option value="Oswal">Oswal</option>
+                                     <option value="Pal">Pal</option>
+                                     <option value="Pasi">Pasi</option>
+                                     <option value="Patel">Patel</option>
+                                     <option value="Rajput">Rajput</option>
+                                     <option value="Rajput - Singh">Rajput - Singh</option>
+                                     <option value="Rawat">Rawat</option>
+                                     <option value="Sahu">Sahu</option>
+                                     <option value="Saini">Saini</option>
+                                     <option value="SC">SC</option>
+                                     <option value="Sonar">Sonar</option>
+                                     <option value="Teli">Teli</option>
+                                     <option value="Thakur">Thakur</option>
+                                     <option value="Tribe">Tribe</option>
+                                     <option value="Vaishnav">Vaishnav</option>
+                                     <option value="Vaishya">Vaishya</option>
+                                     <option value="Viswakarma">Viswakarma</option>
+                                     <option value="Yadav">Yadav</option>
+                                     <option value="Other Castes">Other Castes</option>
+                                     <option value="Bhandari">Bhandari</option>
+                                     <option value="Brahmin">Brahmin</option>
+                                     <option value="Chasa">Chasa</option>
+                                     <option value="Dhoba">Dhoba</option>
+                                     <option value="Gudia">Gudia</option>
+                                     <option value="Intercaste">Intercaste</option>
+                                     <option value="Kaibarta">Kaibarta</option>
+                                     <option value="Kansari">Kansari</option>
+                                     <option value="Karana">Karana</option>
+                                     <option value="Kayastha">Kayastha</option>
+                                     <option value="Khandayat">Khandayat</option>
+                                     <option value="Khatri">Khatri</option>
+                                     <option value="Kshatriya">Kshatriya</option>
+                                     <option value="Kulita">Kulita</option>
+                                     <option value="Kumhar">Kumhar</option>
+                                     <option value="Mali">Mali</option>
+                                     <option value="Maratha">Maratha</option>
+                                     <option value="Patel">Patel</option>
+                                     <option value="Patra">Patra</option>
+                                     <option value="Rajput">Rajput</option>
+                                     <option value="Sahu">Sahu</option>
+                                     <option value="SC">SC</option>
+                                     <option value="Sundhi">Sundhi</option>
+                                     <option value="Tanti">Tanti</option>
+                                     <option value="Teli">Teli</option>
+                                     <option value="Tribe">Tribe</option>
+                                     <option value="Vaishnav">Vaishnav</option>
+                                     <option value="Vaishya">Vaishya</option>
+                                     <option value="Yadava">Yadava</option>
+                                     <option value="Intercaste">Intercaste</option>
+                                     <option value="Irani">Irani</option>
+                                     <option value="Parsi">Parsi</option>
+                                     <option value="Ahom">Ahom</option>
+                                     <option value="Brahmin">Brahmin</option>
+                                     <option value="Intercaste">Intercaste</option>
+                                     <option value="Kalita">Kalita</option>
+                                     <option value="Kayastha">Kayastha</option>
+                                     <option value="Kshatriya">Kshatriya</option>
+                                     <option value="Manipuri">Manipuri</option>
+                                     <option value="Maratha">Maratha</option>
+                                     <option value="Nepali">Nepali</option>
+                                     <option value="Rajbonshi">Rajbonshi</option>
+                                     <option value="Rajput">Rajput</option>
+                                     <option value="SC">SC</option>
+                                     <option value="Tribe">Tribe</option>
+                                     <option value="Viswakarma">Viswakarma</option>
+                                     <option value="Agarwal">Agarwal</option>
+                                     <option value="Brahmin">Brahmin</option>
+                                     <option value="Intercaste">Intercaste</option>
+                                     <option value="Jat">Jat</option>
+                                     <option value="Kayastha">Kayastha</option>
+                                     <option value="Khandelwal">Khandelwal</option>
+                                     <option value="Khatri">Khatri</option>
+                                     <option value="Kshatriya">Kshatriya</option>
+                                     <option value="Lingayat">Lingayat</option>
+                                     <option value="Maheshwari">Maheshwari</option>
+                                     <option value="Mali">Mali</option>
+                                     <option value="Oswal">Oswal</option>
+                                     <option value="Porwal">Porwal</option>
+                                     <option value="Rajastani">Rajastani</option>
+                                     <option value="Rajput">Rajput</option>
+                                     <option value="SC">SC</option>
+                                     <option value="Tribe">Tribe</option>
+                                     <option value="Vaish">Vaish</option>
+                                     <option value="Vaishya">Vaishya</option>
+                                     <option value="Vania">Vania</option>
+                                     <option value="Viswakarma">Viswakarma</option>
+                                 </select>---->
+
+                            </div>
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <select class="form-control" name="gender" id="gender">
+                                    <option value="Gender">Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="clearfix clear_1">
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <input type="password" class="form-control" placeholder="Choose a password"
+                                       required name="password1" id="password1"
+                                       data-validation-required-message="Please enter your password."
+                                >
+                            </div>
+                            <div class="col-sm-12 register_right_inner_1 space_left">
+                                <input type="password" class="form-control" placeholder="Retype your password"
+                                       required name="password2" id="password2"
+                                       data-validation-required-message="Please re-enter your password"
+                                >
+                            </div>
+                        </div>
+                        <div class="clearfix clear_1">
+                            <!-- START CAPTCHA -->
+                            <br>
+                            <div class="capbox">
+
+                                <div id="CaptchaDiv"></div>
+
+                                <div class="capbox-inner">
+                                    Type the number:<br>
+
+                                    <input type="hidden" id="txtCaptcha">
+                                    <input type="text" name="CaptchaInput" id="CaptchaInput" size="10"><br>
+
+                                </div>
+                            </div>
+                            <br><br>
+                            <!-- END CAPTCHA -->
+
+                        </div>
+
+
+                        <div class="clearfix col-sm-12 clear_2">
+                            <h3><input type="submit" value="SUBMIT" class="subbutx3"><br></h3>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+    </form>
+</section>
+
+<script type="text/javascript">
+
+// Captcha Script
+
+function checkform(theform){
+var why = "";
+
+if(theform.CaptchaInput.value == ""){
+why += "- Please Enter CAPTCHA Code.\n";
+}
+if(theform.CaptchaInput.value != ""){
+if(ValidCaptcha(theform.CaptchaInput.value) == false){
+why += "- The CAPTCHA Code Does Not Match.\n";
+}
+}
+if(why != ""){
+alert(why);
+return false;
+}
+}
+
+var a = Math.ceil(Math.random() * 9)+ '';
+var b = Math.ceil(Math.random() * 9)+ '';
+var c = Math.ceil(Math.random() * 9)+ '';
+var d = Math.ceil(Math.random() * 9)+ '';
+var e = Math.ceil(Math.random() * 9)+ '';
+
+var code = a + b + c + d + e;
+document.getElementById("txtCaptcha").value = code;
+document.getElementById("CaptchaDiv").innerHTML = code;
+
+// Validate input against the generated number
+function ValidCaptcha(){
+var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+if (str1 == str2){
+return true;
+}else{
+return false;
+}
+}
+
+// Remove the spaces from the entered and generated code
+function removeSpaces(string){
+return string.split(' ').join('');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -15,6 +15,7 @@ def home(request):
                    })
 
 
+
 def homeregister(request):
     return render(request, 'vivah/index.html', {})
 
