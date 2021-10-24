@@ -16,4 +16,5 @@ urlpatterns = [
     path('profilepref', views.profilepref, name='profilepref'),
     path('familyvalues', views.familyvalues, name='familyvalues'),
     path('social-auth/', include('social_django.urls', namespace="social")),
+    path('shaadiprofile/<int:pk>/', views.shaadiprofile, name='shaadiprofile'),
 ]

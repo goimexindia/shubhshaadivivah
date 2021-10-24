@@ -58,7 +58,7 @@ button:hover, a:hover {
                 <div class="card-image"><img src="{% static 'vivah/img/482.jpg' %}" width="100%"></div>
                 <p>
                     <a href="{% url 'product' %}" class="footer-link-3">
-                        <button style="background-color: blue;" type="button">My Search</button>
+                        <button style="background-color: blue;" type="button"><h2>My Search</h2></button>
                     </a>
                 </p>
                 <!--- <div class="register_left">
@@ -80,8 +80,8 @@ button:hover, a:hover {
                     <div class="card" style="text-align:center">
                         <img src="{{ request.user.profile.img.url }}" alt="Profile Picture" width="350px"
                              height="320px">
-                        <h3>id-{{ user.id}}</h3>
-                        <h3> {{ user.username }} </h3>
+                        <h1>ID : {{ user.id}}</h1>
+                        <h3>User Name :  {{ user.username }} </h3>
                         <p class="title">Name : {{ user.first_name }}- {{ user.last_name }}
                             | {{user.profile.gender}} | {{user.profile.birthday}} </p>
                         <p class="title1">eMail : {{ user.email }}</p>
