@@ -387,6 +387,8 @@ class Profile(models.Model):
     mobile = models.CharField(max_length=120, default='123456789')
     religion = models.CharField(max_length=50, choices=RELIGION, default='HINDU')
     caste = models.CharField(max_length=120, default='HINDU')
+    eventday = models.CharField(max_length=10, default='NO')
+    session = models.CharField(max_length=10, default='NO')
     searchfor = models.CharField(max_length=50, choices=RELIGION, default='HINDU')
     martialstatus = models.CharField(max_length=20, choices=MARTIAL_STATUS, default='Single')
     img = models.ImageField(upload_to='pics', default='profile.jpg', verbose_name='static/pic/img/profile.jpg')

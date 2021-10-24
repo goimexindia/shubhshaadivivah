@@ -168,6 +168,8 @@ def handlesignup(request):
         gender = request.POST["gender"]
         birthday = request.POST["dob"]
         searchfor = request.POST["SearchFor"]
+        session = request.POST["Session"]
+        eventday = request.POST["PDate"]
         # check for errors in input
         if request.method == 'POST':
             try:
@@ -222,6 +224,8 @@ def handlesignup(request):
         user.profile.searchfor = searchfor
         user.profile.martialstatus = martialstatus
         user.profile.profilefo = profilefor
+        user.profile.eventday = eventday
+        user.profile.session = session
 
         update_user_data(user)
         user.save()
