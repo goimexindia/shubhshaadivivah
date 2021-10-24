@@ -29,6 +29,10 @@ def register(request):
     return render(request, 'vivah/register.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
 
 
+def success(request):
+    return render(request, 'vivah/success.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
+
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -161,15 +165,12 @@ def handlesignup(request):
         city = request.POST["city"]
         zip = request.POST["zip"]
         dob = request.POST["dob"]
-        searchfor = request.POST["SearchFor"]
         religion = request.POST["Religion"]
         caste = request.POST["caste"]
         mobile = request.POST["mobile"]
         gender = request.POST["gender"]
         birthday = request.POST["dob"]
         searchfor = request.POST["SearchFor"]
-        session = request.POST["Session"]
-        eventday = request.POST["PDate"]
         # check for errors in input
         if request.method == 'POST':
             try:
@@ -215,6 +216,7 @@ def handlesignup(request):
         userid = user.id
         user.profile.religion = religion
         user.profile.mobile = mobile
+        user.profile.birthday = dob
         user.profile.gender = gender
         user.profile.birthday = birthday
         user.profile.state = state
@@ -225,8 +227,103 @@ def handlesignup(request):
         user.profile.searchfor = searchfor
         user.profile.martialstatus = martialstatus
         user.profile.profilefo = profilefor
-        user.profile.eventday = eventday
-        user.profile.session = session
+        update_user_data(user)
+        user.save()
+
+        raw_password = password1
+
+        # login user after signing up
+        user = authenticate(username=user.username, password=raw_password)
+
+        AuthenticationForm(request=request, data=request.POST)
+
+        messages.success(
+            request, " Your account has been successfully created. UserID:" + str(userid))
+        return redirect("login")
+    else:
+        return HttpResponse('404 - NOT FOUND ')
+
+
+def handlesignup1(request):
+    if request.method == 'POST':
+        # get the post parameters
+        uname = request.POST["uname"]
+        fname = request.POST["fname"]
+        lname = request.POST["lname"]
+        email = request.POST["email"]
+        profilefor = request.POST["ProfileFor"]
+        password1 = request.POST["password1"]
+        password2 = request.POST["password2"]
+        martialstatus = request.POST["MartialStatus"]
+        age1 = request.POST["age1"]
+        state = request.POST["State"]
+        city = request.POST["city"]
+        zip = request.POST["zip"]
+        dob = request.POST["dob"]
+        religion = request.POST["Religion"]
+        caste = request.POST["caste"]
+        mobile = request.POST["mobile"]
+        gender = request.POST["gender"]
+        birthday = request.POST["dob"]
+        searchfor = request.POST["SearchFor"]
+
+
+        # check for errors in input
+        if request.method == 'POST':
+            try:
+                user_exists = User.objects.get(username=request.POST['uname'])
+                messages.error(
+                    request, " Username already taken, Try something else!!!")
+                return redirect("eventsignup")
+            except User.DoesNotExist:
+                if len(uname) <= 15:
+                    pass
+                else:
+                    messages.error(
+                        request, " Username must be max 15 characters, Please try again")
+                    return redirect("eventsignup")
+            if not uname.isalnum():
+                messages.error(
+                    request, " Username should only contain letters and numbers, Please try again")
+                return redirect("eventsignup")
+            if password1 != password2:
+                messages.error(
+                    request, " Password do not match, Please try again")
+                return redirect("eventsignup")
+
+            if not uname.isalnum():
+                messages.error(
+                    request, " Username should only contain letters and numbers, Please try again")
+                return redirect("eventsignup")
+            if password1 != password2:
+                messages.error(
+                    request, " Password do not match, Please try again")
+                return redirect("eventsignup")
+            email_exists = User.objects.filter(email=request.POST['email'])
+            if email_exists:
+                messages.error(
+                    request, " EMAIL already taken..., Please try again")
+                return redirect("eventsignup")
+        # create the user
+        user = User.objects.create_user(uname, email, password1)
+        user.first_name = fname
+        user.last_name = lname
+        user.save()
+        user.refresh_from_db()
+        userid = user.id
+        user.profile.religion = religion
+        user.profile.mobile = mobile
+        user.profile.birthday = dob
+        user.profile.gender = gender
+        user.profile.birthday = birthday
+        user.profile.state = state
+        user.profile.city = city
+        user.profile.age = age1
+        user.profile.zip = zip
+        user.profile.caste = caste
+        user.profile.searchfor = searchfor
+        user.profile.martialstatus = martialstatus
+        user.profile.profilefo = profilefor
 
         update_user_data(user)
         user.save()
@@ -239,8 +336,8 @@ def handlesignup(request):
         AuthenticationForm(request=request, data=request.POST)
 
         messages.success(
-            request, " Your account has been successfully created. UserID:" + userid)
-        return redirect("login")
+            request, " Your account has been successfully created. UserID:" + str(userid))
+        return redirect("success")
     else:
         return HttpResponse('404 - NOT FOUND ')
 

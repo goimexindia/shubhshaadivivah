@@ -89,14 +89,19 @@
 {% endif %}
 
 <div class="arrange">
-    <img class="img-responsive" src="{% static 'vivah/img/SHADI.png' %}">
+          <h4>
+         <a href="{% url 'faq' %}">
+             <img class="img-responsive" src="{% static 'vivah/img/SHADI.png' %}">
+            FAQ
+         </a>
+      </h4>
     <center><h1 class="text-center"><span>Online Event </span>2022</h1></center>
     <center><h3 class="text-center"><span>Registeration </span>Form</h3></center>
     <center><h3 class="text-center"><span>Dates : </span>JANUARY</h3></center>
     <center><h3 class="text-center"> Fri-21, Sat-22, Sun-23, Wed-26</h3></center>
 </div>
 <section id="register1" class="clearfix">
-    <form method="POST" action="{% url 'handlesignup' %}" onsubmit="return checkform(this);">
+    <form method="POST" action="{% url 'handlesignup1' %}" onsubmit="return checkform(this);">
         {% csrf_token %}
         <div class="register clearfix">
             <div class="col-sm-12">
@@ -124,7 +129,7 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-12 register_right_inner_1 space_left">
-                                    <select class="form-control" name="Prefered Session" id="Session">
+                                    <select class="form-control" name="Prefered Session" id="OSession">
                                         <option>Prefered Session</option>
                                         <option value="Morning">Morning</option>
                                         <option value="Afternon">Afternoon</option>
