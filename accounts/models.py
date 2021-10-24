@@ -419,7 +419,7 @@ class Profile(models.Model):
     img4 = models.ImageField(upload_to='pics', verbose_name="Profile Image", default='static/vivah/img/profile.jpg')
 
     def __str__(self):
-        return f'{self.user.username} Profile'
+        return f'{self.user.username}, {self.gender}  , {self.user.id} Profile'
 
     def total_likes(self):
         return self.likes.count()
