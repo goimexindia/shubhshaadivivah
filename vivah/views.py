@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.core.mail import send_mail
@@ -15,7 +16,7 @@ def home(request):
                    })
 
 
-
+@login_required(login_url='login')
 def homeregister(request):
     return render(request, 'vivah/index.html', {})
 
@@ -97,14 +98,7 @@ def contact(request):
         return render(request, 'vivah/contact.html', {})
 
 
-class EcomerceView(TemplateView):
-    template_name = "vivah/product.html"
-
-    def get_context_data(self, **kwargs):
-        context = super(EcomerceView, self).get_context_data(**kwargs)
-        all_products = Profile.objects.order_by("-id")
-        paginator = Paginator(all_products, 32)
-        page_number = self.request.GET.get('page')
-        product_list = paginator.get_page(page_number)
-        context['product_list'] = product_list
-        return context
+@login_required
+def EcomerceView(request):
+    all_products = Profile.objects.order_by("-id")
+    return render(request, 'vivah/product.html', {'product_list': all_products})

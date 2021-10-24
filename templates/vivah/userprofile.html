@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-        <link rel="icon" href='/static/vivah/images/icons8-ganesha-64.png' type="image/x-icon">
+    <link rel="icon" href='/static/vivah/images/icons8-ganesha-64.png' type="image/x-icon">
     <title>Resume - ShubhShaadiVivahe</title>
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico"/>
     <!-- Font Awesome icons (free version)-->
@@ -37,6 +37,7 @@ tr:nth-child(even) {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
     </style>
 </head>
@@ -71,8 +72,12 @@ tr:nth-child(even) {
     <!-- About-->
     <section class="resume-section" id="about">
         <div class="resume-section-content">
+            <h3 class="mb-0">
+                <a href="/" title="ShubhShaadiVivah"><img alt="ShubhShaadiVivah"
+                                                          src="{%  static  'vivah/img/SHADI.png' %}"></a>
+            </h3>
             <h3 class="mb-0"> ID : <span class="text-primary">{{ user.id}}</span></h3>
-             <h3 class="mb-0"> Match For : <span class="text-primary">{{ user.preferences.profilefo}}</span></h3>
+            <h3 class="mb-0"> Match For : <span class="text-primary">{{ user.preferences.profilefo}}</span></h3>
             <h1 class="mb-0">
                 {{ user.first_name }}
                 <span class="text-primary">{{ user.last_name }}</span>
@@ -235,7 +240,7 @@ tr:nth-child(even) {
             <p>Diet:<span class="text-primary">{{user.profile.diet}}</span></p>
             <p>Smoke:<span class="text-primary">{{user.profile.get_smoke_display}}</span></p>
             <p>Body Type:<span class="text-primary">Average</span></p>
-             <p>About Myself:<span class="text-primary">{{ user.profile.aboutus|safe }}</span></p>
+            <p>About Myself:<span class="text-primary">{{ user.profile.aboutus|safe }}</span></p>
 
             </p>
         </div>
@@ -246,7 +251,7 @@ tr:nth-child(even) {
         <div class="resume-section-content">
             <h2 class="mb-5">Awards & Certifications</h2>
             <ul class="fa-ul mb-0">
-                 <h4><span class="text-primary">{{ user.familyvalues.awards|safe}}</span></h4>
+                <h4><span class="text-primary">{{ user.familyvalues.awards|safe}}</span></h4>
             </ul>
         </div>
     </section>

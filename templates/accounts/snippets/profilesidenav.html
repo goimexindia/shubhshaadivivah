@@ -41,6 +41,7 @@
 }
 
 
+
 </style>
 
 <div id="mySidenav" class="asidenav">
@@ -52,7 +53,7 @@
     <a href="{% url 'profile1' %}">My Contact Information</a>
     <a href="{% url 'profilepref' %}">Partner Preferences</a>
     <a href="{% url 'familyvalues' %}">Family Values</a>
-     <a href="{% url 'userprofile' %}">User Profile</a>
+    <a href="{% url 'userprofile' %}">User Profile</a>
     {% if user.is_authenticated %}
     <a href="{% url 'logout' %}">Logout</a>
     {% else %}
@@ -61,9 +62,11 @@
     {% endif %}
 
 </div>
-<a href="/" title="ShubhShaadiVivah"><img alt="ShubhShaadiVivah"
+<center>
+    <a href="/" title="ShubhShaadiVivah"><img alt="ShubhShaadiVivah"
 
-                                          src="{%  static  'vivah/img/ssv.png' %}"  ></a>
+                                              src="{%  static  'vivah/img/SHADI.png' %}"></a>
+</center>
 <div class="media">
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
     <div class="card bg-primary text-white">
@@ -84,6 +87,7 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+
 
 
 

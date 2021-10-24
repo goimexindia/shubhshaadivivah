@@ -26,7 +26,21 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+<script>
+// (A) ALERT
+function demoA () { alert("Message"); }
 
+// (B) CONFIRM
+function demoB () {
+  if (confirm("Continue?")) { alert("Yes"); }
+}
+
+// (C) PROMPT
+function demoC () {
+  var name = prompt("Enter Your Name", "Jon");
+  alert("Your name is "+name);
+}
+</script>
 
 <div class="products-box">
     <div class="container">
@@ -68,7 +82,7 @@
                                         class="fas fa-eye"></i></a></li>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="Express Interest"><i
                                         class="fas fa-sync-alt"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View Contact"><i
+                                <li><a href="#" data-toggle="tooltip"   data-placement="right" title="View Contact For Paid Members"><i
                                         class="far fa-heart"></i></a></li>
                             </ul>
                             <a class="cart" href="#">Add to My List</a>
