@@ -1,6 +1,4 @@
-
 {% load static %}
-
 
 
 <!DOCTYPE html>
@@ -32,8 +30,7 @@
         </div>
         <div class="col-rt-2">
             <ul>
-                <li><a href="https://codeconvey.com/html-code-for-student-profile" title="Back to tutorial page">Back to
-                    Tutorial</a></li>
+                <li><a href="\" title="Back ">Home</a></li>
             </ul>
         </div>
     </div>
@@ -43,8 +40,8 @@
     <div class="rt-container">
         <div class="col-rt-12">
             <div class="rt-heading">
-                <h1>Student Profile Page Design Example</h1>
-                <p>A responsive student profile page design.</p>
+                <h1>My Profile</h1>
+
             </div>
         </div>
     </div>
@@ -62,14 +59,19 @@
                             <div class="col-lg-4">
                                 <div class="card shadow-sm">
                                     <div class="card-header bg-transparent text-center">
-                                        <img class="profile_img" src="https://source.unsplash.com/600x300/?student"
-                                             alt="student dp">
-                                        <h3>Ishmam Ahasan Samin</h3>
+                                        <!---<img class="profile_img" src="https://source.unsplash.com/600x300/?student"
+                                             alt="student dp">--->
+                                        <img src="{{customers.img.url}}"
+                                             onerror="this.onerror=null; this.src='/static/images/no_image.jpg'"
+                                             alt="{{customers.user.id}}" onContextMenu="return false;"
+                                             style="height: 200px; object-fit: contain;">
+                                        <h3>{{customers.user.username}}</h3>
                                     </div>
                                     <div class="card-body">
-                                        <p class="mb-0"><strong class="pr-1">Student ID:</strong>321000001</p>
-                                        <p class="mb-0"><strong class="pr-1">Class:</strong>4</p>
-                                        <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
+                                        <p class="mb-0"><strong class="pr-1">ID:</strong>{{customers.user.id}}</p>
+                                        <p class="mb-0"><strong class="pr-1">Age:</strong>{{customers.age}}</p>
+                                        <p class="mb-0"><strong class="pr-1">Gender:</strong>{{customers.gender}}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -81,29 +83,34 @@
                                     <div class="card-body pt-0">
                                         <table class="table table-bordered">
                                             <tr>
-                                                <th width="30%">Roll</th>
+                                                <th width="30%">Date Of Birth</th>
                                                 <td width="2%">:</td>
-                                                <td>125</td>
+                                                <td>{{customers.birthday}}</td>
                                             </tr>
                                             <tr>
-                                                <th width="30%">Academic Year</th>
+                                                <th width="30%">Martial Status</th>
                                                 <td width="2%">:</td>
-                                                <td>2020</td>
-                                            </tr>
-                                            <tr>
-                                                <th width="30%">Gender</th>
-                                                <td width="2%">:</td>
-                                                <td>Male</td>
+                                                <td>{{customers.martialstatus}}</td>
                                             </tr>
                                             <tr>
                                                 <th width="30%">Religion</th>
                                                 <td width="2%">:</td>
-                                                <td>Group</td>
+                                                <td>{{customers.religion}}</td>
                                             </tr>
                                             <tr>
-                                                <th width="30%">blood</th>
+                                                <th width="30%">Caste</th>
                                                 <td width="2%">:</td>
-                                                <td>B+</td>
+                                                <td>{{customers.caste}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th width="30%">Mother Tongue</th>
+                                                <td width="2%">:</td>
+                                                <td>{{customers.languages}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th width="30%">Horoscope Match</th>
+                                                <td width="2%">:</td>
+                                                <td>{{customers.horo}}</td>
                                             </tr>
                                         </table>
                                     </div>
@@ -111,13 +118,19 @@
                                 <div style="height: 26px"></div>
                                 <div class="card shadow-sm">
                                     <div class="card-header bg-transparent border-0">
-                                        <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Other Information</h3>
+                                        <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Myself in a nutshell</h3>
                                     </div>
                                     <div class="card-body pt-0">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                            consequat.</p>
+                                        <p>{{customers.aboutus|safe}}.</p>
+                                    </div>
+                                </div>
+                                  <div style="height: 26px"></div>
+                                <div class="card shadow-sm">
+                                    <div class="card-header bg-transparent border-0">
+                                        <h3 class="mb-0"><i class="far fa-clone pr-1"></i>My search for </h3>
+                                    </div>
+                                    <div class="card-body pt-0">
+                                        <p>{{customers.user.preferences.organization|safe}}.</p>
                                     </div>
                                 </div>
                             </div>
