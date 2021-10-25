@@ -5,6 +5,7 @@ from .views import EcomerceView
 urlpatterns = [
     path('', views.home, name="home"),
     path('contact', views.contact, name="contact"),
+    path('productcontact', views.productcontact, name="productcontact"),
     path('ellite', views.ellite, name="ellite"),
     path('about', views.about, name="about"),
     path("product", views.EcomerceView, name="product"),

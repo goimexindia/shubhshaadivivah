@@ -16,6 +16,12 @@ def home(request):
                    })
 
 
+def productcontact(request):
+    return render(request, 'vivah/productcontact.html',
+                  {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY,
+                   })
+
+
 @login_required(login_url='login')
 def homeregister(request):
     return render(request, 'vivah/index.html', {})

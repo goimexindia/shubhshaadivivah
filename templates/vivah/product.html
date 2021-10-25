@@ -3,29 +3,29 @@
 
 {% block content %}
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Site Metas -->
-    <title>ShubhShaadiVivah</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="{% static 'product/images/favicon.ico' %}" type="image/x-icon">
-    <link rel="apple-touch-icon" href="{% static 'product/images/apple-touch-icon.png' %}">
-    <!-- Bootstrap CSS -->
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="{% static 'product/css/style.css' %}">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="{% static 'product/css/responsive.css' %}">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'product/css/custom.css' %}">
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Site Metas -->
+<title>ShubhShaadiVivah</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- Site Icons -->
+<link rel="shortcut icon" href="{% static 'product/images/favicon.ico' %}" type="image/x-icon">
+<link rel="apple-touch-icon" href="{% static 'product/images/apple-touch-icon.png' %}">
+<!-- Bootstrap CSS -->
+<!-- Site CSS -->
+<link rel="stylesheet" href="{% static 'product/css/style.css' %}">
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="{% static 'product/css/responsive.css' %}">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{% static 'product/css/custom.css' %}">
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 <script>
 // (A) ALERT
 function demoA () { alert("Message"); }
@@ -40,6 +40,8 @@ function demoC () {
   var name = prompt("Enter Your Name", "Jon");
   alert("Your name is "+name);
 }
+
+
 </script>
 
 <div class="products-box">
@@ -66,7 +68,7 @@ function demoC () {
 
         <div class="row special-list">
             {% for p in product_list %}
-            <div class="col-lg-3 col-md-6 special-grid best-seller"  style="background-color:white">
+            <div class="col-lg-3 col-md-6 special-grid best-seller" style="background-color:white">
                 <div class="products-single fix">
                     <div class="box-img-hover">
                         <div class="type-lb">
@@ -74,18 +76,22 @@ function demoC () {
                         </div>
                         <img src="{{p.img.url}}"
                              onerror="this.onerror=null; this.src='/static/images/no_image.jpg'"
-                             alt="{{p.title}}"  onContextMenu="return false;"  style="height: 200px; object-fit: contain;">
+                             alt="{{p.title}}" onContextMenu="return false;"
+                             style="height: 200px; object-fit: contain;">
 
                         <div class="mask-icon">
                             <ul>
-                                <li><a href="{% url 'shaadiprofile' p.user.id %}" data-toggle="tooltip" data-placement="right" title="View Profile"><i
+                                <li><a href="{% url 'shaadiprofile' p.user.id %}" data-toggle="tooltip"
+                                       data-placement="right" title="View Profile"><i
                                         class="fas fa-eye"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Express Interest"><i
+                                <li><a href="{% url 'productcontact' %}" data-toggle="tooltip" data-placement="right" title="Express Interest"><i
                                         class="fas fa-sync-alt"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip"   data-placement="right" title="View Contact For Paid Members"><i
+                                <li><a href="{% url 'productcontact' %}" data-toggle="tooltip" data-placement="right"
+                                       title="View Contact For Paid Members"><i
                                         class="far fa-heart"></i></a></li>
+                              <!--  <li><input type="button" value="Contact" onclick="demoB()"/></li>--->
                             </ul>
-                            <a class="cart" href="#">Add to My List</a>
+                            <a class="cart" href="{% url 'productcontact' %}">Add to My List</a>
                         </div>
                     </div>
                     <div class="why-text">
@@ -93,12 +99,12 @@ function demoC () {
                         <h4>Religion-{{p.religion}}</h4>
                         <h4> Caste-{{p.caste}}</h4>
                         <h4>Mother tongue - {{p.languages}}</h4>
-                      <!---  <h4>Profession - {{p.user.familyvalues.employed}} </h4>
-                        <h4>Education - {{p.get_education_display}} </h4>
-                        <h4>Annual Income - {{p.user.familyvalues.get_annualincome_display}} </h4>---->
-                            <h4>City -  {{p.city}}</h4>
-                        <h4>State -  {{p.state}}</h4>
-                     </div>
+                        <!---  <h4>Profession - {{p.user.familyvalues.employed}} </h4>
+                          <h4>Education - {{p.get_education_display}} </h4>
+                          <h4>Annual Income - {{p.user.familyvalues.get_annualincome_display}} </h4>---->
+                        <h4>City - {{p.city}}</h4>
+                        <h4>State - {{p.state}}</h4>
+                    </div>
                 </div>
             </div>
             {% endfor %}
@@ -126,4 +132,4 @@ function demoC () {
 <script src="js/custom.js"></script>
 
 
-   {% endblock content %}
+{% endblock content %}

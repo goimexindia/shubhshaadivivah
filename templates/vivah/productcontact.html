@@ -1,0 +1,81 @@
+{% load static %}
+{% static "images" as baseUrl %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+{% block content %}
+<style>
+      .center {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      }
+
+
+</style>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-dismissible alert-success">
+    <button type="button" class="close" data-dismiss="alert">
+        ×
+    </button>
+    <strong>
+        <h2> {{message}}</h2>
+    </strong>
+</div>
+{% endfor %}
+{% endif %}
+<div class="ScriptTop">
+    <div class="rt-container">
+        <div class="col-rt-4" id="float-right">
+
+            <a href="/" title="ShubhShaadiVivah"><img alt="ShubhShaadiVivah"
+
+                                                      src="{%  static  'vivah/img/SHADI.png' %}"></a>
+
+        </div>
+        <div class="col-rt-2">
+            <ul>
+                <li><a href="{% url 'product' %}" title="Back ">My Search</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" style="width: 100%; background-color: #40e3ac; border-radius:5px; padding: 30px;">
+    <br>
+    <hr>
+    <h3>
+        <p>Thank You !!! , Please upgrade your membership status to view -</p>
+        <li>Profile Contact Details</li>
+        <li> Add to List</li>
+        <li>Express Interest!</li>
+
+        <i class="fas fa-check-circle"></i>
+    </h3>
+    <h4>
+        <a href="{% url 'faq' %}">
+            Please refer Frequently Asked Questions [FAQ] for more information
+        </a>
+    </h4>
+    <hr>
+    <br><br>
+</div>
+<br>
+<br><br>
+<div class="col-sm-6">
+    <div class="top_right clearfix text-right"><h1>
+                        <span class="span_1"><i class="fa fa-phone-square"></i>
+                                    <a href="tel:+919075445588"><strong>HelpLine:-+91-9075445588    </strong></a>  </span>
+        <span class="span_2"><i class="fa fa-whatsapp"></i>
+                            <a href="https://wa.me/917013451914"><strong>Whatsapp:-+91-7013451914</strong></a></span>
+        </span>
+    </h1></div>
+</div>
+{% endblock %}
