@@ -29,6 +29,9 @@ def register(request):
     return render(request, 'vivah/register.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
 
 
+def eventinfo(request):
+    return render(request, 'vivah/eventinfo.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
+
 def success(request):
     return render(request, 'vivah/success.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
 
