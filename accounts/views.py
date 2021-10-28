@@ -168,6 +168,7 @@ def handlesignup(request):
         city = request.POST["city"]
         zip = request.POST["zip"]
         dob = request.POST["dob"]
+        gender = request.POST["gender"]
         religion = request.POST["Religion"]
         caste = request.POST["caste"]
         mobile = request.POST["mobile"]
@@ -226,6 +227,7 @@ def handlesignup(request):
         user.profile.city = city
         user.profile.age = age1
         user.profile.zip = zip
+        user.profile.gender = gender
         user.profile.caste = caste
         user.profile.searchfor = searchfor
         user.profile.martialstatus = martialstatus
