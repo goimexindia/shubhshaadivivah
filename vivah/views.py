@@ -119,7 +119,9 @@ def catsearch(request):
     search_product = request.GET.get('search')
     if search_product:
         product = Profile.objects.filter(Q(religion__icontains=search_product) |
-                                        Q(caste__icontains=search_product))
+                                        Q(caste__icontains=search_product) |
+                                        Q(state__icontains=search_product) |
+                                        Q(city__icontains=search_product))
     else:
         product = Profile.objects.order_by("-id")
     paginator = Paginator(product, 58)  # 3 posts in each page
