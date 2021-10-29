@@ -115,6 +115,33 @@ def EcomerceView(request):
     return render(request, 'vivah/product.html', {'product_list': product})
 
 
+def EcomerceView1(request):
+    all_products = Profile.objects.filter(caste=request.user.profile.caste).order_by("-id")
+    paginator = Paginator(all_products, 8)
+    page_number = request.GET.get('page')
+    product_list = paginator.get_page(page_number)
+    product = product_list
+    return render(request, 'vivah/product.html', {'product_list': product})
+
+
+def EcomerceView2(request):
+    all_products = Profile.objects.filter(city=request.user.profile.city).order_by("-id")
+    paginator = Paginator(all_products, 8)
+    page_number = request.GET.get('page')
+    product_list = paginator.get_page(page_number)
+    product = product_list
+    return render(request, 'vivah/product.html', {'product_list': product})
+
+
+def EcomerceView3(request):
+    all_products = Profile.objects.filter(state=request.user.profile.state).order_by("-id")
+    paginator = Paginator(all_products, 8)
+    page_number = request.GET.get('page')
+    product_list = paginator.get_page(page_number)
+    product = product_list
+    return render(request, 'vivah/product.html', {'product_list': product})
+
+
 def catsearch(request):
     search_product = request.GET.get('search')
     if search_product:

@@ -405,7 +405,7 @@ class Profile(models.Model):
     website = models.CharField(max_length=255, null=True, blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
     age = models.CharField(max_length=20, choices=AGE, default=30)
-    manglik = models.CharField(max_length=20, choices=STATUS1, default=0)
+    manglik = models.CharField(max_length=20, choices=STATUS1, default='Non-manglik')
     horo = models.CharField(max_length=20, choices=STATUS2, default=0)
     likes = models.ManyToManyField(User, related_name='blog_posts')
     smoke = models.IntegerField(choices=STATUS5, default=0)

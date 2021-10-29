@@ -44,6 +44,7 @@ function demoC () {
 
 
 
+
 </script>
 
 <div class="products-box">
@@ -72,20 +73,24 @@ function demoC () {
             </div>
         </div>
 
-<hr>
+        <hr>
         <div class="row">
             <div class="col-lg-12">
                 <div class="special-menu text-center">
                     <div class="button-group filter-button-group">
-                        <button class="active" data-filter="*">All</button>
-                        <button data-filter=".top-featured">My Caste</button>
-                        <button data-filter=".best-seller">My City</button>
+
+                        <button data-filter="*"><a href="{% url 'product' %}">ALL</a></button>
+                        <button data-filter=".top-featured"><a href="{% url 'product1' %}">My
+                            Caste-{{user.profile.caste}}</a></button>
+                        <button data-filter=".best-seller"><a href="{% url 'product2' %}">My
+                            City-{{user.profile.city}}</a></button>
+                        <button data-filter=".best-seller"><a href="{% url 'product3' %}">My
+                            State-{{user.profile.state}}</a></button>
 
                     </div>
                 </div>
             </div>
         </div>
-
 
 
         <div class="row special-list">
@@ -121,7 +126,8 @@ function demoC () {
                         <h4> Age-{{p.age}} | Gender-{{p.gender}}</h4>
                         <h4>Religion-{{p.religion}}</h4>
                         <h4> Caste-{{p.caste}}</h4>
-                        <h4>Mother tongue - {{p.languages}}</h4>
+                        <h4>Mother tongue - {{p.languages}} </h4>
+                        <h4> Dosh-{{p.get_manglik_display}}</h4>
                         <!---  <h4>Profession - {{p.user.familyvalues.employed}} </h4>
                           <h4>Education - {{p.get_education_display}} </h4>
                           <h4>Annual Income - {{p.user.familyvalues.get_annualincome_display}} </h4>---->

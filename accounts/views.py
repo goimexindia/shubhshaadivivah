@@ -511,3 +511,4 @@ def customer(request):
     orders = myFilter.qs
     context = {'orders': orders, 'tableFilter': tableFilter, }
     return render(request, 'accounts/customer.html', context)
+
