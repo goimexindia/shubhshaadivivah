@@ -1,8 +1,9 @@
 from django.contrib.auth.decorators import login_required
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.db.models import Q
 from django.shortcuts import render
 from django.core.mail import send_mail
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 from accounts.forms import UserUpdateForm, ProfileUpdateForm
 from accounts.models import Profile
@@ -107,4 +108,30 @@ def contact(request):
 @login_required
 def EcomerceView(request):
     all_products = Profile.objects.order_by("-id")
-    return render(request, 'vivah/product.html', {'product_list': all_products})
+    paginator = Paginator(all_products, 8)
+    page_number = request.GET.get('page')
+    product_list = paginator.get_page(page_number)
+    product = product_list
+    return render(request, 'vivah/product.html', {'product_list': product})
+
+
+def catsearch(request):
+    search_product = request.GET.get('search')
+    if search_product:
+        product = Profile.objects.filter(Q(religion__icontains=search_product) |
+                                        Q(caste__icontains=search_product))
+    else:
+        product = Profile.objects.order_by("-id")
+    paginator = Paginator(product, 58)  # 3 posts in each page
+    page = request.GET.get('page')
+    try:
+        product_list = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer deliver the first page
+        product_list = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range deliver last page of results
+        product_list = paginator.page(paginator.num_pages)
+    return render(request,  'vivah/product.html', {'product_list': product_list, 'page': page})
+
+

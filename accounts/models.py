@@ -424,6 +424,9 @@ class Profile(models.Model):
     def total_likes(self):
         return self.likes.count()
 
+    class Meta:
+        ordering = ('created_at',)
+
 
 class FamilyValues(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

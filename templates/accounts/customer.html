@@ -1,0 +1,183 @@
+{% extends "vivah/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Customer Details{% endblock %}
+
+{% block content %}
+
+{% load static %}
+<style>
+    ul {
+    list-style-type: none;
+    margin-left: 37%;
+    padding: 0
+}
+
+.rating {
+    margin-left: 37%
+}
+
+.page {
+    background-color: #dfe6e0;
+    padding: 2%;
+    margin: auto
+}
+
+.fa {
+    color: #f2dd1d
+}
+
+.card-img-top {
+    width: 90%;
+    height: 225px
+}
+
+.view {
+    background-color: #dfe6e0;
+    padding: 10px;
+    margin: 20px
+}
+
+.card {
+    width: 95%;
+    padding: 0px;
+    margin-left: 2%
+}
+
+.card-footer {
+    background-color: #ff772e;
+    font-weight: 700
+}
+
+.price {
+    color: #ff4517;
+    font-weight: 600
+}
+.spec_offer
+{
+	position: absolute;
+	top: 15px;
+	left: 16px;
+	width: 118px;
+	height: 36px;
+	background: #181818;
+}
+
+      table,
+      td,
+      th {
+        padding: 10px;
+        border: 2px solid #1c87c9;
+        border-radius: 5px;
+        background-color: #e5e5e5;
+        text-align: center;
+      }
+
+    .div-1 {
+        background-color: #EBEBEB;
+    }
+
+    .div-2 {
+    	background-color: #ABBAEA;
+    }
+
+    .div-3 {
+    	background-color: #FBD603;
+    }
+
+
+
+</style>
+<link rel="stylesheet" href="{% static 'flags/sprite.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<div class="card bg-primary text-white">
+    <div class="card-header"><h2>My Life Partner Search</h2>
+    </div>
+</div>
+<hr>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-lg-3 mx-auto">
+            <div class="div-2">
+                <div class="container-fluid px-0">
+                    <div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
+                        <div class="d-flex">
+                            <form method="get">
+                                <div class="span2">
+                                    <br>
+                                    <button class="btn btn-primary btn-lg btn-block" type="submit">Search</button>
+                                    <br>
+                                </div>
+                                {% csrf_token %}
+                                {{ form.media }}
+                                {{tableFilter.form|crispy}}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='products' class="col-lg-9 mx-auto">
+            <div class="div-2">
+                <div class="container">
+                    <div class="col-md-12 mx-auto">
+                        <div class="row">
+                            <div class="col-md">
+                                <div>
+                                    <font size="2" face="Courier New">
+                                        <table class="table table-striped">
+                                            <thead class="thead-dark">
+                                            <tr class="table-primary">
+
+                                                <th>ID</th>
+                                                <th>Image</th>
+                                                <th>Profile For</th>
+                                                <th>Mother Tongue</th>
+                                                <th>Birth Day</th>
+                                                <th>Age</th>
+                                                <th>Religion</th>
+                                                <th>Cate</th>
+                                                <th>Qualification</th>
+                                                <th>City</th>
+                                                <th>State</th>
+                                            </tr>
+                                            </thead>
+                                            {% for order in orders %}
+                                            <tr>
+
+                                                <td>
+                                                    <a href="{% url 'shaadiprofile' order.user.id %}">#SSV_{{order.id}}_{{order.user.username}}_{{order.gender}}</a>
+                                                </td>
+                                                <td><a href="{{order.img.url}}" target="_blank"><img
+                                                        src="{{order.img.url}}" target="_blank"
+                                                        style="height: 120px;" alt=""> </a></td>
+                                                <td>{{order.profilefo }}</td>
+                                                <td>{{order.languages}}</td>
+                                                <td>{{order.birthday|date:"M d"}}</td>
+                                                <td>{{order.age}}</td>
+                                                <td>{{order.religion}}</td>
+                                                <td>{{order.caste}}</td>
+                                                <td>{{order.get_education_display|safe}}</td>
+                                                <td>{{order.city}}</td>
+                                                <td>{{order.state}}</td>
+
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </font>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+
+{% endblock content %}

@@ -16,6 +16,7 @@ urlpatterns = [
     path('activate/<uidb64>/<token>/', ActivateAccount.as_view(), name='activate'),
     path('profile', views.profile, name='profile'),
     path('profile1', views.profile1, name='profile1'),
+    path('customer', views.customer, name='customer'),
     path('userprofile', views.userprofile, name='userprofile'),
     path('profilepref', views.profilepref, name='profilepref'),
     path('familyvalues', views.familyvalues, name='familyvalues'),

@@ -14,6 +14,8 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views import View
 from django import forms
 from crispy_forms.helper import FormHelper
+
+from accounts.filters import OrderFilter
 from accounts.models import Profile
 from accounts.token import account_activation_token
 from shubhshaadivivah import settings
@@ -31,6 +33,7 @@ def register(request):
 
 def eventinfo(request):
     return render(request, 'vivah/eventinfo.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
+
 
 def success(request):
     return render(request, 'vivah/success.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
@@ -499,3 +502,12 @@ def eventsignup(request):
     return render(request, 'accounts/eventsignup.html',
                   {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY,
                    })
+
+
+def customer(request):
+    orders = Profile.objects.all()
+    myFilter = OrderFilter(request.GET, queryset=orders)
+    tableFilter = OrderFilter(request.GET, queryset=orders)
+    orders = myFilter.qs
+    context = {'orders': orders, 'tableFilter': tableFilter, }
+    return render(request, 'accounts/customer.html', context)

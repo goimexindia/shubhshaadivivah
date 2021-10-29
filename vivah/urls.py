@@ -17,5 +17,6 @@ urlpatterns = [
     path('pricing', views.pricing, name="pricing"),
     path('services', views.services, name="services"),
     path('membership', views.membership, name="membership"),
+    path('catsearch/', views.catsearch, name='cat-search'),
     path('register', views.register, name="register"),
 ]
