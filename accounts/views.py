@@ -504,6 +504,7 @@ def eventsignup(request):
                    })
 
 
+@login_required
 def customer(request):
     orders = Profile.objects.all()
     myFilter = OrderFilter(request.GET, queryset=orders)

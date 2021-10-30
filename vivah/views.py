@@ -27,7 +27,7 @@ def productcontact(request):
 def homeregister(request):
     return render(request, 'vivah/index.html', {})
 
-
+@login_required
 def product(request):
     return render(request, 'vivah/product.html', {})
 
