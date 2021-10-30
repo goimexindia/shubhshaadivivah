@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.sites.shortcuts import get_current_site
+from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -510,6 +511,11 @@ def customer(request):
     myFilter = OrderFilter(request.GET, queryset=orders)
     tableFilter = OrderFilter(request.GET, queryset=orders)
     orders = myFilter.qs
+
+    paginator = Paginator(orders, 9)
+    page_number = request.GET.get('page')
+    product_list = paginator.get_page(page_number)
+    orders = product_list
+
     context = {'orders': orders, 'tableFilter': tableFilter, }
     return render(request, 'accounts/customer.html', context)
-
