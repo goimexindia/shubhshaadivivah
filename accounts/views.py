@@ -492,7 +492,7 @@ def userprofile(request):
     return render(request, 'vivah/userprofile.html', context)
 
 
-@login_required
+
 def shaadiprofile(request, pk):
     customer = Profile.objects.get(id=pk)
     context = {'customers': customer, }
