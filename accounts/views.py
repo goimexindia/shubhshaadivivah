@@ -17,7 +17,7 @@ from django import forms
 from crispy_forms.helper import FormHelper
 
 from accounts.filters import OrderFilter
-from accounts.models import Profile
+from accounts.models import Profile, ViewComment
 from accounts.token import account_activation_token
 from shubhshaadivivah import settings
 from vivah.models import Contactme
@@ -496,6 +496,8 @@ def shaadiprofile(request, pk):
     customer = Profile.objects.get(id=pk)
     customer.view_count += 1
     customer.save()
+    contactme = ViewComment(userview=pk, userrequest=request.user.id)
+    contactme.save()
     context = {'customers': customer, }
     return render(request, 'accounts/shaadiprofile.html', context)
 
@@ -513,6 +515,7 @@ def prodcomment(request, pk):
             new_comment = comment_form.save(commit=False)
             # Assign the current post to the comment
             new_comment.product = product
+            new_comment.userrequest = request.user.id
             # Save the comment to the database
             new_comment.save()
     else:

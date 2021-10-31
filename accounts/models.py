@@ -436,12 +436,20 @@ class ProdComment(models.Model):
     body = RichTextField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
+    userrequest = models.IntegerField(default=0)
 
     class Meta:
         ordering = ['created_on']
 
     def __str__(self):
         return 'Comment {} by {}'.format(self.body, self.name)
+
+
+class ViewComment(models.Model):
+    created_on = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=True)
+    userrequest = models.IntegerField(default=0)
+    userview = models.IntegerField(default=0)
 
 
 class FamilyValues(models.Model):
