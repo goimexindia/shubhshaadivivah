@@ -1,0 +1,63 @@
+{% extends "vivah/base.html" %}
+{% load static %}
+{% block title %}ShubhShaadiVivah{% endblock %}
+{% block meta_description %}Interest{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 card mb-4  mt-3 ">
+            <div class="card-body">
+                {% if product.author == user %}
+                <h2>{{ comments.count }} messages</h2>
+
+                {% for comment in comments %}
+                <div class="comments" style="padding: 10px;">
+                    <p class="font-weight-bold" style="color:black;">
+                        {{ comment.name }}
+                        <span class=" text-muted font-weight-normal">
+              {{ comment.created_on }}
+            </span>
+                    </p>
+                    {{ comment.body | linebreaks }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="col-md-6 card mb-4  mt-3 ">
+            <div class="card-body">
+                {% if new_comment %}
+                <div class="alert alert-success" role="alert">
+                    Your comment is awaiting moderation
+                </div>
+                {% else %}
+                <h3>Leave a message</h3>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ comment_form.as_p }}
+                    {% csrf_token %}
+                    <div>
+                        <p class='text-muted'>By pressing the Button -
+                            I agree to share my details with the profile I am interacting.
+                    </div>
+                    <button type="submit" class="btn btn-danger  btn-lg">Send Message</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-md-6 card mb-4  mt-3 ">
+            <h3>User Id:-#SSV_{{product.user.id}}_{{product.user.username}}_{{product.gender}}</h3><hr>
+         <img class="rounded-circle article-img" src="{{ product.img.url }}" width="300px"  height="320px">
+     </div>
+    </div>
+</div>
+<div>
+    <a class="btn btn-secondary btn-lg mt-1 bmb-1" href="{% url 'product' %}">Back</a>
+</div><hr>
+<br><br><br><br><br>
+<br><br><br><br><br>
+{% endblock content %}

@@ -26,6 +26,8 @@
       }
 
 
+
+
     </style>
 </head>
 <body>
@@ -68,8 +70,17 @@
                                              alt="{{customers.user.id}}" onContextMenu="return false;"
                                              style="height: 200px; object-fit: contain;">
                                         <div id="blur"><h3>{{customers.user.username}}</h3></div>
+                                        <h6>(Viewed {{customers.view_count}} times)</h6>
                                     </div>
                                     <div class="card-body">
+
+                                        {% if user.is_authenticated %}
+                                        <a href="{% url 'prodcomment' customers.id  %}"
+                                           class="btn btn-danger btn-sm mt-1 bmb-1">
+                                            Send your message to this profile</a>
+                                        {% else %}
+                                        <small><a href="{% url 'login' %}">Login to send message</a></small>
+                                        {% endif %}
 
                                         <p class="mb-0"><strong class="pr-1">Age:</strong>{{customers.age}}</p>
                                         <p class="mb-0"><strong class="pr-1">Gender:</strong>{{customers.gender}} </p>
@@ -94,21 +105,24 @@
                                                                     type="video/mp4">
                                                         </video>
 
-                                                          <img src="{{customers.img2.url}}"
-                                             onerror="this.onerror=null; this.src='/static/vivah/img/no_image.jpg'"
-                                             alt="{{customers.user.id}}" onContextMenu="return false;"
-                                             style="height: 200px; object-fit: contain;"><hr>
-                                                          <img src="{{customers.img3.url}}"
-                                             onerror="this.onerror=null; this.src='/static/vivah/img/no_image.jpg'"
-                                             alt="{{customers.user.id}}" onContextMenu="return false;"
-                                             style="height: 200px; object-fit: contain;"><hr>
+                                                        <img src="{{customers.img2.url}}"
+                                                             onerror="this.onerror=null; this.src='/static/vivah/img/no_image.jpg'"
+                                                             alt="{{customers.user.id}}" onContextMenu="return false;"
+                                                             style="height: 200px; object-fit: contain;">
+                                                        <hr>
+                                                        <img src="{{customers.img3.url}}"
+                                                             onerror="this.onerror=null; this.src='/static/vivah/img/no_image.jpg'"
+                                                             alt="{{customers.user.id}}" onContextMenu="return false;"
+                                                             style="height: 200px; object-fit: contain;">
+                                                        <hr>
                                                     </div>
                                                 </div>
                                             </div>
                                             <img src="{{customers.img1.url}}"
-                                             onerror="this.onerror=null; this.src='/static/vivah/img/no_image.jpg'"
-                                             alt="{{customers.user.id}}" onContextMenu="return false;"
-                                             style="height: 200px; object-fit: contain;"><hr>
+                                                 onerror="this.onerror=null; this.src='/static/vivah/img/no_image.jpg'"
+                                                 alt="{{customers.user.id}}" onContextMenu="return false;"
+                                                 style="height: 200px; object-fit: contain;">
+                                            <hr>
                                         </section>
                                     </div>
                                 </div>
@@ -160,21 +174,21 @@
                                                 <td width="2%">:</td>
                                                 <td>{{customers.searchfor}}</td>
                                             </tr>
-                                              <tr>
+                                            <tr>
                                                 <th width="30%">Smoke</th>
                                                 <td width="2%">:</td>
                                                 <td>{{customers.get_smoke_display}}</td>
                                             </tr>
-                                              <tr>
+                                            <tr>
                                                 <th width="30%">Diet</th>
                                                 <td width="2%">:</td>
                                                 <td>{{customers.diet}}</td>
                                             </tr>
-                                              <tr>
+                                            <tr>
                                                 <th width="30%">City</th>
                                                 <td width="2%">:</td>
                                                 <td>{{customers.city}}</td>
-                                                    <tr>
+                                            <tr>
                                                 <th width="30%">State</th>
                                                 <td width="2%">:</td>
                                                 <td>{{customers.state}}</td>
@@ -221,66 +235,67 @@
                                         <p>{{customers.user.familyvalues.awards|safe}}.</p>
                                     </div>
                                 </div>
-                                 <div style="height: 26px"></div>
+                                <div style="height: 26px"></div>
 
 
-                                                            <div class="col-lg-8">
-                                <div class="card shadow-sm">
-                                    <div class="card-header bg-transparent border-0">
-                                        <h3 class="mb-0"><i class="far fa-clone pr-1"></i>My Life Partner Information</h3>
+                                <div class="col-lg-8">
+                                    <div class="card shadow-sm">
+                                        <div class="card-header bg-transparent border-0">
+                                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>My Life Partner
+                                                Information</h3>
+                                        </div>
+                                        <div class="card-body pt-0">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th width="30%">Min. Age</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{customers.user.preferences.pagemin}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Max. Age</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{customers.user.preferences.pagemax}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Martial Status</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{customers.user.preferences.pmartialstatus}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Complexion</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{customers.user.preferences.pcomplexion}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Religion</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{customers.user.preferences.preligion}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Caste</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{customers.user.preferences.pcaste}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">Education</th>
+                                                    <td width="2%">:</td>
+                                                    <td>{{customers.user.preferences.get_peducation_display}}</td>
+                                                </tr>
+
+                                                </tr>
+                                            </table>
+                                        </div>
                                     </div>
-                                    <div class="card-body pt-0">
-                                        <table class="table table-bordered">
-                                            <tr>
-                                                <th width="30%">Min. Age</th>
-                                                <td width="2%">:</td>
-                                                <td>{{customers.user.preferences.pagemin}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th width="30%">Max. Age</th>
-                                                <td width="2%">:</td>
-                                                <td>{{customers.user.preferences.pagemax}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th width="30%">Martial Status</th>
-                                                <td width="2%">:</td>
-                                                <td>{{customers.user.preferences.pmartialstatus}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th width="30%">Complexion</th>
-                                                <td width="2%">:</td>
-                                                <td>{{customers.user.preferences.pcomplexion}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th width="30%">Religion</th>
-                                                <td width="2%">:</td>
-                                                <td>{{customers.user.preferences.preligion}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th width="30%">Caste</th>
-                                                <td width="2%">:</td>
-                                                <td>{{customers.user.preferences.pcaste}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th width="30%">Education</th>
-                                                <td width="2%">:</td>
-                                                <td>{{customers.user.preferences.get_peducation_display}}</td>
-                                            </tr>
 
-                                            </tr>
-                                        </table>
-                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- partial -->
+                    <!-- partial -->
 
+                </div>
             </div>
         </div>
-    </div>
 </section>
 
 

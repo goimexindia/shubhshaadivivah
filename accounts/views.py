@@ -23,7 +23,7 @@ from shubhshaadivivah import settings
 from vivah.models import Contactme
 from django.contrib.auth.models import User, auth
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, TemplateView
 from accounts.forms import *
 from datetime import date, timedelta
 
@@ -492,11 +492,36 @@ def userprofile(request):
     return render(request, 'vivah/userprofile.html', context)
 
 
-
 def shaadiprofile(request, pk):
     customer = Profile.objects.get(id=pk)
+    customer.view_count += 1
+    customer.save()
     context = {'customers': customer, }
     return render(request, 'accounts/shaadiprofile.html', context)
+
+
+def prodcomment(request, pk):
+    template_name = 'vivah/prodcomment.html'
+    product = Profile.objects.get(id=pk)
+    comments = product.prodcomment.filter(active=True)
+    new_comment = None
+    # Comment posted
+    if request.method == 'POST':
+        comment_form = ProdCommentForm(data=request.POST)
+        if comment_form.is_valid():
+            # Create Comment object but don't save to database yet
+            new_comment = comment_form.save(commit=False)
+            # Assign the current post to the comment
+            new_comment.product = product
+            # Save the comment to the database
+            new_comment.save()
+    else:
+        comment_form = ProdCommentForm()
+
+    return render(request, template_name, {'product': product,
+                                           'comments': comments,
+                                           'new_comment': new_comment,
+                                           'comment_form': comment_form})
 
 
 def eventsignup(request):

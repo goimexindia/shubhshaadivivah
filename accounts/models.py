@@ -428,6 +428,22 @@ class Profile(models.Model):
         ordering = ('created_at',)
 
 
+class ProdComment(models.Model):
+    product = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='prodcomment')
+    name = models.CharField(max_length=80)
+    mobile = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = RichTextField(blank=True, null=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return 'Comment {} by {}'.format(self.body, self.name)
+
+
 class FamilyValues(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     height = models.CharField(max_length=100, choices=HEIGHT, null=True, blank=True)

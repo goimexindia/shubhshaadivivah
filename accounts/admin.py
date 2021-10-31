@@ -7,5 +7,7 @@ admin.site.register(ColdCoffe)
 admin.site.register(Customer)
 admin.site.register(Preferences)
 admin.site.register(FamilyValues)
+admin.site.register(ProdComment)
+
 
 

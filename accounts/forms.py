@@ -198,3 +198,9 @@ class FamilyValuesForm(forms.ModelForm):
                   'employed',
                   'designation', 'annualincome', 'aboutfamily','awards',
                   ]
+
+
+class ProdCommentForm(forms.ModelForm):
+    class Meta:
+        model = ProdComment
+        fields = ('name', 'email', 'mobile', 'body')
