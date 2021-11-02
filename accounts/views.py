@@ -535,7 +535,7 @@ def eventsignup(request):
 
 @login_required
 def customer(request):
-    orders = Profile.objects.all()
+    orders = Profile.objects.all().order_by('-id')
     myFilter = OrderFilter(request.GET, queryset=orders)
     tableFilter = OrderFilter(request.GET, queryset=orders)
     orders = myFilter.qs
