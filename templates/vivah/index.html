@@ -31,18 +31,42 @@ function googleTranslateElementInit() {
 
 
 
-
-
-
-
-
-
+.inactiveLink {
+   pointer-events: none;
+   cursor: default;
+}
 
     </script>
 
     <script type="text/javascript"
             src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="top clearfix">
+            <div class="col-sm-6">
+                <div>
+                    <a href="/" title="ShubhShaadiVivah"><img alt="ShubhShaadiVivah"
+
+                                                              src="{%  static  'vivah/img/SHADI.png' %}"></a>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="top_right clearfix text-right">
+
+                        <span class="span_2"><i class="fa fa-phone-square"></i>
+                            </i> <a href="tel:+919075445588"><strong>+91-9075445588</strong></a>  </span>
+                    <span class="span_2"><i class="fa fa-whatsapp"></i>
+                            <a href="https://wa.me/917013451914"><strong>+91-7013451914</strong></a></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 {% include 'vivah/navbar.html' %}
 {% if messages %}
@@ -800,27 +824,24 @@ function googleTranslateElementInit() {
                         </div>
                     </div>
                 </div>
-                <hr>
-                <div class="services_home clearfix">
+                <div class="services_home_main">
                     <h2 class="text-center"><i class="fa fa-arrows-h"></i></h2>
                 </div>
                 <div class="col-sm-12 space_all">
                     <div class="col-sm-10"></div>
                     <div class="col-sm-8">
                         <div class="success_4">
-                            <center>
-                                <p><a href="https://youtu.be/ApuBjgIohLo" class="video-popup wow fadeInUp"
-                                      data-wow-duration="1000ms"
-                                      data-wow-delay="0.3s">Workshop conducted for SignUp, Login and Profile Updating<i
-                                        class="lnr lnr-film-play"> on 29-Oct-2022</i></a></p>
-                            </center>
+                            <p><a href="https://youtu.be/ApuBjgIohLo" class="video-popup wow fadeInUp"
+                                  data-wow-duration="1000ms"
+                                  data-wow-delay="0.3s">Workshop conducted for SignUp, Login and Profile Updating<i
+                                    class="lnr lnr-film-play"> on 29-Oct-2022</i></a></p>
                         </div>
                         <hr>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="services_home clearfix">
+        <div class="services_home_main">
             <h2 class="text-center"><i class="fa fa-arrows-h"></i></h2>
         </div>
         <div class="container">
@@ -828,20 +849,18 @@ function googleTranslateElementInit() {
                 <iframe id="panchangwidgetid"
                         src="https://panchang.click/widget.php?rid=77ade64fb7128e8364c86b597a864d93"
                         style="border:0;background-color:transparent; height:425px; width=100%; "
-                        scrolling="no"></iframe>
+                        scrolling="no" class="inactiveLink"></iframe>
             </center>
         </div>
-        <div class="services_home clearfix">
+        <div class="services_home_main">
             <h2 class="text-center"><i class="fa fa-arrows-h"></i></h2>
         </div>
-
         <div class="container">
             <center>
                 <iframe height="300px" frameborder="0" width="100%" src="https://www.ask-oracle.com/embed/"></iframe>
             </center>
         </div>
     </section>
-
     {% include 'vivah/footer.html' %}
 </section>
 
