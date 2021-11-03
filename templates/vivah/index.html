@@ -36,14 +36,20 @@ function googleTranslateElementInit() {
    cursor: default;
 }
 
+
     </script>
 
     <script type="text/javascript"
             src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+    var openChat = function() {
+      var iframe = document.getElementById('panchangwidgetid1');
+      var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+      innerDoc.getElementById("botlibrechatboxbarmax").click();
+    };
+
+    </script>
 </div>
-
-
-
 
 
 {% include 'vivah/navbar.html' %}
@@ -822,17 +828,7 @@ function googleTranslateElementInit() {
         <div class="services_home_main">
             <h2 class="text-center"><i class="fa fa-arrows-h"></i></h2>
         </div>
-        <div class="container">
-            <center>
-                <iframe id="panchangwidgetid"
-                        src="https://panchang.click/widget.php?rid=77ade64fb7128e8364c86b597a864d93"
-                        style="border:0;background-color:transparent; height:425px; width=100%; "
-                        scrolling="no" class="inactiveLink"></iframe>
-            </center>
-        </div>
-        <div class="services_home_main">
-            <h2 class="text-center"><i class="fa fa-arrows-h"></i></h2>
-        </div>
+
         <div class="container">
             <center>
                 <iframe height="300px" frameborder="0" width="100%" src="https://www.ask-oracle.com/embed/"></iframe>
