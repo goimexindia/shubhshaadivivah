@@ -23,4 +23,5 @@ urlpatterns = [
     path('social-auth/', include('social_django.urls', namespace="social")),
     path('shaadiprofile/<int:pk>/', views.shaadiprofile, name='shaadiprofile'),
     path('prodcomment/<int:pk>/', views.prodcomment, name='prodcomment'),
+    path('like/<int:pk>', views.like, name='like'),
 ]

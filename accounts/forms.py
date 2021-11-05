@@ -54,7 +54,7 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ['img', 'gender', 'martialstatus', 'mobile', 'religion', 'caste', 'birthday',
                   'state', 'searchfor', 'videofile', 'birthplace', 'birthtimehh', 'birthtimemm', 'ampm',
-                  'birthstate', 'birthcountry', 'languages','horo','manglik','diet','smoke','age',
+                  'birthstate', 'birthcountry', 'languages', 'horo', 'manglik', 'diet', 'smoke', 'age',
                   'city', 'education',
                   ]
 
@@ -173,7 +173,7 @@ class PartnerForm(forms.ModelForm):
             'pcaste': _('Caste'),
             'peducation': _('Education'),
         }
-        fields = ['profilefo','organization', 'pagemin', 'pagemax', 'pmartialstatus', 'pcomplexion',
+        fields = ['profilefo', 'organization', 'pagemin', 'pagemax', 'pmartialstatus', 'pcomplexion',
                   'preligion', 'pcaste', 'peducation',
                   ]
 
@@ -196,7 +196,7 @@ class FamilyValuesForm(forms.ModelForm):
         }
         fields = ['height', 'familystatus', 'father', 'mother', 'brother', 'sister', 'familyvalues', 'familytype',
                   'employed',
-                  'designation', 'annualincome', 'aboutfamily','awards',
+                  'designation', 'annualincome', 'aboutfamily', 'awards',
                   ]
 
 
@@ -204,3 +204,8 @@ class ProdCommentForm(forms.ModelForm):
     class Meta:
         model = ProdComment
         fields = ('name', 'email', 'mobile', 'body')
+
+
+
+
+

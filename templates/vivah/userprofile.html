@@ -39,6 +39,9 @@ tr:nth-child(even) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
+
+
+
     </style>
 </head>
 <body id="page-top">
@@ -252,6 +255,39 @@ tr:nth-child(even) {
             <h2 class="mb-5">Awards & Certifications</h2>
             <ul class="fa-ul mb-0">
                 <h4><span class="text-primary">{{ user.familyvalues.awards|safe}}</span></h4>
+            </ul>
+        </div>
+    </section>
+    <hr class="m-0"/>
+    <!-- Awards-->
+    <section class="resume-section" id="life1">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Comments Received :-</h2>
+            <ul class="fa-ul mb-0">
+                {% if not user.profile.prodcomment.all %}
+                <p>Not Comments received / added....</p>
+                {% else %}
+                {% for comment in user.profile.prodcomment.all %}
+                <h3><strong>{{comment.name }}</strong></h3>
+                <p>{{ comment.body|safe }}</p>
+                <p><small>{{comment.created_on}}</small></p>
+
+                {%endfor %}
+                {% endif %}
+
+            </ul>
+        </div>
+    </section>
+    <section class="resume-section" id="life2">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Likes :-</h2>
+            <ul class="fa-ul mb-0">
+                {% for comment in post_likes %}
+                <h3>
+                <p>ID:- {{comment.id}} - {{ comment.username|safe }}</p>
+                </h3>
+                {%endfor %}
+
             </ul>
         </div>
     </section>

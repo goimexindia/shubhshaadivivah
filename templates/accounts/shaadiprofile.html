@@ -28,6 +28,8 @@
 
 
 
+
+
     </style>
 </head>
 <body>
@@ -73,6 +75,27 @@
                                         <h6>(Viewed {{customers.view_count}} times)</h6>
                                     </div>
                                     <div class="card-body">
+
+                                        <div>
+
+                                            <form action="{% url 'like' customers.pk %}" method="POST">
+                                                {% csrf_token %}
+                                                {% if user.is_authenticated %}
+                                                    {% if liked %}
+                                                        <button type="submit" , name="post_id" value="{{ customers.user.id }}" ,
+                                                                class="btn btn-danger btn-sm">UnLike
+                                                        </button>
+                                                    {% else %}
+                                                        <button type="submit" , name="post_id" value="{{ customers.user.id }}" ,
+                                                                class="btn btn-primary btn-sm">Like
+                                                        </button>
+                                                    {% endif %}
+                                                {% else %}
+                                                <small><a href="{% url 'login' %}">Login to like</a></small>
+                                                {% endif %}
+                                                -{{ customers.likes.count }}-likes
+                                            </form>
+                                        </div>
 
                                         {% if user.is_authenticated %}
                                         <a href="{% url 'prodcomment' customers.id  %}"

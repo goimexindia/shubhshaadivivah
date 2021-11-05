@@ -3,8 +3,9 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.paginator import Paginator
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.db.models import OuterRef, Exists
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.core.mail import send_mail
@@ -15,6 +16,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views import View
 from django import forms
 from crispy_forms.helper import FormHelper
+from rest_framework.utils import json
 
 from accounts.filters import OrderFilter
 from accounts.models import Profile, ViewComment
@@ -253,6 +255,15 @@ def handlesignup(request):
         return HttpResponse('404 - NOT FOUND ')
 
 
+def usercommettype(request, pk=id):
+    if request.method == 'POST':
+        status = request.POST["status"]
+        obj = ProdComment.objects.get(pk=pk)
+        obj.status = status
+        obj.save()
+    return redirect('userprofile')
+
+
 def handlesignup1(request):
     if request.method == 'POST':
         # get the post parameters
@@ -473,6 +484,10 @@ class NoFormTagCrispyFormMixin(object):
 
 @login_required
 def userprofile(request):
+    posts = get_object_or_404(Profile, pk=request.user.profile.id)
+    print(request.user.profile.id)
+    post_likes = posts.likes.all()
+    print(post_likes)
     if request.method == 'POST':
         p_form = UserForm(request.POST,
                           request.FILES,
@@ -487,7 +502,7 @@ def userprofile(request):
     else:
         p_form = UserForm(instance=request.user.profile)
     context = {
-        'p_form': p_form,
+        'p_form': p_form, 'post_likes': post_likes,
     }
     return render(request, 'vivah/userprofile.html', context)
 
@@ -498,7 +513,15 @@ def shaadiprofile(request, pk):
     customer.save()
     contactme = ViewComment(userview=pk, userrequest=request.user.id)
     contactme.save()
-    context = {'customers': customer, }
+    liked = False
+    print(liked)
+    if customer.likes.filter(id=request.user.id).exists():
+        liked = False
+        print(liked)
+    else:
+        liked = True
+        print(liked)
+    context = {'customers': customer, 'liked': liked}
     return render(request, 'accounts/shaadiprofile.html', context)
 
 
@@ -547,3 +570,21 @@ def customer(request):
 
     context = {'orders': orders, 'tableFilter': tableFilter, }
     return render(request, 'accounts/customer.html', context)
+
+
+def like(request, pk):
+    post = get_object_or_404(Profile, id=request.POST.get('post_id'))
+    print(request.POST.get('post_id'))
+    liked = False
+    print(request.user.id)
+    print(liked)
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+        liked = False
+        print(liked)
+        print(request.user.id)
+    else:
+        post.likes.add(request.user)
+        liked = True
+        print(liked)
+    return HttpResponseRedirect(reverse('shaadiprofile', args=[str(pk)]))
