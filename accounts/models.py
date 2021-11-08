@@ -442,6 +442,7 @@ class ProdComment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
     userrequest = models.IntegerField(default=0)
+    is_read = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['created_on']
