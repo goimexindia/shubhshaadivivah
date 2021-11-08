@@ -88,7 +88,6 @@ class CreateThread(View):
 
     def post(self, request, *args, **kwargs):
         form = ThreadForm(request.POST)
-
         username = request.POST.get('username')
 
         try:
