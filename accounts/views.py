@@ -588,3 +588,6 @@ def like(request, pk):
         liked = True
         print(liked)
     return HttpResponseRedirect(reverse('shaadiprofile', args=[str(pk)]))
+
+
+

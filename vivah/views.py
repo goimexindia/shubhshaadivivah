@@ -1,14 +1,18 @@
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.mail import send_mail
+from django.views import View
 from django.views.generic import TemplateView, ListView
 
 from accounts.forms import UserUpdateForm, ProfileUpdateForm
 from accounts.models import Profile
 from shubhshaadivivah import settings
+from socials.forms import MessageForm, ThreadForm
+from socials.models import ThreadModel, MessageModel
 from vivah.models import Contactme
+from django.contrib.auth.models import User
 
 
 def home(request):
@@ -26,6 +30,7 @@ def productcontact(request):
 @login_required(login_url='login')
 def homeregister(request):
     return render(request, 'vivah/index.html', {})
+
 
 @login_required
 def product(request):
@@ -58,6 +63,86 @@ def terms(request):
 
 def faq(request):
     return render(request, 'vivah/faq.html', {})
+
+
+class ListThreads(View):
+    def get(self, request, *args, **kwargs):
+        threads = ThreadModel.objects.filter(Q(user=request.user) | Q(receiver=request.user))
+
+        context = {
+            'threads': threads
+        }
+
+        return render(request, 'social/inbox.html', context)
+
+
+class CreateThread(View):
+    def get(self, request, *args, **kwargs):
+        form = ThreadForm()
+
+        context = {
+            'form': form
+        }
+
+        return render(request, 'social/create_thread.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = ThreadForm(request.POST)
+
+        username = request.POST.get('username')
+
+        try:
+            receiver = User.objects.get(username=username)
+            if ThreadModel.objects.filter(user=request.user, receiver=receiver).exists():
+                thread = ThreadModel.objects.filter(user=request.user, receiver=receiver)[0]
+                return redirect('thread', pk=thread.pk)
+            elif ThreadModel.objects.filter(user=receiver, receiver=request.user).exists():
+                thread = ThreadModel.objects.filter(user=receiver, receiver=request.user)[0]
+                return redirect('thread', pk=thread.pk)
+
+            if form.is_valid():
+                thread = ThreadModel(
+                    user=request.user,
+                    receiver=receiver
+                )
+                thread.save()
+
+                return redirect('thread', pk=thread.pk)
+        except:
+            return redirect('create-thread')
+
+
+class ThreadView(View):
+    def get(self, request, pk, *args, **kwargs):
+        form = MessageForm()
+        thread = ThreadModel.objects.get(pk=pk)
+        message_list = MessageModel.objects.filter(thread__pk__contains=pk)
+        context = {
+            'thread': thread,
+            'form': form,
+            'message_list': message_list
+        }
+
+        return render(request, 'social/thread.html', context)
+
+
+class CreateMessage(View):
+    def post(self, request, pk, *args, **kwargs):
+        thread = ThreadModel.objects.get(pk=pk)
+        if thread.receiver == request.user:
+            receiver = thread.user
+        else:
+            receiver = thread.receiver
+
+        message = MessageModel(
+            thread=thread,
+            sender_user=request.user,
+            receiver_user=receiver,
+            body=request.POST.get('message')
+        )
+
+        message.save()
+        return redirect('thread', pk=pk)
 
 
 def pricing(request):
@@ -146,9 +231,9 @@ def catsearch(request):
     search_product = request.GET.get('search')
     if search_product:
         product = Profile.objects.filter(Q(religion__icontains=search_product) |
-                                        Q(caste__icontains=search_product) |
-                                        Q(state__icontains=search_product) |
-                                        Q(city__icontains=search_product))
+                                         Q(caste__icontains=search_product) |
+                                         Q(state__icontains=search_product) |
+                                         Q(city__icontains=search_product))
     else:
         product = Profile.objects.order_by("-id")
     paginator = Paginator(product, 58)  # 3 posts in each page
@@ -161,6 +246,4 @@ def catsearch(request):
     except EmptyPage:
         # If page is out of range deliver last page of results
         product_list = paginator.page(paginator.num_pages)
-    return render(request,  'vivah/product.html', {'product_list': product_list, 'page': page})
-
-
+    return render(request, 'vivah/product.html', {'product_list': product_list, 'page': page})
