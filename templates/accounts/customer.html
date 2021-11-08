@@ -152,7 +152,9 @@
                                             <tr>
 
                                                 <td>
-                                                    <a href="{% url 'shaadiprofile' order.user.id %}">#SSV_{{order.id}}_{{order.user.username}}_{{order.gender}}</a>
+                                                   <!--- <a href="{% url 'shaadiprofile' order.user.id %}">#SSV_{{order.id}}_{{order.user.username}}_{{order.gender}}</a>--->
+                                                     <a href="{% url 'shaadiprofile' order.user.id %}">#SSV_{{order.id}}_{{order.gender}}</a>
+
                                                 </td>
                                                 <td><a href="{{order.img.url}}" target="_blank"><img
                                                         src="{{order.img.url}}" target="_blank"
