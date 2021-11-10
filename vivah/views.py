@@ -142,7 +142,6 @@ class CreateMessage(View):
             message.receiver_user = receiver
             message.save()
 
-
         return redirect('thread', pk=pk)
 
 
