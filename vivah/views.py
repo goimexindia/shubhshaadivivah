@@ -232,7 +232,7 @@ def catsearch(request):
     if search_product:
         product = Profile.objects.filter(Q(religion__icontains=search_product) |
                                          Q(caste__icontains=search_product) |
-                                         Q(id__icontains=search_product) |
+                                         Q(id__exact=search_product) |
                                          Q(state__icontains=search_product) |
                                          Q(city__icontains=search_product))
     else:
