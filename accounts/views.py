@@ -1,3 +1,4 @@
+from braces.views import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.messages.views import SuccessMessageMixin
@@ -32,6 +33,10 @@ from datetime import date, timedelta
 
 def register(request):
     return render(request, 'vivah/register.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
+
+
+def postdetails(request):
+    return render(request, 'accounts/post_details02.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
 
 
 def eventinfo(request):
@@ -544,7 +549,13 @@ def prodcomment(request, pk):
             # Save the comment to the database
             new_comment.save()
             pk1 = new_comment.id
-
+            notification = Notification.objects.create(
+                notification_type=12,
+                sender=request.user,
+                recipient=receiver,
+                message=body,
+                thread=pk1,
+            )
 
     else:
         comment_form = ProdCommentForm()
@@ -617,15 +628,30 @@ class RemoveNotification(View):
 
 
 class PostNotification(View):
-    def get(self, request, notification_pk, object_pk, *args, **kwargs):
+    def get(self, request, notification_pk, *args, **kwargs):
         notification = Notification.objects.get(pk=notification_pk)
-        thread = ProdComment.objects.get(pk=object_pk)
+        thread = ProdComment.objects.get(pk=notification.thread)
 
         notification.user_has_seen = True
         notification.save()
 
-        return redirect('thread', pk=object_pk)
+        return redirect('post-detail', pk=notification.thread)
 
+
+class PostDetailView(LoginRequiredMixin, View):
+    def get(self, request, pk, *args, **kwargs):
+        post = ProdComment.objects.get(pk=pk)
+        form = CommentForm()
+
+        comments = ProdComment.objects.filter(pk=pk).order_by('-created_on')
+
+        context = {
+            'post': post,
+            'form': form,
+            'comments': comments,
+        }
+
+        return render(request, 'accounts/post_details.html', context)
 
 class FollowNotification(View):
     def get(self, request, notification_pk, profile_pk, *args, **kwargs):

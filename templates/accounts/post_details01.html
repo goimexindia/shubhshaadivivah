@@ -1,0 +1,49 @@
+<div id='products' class="col-lg-12 mx-auto">
+    <div class="div-2">
+        <div class="container">
+            <div class="col-md-12 mx-auto">
+                <h3 class="mb-5">All Comments</h3>
+                <div class="row">
+                    <div class="col-md">
+                        <div>
+                            <font size="2" face="Courier New">
+                                <table class="table table-striped">
+                                    <thead class="thead-dark">
+                                    <tr class="table-primary">
+
+                                        <th>ID</th>
+                                        <th>Mobile</th>
+                                        <th>eMail</th>
+                                        <th>Date</th>
+                                        <th>Name</th>
+                                        <th>Message</th>
+                                        <th>Sender Id</th>
+                                    </tr>
+                                    </thead>
+                                    {% for order in user.profile.prodcomment.all %}
+                                    <tr>
+
+                                        <td>
+                                            <!--- <a href="{% url 'shaadiprofile' order.userrequest %}">#SSV_{{order.id}}_{{order.user.username}}_{{order.gender}}</a>--->
+                                            <a href="{% url 'shaadiprofile' order.userrequest %}">#ssv{{order.id}}comments</a>
+
+                                        </td>
+
+                                        <td>{{order.mobile }}</td>
+                                        <td>{{order.email}}</td>
+                                        <td>{{order.created_on|date:"M d"}}</td>
+                                        <td>{{order.name}}</td>
+                                        <td>{{order.body}}</td>
+                                        <td>{{order.userrequest}}</td>
+
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                            </font>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

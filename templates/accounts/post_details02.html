@@ -1,0 +1,50 @@
+{% extends "vivah/base.html" %}
+{% load static %}
+{% block title %}Services{% endblock %}
+{% block meta_description %}About Us {% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+</style>
+
+
+<section id="about_heading_main" class="clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="about_heading_main_11">
+                    <h5><a href="{% url 'profile' %}">Profile</a> <span>//</span> All Comments</h5>
+                    <h1>Comments<span> Given By Users</span></h1>
+                    {% include 'accounts/post_details01.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<hr>
+<br><br><br>
+
+
+{% endblock %}

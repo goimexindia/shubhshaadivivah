@@ -206,6 +206,14 @@ class ProdCommentForm(forms.ModelForm):
         fields = ('name', 'email', 'mobile', 'body')
 
 
+class CommentForm(forms.ModelForm):
+    body = forms.CharField(
+        label='',
+        widget=forms.Textarea(attrs={
+            'rows': '3',
+            'placeholder': 'Say Something...'
+        }))
 
-
-
+    class Meta:
+        model = ProdComment
+        fields = ['body']

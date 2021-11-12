@@ -42,6 +42,7 @@
 
 
 
+
 </style>
 
 <div id="mySidenav" class="asidenav">
@@ -54,7 +55,8 @@
     <a href="{% url 'profilepref' %}">Partner Preferences</a>
     <a href="{% url 'familyvalues' %}">Family Values</a>
     <a href="{% url 'userprofile' %}">User Profile</a>
-        <a href="{% url 'inbox' %}">My In-Box</a>
+    <a href="{% url 'inbox' %}">My In-Box</a>
+     <a href="{% url 'postdetails' %}">Comments By Users</a>
     {% if user.is_authenticated %}
     <a href="{% url 'logout' %}">Logout</a>
     {% else %}
@@ -88,6 +90,7 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+
 
 
 

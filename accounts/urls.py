@@ -15,6 +15,7 @@ urlpatterns = [
     path('handlesignup1', views.handlesignup1, name='handlesignup1'),
     path('activate/<uidb64>/<token>/', ActivateAccount.as_view(), name='activate'),
     path('profile', views.profile, name='profile'),
+    path('postdetails', views.postdetails, name='postdetails'),
     path('profile1', views.profile1, name='profile1'),
     path('customer', views.customer, name='customer'),
     path('userprofile', views.userprofile, name='userprofile'),
@@ -29,6 +30,7 @@ urlpatterns = [
     path('notification/delete/<int:notification_pk>', RemoveNotification.as_view(), name='notification-delete'),
     path('notification/<int:notification_pk>/profile/<int:profile_pk>', FollowNotification.as_view(),
          name='follow-notification'),
-    path('notification/<int:notification_pk>/post/<int:post_pk>',
+    path('notification/<int:notification_pk>',
          PostNotification.as_view(), name='post-notification'),
+    path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
 ]
