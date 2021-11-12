@@ -544,13 +544,7 @@ def prodcomment(request, pk):
             # Save the comment to the database
             new_comment.save()
             pk1 = new_comment.id
-            notification = Notification.objects.create(
-                notification_type=2,
-                sender=request.user,
-                recipient=receiver,
-                message=body,
-                thread=pk1,
-            )
+
 
     else:
         comment_form = ProdCommentForm()
