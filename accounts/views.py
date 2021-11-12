@@ -538,9 +538,20 @@ def prodcomment(request, pk):
             new_comment = comment_form.save(commit=False)
             # Assign the current post to the comment
             new_comment.product = product
+            receiver = product.user
+            body = new_comment.body
             new_comment.userrequest = request.user.id
             # Save the comment to the database
             new_comment.save()
+            pk1 = new_comment.id
+            notification = Notification.objects.create(
+                notification_type=2,
+                sender=request.user,
+                recipient=receiver,
+                message=body,
+                thread=pk1,
+            )
+
     else:
         comment_form = ProdCommentForm()
 
@@ -590,4 +601,44 @@ def like(request, pk):
     return HttpResponseRedirect(reverse('shaadiprofile', args=[str(pk)]))
 
 
+class ThreadNotification(View):
+    def get(self, request, notification_pk, object_pk, *args, **kwargs):
+        notification = Notification.objects.get(pk=notification_pk)
+        thread = ThreadModel.objects.get(pk=object_pk)
 
+        notification.user_has_seen = True
+        notification.save()
+
+        return redirect('thread', pk=object_pk)
+
+
+class RemoveNotification(View):
+    def delete(self, request, notification_pk, *args, **kwargs):
+        notification = Notification.objects.get(pk=notification_pk)
+
+        notification.user_has_seen = True
+        notification.save()
+
+        return HttpResponse('Success', content_type='text/plain')
+
+
+class PostNotification(View):
+    def get(self, request, notification_pk, object_pk, *args, **kwargs):
+        notification = Notification.objects.get(pk=notification_pk)
+        thread = ProdComment.objects.get(pk=object_pk)
+
+        notification.user_has_seen = True
+        notification.save()
+
+        return redirect('thread', pk=object_pk)
+
+
+class FollowNotification(View):
+    def get(self, request, notification_pk, profile_pk, *args, **kwargs):
+        notification = Notification.objects.get(pk=notification_pk)
+        profile = ProdComment.objects.get(pk=profile_pk)
+
+        notification.user_has_seen = True
+        notification.save()
+
+        return redirect('profile', pk=profile_pk)

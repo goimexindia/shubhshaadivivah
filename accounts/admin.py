@@ -9,6 +9,7 @@ admin.site.register(Preferences)
 admin.site.register(FamilyValues)
 admin.site.register(ProdComment)
 admin.site.register(ViewComment)
+admin.site.register(Notification)
 
 
 

@@ -4,10 +4,8 @@ from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.views import View
-from django.views.generic import TemplateView, ListView
 from django.contrib import messages
-from accounts.forms import UserUpdateForm, ProfileUpdateForm
-from accounts.models import Profile
+from accounts.models import Profile, Notification
 from shubhshaadivivah import settings
 from socials.forms import MessageForm, ThreadForm
 from socials.models import ThreadModel, MessageModel
@@ -137,11 +135,19 @@ class CreateMessage(View):
 
         if form.is_valid():
             message = form.save(commit=False)
+            body = message.body
             message.thread = thread
             message.sender_user = request.user
             message.receiver_user = receiver
             message.save()
 
+        notification = Notification.objects.create(
+            notification_type=4,
+            sender=request.user,
+            recipient=receiver,
+            message=body,
+            thread=pk,
+        )
         return redirect('thread', pk=pk)
 
 

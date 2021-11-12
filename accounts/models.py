@@ -1,5 +1,4 @@
 from importlib._common import _
-
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.db import models
@@ -7,11 +6,9 @@ from datetime import date, timezone
 from django.core.validators import BaseValidator
 from django.utils.deconstruct import deconstructible
 from ckeditor.fields import RichTextField
-
-from django.utils import timezone
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+from socials.models import ThreadModel
+
 
 GENDER_CHOICES = [
     ("male", "Male"),
@@ -479,4 +476,15 @@ class FamilyValues(models.Model):
 
     def __str__(self):
         return f'{self.user.username} FamilyValues'
+
+
+class Notification(models.Model):
+    # 1 = Like, 2 = Comment, 3 = Follow, #4 = DM
+    notification_type = models.IntegerField()
+    sender = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='sender_notification')
+    recipient = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipient_notification')
+    message = models.TextField(null=True)
+    user_has_seen = models.BooleanField(default=False)
+    recieved_date = models.DateTimeField(auto_now_add=True)
+    thread = models.IntegerField(null=True)
 
