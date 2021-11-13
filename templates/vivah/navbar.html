@@ -36,9 +36,13 @@
 <div class="container">
     <div class="nav-item">
         {% if user.is_authenticated %}
-        <div class="nav-item inbox-icon-container">
-            <a href="{% url 'inbox' %}" class="inbox-icon"><i class="fa fa-paper-plane" aria-hidden="true"></i></i></a>
-            {% show_notifications %}
+         <div class="nav-item inbox-icon-container">
+              <a href="{% url 'postdetails' %}" class="inbox-icon">
+                  <i class="fa fa-envelope" aria-hidden="true"></i></a>
+
+            <a href="{% url 'inbox' %}" class="inbox-icon">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i></a>
+              {% show_notifications %}
         </div>
         {% endif %}
     </div>

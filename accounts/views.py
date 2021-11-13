@@ -36,7 +36,10 @@ def register(request):
 
 
 def postdetails(request):
-    return render(request, 'accounts/post_details02.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
+    posts = get_object_or_404(Profile, pk=request.user.profile.id)
+    print(request.user.profile.id)
+    post_likes = posts.likes.all()
+    return render(request, 'accounts/post_details02.html', {'post_likes': post_likes})
 
 
 def eventinfo(request):

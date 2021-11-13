@@ -27,8 +27,9 @@ tr:nth-child(even) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
-</style>
 
+
+</style>
 
 <section id="about_heading_main" class="clearfix">
     <div class="container">
@@ -44,7 +45,21 @@ tr:nth-child(even) {
     </div>
 </section>
 <hr>
+
+<section class="resume-section" id="life2">
+    <div class="resume-section-content">
+        <h3 class="mb-5">Likes :-</h3>
+        <ul class="fa-ul mb-0">
+            {% for comment in post_likes %}
+            <h3>
+                 <a href="{% url 'shaadiprofile' comment.id %}">ID:- #ssv{{comment.id}}likes -@ {{ comment.username|safe }}</a>
+            </h3>
+            {%endfor %}
+
+        </ul>
+    </div>
+</section>
 <br><br><br>
 
-
+<br><br><br>
 {% endblock %}
