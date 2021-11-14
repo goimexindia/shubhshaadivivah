@@ -448,6 +448,18 @@ class ProdComment(models.Model):
         return 'Comment {} by {}'.format(self.body, self.name)
 
 
+class Event(models.Model):
+    email = models.EmailField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return f'{self.email} Event'
+
+
+
 class ViewComment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)

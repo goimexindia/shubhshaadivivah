@@ -73,7 +73,7 @@ function googleTranslateElementInit() {
         <h1 id="newHeading">2022</h1>
         <h1 id="newHeading">JAN 21-22-23-26</h1>
         <input type="email" name="" id="emailId" placeholder="user@gmail.com">
-        <button class="submitId">Subscribe</button>
+        <button class="submit">Subscribe</button>
         <button class="submitId">No Thanks</button>
     </div>
 </div>
@@ -879,6 +879,32 @@ $(document).ready(function(){
 $('.submitId').click(function(){
  $('#popUpMain').css('display','none');
 });
+
+$('.submit').click(function(){
+
+        $emailId = $('#emailId').val();
+
+        if($emailId == "" ){
+            alert("Please enter EmailId");
+        }else{
+            $.ajax({
+                type: "POST",
+                url: "{% url 'insert' %}",
+                data:{
+                    emailId: $emailId,
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                },
+                success: function(){
+                    alert('Save Data');
+                    $('#emailId').val('');
+                    window.location = "/";
+                    $('#popUpMain').css('display','none');
+                }
+            });
+            $('#popUpMain').css('display','none');
+        }
+});
+
 
 </script>
 

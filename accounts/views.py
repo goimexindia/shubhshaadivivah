@@ -35,6 +35,12 @@ def register(request):
     return render(request, 'vivah/register.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
 
 
+def insert(request):
+    member = Event(email=request.POST['emailId'], )
+    member.save()
+    return redirect('/')
+
+
 def postdetails(request):
     posts = get_object_or_404(Profile, pk=request.user.profile.id)
     print(request.user.profile.id)
@@ -655,6 +661,7 @@ class PostDetailView(LoginRequiredMixin, View):
         }
 
         return render(request, 'accounts/post_details.html', context)
+
 
 class FollowNotification(View):
     def get(self, request, notification_pk, profile_pk, *args, **kwargs):
