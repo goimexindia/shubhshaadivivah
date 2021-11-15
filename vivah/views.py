@@ -11,10 +11,23 @@ from socials.forms import MessageForm, ThreadForm
 from socials.models import ThreadModel, MessageModel
 from vivah.models import Contactme
 from django.contrib.auth.models import User
+from django.template.loader import render_to_string
 
 
 def event(request):
-     return render(request, 'vivah/event.html')
+    email = request.POST['email']
+    msg_plain = render_to_string('email.txt', {'some_params': 'testing'})
+    msg_html = render_to_string('vivah/event.html', {'some_params': 'testing'})
+    to_list = [email, settings.EMAIL_HOST_USER]
+    from_email = settings.EMAIL_HOST_USER
+    send_mail(
+        'email title',
+        msg_plain,
+        from_email,
+        to_list,
+        html_message=msg_html,
+    )
+    return render(request, 'vivah/event.html')
 
 
 def home(request):

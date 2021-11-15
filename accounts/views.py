@@ -28,7 +28,8 @@ from django.contrib.auth.models import User, auth
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, TemplateView
 from accounts.forms import *
-from datetime import date, timedelta
+from django.utils.html import strip_tags
+from django.core.mail import EmailMultiAlternatives
 
 
 def register(request):
@@ -36,11 +37,19 @@ def register(request):
 
 
 def insert(request):
+    email = request.POST['emailId']
     member = Event(email=request.POST['emailId'], )
     member.save()
+
+    html_content = render_to_string('vivah/event.html', {'varname': 'value'})  # render with dynamic value
+    text_content = strip_tags(html_content)  # Strip the html tag. So people can see the pure text at least.
+    # create the email, and attach the HTML version as well.
+    to_list = [email, settings.EMAIL_HOST_USER]
+    from_email = settings.EMAIL_HOST_USER
+    msg = EmailMultiAlternatives('EVENT-JAN-2022 SHUBSHAADIVIVAH', text_content, from_email, to_list)
+    msg.attach_alternative(html_content, "text/html")
+    msg.send()
     return redirect('/')
-
-
 
 
 def postdetails(request):
@@ -523,7 +532,6 @@ def userprofile(request):
     return render(request, 'vivah/userprofile.html', context)
 
 
-
 def shaadiprofile(request, pk):
     customer = Profile.objects.get(id=pk)
     if request.user.is_authenticated:
@@ -531,7 +539,6 @@ def shaadiprofile(request, pk):
         customer.save()
         contactme = ViewComment(userview=pk, userrequest=request.user.id)
         contactme.save()
-
 
     liked = False
     if customer.likes.filter(id=request.user.id).exists():
