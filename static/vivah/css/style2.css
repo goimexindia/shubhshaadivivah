@@ -50,3 +50,12 @@
         color: white;
         font-family: 'Slabo 27px', serif;
 }
+
+.submit{
+        background-color: #0fc0fa;
+        border:none;
+        font-size: 2rem;
+        padding: 0.6rem 1rem;
+        color: white;
+        font-family: 'Slabo 27px', serif;
+}
