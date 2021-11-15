@@ -41,6 +41,8 @@ def insert(request):
     return redirect('/')
 
 
+
+
 def postdetails(request):
     posts = get_object_or_404(Profile, pk=request.user.profile.id)
     print(request.user.profile.id)
@@ -521,6 +523,7 @@ def userprofile(request):
     return render(request, 'vivah/userprofile.html', context)
 
 
+@login_required
 def shaadiprofile(request, pk):
     customer = Profile.objects.get(id=pk)
     customer.view_count += 1

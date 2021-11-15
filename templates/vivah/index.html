@@ -874,6 +874,7 @@ var preloader = document.getElementById("loading");
 $(document).ready(function(){
  setTimeout(function(){
   $('#popUpMain').css('display','block'); }, 5000);
+
 });
 
 $('.submitId').click(function(){
@@ -897,7 +898,7 @@ $('.submit').click(function(){
                 success: function(){
                     alert('Save Data');
                     $('#emailId').val('');
-                    window.location = "/";
+                    window.location = "{% url 'event' %}";
                     $('#popUpMain').css('display','none');
                 }
             });
