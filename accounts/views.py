@@ -523,21 +523,21 @@ def userprofile(request):
     return render(request, 'vivah/userprofile.html', context)
 
 
-@login_required
+
 def shaadiprofile(request, pk):
     customer = Profile.objects.get(id=pk)
-    customer.view_count += 1
-    customer.save()
-    contactme = ViewComment(userview=pk, userrequest=request.user.id)
-    contactme.save()
+    if request.user.is_authenticated:
+        customer.view_count += 1
+        customer.save()
+        contactme = ViewComment(userview=pk, userrequest=request.user.id)
+        contactme.save()
+
+
     liked = False
-    print(liked)
     if customer.likes.filter(id=request.user.id).exists():
         liked = False
-        print(liked)
     else:
         liked = True
-        print(liked)
     context = {'customers': customer, 'liked': liked}
     return render(request, 'accounts/shaadiprofile.html', context)
 
