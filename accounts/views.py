@@ -46,7 +46,7 @@ def insert(request):
     # create the email, and attach the HTML version as well.
     to_list = [email, settings.EMAIL_HOST_USER]
     from_email = settings.EMAIL_HOST_USER
-    msg = EmailMultiAlternatives('EVENT-JAN-2022 SHUBSHAADIVIVAH', text_content, from_email, to_list)
+    msg = EmailMultiAlternatives('EVENT-JAN-2022 SHUBHSHAADIVIVAH', text_content, from_email, to_list)
     msg.attach_alternative(html_content, "text/html")
     msg.send()
     return redirect('/')
