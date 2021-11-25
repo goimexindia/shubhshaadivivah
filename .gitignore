@@ -1,3 +1,4 @@
+ 
 .svn 
 "YOUR-FILE-WITH-SENSITIVE-DATA" 
 # Ignore all text files
@@ -6,6 +7,7 @@ sec.py
 
 # Ignore files related to API keys
 .env
+settings.py
 
 # Ignore SASS config files
 .sass-cache
