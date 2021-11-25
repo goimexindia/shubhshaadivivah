@@ -1,5 +1,11 @@
 .env
-.svn 
+.svn
+.idea/
+.vs/
+.env
+.pk
+.pem
+.pub
 "YOUR-FILE-WITH-SENSITIVE-DATA" 
 # Ignore all text files
 *.txt
