@@ -184,13 +184,14 @@ def register(request):
     return render(request, 'vivah/register.html', {})
 
 
+@login_required
 def contact(request):
     if request.method == "POST":
         name = request.POST['name']
-        email = request.POST['email']
+        email = request.user.email
         phone = request.POST['phone']
         mobile = request.POST['phone']
-        message = request.POST['message']
+        message = request.POST['message'] + " - " + request.POST['email']
         subject = "Thank you for contacting ShubhShaadiVivah.com."
         message = "Dear " + name + ",\n\n" \
                   + "We will get in touch with you soon." + "\n\n\n" \
@@ -203,7 +204,7 @@ def contact(request):
                   + "Warm Regards \n\n From: ShubhShaadiVivah Support Team"
         from_email = settings.EMAIL_HOST_USER
         to_list = [email, settings.EMAIL_HOST_USER]
-        send_mail(subject, message, from_email, to_list, fail_silently=True)
+        #send_mail(subject, message, from_email, to_list, fail_silently=True)
 
         contactme = Contactme(name=name, email=email, mobile=mobile, subject=subject, message=message)
         contactme.save()
