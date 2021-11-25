@@ -6,7 +6,7 @@
 sec.py
 
 # Ignore files related to API keys
-.env
+
 settings.py
 
 # Ignore SASS config files
