@@ -2,7 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Q
 from django.shortcuts import render, redirect
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMultiAlternatives
+from django.utils.html import strip_tags
 from django.views import View
 from django.contrib import messages
 from accounts.models import Profile, Notification
@@ -35,7 +36,7 @@ def home(request):
                   {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY,
                    })
 
-
+@login_required
 def productcontact(request):
     return render(request, 'vivah/productcontact.html',
                   {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY,
@@ -205,10 +206,17 @@ def contact(request):
         from_email = settings.EMAIL_HOST_USER
         to_list = [email, settings.EMAIL_HOST_USER]
         #send_mail(subject, message, from_email, to_list, fail_silently=True)
-
+        email = request.POST['email']
+        html_content = render_to_string('vivah/event.html', {'varname': 'value'})  # render with dynamic value
+        text_content = strip_tags(html_content)  # Strip the html tag. So people can see the pure text at least.
+        # create the email, and attach the HTML version as well.
+        to_list = [email, settings.EMAIL_HOST_USER]
+        from_email = settings.EMAIL_HOST_USER
+        msg = EmailMultiAlternatives('EVENT-JAN-2022 SHUBHSHAADIVIVAH', text_content, from_email, to_list)
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
         contactme = Contactme(name=name, email=email, mobile=mobile, subject=subject, message=message)
         contactme.save()
-
         return render(request, 'vivah/contact.html', {'name': name, 'email': email})
     else:
         return render(request, 'vivah/contact.html', {})
