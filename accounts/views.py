@@ -532,7 +532,6 @@ def userprofile(request):
     return render(request, 'vivah/userprofile.html', context)
 
 
-@login_required
 def shaadiprofile(request, pk):
     customer = Profile.objects.get(id=pk)
     if request.user.is_authenticated:
@@ -550,7 +549,6 @@ def shaadiprofile(request, pk):
     return render(request, 'accounts/shaadiprofile.html', context)
 
 
-@login_required
 def prodcomment(request, pk):
     template_name = 'vivah/prodcomment.html'
     product = Profile.objects.get(id=pk)
@@ -609,7 +607,6 @@ def customer(request):
     return render(request, 'accounts/customer.html', context)
 
 
-@login_required
 def like(request, pk):
     post = get_object_or_404(Profile, id=request.POST.get('post_id'))
     print(request.POST.get('post_id'))
@@ -628,7 +625,6 @@ def like(request, pk):
     return HttpResponseRedirect(reverse('shaadiprofile', args=[str(pk)]))
 
 
-@login_required
 class ThreadNotification(View):
     def get(self, request, notification_pk, object_pk, *args, **kwargs):
         notification = Notification.objects.get(pk=notification_pk)
@@ -640,7 +636,6 @@ class ThreadNotification(View):
         return redirect('thread', pk=object_pk)
 
 
-@login_required
 class RemoveNotification(View):
     def delete(self, request, notification_pk, *args, **kwargs):
         notification = Notification.objects.get(pk=notification_pk)
@@ -651,7 +646,6 @@ class RemoveNotification(View):
         return HttpResponse('Success', content_type='text/plain')
 
 
-@login_required
 class PostNotification(View):
     def get(self, request, notification_pk, *args, **kwargs):
         notification = Notification.objects.get(pk=notification_pk)
@@ -663,7 +657,6 @@ class PostNotification(View):
         return redirect('post-detail', pk=notification.thread)
 
 
-@login_required
 class PostDetailView(LoginRequiredMixin, View):
     def get(self, request, pk, *args, **kwargs):
         post = ProdComment.objects.get(pk=pk)
@@ -680,7 +673,6 @@ class PostDetailView(LoginRequiredMixin, View):
         return render(request, 'accounts/post_details.html', context)
 
 
-@login_required
 class FollowNotification(View):
     def get(self, request, notification_pk, profile_pk, *args, **kwargs):
         notification = Notification.objects.get(pk=notification_pk)
