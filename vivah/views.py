@@ -185,7 +185,6 @@ def register(request):
     return render(request, 'vivah/register.html', {})
 
 
-@login_required
 def contact(request):
     if request.method == "POST":
         name = request.POST['name']
