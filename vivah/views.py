@@ -188,7 +188,7 @@ def register(request):
 def contact(request):
     if request.method == "POST":
         name = request.POST['name']
-        email = request.user.email
+        email = request.POST['email']
         phone = request.POST['phone']
         mobile = request.POST['phone']
         message = request.POST['message'] + " - " + request.POST['email']
@@ -205,7 +205,7 @@ def contact(request):
         from_email = settings.EMAIL_HOST_USER
         to_list = [email, settings.EMAIL_HOST_USER]
         #send_mail(subject, message, from_email, to_list, fail_silently=True)
-        email = request.POST['email']
+
         html_content = render_to_string('vivah/event.html', {'varname': 'value'})  # render with dynamic value
         text_content = strip_tags(html_content)  # Strip the html tag. So people can see the pure text at least.
         # create the email, and attach the HTML version as well.
