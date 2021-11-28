@@ -1,1 +1,22 @@
-# Environments
+.env
+.svn
+.idea/
+.vs/
+.env
+.pk
+.pem
+.pub
+"YOUR-FILE-WITH-SENSITIVE-DATA"
+# Ignore all text files
+*.txt
+sec.py
+
+# Ignore files related to API keys
+.env
+settings.py
+
+# Ignore SASS config files
+.sass-cache
+
+# Ignore node_modules folder
+node_modules
