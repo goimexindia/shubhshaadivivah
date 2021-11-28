@@ -9,7 +9,6 @@ venv.bak/
 .svn
 .idea/
 .vs/
-.env
 .pk
 .pem
 .pub
