@@ -13,8 +13,11 @@ import os
 from pathlib import Path
 from decouple import config, Csv
 from .sec import *
-
+from datetime import timedelta
 import dj_database_url
+
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,6 +80,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_auto_logout.middleware.auto_logout',
 ]
 
 ROOT_URLCONF = 'shubhshaadivivah.urls'
@@ -216,6 +220,19 @@ AWS_LOCATION = 'static'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#AUTO_LOGOUT = {'IDLE_TIME': 600}  # logout after 10 minutes of downtime
+
+#AUTO_LOGOUT = {
+#    'SESSION_TIME': 3600,
+#    'MESSAGE': 'The session has expired. Please login again to continue.',
+#}
+
+AUTO_LOGOUT = {
+    'IDLE_TIME': timedelta(minutes=5),
+    'SESSION_TIME': timedelta(minutes=30),
+    'MESSAGE': 'The session has expired. Please login again to continue.',
+}
 
 CKEDITOR_CONFIGS = {
     # django-ckeditor defaults
