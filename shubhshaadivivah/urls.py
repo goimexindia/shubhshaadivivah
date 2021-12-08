@@ -7,11 +7,11 @@ from django.contrib.auth import views as auth_views
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from vivah.sitemaps import StaticViewSitemap, ProfileSitemap
+from vivah.sitemaps import StaticViewSitemap
 
 sitemaps = {
     'static': StaticViewSitemap,
-    'profile': ProfileSitemap,
+
 }
 
 admin.site.site_header = 'ShubhShaadiVivah  Administration'

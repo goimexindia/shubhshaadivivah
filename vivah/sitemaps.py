@@ -12,7 +12,7 @@ class StaticViewSitemap(Sitemap):
         return reverse(item)
 
 
-#class ProfileSitemap(Sitemap):
+class ProfileSitemap(Sitemap):
 
-#    def items(self):
-#        return Profile.objects.all()
+    def items(self):
+        return Profile.objects.all()
