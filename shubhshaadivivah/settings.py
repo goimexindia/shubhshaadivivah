@@ -32,11 +32,13 @@ SECRET_KEY = 'ijo8611y6x@3b-+(k&5z=xj$u6olrwga^b#jp_syw+6fuelx^8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool, default=True)
 
+
 ALLOWED_HOSTS = ['https://shubhshaadivivah.herokuapp.com/',
                  'shubhshaadivivah.herokuapp.com',
                  'shubhshaadivivah.com',
                  'localhost',
                  '0.0.0.0',
+                 'http://127.0.0.1:8000/',
                  '127.0.0.1']
 
 # Application definition
@@ -69,6 +71,7 @@ INSTALLED_APPS = [
     'django_countries',
     'django_filters',
     'ckeditor',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [
@@ -229,8 +232,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #}
 
 AUTO_LOGOUT = {
-    'IDLE_TIME': timedelta(minutes=5),
-    'SESSION_TIME': timedelta(minutes=30),
+    'IDLE_TIME': timedelta(minutes=50),
+    'SESSION_TIME': timedelta(minutes=180),
     'MESSAGE': 'The session has expired. Please login again to continue.',
 }
 

@@ -3,6 +3,7 @@
 {% block title %}Stay Secure{% endblock %}
 {% block meta_description %}Stay Secure{% endblock %}
 {% block content %}
+ <link rel="canonical" href="/staysecure"/>
 <div class="about_main clearfix">
     <section id="about">
         <img src="{% static 'vivah/img/003.jpg' %}" width="100%">
@@ -27,7 +28,7 @@
         <div class="row">
             <div class="col-sm-10">
                 <div class="about_heading">
-                    <h5><a href="\">Home</a> <span>//</span>Stay Secure</h5>
+                    <h5><a href="{% url 'home' %}">Home</a> <span>//</span>Stay Secure</h5>
 
                 </div>
             </div>

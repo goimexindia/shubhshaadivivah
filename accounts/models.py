@@ -426,6 +426,9 @@ class Profile(models.Model):
     def total_likes(self):
         return self.likes.count()
 
+    def get_absolute_url(self):
+        return f'/accounts/shaadiprofile/{self.user.id}/'
+
     class Meta:
         ordering = ('created_at',)
 
@@ -450,6 +453,7 @@ class ProdComment(models.Model):
 
 class Event(models.Model):
     email = models.EmailField()
+    mobile = models.CharField(max_length=120, default='123456789')
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:

@@ -11,6 +11,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href='/static/vivah/img/logonew.png' type="image/x-icon">
     <title>ShubhShaadiVivah</title>
+
+      {% if request.path == "/" %}
+          <title>Shubh Shaadi Vivah | Home | Bringing families together</title>
+    {% else %}
+            <title>Shubh Shaadi Vivah |
+            {% with name=request.path|slice:"1:" %} {{name|title}} {% endwith %} | Bringing families together</title>
+    {% endif %}
+
+    <meta name="description" content="Bringing families together ... because Marriages our between to families">
+
+    <meta name="keywords" content="Shubh Shaadi Vivah, Jeevan Sathi, Life Partner, Marriages, Soul finding, Hindi Matrimonial">
+
+    <link rel="canonical" href="{{request.path}}"/>
+
+    <link rel="home" href="{% url 'home' %}"/>
+
+    <link rel="icon" type="image/jpg" href='/static/vivah/img/logonew.png' type="image/x-icon">
+    <link rel="shortcut icon" type="image/jpg" href='/static/vivah/img/logonew.png' type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/>jpg" href='/static/vivah/img/logonew.png' type="image/x-icon">
+
+    {% include 'vivah/structured_data.html' %}
+
+
     <link href="{% static 'vivah/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'vivah/css/style.css' %}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'vivah/css/font-awesome.min.css' %}"/>
