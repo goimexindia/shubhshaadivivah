@@ -9,7 +9,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href='/static/vivah/images/icons8-ganesha-64.png' type="image/x-icon">
     <title>Shubh Shaadi Vivah Profile Card</title>
-    <meta name="author" content="Codeconvey"/>
+
+
+      <meta name="author" content="Jeevan Sathi">
+    {% if request.path == "/" %}
+    <title>Shubh Shaadi Vivah | Home | Bringing families together</title>
+    {% else %}
+    <title>Shubh Shaadi Vivah |
+        {% with name=request.path|slice:"1:" %} {{name|title}} {% endwith %} | Bringing families together</title>
+    {% endif %}
+
+    <meta name="description" content="Bringing families together ... because Marriages our between to families">
+
+    <meta name="keywords"
+          content="Shubh Shaadi Vivah, Jeevan Sathi, Life Partner, Marriages, Soul finding, Hindi Matrimonial, Telugu Matrimony">
+
+    <link rel="canonical" href="{{request.path}}"/>
+
+    <link rel="home" href="{% url 'home' %}"/>
+
+    <link rel="icon" type="image/jpg" href='/static/vivah/img/logonew.png' type="image/x-icon">
+    <link rel="shortcut icon" type="image/jpg" href='/static/vivah/img/logonew.png' type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/>jpg" href='/static/vivah/img/logonew.png' type="image/x-icon">
+
+    {% include 'vivah/structured_data.html' %}
+
+
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
@@ -24,12 +49,6 @@
         color: transparent;
         text-shadow: 0 0 8px #000;
       }
-
-
-
-
-
-
     </style>
 </head>
 <body>
