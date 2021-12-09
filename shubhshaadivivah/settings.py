@@ -16,16 +16,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'ijo8611y6x@3b-+(k&5z=xj$u6olrwga^b#jp_syw+6fuelx^8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool, default=True)
+DEBUG = 'FALSE'
 
 
-ALLOWED_HOSTS = ['https://shubhshaadivivah.herokuapp.com/',
-                 'shubhshaadivivah.herokuapp.com',
-                 'shubhshaadivivah.com',
-                 'localhost',
-                 '0.0.0.0',
-                 'http://127.0.0.1:8000/',
-                 '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -153,13 +147,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+if DEBUG:
+  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+else:
+  STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
