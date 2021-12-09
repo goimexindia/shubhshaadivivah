@@ -3,6 +3,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Privacy Policy - ShubhShaadiVivah.com</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jeevan Sathi">
+    {% if request.path == "/" %}
+    <title>Shubh Shaadi Vivah | Home | Bringing families together</title>
+    {% else %}
+    <title>Shubh Shaadi Vivah |
+        {% with name=request.path|slice:"1:" %} {{name|title}} {% endwith %} | Bringing families together</title>
+    {% endif %}
+
+    <meta name="description" content="Bringing families together ... because Marriages our between to families">
+
+    <meta name="keywords"
+          content="Shubh Shaadi Vivah, Jeevan Sathi, Life Partner, Marriages, Soul finding, Hindi Matrimonial, Telugu Matrimony">
+    <link rel="canonical" href="{{request.path}}"/>
+    <link rel="home" href="{% url 'home' %}"/>
+    <link rel="icon" type="image/jpg" href='/static/vivah/img/logonew.png' type="image/x-icon">
+    <link rel="shortcut icon" type="image/jpg" href='/static/vivah/img/logonew.png' type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/>jpg" href='/static/vivah/img/logonew.png' type="image/x-icon">
+    {% include 'vivah/structured_data.html' %}
+    <script src="{% static 'vivah/js/bootstrap.min.js' %}"></script>
+    <meta name="description" content="Shubh Shaadi Vivah">
+    <meta name="keywords" content="Shubh,Shaadi, Vivah, Matimonial, Life Partner, Jeevan Saathi">
+    <meta name="author" content="Shubh Shaadi Vivah">
+
+
+
+
     <script async="" src="//www.google-analytics.com/analytics.js"></script>
     <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -31,7 +59,7 @@ function googleTranslateElementInit() {
             src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </div>
 <div class="col-md-3 col-xl-3 d-flex justify-content-center justify-content-md-start mb-md-0 mb-3">
-    <a href="/" title="ShubhShaadiVivah"><img alt="ShubhShaadiVivah"
+    <a href="{% url 'home' %}" title="ShubhShaadiVivah"><img alt="ShubhShaadiVivah"
 
                                                      src="{%  static  'vivah/img/ssv.png' %}"></a>
 </div>
@@ -41,7 +69,7 @@ function googleTranslateElementInit() {
             <div class="row">
                 <div class="col-sm-10">
                     <div class="about_heading">
-                        <h5><a href="\">Home</a> <span>//</span>Privacy Policy</h5>
+                        <h5><a href="{% url 'home' %}" >Home</a> <span>//</span>Privacy Policy</h5>
 
                     </div>
                 </div>
@@ -52,7 +80,7 @@ function googleTranslateElementInit() {
         <h1>Privacy Policy</h1>
     </div>
     <div class="container">
-        <p class="aj">The website, <a href="\">www.shubhshaadivivah.com</a> /
+        <p class="aj">The website, <a href="{% url 'home' %}" >www.shubhshaadivivah.com</a> /
             shubhshaadivivah.Com ("Site") is an electronic web based platform for exploring opportunities and enhancing
             outreach using the online search and other tools available for the prospective brides and prospective
             grooms. It
