@@ -1,13 +1,12 @@
-from django.conf.urls import url
-from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
-from django.urls import path, include
-from accounts import views as accounts_views
+from django.urls import path, include, re_path
+from django.views.static import serve
 from django.contrib.auth import views as auth_views
 from django.contrib import admin
 from django.conf import settings
-from django.conf.urls.static import static
 from vivah.sitemaps import StaticViewSitemap
+from django.conf.urls.static import static
+
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -20,6 +19,8 @@ admin.site.site_title = 'ShubhShaadiVivah Administration'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('vivah.urls')),
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT}),
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
     path('socials/', include('socials.urls')),
     path("accounts/", include("django.contrib.auth.urls")),
