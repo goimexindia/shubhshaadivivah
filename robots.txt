@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /cgi-bin/
+Disallow:/static/vivah/img
+Disallow:/static/vivah/images
+Disallow: /templates/vivah/about.html
+Disallow:/static/vivah/images
+Disallow: /templates/vivah/ellite.html
+Disallow: /templates/vivah/privacy.html
+Disallow: /templates/vivah/disclaimer.html
+Disallow: /templates/vivah/event.html
+Disallow: /templates/vivah/faq.html
