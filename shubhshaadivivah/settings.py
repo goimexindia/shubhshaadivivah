@@ -16,7 +16,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'ijo8611y6x@3b-+(k&5z=xj$u6olrwga^b#jp_syw+6fuelx^8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool, default=False)
+DEBUG = config('DEBUG', cast=bool, default=True)
+
 
 ALLOWED_HOSTS = ['https://shubhshaadivivah.herokuapp.com/',
                  'shubhshaadivivah.herokuapp.com',
@@ -93,6 +94,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'shubhshaadivivah.wsgi.application'
 
+# Database
+# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+# }
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -141,14 +153,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-if DEBUG:
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-else:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -199,12 +210,12 @@ AWS_LOCATION = 'static'
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# AUTO_LOGOUT = {'IDLE_TIME': 600}  # logout after 10 minutes of downtime
+#AUTO_LOGOUT = {'IDLE_TIME': 600}  # logout after 10 minutes of downtime
 
-# AUTO_LOGOUT = {
+#AUTO_LOGOUT = {
 #    'SESSION_TIME': 3600,
 #    'MESSAGE': 'The session has expired. Please login again to continue.',
-# }
+#}
 
 AUTO_LOGOUT = {
     'IDLE_TIME': timedelta(minutes=50),
