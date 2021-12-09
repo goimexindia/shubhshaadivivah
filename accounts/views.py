@@ -32,6 +32,9 @@ from django.utils.html import strip_tags
 from django.core.mail import EmailMultiAlternatives
 
 
+def error_404(request, exception):
+    return render(request, '404.html')
+
 def register(request):
     return render(request, 'vivah/register.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
 
