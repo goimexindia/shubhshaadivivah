@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+* {
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  margin: 0;
+  background-image: url('https://www.allureeventsindia.com/blog/wp-content/uploads/2017/01/2-1.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+#form-wrapper {
+  background-color: rgba(255, 255, 255, 0.9);
+  min-height: 100vh;
+  margin: 6% 10%;
+  padding: 4%;
+  border-radius: 4px;
+}
+label {
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+  display: block;
+}
+h2 {
+  font-family: 'Courgette', cursive;
+  font-size: 40px;
+  background-color: #8b0505;
+  color: #fff;
+  width: fit-content;
+  padding: 4px 16px;
+  border-radius: 4px;
+  margin-bottom: 48px;
+}
+h5 {
+  font-family: 'Courgette', cursive;
+  color: #8b0505;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  margin-left: 16px;
+}
+hr {
+  border: none;
+  border-top: 1px dashed #aaa;
+  color: #fff;
+  margin: 12px 0;
+  background-color: #fff;
+  height: 1px;
+}
+textarea {
+  width: 98%;
+  margin-left: 10px;
+}
+button.btn.btn-danger {
+  width: fit-content;
+  padding: 4px 8px;
+}
+
+@media (max-width: 576px) {
+  #form-wrapper {
+    padding: 24px 12px;
+  }
+  h2 {
+    font-size: 23px;
+    margin-bottom: 36px;
+  }
+  h5 {
+    font-size: 18px;
+  }
+  label {
+    font-size: 14px;
+    letter-spacing: normal;
+  }
+  .weight-label {
+    margin-left: 0 !important;
+  }
+  .col-12 {
+    margin-top: 6px;
+  }
+  textarea {
+    width: 90% !important;
+    margin: 0 auto;
+  }
+}
