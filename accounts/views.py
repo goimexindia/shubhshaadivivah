@@ -35,13 +35,15 @@ from django.core.mail import EmailMultiAlternatives
 def error_404(request, exception):
     return render(request, '404.html')
 
+
 def register(request):
     return render(request, 'vivah/register.html', {'recaptcha_site_key': settings.GOOGLE_RECAPTCHA_SITE_KEY})
 
 
 def insert(request):
     email = request.POST['emailId']
-    member = Event(email=request.POST['emailId'], )
+    mobile = request.POST['mobileNo']
+    member = Event(email=request.POST['emailId'], mobile=mobile)
     member.save()
 
     html_content = render_to_string('vivah/event.html', {'varname': 'value'})  # render with dynamic value
