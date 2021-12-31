@@ -34,4 +34,5 @@ urlpatterns = [
     path('notification/<int:notification_pk>',
          PostNotification.as_view(), name='post-notification'),
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
+    path('passwrd/', PasswordsChangeView.as_view(), name='passwrd')
 ]

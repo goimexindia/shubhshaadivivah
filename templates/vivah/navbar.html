@@ -79,6 +79,7 @@
                             {% if user.is_authenticated %}
                             <li><a class="color_1" href="{% url 'profile' %}">Profile</a></li>
                             <li><a class="color_1" href="{% url 'logout' %}">Logout</a></li>
+                            <li><a class="color_1" href="{% url 'passwrd' %}">ChangePassword</a></li>
                             {% else %}
                             <li><a class="color_1" href="{% url 'login' %}">Login</a></li>
                             <li><a class="color_1" href="{% url 'signup' %}">Register</a></li>

@@ -1,6 +1,7 @@
 from braces.views import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.paginator import Paginator
@@ -30,6 +31,15 @@ from django.views.generic import CreateView, UpdateView, TemplateView
 from accounts.forms import *
 from django.utils.html import strip_tags
 from django.core.mail import EmailMultiAlternatives
+
+
+class PasswordsChangeView(PasswordChangeView):
+    from_class = PasswordChangingForm
+    success_url = reverse_lazy('password_success')
+
+
+def password_success(request):
+    return render(request, 'password_success.html')
 
 
 def error_404(request, exception):
