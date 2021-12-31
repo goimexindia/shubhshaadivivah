@@ -35,6 +35,7 @@ from django.core.mail import EmailMultiAlternatives
 
 class PasswordsChangeView(PasswordChangeView):
     from_class = PasswordChangingForm
+    template_name = 'password_change.html'
     success_url = reverse_lazy('password_success')
 
 

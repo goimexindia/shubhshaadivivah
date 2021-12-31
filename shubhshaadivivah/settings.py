@@ -170,7 +170,9 @@ GOOGLE_RECAPTCHA_SITE_KEY = '6Ld0N3wcAAAAAHHxBYv_044U5W4Gqp6nfA2yGF89'
 GOOGLE_RECAPTCHA_SECRET_KEY = '6Ld0N3wcAAAAAD42aciPXinfohM5K5R96c9aa4f-'
 
 SITE_ID = 1
+
 ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_LOGOUT_ON_GET = True
 
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
@@ -243,4 +245,14 @@ CKEDITOR_CONFIGS = {
         # Add Code Block Plug-ins
         'extraPlugins': ','.join(['codesnippet']),
     }
+}
+
+DJOSER = {
+    "USER_ID_FIELD": "username",
+    "LOGIN_FIELD": "email",
+    "SEND_ACTIVATION_EMAIL": True,
+    "ACTIVATION_URL": "activate/{uid}/{token}",
+    'SERIALIZERS': {
+        'token_create': 'apps.accounts.serializers.CustomTokenCreateSerializer',
+    },
 }
