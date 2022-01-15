@@ -155,15 +155,6 @@ if DEBUG:
 else:
   STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-
-
-DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'
-
 
 
 GOOGLE_RECAPTCHA_SITE_KEY = '6Ld0N3wcAAAAAHHxBYv_044U5W4Gqp6nfA2yGF89'
@@ -176,7 +167,6 @@ ACCOUNT_LOGOUT_ON_GET = True
 
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'home'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'login'
 
@@ -256,3 +246,13 @@ DJOSER = {
         'token_create': 'apps.accounts.serializers.CustomTokenCreateSerializer',
     },
 }
+
+
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'
+

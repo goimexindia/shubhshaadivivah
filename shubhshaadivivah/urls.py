@@ -7,7 +7,6 @@ from django.conf import settings
 from vivah.sitemaps import StaticViewSitemap
 from django.conf.urls.static import static
 
-
 sitemaps = {
     'static': StaticViewSitemap,
 
@@ -19,7 +18,7 @@ admin.site.site_title = 'ShubhShaadiVivah Administration'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('vivah.urls')),
-    re_path(r'^media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT}),
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
     path('socials/', include('socials.urls')),
