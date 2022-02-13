@@ -6,7 +6,7 @@ from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
 from accounts.models import *
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout
+from crispy_forms.layout import Layout, Submit
 from crispy_forms.bootstrap import TabHolder, Tab
 
 DOY = ('1964', '1965', '1966', '1967', '1968', '1969', '1970', '1971',
@@ -30,6 +30,21 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+
+
+class CoffeePaymentForm(forms.ModelForm):
+    class Meta:
+        model = ColdCoffee
+        fields = "__all__"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.layout = Layout(
+            'name',
+            'amount',
+            Submit('submit', 'Buy', css_class='button white btn-primary')
+        )
 
 
 # Profile Form

@@ -4,6 +4,10 @@ from django.urls import path, include
 from django.conf.urls import url
 
 urlpatterns = [
+    path('basicpayement', views.basicpayment, name='basicpayment'),
+    path('silverpayement', views.silverpayment, name='silverpayment'),
+    path('goldpayement', views.goldpayment, name='goldpayment'),
+    path('payment_status', views.payment_status, name='payment_status'),
     path('register', views.register, name="register"),
     path('login', views.login, name='login'),
     path('insert', views.insert, name='insert'),

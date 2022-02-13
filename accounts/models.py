@@ -337,6 +337,14 @@ class ColdCoffe(models.Model):
     paid = models.BooleanField(default=False)
 
 
+class ColdCoffee(models.Model):
+    name = models.CharField(max_length=100)
+    amount = models.CharField(max_length=100)
+    order_id = models.CharField(max_length=100, blank=True)
+    razorpay_payment_id = models.CharField(max_length=100, blank=True)
+    paid = models.BooleanField(default=False)
+
+
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     full_name = models.CharField(max_length=200, default='123456789')

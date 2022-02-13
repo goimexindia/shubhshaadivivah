@@ -32,6 +32,133 @@ from accounts.forms import *
 from django.utils.html import strip_tags
 from django.core.mail import EmailMultiAlternatives
 
+import razorpay
+
+
+@login_required(login_url='login')
+def basicpayment(request):
+    keyid = 'rzp_test_USkk046TOAH13e'
+    keySecret = 'utgENbPx7POWynwIrapvpDUQ'
+    coldcoffe_data = {
+        'name': request.user.username,
+        'amount': int("500") * 1,
+    }
+    form = CoffeePaymentForm()
+    if request.method == "POST":
+        name = request.POST.get('name')
+        amount = int("50000") * 1
+        order_receipt = 'order_rcptid_11'
+        notes = {'BASIC'}
+        client = razorpay.Client(auth=(keyid, keySecret))
+        response_payment = client.order.create(dict(amount=amount, currency='INR'))
+        order_id = response_payment['id']
+        order_status = response_payment['status']
+        if order_status == 'created':
+            cold_coffee = ColdCoffee(
+                name=name,
+                amount=amount,
+                order_id=order_id
+            )
+            cold_coffee.save()
+            response_payment['name'] = name
+
+            form = CoffeePaymentForm(request.POST or None)
+            return render(request, 'accounts/payment.html', {'form': form, 'payment': response_payment})
+
+    form = CoffeePaymentForm(initial=coldcoffe_data)
+    return render(request, 'accounts/payment.html', {'form': form})
+
+
+def payment_status(request):
+    response = request.POST
+    keyid = 'rzp_test_USkk046TOAH13e'
+    keySecret = 'utgENbPx7POWynwIrapvpDUQ'
+    params_dict = {
+        'razorpay_order_id': response['razorpay_order_id'],
+        'razorpay_payment_id': response['razor_payment_id'],
+        'razor_signature': response['razorpay_signature']
+    }
+
+    client = razorpay.Client(auth=(keyid, keySecret))
+
+    try:
+        status = client.utility.verify_payment_signature(params_dict)
+        cold_coffee = ColdCoffee.objects.get(order_id=response['razorpay_order_id'])
+        cold_coffee.razorpay_payment_id = response['razorpay_payment_id']
+        cold_coffee.paid = True
+        cold_coffee.save
+        return render(request, 'payment_status.html', {'status': True})
+    except:
+        return render(request, 'accounts/payment_status.html', {'status': False})
+
+
+@login_required(login_url='login')
+def silverpayment(request):
+    keyid = 'rzp_test_USkk046TOAH13e'
+    keySecret = 'utgENbPx7POWynwIrapvpDUQ'
+    coldcoffe_data = {
+        'name': request.user.username,
+        'amount': int("1000") * 1,
+    }
+    form = CoffeePaymentForm()
+    if request.method == "POST":
+        name = request.POST.get('name')
+        amount = int("100000") * 1
+        order_receipt = 'order_rcptid_11'
+        notes = {'BASIC'}
+        client = razorpay.Client(auth=(keyid, keySecret))
+        response_payment = client.order.create(dict(amount=amount, currency='INR'))
+        order_id = response_payment['id']
+        order_status = response_payment['status']
+        if order_status == 'created':
+            cold_coffee = ColdCoffe(
+                name=name,
+                amount=amount,
+                order_id=order_id
+            )
+            cold_coffee.save()
+            response_payment['name'] = name
+
+            form = CoffeePaymentForm(request.POST or None)
+            return render(request, 'accounts/payment1.html', {'form': form, 'payment': response_payment})
+
+    form = CoffeePaymentForm(initial=coldcoffe_data)
+    return render(request, 'accounts/payment1.html', {'form': form})
+
+
+@login_required(login_url='login')
+def goldpayment(request):
+    keyid = 'rzp_test_USkk046TOAH13e'
+    keySecret = 'utgENbPx7POWynwIrapvpDUQ'
+    coldcoffe_data = {
+        'name': request.user.username,
+        'amount': int("3500") * 1,
+    }
+    form = CoffeePaymentForm()
+    if request.method == "POST":
+        name = request.POST.get('name')
+        amount = int("350000") * 1
+        order_receipt = 'order_rcptid_11'
+        notes = {'BASIC'}
+        client = razorpay.Client(auth=(keyid, keySecret))
+        response_payment = client.order.create(dict(amount=amount, currency='INR'))
+        order_id = response_payment['id']
+        order_status = response_payment['status']
+        if order_status == 'created':
+            cold_coffee = ColdCoffe(
+                name=name,
+                amount=amount,
+                order_id=order_id
+            )
+            cold_coffee.save()
+            response_payment['name'] = name
+
+            form = CoffeePaymentForm(request.POST or None)
+            return render(request, 'accounts/payment2.html', {'form': form, 'payment': response_payment})
+
+    form = CoffeePaymentForm(initial=coldcoffe_data)
+    return render(request, 'accounts/payment2.html', {'form': form})
+
 
 class PasswordsChangeView(PasswordChangeView):
     from_class = PasswordChangingForm
