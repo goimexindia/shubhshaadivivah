@@ -111,7 +111,7 @@ def silverpayment(request):
         order_id = response_payment['id']
         order_status = response_payment['status']
         if order_status == 'created':
-            cold_coffee = ColdCoffe(
+            cold_coffee = ColdCoffee(
                 name=name,
                 amount=amount,
                 order_id=order_id
@@ -145,7 +145,7 @@ def goldpayment(request):
         order_id = response_payment['id']
         order_status = response_payment['status']
         if order_status == 'created':
-            cold_coffee = ColdCoffe(
+            cold_coffee = ColdCoffee(
                 name=name,
                 amount=amount,
                 order_id=order_id
