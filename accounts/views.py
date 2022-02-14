@@ -48,7 +48,7 @@ def basicpayment(request):
         name = request.POST.get('name')
         amount = int("50000") * 1
         order_receipt = 'order_rcptid_11'
-        notes = {'BASIC'}
+        notes = {'BRONZE'}
         client = razorpay.Client(auth=(keyid, keySecret))
         response_payment = client.order.create(dict(amount=amount, currency='INR'))
         order_id = response_payment['id']
@@ -105,7 +105,7 @@ def silverpayment(request):
         name = request.POST.get('name')
         amount = int("100000") * 1
         order_receipt = 'order_rcptid_11'
-        notes = {'BASIC'}
+        notes = {'SILVER'}
         client = razorpay.Client(auth=(keyid, keySecret))
         response_payment = client.order.create(dict(amount=amount, currency='INR'))
         order_id = response_payment['id']
@@ -139,7 +139,7 @@ def goldpayment(request):
         name = request.POST.get('name')
         amount = int("350000") * 1
         order_receipt = 'order_rcptid_11'
-        notes = {'BASIC'}
+        notes = {'GOLD'}
         client = razorpay.Client(auth=(keyid, keySecret))
         response_payment = client.order.create(dict(amount=amount, currency='INR'))
         order_id = response_payment['id']

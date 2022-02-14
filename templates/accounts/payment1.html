@@ -51,14 +51,14 @@
         <form action="{% url 'payment_status' %}" method="POST">
             {% csrf_token %}
             <script src="https://checkout.razorpay.com/v1/checkout.js"
-                    data-key='rzp_live_Ov8XlxQ15IJQBh'
+                    data-key= 'rzp_test_USkk046TOAH13e'
                     data-amount="{{ payment.amount }}"
                     data-currency="{{payment.currency}}"
                     data-order_id="{{payment.id}}"
                     data-buttontext="Pay with Razorpay  "
-                    data-name="Goimex Global India"
-                    data-description="BASIC MEMBERSHIP"
-                    data-image="/static/images/basic.png"
+                    data-name="SHREE BHAVANI SHANKAR SANATAN DHARM MATRIMONY"
+                    data-description="SILVER MEMBERSHIP"
+                    data-image="/static/vivah/images/silver.png"
                     data-prefill.name={{user.profile.organization}}
                     data-prefill.email={{user.email}}
                     data-theme.color="#F37254">
